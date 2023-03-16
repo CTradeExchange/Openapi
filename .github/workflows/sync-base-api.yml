@@ -13,10 +13,40 @@ jobs:
       - name: Checkout this repo
         uses: actions/checkout@v3
 
-      # Run GitHub Action to sync OpenAPI file at ./path-to-file.json
-      - name: GitHub Action
-        # We recommend specifying a fixed version, i.e. @v8
-        # Docs: https://docs.github.com/actions/using-workflows/workflow-syntax-for-github-actions#example-using-versioned-actions
+      - name: Base Sync
         uses: readmeio/rdme@v8
         with:
-          rdme: openapi ./TS.Clientapi.Base.json --key=${{ secrets.README_API_KEY }} --id=6412d7a887e1bd000b8fd963
+          rdme: openapi ./TS.Clientapi.Base.json --key=${{ secrets.README_API_KEY }} --id=6412dedfcd510c0f6ac8a8f6
+          
+      - name: Customer Sync
+        uses: readmeio/rdme@v8
+        with:
+          rdme: openapi ./TS.Clientapi.Customer.json --key=${{ secrets.README_API_KEY }} --id=6412df563468ac0043176186
+          
+      - name: Credit Sync
+        uses: readmeio/rdme@v8
+        with:
+          rdme: openapi ./TS.Clientapi.Credit.json --key=${{ secrets.README_API_KEY }} --id=6412defb8b36de0ba090915e
+          
+      - name: Fund Sync
+        uses: readmeio/rdme@v8
+        with:
+          rdme: openapi ./TS.Clientapi.Fund.json --key=${{ secrets.README_API_KEY }} --id=6412df6660afa30fb6474e86
+          
+      - name: Index Sync
+        uses: readmeio/rdme@v8
+        with:
+          rdme: openapi ./TS.Clientapi.Index.json --key=${{ secrets.README_API_KEY }} --id=6412dfb21a28ae0f84db34b0
+          
+      - name: Message Sync
+        uses: readmeio/rdme@v8
+        with:
+          rdme: openapi ./TS.Clientapi.Message.json --key=${{ secrets.README_API_KEY }} --id=6412dfc20434300f31690341
+          
+      - name: Trade Sync
+        uses: readmeio/rdme@v8
+        with:
+          rdme: openapi ./TS.Clientapi.Trade.json --key=${{ secrets.README_API_KEY }} --id=6412dfdb96d99e115b4a8b57
+          
+          
+          
