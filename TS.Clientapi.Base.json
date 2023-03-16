@@ -28,7 +28,7 @@
             "in": "header",
             "description": "",
             "required": true,
-            "example": "321",
+            "example": "{{company}}",
             "schema": {
               "type": "string"
             }
@@ -38,7 +38,7 @@
             "in": "header",
             "description": "",
             "required": true,
-            "example": "123",
+            "example": "{{mock_trace}}",
             "schema": {
               "type": "string"
             }
