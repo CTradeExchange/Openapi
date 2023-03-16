@@ -1,0 +1,22 @@
+name: Sync OpenAPI definition to ReadMe
+
+# Run workflow for every push to the `main` branch
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout this repo
+        uses: actions/checkout@v3
+
+      # Run GitHub Action to sync OpenAPI file at ./path-to-file.json
+      - name: GitHub Action
+        # We recommend specifying a fixed version, i.e. @v8
+        # Docs: https://docs.github.com/actions/using-workflows/workflow-syntax-for-github-actions#example-using-versioned-actions
+        uses: readmeio/rdme@v8
+        with:
+          rdme: openapi ./CATS2-H5API.openapi-base.json --key=rdme_xn8s9h9e1233824ad2e4a77059cb74f896040e162730a806c4bf708a2f271ce059611b --id=6412d45d24ba7a0b1f34d33e
