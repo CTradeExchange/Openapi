@@ -38,7 +38,7 @@
             "in": "header",
             "description": "",
             "required": true,
-            "example": "{{mock_trace}}",
+            "example": "123",
             "schema": {
               "type": "string"
             }
