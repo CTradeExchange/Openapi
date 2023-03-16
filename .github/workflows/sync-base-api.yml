@@ -19,4 +19,4 @@ jobs:
         # Docs: https://docs.github.com/actions/using-workflows/workflow-syntax-for-github-actions#example-using-versioned-actions
         uses: readmeio/rdme@v8
         with:
-          rdme: openapi ./CATS2-H5API.openapi-base.json --key=${{ secrets.README_API_KEY }} --id=6412d7a887e1bd000b8fd963
+          rdme: openapi ./TS.Clientapi.Base.json --key=${{ secrets.README_API_KEY }} --id=6412d7a887e1bd000b8fd963
