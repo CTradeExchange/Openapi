@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "信用卡接口",
-    "description": "",
+    "description": "信用卡接口",
     "version": "1.0.0"
   },
   "tags": [

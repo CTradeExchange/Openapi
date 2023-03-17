@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "交易接口",
-    "description": "",
+    "description": "交易接口",
     "version": "1.0.0"
   },
   "tags": [

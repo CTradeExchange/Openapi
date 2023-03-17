@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "客户接口",
-    "description": "",
+    "description": "客户接口",
     "version": "1.0.0"
   },
   "tags": [
