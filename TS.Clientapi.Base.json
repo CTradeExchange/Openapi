@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "基础数据",
-    "description": "基础接口",
+    "description": "",
     "version": "1.0.0"
   },
   "tags": [
@@ -27,7 +27,7 @@
             "in": "header",
             "description": "",
             "required": true,
-            "example": "{{company1}}",
+            "example": "{{company}}",
             "schema": {
               "type": "string"
             }
@@ -520,18 +520,13 @@
                   "parentCode": {
                     "type": "string",
                     "description": "字典代码"
-                  },
-                  "name": {
-                    "type": "string",
-                    "description": "名称，可以搜索"
                   }
                 },
                 "required": [
                   "parentCode"
                 ],
                 "x-apifox-orders": [
-                  "parentCode",
-                  "name"
+                  "parentCode"
                 ],
                 "x-apifox-ignore-properties": []
               },
@@ -730,7 +725,7 @@
         "x-apifox-folder": "基础数据",
         "x-apifox-status": "released",
         "deprecated": false,
-        "description": "bizType=config.app.AppAssetsDubboService.getAssetsList\n获取平台支持的全部资产列表数据\n游客可访问",
+        "description": "bizType=config.app.AppAssetsDubboService.getAssetsList\n获取平台支持的全部资产列表数据\n",
         "tags": [
           "基础数据"
         ],
@@ -3542,15 +3537,181 @@
     },
     "/geoip/country": {
       "get": {
-        "summary": "获取当前服务时间",
+        "summary": "获取IP所在国家信息",
         "x-apifox-folder": "基础数据",
         "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "IP所在国家查询\n游客可访问",
+        "tags": [
+          "基础数据"
+        ],
+        "parameters": [
+          {
+            "name": "ip",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": "127.0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "zh-CN",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "string",
+                      "description": "系统通用返回码。0-成功，其他异常"
+                    },
+                    "msg": {
+                      "type": "string",
+                      "description": "返回信息"
+                    },
+                    "bizCode": {
+                      "type": "string",
+                      "description": "模块标识码"
+                    },
+                    "tm": {
+                      "type": "string",
+                      "description": "处理时长（毫秒）"
+                    },
+                    "trace": {
+                      "type": "string",
+                      "description": "全局链路标志信息"
+                    },
+                    "msgParams": {
+                      "type": "string",
+                      "description": "返回描述中占位符参数串，多个参数间以,分割"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "iso_code": {
+                          "type": "string",
+                          "description": "国家代码"
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "名称"
+                        }
+                      },
+                      "x-apifox-orders": [
+                        "iso_code",
+                        "name"
+                      ],
+                      "required": [
+                        "iso_code",
+                        "name"
+                      ],
+                      "description": "国家信息",
+                      "x-apifox-ignore-properties": []
+                    }
+                  },
+                  "x-apifox-orders": [
+                    "code",
+                    "msg",
+                    "bizCode",
+                    "tm",
+                    "trace",
+                    "msgParams",
+                    "data"
+                  ],
+                  "required": [
+                    "code",
+                    "msg",
+                    "bizCode",
+                    "tm",
+                    "trace",
+                    "msgParams",
+                    "data"
+                  ],
+                  "x-apifox-ignore-properties": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65731215-run"
+      }
+    },
+    "/thirdExt/now": {
+      "post": {
+        "summary": "获取当前服务时间",
+        "x-apifox-folder": "基础数据",
+        "x-apifox-status": "tested",
         "deprecated": false,
         "description": "获取当前服务时间",
         "tags": [
           "基础数据"
         ],
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "zh-CN",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "成功",
@@ -3607,6 +3768,22 @@
                     "data"
                   ],
                   "x-apifox-ignore-properties": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "bizCode": "",
+                      "code": "0",
+                      "msg": "Success",
+                      "tm": 0,
+                      "trace": "",
+                      "msgParams": null,
+                      "data": 1678426706212,
+                      "ok": true,
+                      "fail": false
+                    }
+                  }
                 }
               }
             }
