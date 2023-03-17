@@ -95,7 +95,7 @@
           {
             "name": "version",
             "in": "header",
-            "description": "",
+            "description": "1",
             "required": false,
             "example": "0.0.1",
             "schema": {
