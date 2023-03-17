@@ -1,0 +1,89 @@
+name: Sync OpenAPI definition to ReadMe
+
+# Run workflow for every push to the `main` branch
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  Base-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout this repo
+        uses: actions/checkout@v3
+
+      - name: Base Sync
+        uses: readmeio/rdme@v8
+        with:
+          rdme: openapi ./TS.Clientapi.Base.json --key=${{ secrets.README_API_KEY }} --id=640537c96bb8010061adf86a
+          
+  Customer-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout this repo
+        uses: actions/checkout@v3
+        
+      - name: Customer Sync
+        uses: readmeio/rdme@v8
+        with:
+          rdme: openapi ./TS.Clientapi.Customer.json --key=${{ secrets.README_API_KEY }} --id=640540fc6e4dad00499ea0aa
+          
+          
+  Credit-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout this repo
+        uses: actions/checkout@v3
+        
+      - name: Credit Sync
+        uses: readmeio/rdme@v8
+        with:
+          rdme: openapi ./TS.Clientapi.Credit.json --key=${{ secrets.README_API_KEY }} --id=6405441257a39a00426fd874
+          
+  Fund-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout this repo
+        uses: actions/checkout@v3
+        
+      - name: Fund Sync
+        uses: readmeio/rdme@v8
+        with:
+          rdme: openapi ./TS.Clientapi.Fund.json --key=${{ secrets.README_API_KEY }} --id=640a872b225506005f24c20c
+          
+  Index-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout this repo
+        uses: actions/checkout@v3
+          
+      - name: Index Sync
+        uses: readmeio/rdme@v8
+        with:
+          rdme: openapi ./TS.Clientapi.Index.json --key=${{ secrets.README_API_KEY }} --id=640a879336aa500154c04215
+          
+  Message-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout this repo
+        uses: actions/checkout@v3
+          
+      - name: Message Sync
+        uses: readmeio/rdme@v8
+        with:
+          rdme: openapi ./TS.Clientapi.Message.json --key=${{ secrets.README_API_KEY }} --id=640544e5bfeb2f000abe087c
+          
+  Trade-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout this repo
+        uses: actions/checkout@v3
+          
+      - name: Trade Sync
+        uses: readmeio/rdme@v8
+        with:
+          rdme: openapi ./TS.Clientapi.Trade.json --key=${{ secrets.README_API_KEY }} --id=64054390367d0e0044508bc2
+          
+          
+          
