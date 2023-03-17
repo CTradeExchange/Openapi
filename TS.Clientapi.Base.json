@@ -28,7 +28,7 @@
             "in": "header",
             "description": "",
             "required": true,
-            "example": "{{company}}",
+            "example": "{{company1}}",
             "schema": {
               "type": "string"
             }
