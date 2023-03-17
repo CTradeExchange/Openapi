@@ -1,7 +1,7 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "基础接口",
+    "title": "基础数据",
     "description": "基础接口",
     "version": "1.0.0"
   },
@@ -18,7 +18,6 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "bizType=config.app.AppDictDubboService.getCountryListByParentCode\n国家地区根据code查询\n游客可访问",
-        "operationId": "getCountryListByParentCode",
         "tags": [
           "基础数据"
         ],
@@ -249,7 +248,6 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "bizType=config.app.AppDictDubboService.getCountryListByParentId\n国家地区根据ID查询\n游客可访问",
-        "operationId": "getCountryListByParentId",
         "tags": [
           "基础数据"
         ],
@@ -476,7 +474,6 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "bizType=config.app.AppDictDubboService.getListByParentCode\n字典基于code查询\n游客可访问",
-        "operationId": "getListByParentCode",
         "tags": [
           "基础数据"
         ],
@@ -734,7 +731,6 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "bizType=config.app.AppAssetsDubboService.getAssetsList\n获取平台支持的全部资产列表数据\n游客可访问",
-        "operationId": "getAssetsList",
         "tags": [
           "基础数据"
         ],
@@ -824,7 +820,6 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "bizType=config.app.AppDictDubboService.getListByParentId\n字典基于parentId查询\n游客可访问",
-        "operationId": "getListByParentId",
         "tags": [
           "基础数据"
         ],
@@ -1078,7 +1073,6 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "查询净值和溢价率",
-        "operationId": "getEquityPremiumRate",
         "tags": [
           "基础数据"
         ],
@@ -1185,7 +1179,6 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "分页查询基金列表数据",
-        "operationId": "findFundPage",
         "tags": [
           "基础数据"
         ],
@@ -1525,7 +1518,6 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "基金详细信息分页查询（带实时信息）",
-        "operationId": "findFundPageWithRealTimeInfo",
         "tags": [
           "基础数据"
         ],
@@ -1883,7 +1875,6 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "获取基金详细信息",
-        "operationId": "getFundInfo",
         "tags": [
           "基础数据"
         ],
@@ -2113,7 +2104,6 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "根据基金经理获取基金详情\n",
-        "operationId": "getFundInfoByCustomerNo",
         "tags": [
           "基础数据"
         ],
@@ -2222,7 +2212,6 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "bizType=config.app.AppSymbolDubboService.getSymbolBaseList\n查询产品信息，包括基础产品以及简要交易参数，例如小数位、成交模式等信息\n游客可访问",
-        "operationId": "getSymbolBaseList",
         "tags": [
           "基础数据"
         ],
@@ -2329,7 +2318,6 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "bizType=config.app.AppSymbolDubboService.getSymbolDetail\n获取产品配置详细交易参数\n游客可访问",
-        "operationId": "getSymbolDetail",
         "tags": [
           "基础数据"
         ],
@@ -3324,7 +3312,6 @@
         "x-apifox-status": "testing",
         "deprecated": false,
         "description": "bizType=config.app.AppSymbolDubboService.getSymbolList\n查询基础产品信息，支持客户组以及产品名称/code模糊查询\n游客可访问",
-        "operationId": "getSymbolList",
         "tags": [
           "基础数据"
         ],
