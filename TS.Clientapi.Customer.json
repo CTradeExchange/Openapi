@@ -4848,7 +4848,7 @@
     },
     "/global/customer.app.CustomerWebApiService.groupList": {
       "post": {
-        "summary": "客户组列表",
+        "summary": "查询客户组列表",
         "x-apifox-folder": "客户基础信息",
         "x-apifox-status": "released",
         "deprecated": false,
