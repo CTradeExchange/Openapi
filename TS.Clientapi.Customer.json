@@ -230,7 +230,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65127552-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127552-run"
       }
     },
     "/global/customer.app.CustomerApiWebService.delApi": {
@@ -346,7 +346,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65127553-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127553-run"
       }
     },
     "/global/customer.app.CustomerApiWebService.editApiPermission": {
@@ -540,7 +540,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65127554-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127554-run"
       }
     },
     "/global/customer.app.CustomerApiWebService.page": {
@@ -889,7 +889,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65127555-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127555-run"
       }
     },
     "/global/customer.app.CustomerApiWebService.queryApi": {
@@ -1108,7 +1108,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65127556-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127556-run"
       }
     },
     "/global/customer.app.CustomerExtendWebApiService.findCustomerExtend": {
@@ -1227,7 +1227,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65127559-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127559-run"
       }
     },
     "/global/customer.app.CustomerExtendWebApiService.saveCustomerExtend": {
@@ -1351,7 +1351,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65127560-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127560-run"
       }
     },
     "/global/customer.app.CustomerOptionalWebApiService.add": {
@@ -1490,7 +1490,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65127573-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127573-run"
       }
     },
     "/global/customer.app.CustomerOptionalWebApiService.delete": {
@@ -1621,7 +1621,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65127575-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127575-run"
       }
     },
     "/global/customer.app.CustomerOptionalWebApiService.optionalList": {
@@ -1798,7 +1798,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65127577-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127577-run"
       }
     },
     "/h/com.cats.customer.api.app.CustomerThirdLoginService/appleVerify": {
@@ -1975,7 +1975,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65127579-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127579-run"
       }
     },
     "/third/login/customer.app.CustomerThirdLoginService.facebookVerify": {
@@ -2121,7 +2121,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65127580-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127580-run"
       }
     },
     "/global/customer.app.CustomerThirdLoginService.config": {
@@ -2235,7 +2235,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65127581-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127581-run"
       }
     },
     "/h/com.cats.customer.api.app.CustomerThirdLoginService/googleVerify": {
@@ -2392,7 +2392,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65127582-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127582-run"
       }
     },
     "/third/login/customer.app.CustomerThirdLoginService.login": {
@@ -2459,7 +2459,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65127583-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127583-run"
       }
     },
     "/third/login/customer.app.CustomerThirdLoginService.telegramVerify": {
@@ -2613,7 +2613,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65127584-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127584-run"
       }
     },
     "/third/register/customer.app.CustomerThirdLoginService.register": {
@@ -2732,7 +2732,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65127585-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127585-run"
       }
     },
     "/third/login/customer.app.CustomerThirdLoginService.metaMaskVerify": {
@@ -2892,7 +2892,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65127586-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127586-run"
       }
     },
     "/third/login/customer.app.CustomerThirdLoginService.twitterVerify": {
@@ -3109,7 +3109,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65127587-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127587-run"
       }
     },
     "/h/com.cats.customer.api.app.CustomerWalletWebApiService/add": {
@@ -3254,7 +3254,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65127588-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127588-run"
       }
     },
     "/h/com.cats.customer.api.app.CustomerWalletWebApiService/addV1v1v2": {
@@ -3341,7 +3341,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65127589-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127589-run"
       }
     },
     "/global/customer.app.CustomerWalletWebApiService.delete": {
@@ -3442,7 +3442,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65127590-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127590-run"
       }
     },
     "/global/customer.app.CustomerWalletWebApiService.updateWallet": {
@@ -3492,7 +3492,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65127591-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127591-run"
       }
     },
     "/global/customer.app.CustomerWalletWebApiService.walletList": {
@@ -3713,7 +3713,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65127592-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127592-run"
       }
     },
     "/global/customer.app.CustomerWebApiService.bindAssertsPwd": {
@@ -3839,7 +3839,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65127593-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127593-run"
       }
     },
     "/global/customer.app.CustomerWebApiService.bindEmail": {
@@ -3979,7 +3979,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65127594-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127594-run"
       }
     },
     "/global/customer.app.CustomerWebApiService.bindLoginPwd": {
@@ -4085,7 +4085,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65127595-run",
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127595-run",
         "x-docstype": "TS.Clientapi.Customer",
         "x-docstitle": "客户接口"
       }
@@ -4206,7 +4206,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65127597-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127597-run"
       }
     },
     "/global/customer.app.CustomerWebApiService.changeEmailV1v1v2": {
@@ -4342,7 +4342,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65127598-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127598-run"
       }
     },
     "/global/customer.app.CustomerWebApiService.changeLang": {
@@ -4459,7 +4459,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65127599-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127599-run"
       }
     },
     "/global/customer.app.CustomerWebApiService.changePhone": {
@@ -4594,7 +4594,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65127600-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127600-run"
       }
     },
     "/global/customer.app.CustomerWebApiService.changePhoneV1v1v2": {
@@ -4730,7 +4730,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65127601-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127601-run"
       }
     },
     "/global/customer.app.CustomerWebApiService.checkCustomerExist": {
@@ -4900,7 +4900,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65127602-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127602-run"
       }
     },
     "/global/customer.app.CustomerWebApiService.checkGoogleMFAStatus": {
@@ -5083,7 +5083,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65127603-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127603-run"
       }
     },
     "/global/customer.app.CustomerWebApiService.checkStatus": {
@@ -5211,7 +5211,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65127604-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127604-run"
       }
     },
     "/global/customer.app.CustomerWebApiService.destroy": {
@@ -5309,7 +5309,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65127605-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127605-run"
       }
     },
     "/global/customer.app.CustomerWebApiService.enableOrForbidMFA": {
@@ -5396,7 +5396,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65127606-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127606-run"
       }
     },
     "/global/customer.app.CustomerWebApiService.findCustomerInfo": {
@@ -5486,7 +5486,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65127609-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127609-run"
       }
     },
     "/global/customer.app.CustomerWebApiService.forgetAssertsPwd": {
@@ -5635,7 +5635,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65127611-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127611-run"
       }
     },
     "/global/customer.app.CustomerWebApiService.forgetAssertsPwdV1v1v2": {
@@ -5764,7 +5764,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65127612-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127612-run"
       }
     },
     "/global/customer.app.CustomerWebApiService.forgetLoginPwd": {
@@ -5908,7 +5908,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65127615-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127615-run"
       }
     },
     "/global/customer.app.CustomerWebApiService.queryAccountAssetsInfo": {
@@ -6022,7 +6022,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65127617-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127617-run"
       }
     },
     "/global/customer.app.CustomerWebApiService.queryAccountById": {
@@ -6423,7 +6423,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65127618-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127618-run"
       }
     },
     "/global/customer.app.CustomerWebApiService.queryCustomerAssets": {
@@ -6626,7 +6626,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65127619-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127619-run"
       }
     },
     "/global/customer.app.CustomerWebApiService.queryCustomerAssetsInfo": {
@@ -7870,7 +7870,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65127620-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127620-run"
       }
     },
     "/global/customer.app.CustomerWebApiService.queryLiabilitiesWaterByPage": {
@@ -8201,7 +8201,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65127622-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127622-run"
       }
     },
     "/register/customer.app.CustomerWebApiService.register": {
@@ -8375,7 +8375,8 @@
                 ],
                 "required": [
                   "registerSource",
-                  "type"
+                  "type",
+                  "country"
                 ],
                 "x-apifox-ignore-properties": []
               }
@@ -8566,7 +8567,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65127623-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127623-run"
       }
     },
     "/global/customer.app.CustomerWebApiService.updateAssertsPwd": {
@@ -8678,7 +8679,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65127624-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127624-run"
       }
     },
     "/global/customer.app.CustomerWebApiService.updateLoginPwd": {
@@ -8790,7 +8791,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65127625-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127625-run"
       }
     },
     "/global/customer.app.GoogleVerifyApiService.generateGoogleAccount": {
@@ -8907,7 +8908,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65127626-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127626-run"
       }
     },
     "/global/customer.app.GoogleVerifyApiService.checkGoogleCode": {
@@ -9070,7 +9071,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65127628-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127628-run"
       }
     },
     "/global/customer.app.KycWebApiService.checkKycApply": {
@@ -9234,7 +9235,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65127649-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127649-run"
       }
     },
     "/global/customer.app.KycWebApiService.findAllBizKyc": {
@@ -9358,7 +9359,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65127650-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127650-run"
       }
     },
     "/global/customer.app.KycWebApiService.findAllBizKycList": {
@@ -9458,7 +9459,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65127651-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127651-run"
       }
     },
     "/global/customer.app.KycWebApiService.findAllCusKycListByBiz": {
@@ -9560,7 +9561,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65127652-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127652-run"
       }
     },
     "/global/customer.app.KycWebApiService.findAllLevelKyc": {
@@ -9688,7 +9689,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65127653-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127653-run"
       }
     },
     "/global/customer.app.KycWebApiService.findCompanyCountry": {
@@ -9873,7 +9874,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65127654-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127654-run"
       }
     },
     "/global/customer.app.KycWebApiService.kycApply": {
@@ -10017,7 +10018,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65127655-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127655-run"
       }
     },
     "/global/customer.app.KycWebApiService.kycLevelApply": {
@@ -10229,7 +10230,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65127656-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127656-run"
       }
     },
     "/global/customer.app.WithdrawBankWebApiService.add": {
@@ -10424,7 +10425,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65127718-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127718-run"
       }
     },
     "/global/customer.app.WithdrawBankWebApiService.addV1v2v8": {
@@ -10573,7 +10574,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65127719-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127719-run"
       }
     },
     "/global/customer.app.WithdrawBankWebApiService.bankList": {
@@ -10677,7 +10678,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65127720-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127720-run"
       }
     },
     "/login/customer.app.CustomerWebApiService.login": {
@@ -13643,7 +13644,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65171156-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65171156-run"
       }
     },
     "/global/customer.app.CustomerWebApiService.bindPhone": {
@@ -13783,7 +13784,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65345790-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65345790-run"
       }
     },
     "/global/customer.app.CustomerWebApiService.checkToken": {
@@ -13994,12 +13995,12 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-68156836-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-68156836-run"
       }
     },
     "/global/customer.app.CustomerWebApiService.checkPhone": {
       "post": {
-        "summary": "设置密码，校验手机号码2",
+        "summary": "设置密码，校验手机号码",
         "x-apifox-folder": "信用卡相关",
         "x-apifox-status": "tested",
         "deprecated": false,
@@ -14199,12 +14200,12 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-68162437-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-68162437-run"
       }
     },
     "/global/customer.app.CustomerWebApiService.checkPhoneForRetriedLoginPwd": {
       "post": {
-        "summary": "忘记密码，校验手机号码3",
+        "summary": "忘记密码，校验手机号码",
         "x-apifox-folder": "信用卡相关",
         "x-apifox-status": "tested",
         "deprecated": false,
@@ -14391,7 +14392,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-68163852-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-68163852-run"
       }
     },
     "/global/customer.app.CustomerWebApiService.retrieveLoginPwd": {
@@ -14579,7 +14580,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-68165969-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-68165969-run"
       }
     },
     "/global/customer.app.CustomerWebApiService.firstSetLoginPwd": {
@@ -14848,198 +14849,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-68207437-run"
-      }
-    },
-    "/global/customer.app.CustomerWebApiService.resendSetPwdLink": {
-      "post": {
-        "summary": "重新发送，设置密码链接（已废弃）",
-        "x-apifox-folder": "信用卡相关",
-        "x-apifox-status": "developing",
-        "deprecated": false,
-        "description": "version=0.0.1\nbizType=customer.app.CustomerWebApiService.resendSetPwdLink\n游客可访问",
-        "tags": [
-          "信用卡相关"
-        ],
-        "parameters": [
-          {
-            "name": "version",
-            "in": "header",
-            "description": "版本号",
-            "required": true,
-            "example": "0.0.1",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "companyId",
-            "in": "header",
-            "description": "公司ID，通过环境变量获取",
-            "required": true,
-            "example": "",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "trace",
-            "in": "header",
-            "description": "随机跟踪码UUID",
-            "required": true,
-            "example": "",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "token",
-            "in": "header",
-            "description": "登录token",
-            "required": true,
-            "example": "",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "lang",
-            "in": "header",
-            "description": "语言",
-            "required": true,
-            "example": "zh-CN",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "companyId": {
-                    "type": "integer",
-                    "title": "公司ID",
-                    "description": "环境变量配置",
-                    "format": "long"
-                  },
-                  "checkToken": {
-                    "type": [
-                      "string",
-                      "null"
-                    ],
-                    "title": "校验票据",
-                    "description": "邮件链接信息上的token信息"
-                  }
-                },
-                "x-apifox-orders": [
-                  "companyId",
-                  "checkToken"
-                ],
-                "required": [
-                  "companyId"
-                ],
-                "x-apifox-ignore-properties": []
-              },
-              "example": {
-                "companyId": 72,
-                "country": "w",
-                "customerId": 11,
-                "customerNo": "86009002",
-                "ip": "::1",
-                "lang": "zh-CN",
-                "trace": "ryder_test",
-                "cardId": 1614830250530730000,
-                "smsSendToken": "incididunt eiusmod nulla voluptate",
-                "smsCode": "16"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "成功",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "bizCode": {
-                      "type": "string",
-                      "description": "模块标识码"
-                    },
-                    "code": {
-                      "type": "string",
-                      "description": "状态返回码"
-                    },
-                    "msg": {
-                      "type": "string",
-                      "description": "状态描述"
-                    },
-                    "tm": {
-                      "type": "integer",
-                      "format": "int64",
-                      "description": "处理时长（毫秒）"
-                    },
-                    "trace": {
-                      "type": "string",
-                      "description": "跟踪码"
-                    },
-                    "msgParams": {
-                      "type": "string",
-                      "description": "返回描述中占位符参数串，多个参数间以,分割"
-                    },
-                    "data": {
-                      "type": "object",
-                      "description": "数据体",
-                      "x-apifox-orders": [],
-                      "properties": {},
-                      "x-apifox-ignore-properties": []
-                    },
-                    "ok": {
-                      "type": "boolean"
-                    },
-                    "fail": {
-                      "type": "boolean"
-                    }
-                  },
-                  "x-apifox-refs": {},
-                  "x-apifox-orders": [
-                    "bizCode",
-                    "code",
-                    "msg",
-                    "tm",
-                    "trace",
-                    "msgParams",
-                    "data",
-                    "ok",
-                    "fail"
-                  ],
-                  "x-apifox-ignore-properties": []
-                },
-                "examples": {
-                  "1": {
-                    "summary": "成功示例",
-                    "value": {
-                      "msgParams": "dolore ad et",
-                      "tm": 99,
-                      "bizCode": "8",
-                      "code": "99",
-                      "msg": "pariatur",
-                      "ok": true,
-                      "data": {},
-                      "fail": true,
-                      "trace": "nisi eu pariatur"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-68214057-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-68207437-run"
       }
     },
     "/global/customer.app.CustomerWebApiService.groupList": {
@@ -15204,7 +15014,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-69478168-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-69478168-run"
       }
     },
     "/global/customer.app.CustomerWebApiService.updateAssertsPwdMFA": {
@@ -15341,7 +15151,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-69575921-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-69575921-run"
       }
     },
     "/global/customer.app.CustomerWebApiService.updateLoginPwdMFA": {
@@ -15494,7 +15304,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-69577861-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-69577861-run"
       }
     }
   },
@@ -17413,5 +17223,6 @@
         "x-apifox-ignore-properties": []
       }
     }
-  }
+  },
+  "servers": []
 }
