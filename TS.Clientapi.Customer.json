@@ -8268,11 +8268,11 @@
                   },
                   "lang": {
                     "type": "string",
-                    "description": "语言信息"
+                    "description": "语言信息，默认en-US"
                   },
                   "loginName": {
                     "type": "string",
-                    "description": "账号：邮箱/手机号码"
+                    "description": "账号：邮箱/手机号码，与type配合使用"
                   },
                   "type": {
                     "type": "integer",
@@ -8281,21 +8281,17 @@
                     "minimum": 1,
                     "maximum": 3
                   },
-                  "phone": {
-                    "type": "string",
-                    "description": "手机号码"
-                  },
                   "registerDevice": {
                     "type": "string",
                     "description": "注册的设备型号"
                   },
-                  "email": {
-                    "type": "string",
-                    "description": "邮箱"
-                  },
                   "verifyCode": {
                     "type": "string",
                     "description": "验证码"
+                  },
+                  "sendToken": {
+                    "type": "string",
+                    "description": "验证码发送票据"
                   },
                   "registerSource": {
                     "type": "integer",
@@ -8323,10 +8319,6 @@
                     "type": "string",
                     "description": "关键词(开户链接参数term)"
                   },
-                  "sendToken": {
-                    "type": "string",
-                    "description": "验证码发送票据"
-                  },
                   "customerGroupId": {
                     "type": "integer",
                     "format": "int64",
@@ -8336,7 +8328,27 @@
                     "type": "array",
                     "description": "玩法币种信息",
                     "items": {
-                      "$ref": "#/components/schemas/InnerTradeAssetsDTO"
+                      "type": "object",
+                      "properties": {
+                        "allCurrency": {
+                          "type": "string",
+                          "description": "资产币种信息"
+                        },
+                        "tradeType": {
+                          "type": "string",
+                          "description": "玩法Id"
+                        }
+                      },
+                      "x-apifox-refs": {},
+                      "x-apifox-orders": [
+                        "allCurrency",
+                        "tradeType"
+                      ],
+                      "required": [
+                        "allCurrency",
+                        "tradeType"
+                      ],
+                      "x-apifox-ignore-properties": []
                     },
                     "maxItems": 2147483647,
                     "minItems": 1
@@ -8344,7 +8356,7 @@
                   "openAccountType": {
                     "type": "integer",
                     "format": "int32",
-                    "description": "开户类型：0.个人 1.企业 "
+                    "description": "开户类型：0.个人 1.企业 ，默认个人"
                   },
                   "pwd": {
                     "type": "string",
@@ -8357,17 +8369,15 @@
                   "lang",
                   "loginName",
                   "type",
-                  "phone",
                   "registerDevice",
-                  "email",
                   "verifyCode",
+                  "sendToken",
                   "registerSource",
                   "utmSource",
                   "utmMedium",
                   "utmCampaign",
                   "utmContent",
                   "utmTerm",
-                  "sendToken",
                   "customerGroupId",
                   "tradeTypeCurrencyList",
                   "openAccountType",
@@ -8376,7 +8386,11 @@
                 "required": [
                   "registerSource",
                   "type",
-                  "country"
+                  "country",
+                  "loginName",
+                  "sendToken",
+                  "verifyCode",
+                  "tradeTypeCurrencyList"
                 ],
                 "x-apifox-ignore-properties": []
               }
@@ -15785,25 +15799,6 @@
         ],
         "x-apifox-folder": "Schemas",
         "x-apifox-ignore-properties": []
-      },
-      "InnerTradeAssetsDTO": {
-        "type": "object",
-        "properties": {
-          "allCurrency": {
-            "type": "string",
-            "description": "资产币种信息"
-          },
-          "tradeType": {
-            "type": "string",
-            "description": "玩法Id"
-          }
-        },
-        "x-apifox-orders": [
-          "allCurrency",
-          "tradeType"
-        ],
-        "x-apifox-ignore-properties": [],
-        "x-apifox-folder": "Schemas"
       },
       "BaseResultCustomerAllInfoVO": {
         "type": "object",
