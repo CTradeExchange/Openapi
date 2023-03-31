@@ -8361,6 +8361,14 @@
                   "pwd": {
                     "type": "string",
                     "description": "密码，MD5加密"
+                  },
+                  "thirdServerCode": {
+                    "type": "string",
+                    "description": "第三方系统唯一编号"
+                  },
+                  "thirdServerSource": {
+                    "type": "string",
+                    "description": "第三方系统来源,取值agent"
                   }
                 },
                 "x-apifox-refs": {},
@@ -8381,7 +8389,9 @@
                   "customerGroupId",
                   "tradeTypeCurrencyList",
                   "openAccountType",
-                  "pwd"
+                  "pwd",
+                  "thirdServerCode",
+                  "thirdServerSource"
                 ],
                 "required": [
                   "registerSource",
