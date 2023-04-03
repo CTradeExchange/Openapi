@@ -18,6 +18,7 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "bizType=config.app.AppDictDubboService.getCountryListByParentCode\n国家地区根据code查询\n游客可访问",
+
         "tags": [
           "基础数据"
         ],
@@ -27,7 +28,7 @@
             "in": "header",
             "description": "",
             "required": true,
-            "example": "",
+            "example": "{{company}}",
             "schema": {
               "type": "string"
             }
@@ -37,7 +38,7 @@
             "in": "header",
             "description": "",
             "required": true,
-            "example": "",
+            "example": "{{mock_trace}}",
             "schema": {
               "type": "string"
             }
@@ -248,6 +249,7 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "bizType=config.app.AppDictDubboService.getCountryListByParentId\n国家地区根据ID查询\n游客可访问",
+
         "tags": [
           "基础数据"
         ],
@@ -257,7 +259,7 @@
             "in": "header",
             "description": "",
             "required": true,
-            "example": "",
+            "example": "{{company}}",
             "schema": {
               "type": "string"
             }
@@ -267,7 +269,7 @@
             "in": "header",
             "description": "",
             "required": true,
-            "example": "",
+            "example": "{{mock_trace}}",
             "schema": {
               "type": "string"
             }
@@ -474,6 +476,7 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "bizType=config.app.AppDictDubboService.getListByParentCode\n字典基于code查询\n游客可访问",
+
         "tags": [
           "基础数据"
         ],
@@ -483,7 +486,7 @@
             "in": "header",
             "description": "",
             "required": true,
-            "example": "",
+            "example": "{{company}}",
             "schema": {
               "type": "string"
             }
@@ -493,7 +496,7 @@
             "in": "header",
             "description": "",
             "required": true,
-            "example": "",
+            "example": "{{mock_trace}}",
             "schema": {
               "type": "string"
             }
@@ -726,6 +729,7 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "bizType=config.app.AppAssetsDubboService.getAssetsList\n获取平台支持的全部资产列表数据\n",
+
         "tags": [
           "基础数据"
         ],
@@ -735,7 +739,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "",
+            "example": "{{company}}",
             "schema": {
               "type": "string"
             }
@@ -745,7 +749,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "",
+            "example": "{{LoginResult.data.token}}",
             "schema": {
               "type": "string"
             }
@@ -765,7 +769,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "",
+            "example": "{{mock_trace}}",
             "schema": {
               "type": "string"
             }
@@ -815,6 +819,7 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "bizType=config.app.AppDictDubboService.getListByParentId\n字典基于parentId查询\n游客可访问",
+
         "tags": [
           "基础数据"
         ],
@@ -824,7 +829,7 @@
             "in": "header",
             "description": "",
             "required": true,
-            "example": "",
+            "example": "{{company}}",
             "schema": {
               "type": "string"
             }
@@ -834,7 +839,7 @@
             "in": "header",
             "description": "",
             "required": true,
-            "example": "",
+            "example": "{{mock_trace}}",
             "schema": {
               "type": "string"
             }
@@ -1068,6 +1073,7 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "查询净值和溢价率",
+
         "tags": [
           "基础数据"
         ],
@@ -1077,7 +1083,7 @@
             "in": "header",
             "description": "",
             "required": true,
-            "example": "",
+            "example": "{{company}}",
             "schema": {
               "type": "string"
             }
@@ -1087,7 +1093,7 @@
             "in": "header",
             "description": "",
             "required": true,
-            "example": "",
+            "example": "{{mock_trace}}",
             "schema": {
               "type": "string"
             }
@@ -1174,6 +1180,7 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "分页查询基金列表数据",
+
         "tags": [
           "基础数据"
         ],
@@ -1183,7 +1190,7 @@
             "in": "header",
             "description": "",
             "required": true,
-            "example": "",
+            "example": "{{company}}",
             "schema": {
               "type": "string"
             }
@@ -1193,7 +1200,7 @@
             "in": "header",
             "description": "",
             "required": true,
-            "example": "",
+            "example": "{{mock_trace}}",
             "schema": {
               "type": "string"
             }
@@ -1513,6 +1520,7 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "基金详细信息分页查询（带实时信息）",
+
         "tags": [
           "基础数据"
         ],
@@ -1522,7 +1530,7 @@
             "in": "header",
             "description": "",
             "required": true,
-            "example": "",
+            "example": "{{company}}",
             "schema": {
               "type": "string"
             }
@@ -1532,7 +1540,7 @@
             "in": "header",
             "description": "",
             "required": true,
-            "example": "",
+            "example": "{{mock_trace}}",
             "schema": {
               "type": "string"
             }
@@ -1870,6 +1878,7 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "获取基金详细信息",
+
         "tags": [
           "基础数据"
         ],
@@ -1879,7 +1888,7 @@
             "in": "header",
             "description": "",
             "required": true,
-            "example": "",
+            "example": "{{company}}",
             "schema": {
               "type": "string"
             }
@@ -1889,7 +1898,7 @@
             "in": "header",
             "description": "",
             "required": true,
-            "example": "",
+            "example": "{{mock_trace}}",
             "schema": {
               "type": "string"
             }
@@ -2099,6 +2108,7 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "根据基金经理获取基金详情\n",
+
         "tags": [
           "基础数据"
         ],
@@ -2108,7 +2118,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "",
+            "example": "{{company}}",
             "schema": {
               "type": "string"
             }
@@ -2118,7 +2128,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "",
+            "example": "{{LoginResult.data.token}}",
             "schema": {
               "type": "string"
             }
@@ -2138,7 +2148,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "",
+            "example": "{{mock_trace}}",
             "schema": {
               "type": "string"
             }
@@ -2207,6 +2217,7 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "bizType=config.app.AppSymbolDubboService.getSymbolBaseList\n查询产品信息，包括基础产品以及简要交易参数，例如小数位、成交模式等信息\n游客可访问",
+
         "tags": [
           "基础数据"
         ],
@@ -2216,7 +2227,7 @@
             "in": "header",
             "description": "",
             "required": true,
-            "example": "",
+            "example": "{{company}}",
             "schema": {
               "type": "string"
             }
@@ -2226,7 +2237,7 @@
             "in": "header",
             "description": "",
             "required": true,
-            "example": "",
+            "example": "{{mock_trace}}",
             "schema": {
               "type": "string"
             }
@@ -2313,6 +2324,7 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "bizType=config.app.AppSymbolDubboService.getSymbolDetail\n获取产品配置详细交易参数\n游客可访问",
+
         "tags": [
           "基础数据"
         ],
@@ -2322,7 +2334,7 @@
             "in": "header",
             "description": "公司ID，通过环境变量获取",
             "required": true,
-            "example": "",
+            "example": "{{company}}",
             "schema": {
               "type": "string"
             }
@@ -2332,7 +2344,7 @@
             "in": "header",
             "description": "随机跟踪码UUID",
             "required": true,
-            "example": "",
+            "example": "{{mock_trace}}",
             "schema": {
               "type": "string"
             }
@@ -2342,7 +2354,7 @@
             "in": "header",
             "description": "登录token",
             "required": false,
-            "example": "",
+            "example": "{{LoginResult.data.token}}",
             "schema": {
               "type": "string"
             }
@@ -3307,6 +3319,7 @@
         "x-apifox-status": "testing",
         "deprecated": false,
         "description": "bizType=config.app.AppSymbolDubboService.getSymbolList\n查询基础产品信息，支持客户组以及产品名称/code模糊查询\n游客可访问",
+
         "tags": [
           "基础数据"
         ],
@@ -3316,7 +3329,7 @@
             "in": "header",
             "description": "",
             "required": true,
-            "example": "",
+            "example": "{{company}}",
             "schema": {
               "type": "string"
             }
@@ -3326,7 +3339,7 @@
             "in": "header",
             "description": "",
             "required": true,
-            "example": "",
+            "example": "{{mock_trace}}",
             "schema": {
               "type": "string"
             }
@@ -3346,7 +3359,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "",
+            "example": "{{LoginResult.data.token}}",
             "schema": {
               "type": "string"
             }
@@ -3561,7 +3574,7 @@
             "in": "header",
             "description": "",
             "required": true,
-            "example": "",
+            "example": "{{company}}",
             "schema": {
               "type": "string"
             }
@@ -3571,7 +3584,7 @@
             "in": "header",
             "description": "",
             "required": true,
-            "example": "",
+            "example": "{{mock_trace}}",
             "schema": {
               "type": "string"
             }
@@ -3676,8 +3689,8 @@
       "post": {
         "summary": "获取当前服务时间",
         "x-apifox-folder": "基础数据",
-        "x-apifox-status": "tested",
-        "deprecated": false,
+        "x-apifox-status": "deprecated",
+        "deprecated": true,
         "description": "获取当前服务时间",
         "tags": [
           "基础数据"
@@ -3688,7 +3701,7 @@
             "in": "header",
             "description": "",
             "required": true,
-            "example": "",
+            "example": "{{company}}",
             "schema": {
               "type": "string"
             }
@@ -3698,7 +3711,7 @@
             "in": "header",
             "description": "",
             "required": true,
-            "example": "",
+            "example": "{{mock_trace}}",
             "schema": {
               "type": "string"
             }
@@ -3801,6 +3814,7 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "",
+
         "tags": [
           "基础数据"
         ],
@@ -3810,7 +3824,7 @@
             "in": "header",
             "description": "",
             "required": true,
-            "example": "",
+            "example": "{{company}}",
             "schema": {
               "type": "string"
             }
@@ -3820,7 +3834,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "",
+            "example": "{{LoginResult.data.token}}",
             "schema": {
               "type": "string"
             }
@@ -3840,7 +3854,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "",
+            "example": "{{mock_trace}}",
             "schema": {
               "type": "string"
             }
@@ -3898,6 +3912,7 @@
         "x-apifox-status": "testing",
         "deprecated": false,
         "description": "bizType=config.app.AppDictDubboService.getMapByParentCodes\n批量获取字典数据",
+
         "tags": [
           "基础数据"
         ],
@@ -3905,9 +3920,9 @@
           {
             "name": "companyId",
             "in": "header",
-            "description": "",
+            "description": "公司ID，通过环境变量获取",
             "required": true,
-            "example": "",
+            "example": "{{company}}",
             "schema": {
               "type": "string"
             }
@@ -3915,9 +3930,19 @@
           {
             "name": "trace",
             "in": "header",
-            "description": "",
+            "description": "随机跟踪码UUID",
             "required": true,
-            "example": "",
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "登录token",
+            "required": true,
+            "example": "{{LoginResult.data.token}}",
             "schema": {
               "type": "string"
             }
@@ -3925,7 +3950,7 @@
           {
             "name": "lang",
             "in": "header",
-            "description": "",
+            "description": "语言",
             "required": true,
             "example": "zh-CN",
             "schema": {
@@ -3946,10 +3971,10 @@
                     "type": "string"
                   }
                 },
-                "required": [
+                "x-apifox-orders": [
                   "parentCode"
                 ],
-                "x-apifox-orders": [
+                "required": [
                   "parentCode"
                 ],
                 "x-apifox-ignore-properties": []
