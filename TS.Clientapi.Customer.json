@@ -4213,8 +4213,8 @@
       "post": {
         "summary": "更换邮箱（MFA）",
         "x-apifox-folder": "客户基础信息",
-        "x-apifox-status": "released",
-        "deprecated": false,
+        "x-apifox-status": "deprecated",
+        "deprecated": true,
         "description": "version=0.0.1\nbizType=customer.app.CustomerWebApiService.changeEmailV1v1v2\n登录之后可以访问\n\n如果客户开启谷歌验证码（MFA），则入参中的谷歌验证码（googleCode）必填，\n同时，用户不用输入旧邮箱",
         "tags": [
           "客户基础信息"
@@ -4601,8 +4601,8 @@
       "post": {
         "summary": "更换手机号码（MFA）",
         "x-apifox-folder": "客户基础信息",
-        "x-apifox-status": "released",
-        "deprecated": false,
+        "x-apifox-status": "deprecated",
+        "deprecated": true,
         "description": "version=0.0.1\nbizType=customer.app.CustomerWebApiService.changePhoneV1v1v2\n登录之后可以访问\n\n如果客户开启谷歌验证码（MFA），则入参中的谷歌验证码（googleCode）必填，\n同时，用户不用输入旧手机号码",
         "tags": [
           "客户基础信息"
@@ -15489,7 +15489,7 @@
         "x-apifox-folder": "客户基础信息",
         "x-apifox-status": "released",
         "deprecated": false,
-        "description": "version=0.0.1\nbizType=customer.app.CustomerWebApiService.changeCountry\n登录之后可以访问\n修改成功后，客户修改前所在国家的待审核KYC，全部拒绝",
+        "description": "version=0.0.1\nbizType=customer.app.CustomerWebApiService.changeCountry\n登录之后可以访问\n修改成功后，客户修改前所在国家的待审核KYC，全部拒绝\n",
         "tags": [
           "客户基础信息"
         ],
