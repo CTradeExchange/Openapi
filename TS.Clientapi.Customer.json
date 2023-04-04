@@ -1980,7 +1980,7 @@
     },
     "/third/login/customer.app.CustomerThirdLoginService.facebookVerify": {
       "post": {
-        "summary": "Facebook登录校验token有效性",
+        "summary": "Facebook三方登录校验",
         "x-apifox-folder": "社交账号登录",
         "x-apifox-status": "released",
         "deprecated": false,
@@ -2240,7 +2240,7 @@
     },
     "/h/com.cats.customer.api.app.CustomerThirdLoginService/googleVerify": {
       "post": {
-        "summary": "谷歌登录token校验",
+        "summary": "Google三方登录校验",
         "x-apifox-folder": "社交账号登录",
         "x-apifox-status": "released",
         "deprecated": false,
@@ -2464,7 +2464,7 @@
     },
     "/third/login/customer.app.CustomerThirdLoginService.telegramVerify": {
       "post": {
-        "summary": "Telegram登录校验token有效性",
+        "summary": "Telegram三方登录校验",
         "x-apifox-folder": "社交账号登录",
         "x-apifox-status": "released",
         "deprecated": false,
@@ -2618,7 +2618,7 @@
     },
     "/third/register/customer.app.CustomerThirdLoginService.register": {
       "post": {
-        "summary": "第三方注册",
+        "summary": "三方注册",
         "x-apifox-folder": "社交账号登录",
         "x-apifox-status": "released",
         "deprecated": false,
@@ -2737,7 +2737,7 @@
     },
     "/third/login/customer.app.CustomerThirdLoginService.metaMaskVerify": {
       "post": {
-        "summary": "Metamask登录校验signature有效性",
+        "summary": "Metamask三方登录校验",
         "x-apifox-folder": "社交账号登录",
         "x-apifox-status": "released",
         "deprecated": false,
@@ -2897,7 +2897,7 @@
     },
     "/third/login/customer.app.CustomerThirdLoginService.twitterVerify": {
       "post": {
-        "summary": "Twitter登录校验token有效性",
+        "summary": "Twitter三方登录校验",
         "x-apifox-folder": "社交账号登录",
         "x-apifox-status": "released",
         "deprecated": false,
@@ -6631,7 +6631,7 @@
     },
     "/global/customer.app.CustomerWebApiService.queryCustomerAssetsInfo": {
       "post": {
-        "summary": "客户总资产信息（杠杆）",
+        "summary": "客户总资产信息（v2.2.1修改）",
         "x-apifox-folder": "客户基础信息",
         "x-apifox-status": "released",
         "deprecated": false,
@@ -6700,7 +6700,7 @@
                   "tradeType": {
                     "type": "integer",
                     "format": "int64",
-                    "description": "玩法Id，3-CROSS；5-MATCH",
+                    "description": "玩法Id，3-CROSS；5-MATCH；8-WALLET；",
                     "minimum": 1
                   },
                   "accountCurrency": {
@@ -6952,15 +6952,20 @@
                             },
                             "wholeWarehouseBalance": {
                               "type": "string",
-                              "description": "兑账号资产预估价"
+                              "description": "兑账号资产预估价。仅玩法5存在该值（v2.2.1添加描述）"
                             },
                             "wholeWarehouseRate": {
                               "type": "string",
-                              "description": "兑账号资产汇率"
+                              "description": "兑账号资产汇率。仅玩法5存在该值（v2.2.1添加描述）"
                             },
                             "openAccountStatus": {
                               "type": "boolean",
                               "description": "开户状态"
+                            },
+                            "formulaSymbol": {
+                              "type": "string",
+                              "title": "汇率计算方向",
+                              "description": "multiply-乘；divide-除；仅玩法5存在该值。（v2.2.1新增）"
                             }
                           },
                           "description": "附带账户信息。key为资产Code",
@@ -7002,7 +7007,8 @@
                             "customerId",
                             "wholeWarehouseBalance",
                             "wholeWarehouseRate",
-                            "openAccountStatus"
+                            "openAccountStatus",
+                            "formulaSymbol"
                           ],
                           "x-apifox-ignore-properties": []
                         }
@@ -7052,13 +7058,11 @@
                   "required": [
                     "data",
                     "msg",
-                    "fail",
                     "trace",
                     "code",
                     "bizCode",
                     "tm",
-                    "msgParams",
-                    "ok"
+                    "msgParams"
                   ],
                   "x-apifox-orders": [
                     "bizCode",
@@ -14461,16 +14465,6 @@
             }
           },
           {
-            "name": "token",
-            "in": "header",
-            "description": "登录token",
-            "required": true,
-            "example": "",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
             "name": "lang",
             "in": "header",
             "description": "语言",
@@ -14504,7 +14498,8 @@
                   "validToken"
                 ],
                 "required": [
-                  "newPwd"
+                  "newPwd",
+                  "validToken"
                 ],
                 "x-apifox-ignore-properties": []
               },
@@ -15329,6 +15324,445 @@
           }
         },
         "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-69577861-run"
+      }
+    },
+    "/global/customer.app.CustomerWebApiService.changeEmailMFA": {
+      "post": {
+        "summary": "修改邮箱（MFA）",
+        "x-apifox-folder": "客户基础信息",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "version=0.0.1\nbizType=customer.app.CustomerWebApiService.changeEmailMFA\n登录之后可以访问\n本接口：可自主选择旧凭证验证方式\n更换邮箱（MFA）：只能使用旧邮箱验证",
+        "tags": [
+          "客户基础信息"
+        ],
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "en-US",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "description": "新邮箱",
+                    "maxLength": 50
+                  },
+                  "verifyCodeNew": {
+                    "type": "string",
+                    "description": "新验证码，发送验证码bizType=EMAIL_COMMON_VERIFICATION_CODE"
+                  },
+                  "sendTokenNew": {
+                    "type": "string",
+                    "description": "新验证码发送票据"
+                  },
+                  "type": {
+                    "type": "integer",
+                    "description": "类型：1邮箱，2手机号码",
+                    "format": "int32",
+                    "minimum": 1,
+                    "maximum": 2
+                  },
+                  "verifyCodeOld": {
+                    "type": "string",
+                    "description": "原验证码，与type配合使用，当type=1,发送验证码bizType只能为EMAIL_LOGINED_VERIFICATION_CODE，type=2，bizType=SMS_LOGINED_VERIFICATION_CODE",
+                    "title": ""
+                  },
+                  "sendTokenOld": {
+                    "type": "string",
+                    "description": "原验证码发送票据，与type配合使用，当type=1,发送验证码bizType只能为EMAIL_LOGINED_VERIFICATION_CODE，type=2，bizType=SMS_LOGINED_VERIFICATION_CODE"
+                  },
+                  "googleCode": {
+                    "type": "string",
+                    "description": "谷歌验证码"
+                  }
+                },
+                "x-apifox-refs": {},
+                "x-apifox-orders": [
+                  "email",
+                  "verifyCodeNew",
+                  "sendTokenNew",
+                  "type",
+                  "verifyCodeOld",
+                  "sendTokenOld",
+                  "googleCode"
+                ],
+                "required": [
+                  "verifyCodeNew",
+                  "email",
+                  "sendTokenNew",
+                  "verifyCodeOld",
+                  "sendTokenOld",
+                  "type"
+                ],
+                "x-apifox-ignore-properties": []
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResult",
+                  "x-apifox-overrides": {}
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "msg": "Success",
+                      "fail": false,
+                      "trace": "x-h8hndw-rps6j-bl9q63-7yf0eh5-1679385371",
+                      "code": "0",
+                      "data": null,
+                      "bizCode": "",
+                      "tm": 29515800,
+                      "msgParams": null,
+                      "ok": true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-72004758-run"
+      }
+    },
+    "/global/customer.app.CustomerWebApiService.changeCountry": {
+      "post": {
+        "summary": "修改国家",
+        "x-apifox-folder": "客户基础信息",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "version=0.0.1\nbizType=customer.app.CustomerWebApiService.changeCountry\n登录之后可以访问\n修改成功后，客户修改前所在国家的待审核KYC，全部拒绝",
+        "tags": [
+          "客户基础信息"
+        ],
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "en-US",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "newCountry": {
+                    "type": "string",
+                    "description": "国家code",
+                    "maxLength": 15
+                  }
+                },
+                "x-apifox-refs": {},
+                "x-apifox-orders": [
+                  "newCountry"
+                ],
+                "required": [
+                  "newCountry"
+                ],
+                "x-apifox-ignore-properties": []
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResult",
+                  "x-apifox-overrides": {}
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "msg": "Success",
+                      "fail": false,
+                      "trace": "x-h8hndw-rps6j-bl9q63-7yf0eh5-1679385371",
+                      "code": "0",
+                      "data": null,
+                      "bizCode": "",
+                      "tm": 29515800,
+                      "msgParams": null,
+                      "ok": true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-72034358-run"
+      }
+    },
+    "/global/customer.app.CustomerWebApiService.changePhoneMFA": {
+      "post": {
+        "summary": "修改手机（MFA）",
+        "x-apifox-folder": "客户基础信息",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "version=0.0.1\nbizType=customer.app.CustomerWebApiService.changePhoneMFA\n登录之后可以访问\n本接口：可自主选择旧凭证验证方式\n更换手机（MFA）：只能使用旧手机验证",
+        "tags": [
+          "客户基础信息"
+        ],
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "en-US",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "phoneArea": {
+                    "type": "string",
+                    "description": "手机区号",
+                    "maxLength": 15
+                  },
+                  "phone": {
+                    "type": "string",
+                    "description": "手机",
+                    "maxLength": 50
+                  },
+                  "verifyCodeNew": {
+                    "type": "string",
+                    "description": "新验证码，发送验证码bizType=SMS_COMMON_VERIFICATION_CODE"
+                  },
+                  "sendTokenNew": {
+                    "type": "string",
+                    "description": "新验证码发送票据"
+                  },
+                  "type": {
+                    "type": "integer",
+                    "description": "类型：1邮箱，2手机号码",
+                    "format": "int32",
+                    "minimum": 1,
+                    "maximum": 2
+                  },
+                  "verifyCodeOld": {
+                    "type": "string",
+                    "description": "原验证码，与type配合使用，当type=1,发送验证码bizType只能为EMAIL_LOGINED_VERIFICATION_CODE，type=2，bizType=SMS_LOGINED_VERIFICATION_CODE",
+                    "title": ""
+                  },
+                  "sendTokenOld": {
+                    "type": "string",
+                    "description": "原验证码发送票据，与type配合使用，当type=1,发送验证码bizType只能为EMAIL_LOGINED_VERIFICATION_CODE，type=2，bizType=SMS_LOGINED_VERIFICATION_CODE"
+                  },
+                  "googleCode": {
+                    "type": "string",
+                    "description": "谷歌验证码"
+                  }
+                },
+                "x-apifox-refs": {},
+                "x-apifox-orders": [
+                  "phoneArea",
+                  "phone",
+                  "verifyCodeNew",
+                  "sendTokenNew",
+                  "type",
+                  "verifyCodeOld",
+                  "sendTokenOld",
+                  "googleCode"
+                ],
+                "required": [
+                  "verifyCodeNew",
+                  "phoneArea",
+                  "sendTokenNew",
+                  "verifyCodeOld",
+                  "sendTokenOld",
+                  "type",
+                  "phone"
+                ],
+                "x-apifox-ignore-properties": []
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResult",
+                  "x-apifox-overrides": {}
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "msg": "Success",
+                      "fail": false,
+                      "trace": "x-h8hndw-rps6j-bl9q63-7yf0eh5-1679385371",
+                      "code": "0",
+                      "data": null,
+                      "bizCode": "",
+                      "tm": 29515800,
+                      "msgParams": null,
+                      "ok": true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-72034481-run"
       }
     }
   },
