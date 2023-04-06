@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "交易接口",
-    "description": "交易接口",
+    "description": "",
     "version": "1.0.0"
   },
   "tags": [
@@ -39,7 +39,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{company}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -49,7 +49,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{LoginResult.data.token}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -79,7 +79,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{mock_trace}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -415,7 +415,9 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65051960-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65051960-run",
+        "x-docstype": "TS.Clientapi.Trade",
+        "x-docstitle": "交易接口"
       }
     },
     "/global/tradeapi.app.CfdMMOrderApiService.updateOrder": {
@@ -434,7 +436,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{company}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -444,7 +446,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{LoginResult.data.token}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -474,7 +476,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{mock_trace}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -829,7 +831,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65087793-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65087793-run"
       }
     },
     "/global/tradeapi.app.CfdMMOrderApiService.queryOrderPage": {
@@ -848,7 +850,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{company}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -858,7 +860,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{LoginResult.data.token}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -888,7 +890,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{mock_trace}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -1272,7 +1274,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65096793-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65096793-run"
       }
     },
     "/global/tradeapi.app.CfdMMOrderApiService.queryHistoryCloseOrderList": {
@@ -1291,7 +1293,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{company}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -1301,7 +1303,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{LoginResult.data.token}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -1331,7 +1333,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{mock_trace}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -1671,7 +1673,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65105718-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65105718-run"
       }
     },
     "/global/tradeapi.app.CfdMMOrderApiService.queryTradeRecordPage": {
@@ -1690,7 +1692,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{company}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -1700,7 +1702,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{LoginResult.data.token}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -1730,7 +1732,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{mock_trace}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -2102,7 +2104,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65122678-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65122678-run"
       }
     },
     "/global/tradeapi.app.CfdMMOrderApiService.setCrossLevelNum": {
@@ -2121,7 +2123,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{company}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -2131,7 +2133,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{LoginResult.data.token}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -2161,7 +2163,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{mock_trace}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -2338,7 +2340,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65137998-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65137998-run"
       }
     },
     "/global/tradeapi.app.CfdMMOrderApiService.calculateMarketOrder": {
@@ -2357,7 +2359,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{company}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -2367,7 +2369,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{LoginResult.data.token}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -2397,7 +2399,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{mock_trace}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -2629,7 +2631,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65146106-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65146106-run"
       }
     },
     "/global/tradeapi.app.CfdMMPositionApiService.queryPositionDetail": {
@@ -2648,7 +2650,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{company}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -2658,7 +2660,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{LoginResult.data.token}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -2688,7 +2690,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{mock_trace}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -3062,7 +3064,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65151619-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65151619-run"
       }
     },
     "/global/tradeapi.app.CfdMMPositionApiService.queryPositionPage": {
@@ -3081,7 +3083,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{company}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -3091,7 +3093,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{LoginResult.data.token}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -3121,7 +3123,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{mock_trace}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -4024,7 +4026,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65161090-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65161090-run"
       }
     },
     "/global/tradeapi.app.CfdMMOrderApiService.queryCapitalFlowList": {
@@ -4043,7 +4045,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{company}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -4053,7 +4055,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{LoginResult.data.token}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -4083,7 +4085,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{mock_trace}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -4401,7 +4403,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65184962-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65184962-run"
       }
     },
     "/global/tradeapi.app.StockOrderApiService.placeOrder": {
@@ -4581,7 +4583,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65204886-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65204886-run"
       }
     },
     "/global/tradeapi.app.StockOrderApiService.cancelOrder": {
@@ -4696,7 +4698,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65205358-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65205358-run"
       }
     },
     "/global/tradeapi.app.StockOrderApiService.queryOrderDetail": {
@@ -4872,7 +4874,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65207021-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65207021-run"
       }
     },
     "/global/tradeapi.app.StockOrderApiService.queryOrderPage": {
@@ -5143,7 +5145,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65209713-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65209713-run"
       }
     },
     "/global/tradeapi.app.StockOrderApiService.checkOrder": {
@@ -5339,7 +5341,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65214493-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65214493-run"
       }
     },
     "/global/tradeapi.app.StockOrderApiService.calculateOrder": {
@@ -5499,7 +5501,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65216651-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65216651-run"
       }
     },
     "/global/tradeapi.app.StockOrderApiService.queryDealPage": {
@@ -5787,7 +5789,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65217990-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65217990-run"
       }
     },
     "/global/tradeapi.app.StockOrderApiService.getPositionDealDetailList": {
@@ -5928,7 +5930,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65221706-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65221706-run"
       }
     },
     "/global/tradeapi.app.StockOrderApiService.queryPendingOrderList": {
@@ -6100,7 +6102,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65223150-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65223150-run"
       }
     },
     "/global/tradeapi.app.StockPositionApiService.queryPositionDetail": {
@@ -6119,7 +6121,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{company}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -6129,7 +6131,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{LoginResult.data.token}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -6159,7 +6161,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{mock_trace}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -6470,7 +6472,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65227800-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65227800-run"
       }
     },
     "/global/tradeapi.app.StockPositionApiService.queryPositionPage": {
@@ -6489,7 +6491,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{company}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -6499,7 +6501,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{LoginResult.data.token}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -6529,7 +6531,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{mock_trace}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -6887,7 +6889,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65227840-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65227840-run"
       }
     },
     "/global/tradeapi.app.StockOrderApiService.queryCapitalFlowList": {
@@ -6906,7 +6908,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{company}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -6916,7 +6918,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{LoginResult.data.token}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -6946,7 +6948,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{mock_trace}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -7248,7 +7250,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65227868-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65227868-run"
       }
     },
     "/global/tradeapi.app.StockAccountApiService.queryAccountAssetsInfo": {
@@ -7267,7 +7269,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{company}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -7277,7 +7279,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{LoginResult.data.token}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -7307,7 +7309,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{mock_trace}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -7552,7 +7554,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65230556-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65230556-run"
       }
     },
     "/global/tradeapi.app.CfdWBWOrderApiService.addMarketOrder": {
@@ -7571,7 +7573,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{company}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -7581,7 +7583,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{LoginResult.data.token}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -7611,7 +7613,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{mock_trace}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -7953,7 +7955,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65669842-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65669842-run"
       }
     },
     "/global/tradeapi.app.CfdWBWOrderApiService.updateOrder": {
@@ -7972,7 +7974,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{company}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -7982,7 +7984,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{LoginResult.data.token}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -8012,7 +8014,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{mock_trace}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -8185,7 +8187,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65669843-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65669843-run"
       }
     },
     "/global/tradeapi.app.CfdWBWOrderApiService.queryOrderDetail": {
@@ -8204,7 +8206,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{company}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -8214,7 +8216,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{LoginResult.data.token}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -8244,7 +8246,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{mock_trace}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -8550,7 +8552,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65669844-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65669844-run"
       }
     },
     "/global/tradeapi.app.CfdWBWOrderApiService.queryOrderPage": {
@@ -8569,7 +8571,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{company}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -8579,7 +8581,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{LoginResult.data.token}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -8609,7 +8611,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{mock_trace}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -9007,7 +9009,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65669845-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65669845-run"
       }
     },
     "/global/tradeapi.app.CfdWBWOrderApiService.queryHistoryCloseOrderList": {
@@ -9026,7 +9028,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{company}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -9036,7 +9038,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{LoginResult.data.token}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -9066,7 +9068,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{mock_trace}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -9428,7 +9430,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65669846-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65669846-run"
       }
     },
     "/global/tradeapi.app.CfdWBWOrderApiService.queryTradeRecordPage": {
@@ -9447,7 +9449,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{company}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -9457,7 +9459,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{LoginResult.data.token}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -9487,7 +9489,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{mock_trace}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -9900,7 +9902,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65669847-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65669847-run"
       }
     },
     "/global/tradeapi.app.CfdWBWPositionApiService.updateCrossLevelNum": {
@@ -9919,7 +9921,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{company}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -9929,7 +9931,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{LoginResult.data.token}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -9959,7 +9961,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{mock_trace}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -10150,7 +10152,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65669848-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65669848-run"
       }
     },
     "/global/tradeapi.app.CfdWBWPositionApiService.queryPositionDetail": {
@@ -10169,7 +10171,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{company}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -10179,7 +10181,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{LoginResult.data.token}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -10209,7 +10211,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{mock_trace}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -10608,7 +10610,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65669850-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65669850-run"
       }
     },
     "/global/tradeapi.app.CfdWBWPositionApiService.queryPositionPage": {
@@ -10627,7 +10629,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{company}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -10637,7 +10639,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{LoginResult.data.token}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -10667,7 +10669,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{mock_trace}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -11595,7 +11597,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65669851-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65669851-run"
       }
     },
     "/global/tradeapi.app.CfdWBWOrderApiService.queryCapitalFlowList": {
@@ -11614,7 +11616,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{company}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -11624,7 +11626,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{LoginResult.data.token}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -11654,7 +11656,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{mock_trace}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -12472,7 +12474,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65669852-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65669852-run"
       }
     },
     "/global/tradeapi.app.CfdWBWPositionApiService.updateOccupyTheMargin": {
@@ -12491,7 +12493,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{company}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -12501,7 +12503,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{LoginResult.data.token}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -12531,7 +12533,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{mock_trace}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -12723,7 +12725,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65890324-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65890324-run"
       }
     },
     "/global/tradeapi.app.CrossLeverOrderApiService.addOrder": {
@@ -12742,7 +12744,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{company}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -12752,7 +12754,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{LoginResult.data.token}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -12782,7 +12784,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{mock_trace}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -13097,7 +13099,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65896896-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65896896-run"
       }
     },
     "/global/tradeapi.app.CrossLeverOrderApiService.updateOrder": {
@@ -13116,7 +13118,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{company}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -13126,7 +13128,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{LoginResult.data.token}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -13156,7 +13158,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{mock_trace}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -13332,7 +13334,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65896897-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65896897-run"
       }
     },
     "/global/tradeapi.app.CrossLeverOrderApiService.queryTradeRecordPage": {
@@ -13351,7 +13353,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{company}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -13361,7 +13363,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{LoginResult.data.token}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -13391,7 +13393,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{mock_trace}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -13804,7 +13806,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65896901-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65896901-run"
       }
     },
     "/global/tradeapi.app.CrossLeverOrderApiService.previewOrder": {
@@ -13823,7 +13825,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{company}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -13833,7 +13835,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{LoginResult.data.token}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -13863,7 +13865,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{mock_trace}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -14280,7 +14282,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65896904-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65896904-run"
       }
     },
     "/global/tradeapi.app.CrossLeverOrderApiService.queryCapitalFlowList": {
@@ -14299,7 +14301,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{company}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -14309,7 +14311,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{LoginResult.data.token}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -14339,7 +14341,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{mock_trace}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -15157,7 +15159,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65896906-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65896906-run"
       }
     },
     "/global/tradeapi.app.CrossLeverOrderApiService.addRepaymentOrder": {
@@ -15176,7 +15178,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{company}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -15186,7 +15188,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{LoginResult.data.token}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -15216,7 +15218,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{mock_trace}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -15633,7 +15635,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65953175-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65953175-run"
       }
     },
     "/global/tradeapi.app.CfdMMOrderApiService.updatePboOrder": {
@@ -15652,7 +15654,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{company}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -15662,7 +15664,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{LoginResult.data.token}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -15692,7 +15694,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{mock_trace}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -15717,28 +15719,33 @@
                   "tradeType": {
                     "type": "integer",
                     "title": "玩法ID",
-                    "description": "本玩法下应填1",
+                    "description": "玩法ID，本玩法下应填1",
                     "format": "long"
                   },
                   "accountId": {
                     "type": "integer",
                     "title": "账户ID",
-                    "description": "非必填。如填，已该账户进行交易",
+                    "description": "账户ID，非必填。如填，已该账户进行交易",
                     "format": "long"
                   },
                   "pboId": {
                     "type": "string",
-                    "title": "预埋单ID"
+                    "title": "预埋单ID",
+                    "description": "预埋单ID"
                   },
                   "stopLoss": {
-                    "type": "string",
+                    "type": "number",
                     "title": "止损单价",
-                    "description": "需乘以10的`产品报价小数位`次方，处理为整数传入。"
+                    "description": "止损单价，需乘以10的`产品报价小数位`次方，处理为整数传入。"
                   },
                   "takeProfit": {
-                    "type": "string",
+                    "type": "number",
                     "title": "止盈单价",
-                    "description": "需乘以10的`产品报价小数位`次方，处理为整数传入。"
+                    "description": "止盈单价，需乘以10的`产品报价小数位`次方，处理为整数传入。"
+                  },
+                  "requestNum": {
+                    "type": "number",
+                    "description": "请求数量、额度"
                   }
                 },
                 "x-apifox-orders": [
@@ -15746,7 +15753,8 @@
                   "accountId",
                   "pboId",
                   "stopLoss",
-                  "takeProfit"
+                  "takeProfit",
+                  "requestNum"
                 ],
                 "required": [
                   "tradeType",
@@ -15951,7 +15959,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65956752-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65956752-run"
       }
     },
     "/global/tradeapi.app.CfdWBWOrderApiService.updatePboOrder": {
@@ -15970,7 +15978,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{company}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -15980,7 +15988,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{LoginResult.data.token}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -16010,7 +16018,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{mock_trace}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -16035,28 +16043,33 @@
                   "tradeType": {
                     "type": "integer",
                     "title": "玩法ID",
-                    "description": "本玩法下应填2",
+                    "description": "玩法ID，本玩法下应填2",
                     "format": "long"
                   },
                   "accountId": {
                     "type": "integer",
                     "title": "账户ID",
-                    "description": "非必填。如填，已该账户进行交易",
+                    "description": "账户ID，非必填。如填，已该账户进行交易",
                     "format": "long"
                   },
                   "pboId": {
                     "type": "string",
-                    "title": "预埋单ID"
+                    "title": "预埋单ID",
+                    "description": "预埋单ID"
                   },
                   "stopLoss": {
-                    "type": "string",
+                    "type": "number",
                     "title": "止损单价",
-                    "description": "需乘以10的`产品报价小数位`次方，处理为整数传入。"
+                    "description": "止损单价，需乘以10的`产品报价小数位`次方，处理为整数传入。"
                   },
                   "takeProfit": {
-                    "type": "string",
+                    "type": "number",
                     "title": "止盈单价",
-                    "description": "需乘以10的`产品报价小数位`次方，处理为整数传入。"
+                    "description": "止盈单价，需乘以10的`产品报价小数位`次方，处理为整数传入。"
+                  },
+                  "requestNum": {
+                    "type": "number",
+                    "description": "请求数量、额度"
                   }
                 },
                 "x-apifox-orders": [
@@ -16064,7 +16077,8 @@
                   "accountId",
                   "pboId",
                   "stopLoss",
-                  "takeProfit"
+                  "takeProfit",
+                  "requestNum"
                 ],
                 "required": [
                   "tradeType",
@@ -16269,7 +16283,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65957110-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65957110-run"
       }
     },
     "/global/tradeapi.app.CfdWBWOrderApiService.queryPBOOrderPage": {
@@ -16288,7 +16302,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{company}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -16298,7 +16312,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{LoginResult.data.token}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -16328,7 +16342,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{mock_trace}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -16630,7 +16644,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65957261-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65957261-run"
       }
     },
     "/global/tradeapi.app.CfdMMOrderApiService.queryPBOOrderPage2": {
@@ -16649,7 +16663,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{company}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -16659,7 +16673,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{LoginResult.data.token}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -16689,7 +16703,7 @@
             "in": "header",
             "description": "",
             "required": false,
-            "example": "{{mock_trace}}",
+            "example": "",
             "schema": {
               "type": "string"
             }
@@ -16991,7 +17005,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65971010-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65971010-run"
       }
     },
     "/global/tradeapi.app.SpotOrderApiService.queryCapitalFlowList": {
@@ -17001,7 +17015,6 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "说明：分页查询账户资金流水\n登录后方可访问\n\n```\ngroup=tradeApi\nversion=0.0.1\nbizType=tradeapi.app.SpotOrderApiService.queryCapitalFlowList\n```",
-        "operationId": "queryWaterByPage",
         "tags": [
           "现货交易"
         ],
@@ -17011,7 +17024,8 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/SpotQueryWaterPageDto"
-              }
+              },
+              "example": ""
             }
           }
         },
@@ -17027,7 +17041,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-67257028-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-67257028-run"
       }
     },
     "/global/tradeapi.app.SpotOrderApiService.addOrder": {
@@ -17037,7 +17051,6 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "说明：现货玩法下单\n登录后方可访问\n\n```\ngroup=tradeApi\nversion=0.0.1\nbizType=tradeapi.app.SpotOrderApiService.addOrder\n```",
-        "operationId": "addOrder",
         "tags": [
           "现货交易"
         ],
@@ -17047,7 +17060,8 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/SpotOrderAddDto"
-              }
+              },
+              "example": ""
             }
           }
         },
@@ -17063,7 +17077,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-67257029-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-67257029-run"
       }
     },
     "/global/tradeapi.app.SpotOrderApiService.queryOrderPage": {
@@ -17073,7 +17087,6 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "说明：查看订单列表\n\n```\ngroup=tradeApi\nversion=0.0.1\nbizType=tradeapi.app.SpotOrderApiService.queryOrderPage\n```",
-        "operationId": "queryOrderPage",
         "tags": [
           "现货交易"
         ],
@@ -17083,7 +17096,8 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/SpotQueryOrderPageDto"
-              }
+              },
+              "example": ""
             }
           }
         },
@@ -17099,7 +17113,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-67257030-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-67257030-run"
       }
     },
     "/global/tradeapi.app.SpotOrderApiService.queryOrderDetail": {
@@ -17109,7 +17123,6 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "说明：现货玩法查看订单详情\n登录后方可访问\n\n```\ngroup=tradeApi\nversion=0.0.1\nbizType=tradeapi.app.SpotOrderApiService.queryOrderDetail\n```",
-        "operationId": "queryOrder",
         "tags": [
           "现货交易"
         ],
@@ -17119,7 +17132,8 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/SpotQueryOrderDto"
-              }
+              },
+              "example": ""
             }
           }
         },
@@ -17135,7 +17149,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-67257031-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-67257031-run"
       }
     },
     "/global/tradeapi.app.SpotOrderApiService.closeTradePboOrder": {
@@ -17145,7 +17159,6 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "说明：现货玩法取消限价单\n登录后方可访问\n\n```\ngroup=tradeApi\nversion=0.0.1\nbizType=tradeapi.app.SpotOrderApiService.closeTradePboOrder\n```",
-        "operationId": "cancelPendingOrder",
         "tags": [
           "现货交易"
         ],
@@ -17155,7 +17168,8 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/SpotOrderUpdateDto"
-              }
+              },
+              "example": ""
             }
           }
         },
@@ -17171,7 +17185,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-67257032-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-67257032-run"
       }
     },
     "/global/tradeapi.app.SpotOrderApiService.queryTradeRecordPage": {
@@ -17181,7 +17195,6 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "说明：查询成交记录列表\n\n```\ngroup=tradeApi\nversion=0.0.1\nbizType=tradeapi.app.SpotOrderApiService.queryTradeRecordPage\n```",
-        "operationId": "queryTradeRecordPage",
         "tags": [
           "现货交易"
         ],
@@ -17191,7 +17204,8 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/SpotQueryOrderRecordPageDto"
-              }
+              },
+              "example": ""
             }
           }
         },
@@ -17207,7 +17221,7 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-67257033-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-67257033-run"
       }
     }
   },
@@ -17459,37 +17473,6 @@
       "SpotQueryOrderRecordPageDto": {
         "type": "object",
         "properties": {
-          "companyId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "公司ID"
-          },
-          "customerId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "客户ID"
-          },
-          "customerNo": {
-            "type": "string",
-            "description": "客户编号"
-          },
-          "accountId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "账户ID"
-          },
-          "trace": {
-            "type": "string",
-            "description": "跟踪码"
-          },
-          "ip": {
-            "type": "string",
-            "description": "操作ip"
-          },
-          "lang": {
-            "type": "string",
-            "description": "请求语言"
-          },
           "username": {
             "type": "string"
           },
@@ -17540,13 +17523,6 @@
           }
         },
         "x-apifox-orders": [
-          "companyId",
-          "customerId",
-          "customerNo",
-          "accountId",
-          "trace",
-          "ip",
-          "lang",
           "username",
           "size",
           "current",
@@ -17567,45 +17543,11 @@
       "SpotOrderUpdateDto": {
         "type": "object",
         "required": [
-          "companyId",
           "customerGroupId",
-          "customerId",
           "orderId",
-          "trace",
           "tradeType"
         ],
         "properties": {
-          "companyId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "公司ID"
-          },
-          "customerId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "客户Id"
-          },
-          "customerNo": {
-            "type": "string",
-            "description": "客户编号"
-          },
-          "accountId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "账户ID"
-          },
-          "trace": {
-            "type": "string",
-            "description": "跟踪码"
-          },
-          "ip": {
-            "type": "string",
-            "description": "操作ip"
-          },
-          "lang": {
-            "type": "string",
-            "description": "请求语言"
-          },
           "tradeType": {
             "type": "integer",
             "format": "int64",
@@ -17620,34 +17562,14 @@
             "type": "integer",
             "format": "int64"
           },
-          "positionId": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "stopLoss": {
-            "type": "number"
-          },
-          "takeProfit": {
-            "type": "number"
-          },
           "remark": {
             "type": "string"
           }
         },
         "x-apifox-orders": [
-          "companyId",
-          "customerId",
-          "customerNo",
-          "accountId",
-          "trace",
-          "ip",
-          "lang",
           "tradeType",
           "customerGroupId",
           "orderId",
-          "positionId",
-          "stopLoss",
-          "takeProfit",
           "remark"
         ],
         "x-apifox-folder": "Schemas",
@@ -17708,40 +17630,6 @@
       "SpotQueryOrderVo": {
         "type": "object",
         "properties": {
-          "companyId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "公司ID"
-          },
-          "customerId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "客户ID"
-          },
-          "customerNo": {
-            "type": "string",
-            "description": "客户编号"
-          },
-          "accountId": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "trace": {
-            "type": "string",
-            "description": "跟踪码"
-          },
-          "ip": {
-            "type": "string",
-            "description": "操作ip"
-          },
-          "lang": {
-            "type": "string",
-            "description": "请求语言"
-          },
-          "orderId": {
-            "type": "integer",
-            "format": "int64"
-          },
           "busiiType": {
             "type": "integer",
             "format": "int32"
@@ -17841,14 +17729,6 @@
           }
         },
         "x-apifox-orders": [
-          "companyId",
-          "customerId",
-          "customerNo",
-          "accountId",
-          "trace",
-          "ip",
-          "lang",
-          "orderId",
           "busiiType",
           "direction",
           "status",
@@ -17881,70 +17761,13 @@
       },
       "SpotQueryOrderDto": {
         "type": "object",
-        "required": [
-          "companyId",
-          "customerGroupId",
-          "customerId",
-          "trace",
-          "tradeType"
-        ],
         "properties": {
-          "companyId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "公司ID"
-          },
-          "customerId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "客户Id"
-          },
-          "customerNo": {
-            "type": "string",
-            "description": "客户编号"
-          },
-          "accountId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "账户ID"
-          },
-          "trace": {
-            "type": "string",
-            "description": "跟踪码"
-          },
-          "ip": {
-            "type": "string",
-            "description": "操作ip"
-          },
-          "lang": {
-            "type": "string",
-            "description": "请求语言"
-          },
-          "tradeType": {
-            "type": "integer",
-            "format": "int64",
-            "minimum": 1
-          },
-          "customerGroupId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "客户组Id"
-          },
           "orderId": {
             "type": "integer",
             "format": "int64"
           }
         },
         "x-apifox-orders": [
-          "companyId",
-          "customerId",
-          "customerNo",
-          "accountId",
-          "trace",
-          "ip",
-          "lang",
-          "tradeType",
-          "customerGroupId",
           "orderId"
         ],
         "x-apifox-folder": "Schemas",
@@ -18041,44 +17864,10 @@
       "SpotQueryOrderPageDto": {
         "type": "object",
         "required": [
-          "companyId",
           "customerGroupId",
-          "customerId",
-          "trace",
           "tradeType"
         ],
         "properties": {
-          "companyId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "公司ID"
-          },
-          "customerId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "客户Id"
-          },
-          "customerNo": {
-            "type": "string",
-            "description": "客户编号"
-          },
-          "accountId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "账户ID"
-          },
-          "trace": {
-            "type": "string",
-            "description": "跟踪码"
-          },
-          "ip": {
-            "type": "string",
-            "description": "操作ip"
-          },
-          "lang": {
-            "type": "string",
-            "description": "请求语言"
-          },
           "tradeType": {
             "type": "integer",
             "format": "int64",
@@ -18130,13 +17919,6 @@
           }
         },
         "x-apifox-orders": [
-          "companyId",
-          "customerId",
-          "customerNo",
-          "accountId",
-          "trace",
-          "ip",
-          "lang",
           "tradeType",
           "customerGroupId",
           "size",
@@ -18212,10 +17994,6 @@
             "type": "integer",
             "format": "int64"
           },
-          "positionId": {
-            "type": "integer",
-            "format": "int64"
-          },
           "tradeVolume": {
             "type": "string"
           },
@@ -18227,10 +18005,6 @@
             "format": "int32"
           },
           "direction": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "openOrClose": {
             "type": "integer",
             "format": "int32"
           },
@@ -18264,12 +18038,10 @@
         },
         "x-apifox-orders": [
           "orderId",
-          "positionId",
           "tradeVolume",
           "executePrice",
           "openDirection",
           "direction",
-          "openOrClose",
           "symbolName",
           "symbolId",
           "digits",
@@ -18288,66 +18060,17 @@
           "accountCurrency",
           "accountDigits",
           "bizType",
-          "companyId",
-          "customerGroupId",
-          "customerId",
-          "digits",
           "direction",
           "requestPrice",
           "requestTime",
           "symbolId",
-          "trace",
           "tradeType"
         ],
         "properties": {
-          "companyId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "公司ID"
-          },
-          "customerId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "客户Id"
-          },
-          "customerNo": {
-            "type": "string",
-            "description": "客户编号"
-          },
-          "accountId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "账户ID"
-          },
-          "trace": {
-            "type": "string",
-            "description": "跟踪码"
-          },
-          "ip": {
-            "type": "string",
-            "description": "操作ip"
-          },
-          "lang": {
-            "type": "string",
-            "description": "请求语言"
-          },
           "tradeType": {
             "type": "integer",
             "format": "int64",
             "minimum": 1
-          },
-          "customerGroupId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "客户组Id"
-          },
-          "orderId": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "pboOrderNum": {
-            "type": "integer",
-            "format": "int64"
           },
           "bizType": {
             "type": "integer",
@@ -18361,17 +18084,7 @@
             "type": "integer",
             "format": "int64"
           },
-          "digits": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "amount": {
-            "type": "number"
-          },
-          "lockAmount": {
-            "type": "number"
-          },
-          "lockCurrency": {
+          "accountCurrency": {
             "type": "string"
           },
           "requestTime": {
@@ -18381,90 +18094,28 @@
           "requestPrice": {
             "type": "number"
           },
-          "executePrice": {
-            "type": "number"
-          },
           "requestNum": {
             "type": "number"
-          },
-          "remark": {
-            "type": "string"
-          },
-          "accountCurrency": {
-            "type": "string"
           },
           "accountDigits": {
             "type": "integer",
             "format": "int32"
           },
-          "source": {
+          "remark": {
             "type": "string"
-          },
-          "appointPrice": {
-            "type": "boolean"
-          },
-          "sendOrder": {
-            "type": "boolean"
-          },
-          "sendOrderId": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "seq": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "lockToken": {
-            "type": "string"
-          },
-          "assetsId": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "dealId": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "volumeDigits": {
-            "type": "integer",
-            "format": "int32"
           }
         },
         "x-apifox-orders": [
-          "companyId",
-          "customerId",
-          "customerNo",
-          "accountId",
-          "trace",
-          "ip",
-          "lang",
           "tradeType",
-          "customerGroupId",
-          "orderId",
-          "pboOrderNum",
           "bizType",
           "direction",
           "symbolId",
-          "digits",
-          "amount",
-          "lockAmount",
-          "lockCurrency",
+          "accountCurrency",
           "requestTime",
           "requestPrice",
-          "executePrice",
           "requestNum",
-          "remark",
-          "accountCurrency",
           "accountDigits",
-          "source",
-          "appointPrice",
-          "sendOrder",
-          "sendOrderId",
-          "seq",
-          "lockToken",
-          "assetsId",
-          "dealId",
-          "volumeDigits"
+          "remark"
         ],
         "x-apifox-folder": "Schemas",
         "x-apifox-ignore-properties": []
@@ -18664,48 +18315,15 @@
       "SpotQueryWaterPageDto": {
         "type": "object",
         "required": [
-          "companyId",
           "customerGroupId",
-          "customerId",
-          "trace",
           "tradeType"
         ],
         "properties": {
-          "companyId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "公司ID"
-          },
-          "customerId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "客户Id"
-          },
-          "customerNo": {
-            "type": "string",
-            "description": "客户编号"
-          },
-          "accountId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "账户ID"
-          },
-          "trace": {
-            "type": "string",
-            "description": "跟踪码"
-          },
-          "ip": {
-            "type": "string",
-            "description": "操作ip"
-          },
-          "lang": {
-            "type": "string",
-            "description": "请求语言"
-          },
           "tradeType": {
             "type": "integer",
             "format": "int64",
-            "minimum": 1
+            "minimum": 1,
+            "description": "玩法类型"
           },
           "customerGroupId": {
             "type": "integer",
@@ -18732,10 +18350,6 @@
             "type": "integer",
             "format": "int32"
           },
-          "businessType1": {
-            "type": "integer",
-            "format": "int32"
-          },
           "status": {
             "type": "integer",
             "format": "int32"
@@ -18757,13 +18371,6 @@
           }
         },
         "x-apifox-orders": [
-          "companyId",
-          "customerId",
-          "customerNo",
-          "accountId",
-          "trace",
-          "ip",
-          "lang",
           "tradeType",
           "customerGroupId",
           "size",
@@ -18771,7 +18378,6 @@
           "sortFieldName",
           "sortType",
           "businessType",
-          "businessType1",
           "status",
           "customerNoStr",
           "startTime",
@@ -18782,5 +18388,6 @@
         "x-apifox-ignore-properties": []
       }
     }
-  }
+  },
+  "servers": []
 }
