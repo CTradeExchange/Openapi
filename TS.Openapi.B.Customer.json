@@ -7,19 +7,19 @@
   },
   "tags": [
     {
-      "name": "客户接口"
+      "name": "客户组"
     }
   ],
   "paths": {
     "/global/customer.admin.CustomerGroupAdminApiService.groupList": {
       "post": {
         "summary": "查询客户组列表",
-        "x-apifox-folder": "客户接口",
+        "x-apifox-folder": "客户组",
         "x-apifox-status": "developing",
         "deprecated": false,
         "description": "version=0.0.1\nbizType=customer.admin.CustomerGroupAdminApiService.groupList\nB端鉴权之后可访问",
         "tags": [
-          "客户接口"
+          "客户组"
         ],
         "parameters": [],
         "requestBody": {
