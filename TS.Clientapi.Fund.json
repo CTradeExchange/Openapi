@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "资金接口",
-    "description": "资金接口",
+    "description": "",
     "version": "1.0.0"
   },
   "tags": [
@@ -27,7 +27,6 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "bizType=config.app.DepositAppDubboService.applyRechargeBindAddress\n申请绑直充支付钱包地址\n登录后方可访问",
-
         "tags": [
           "客户存款接口"
         ],
@@ -36,7 +35,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CustomerRechargeWalletAddrReqDto"
+                "$ref": "#/components/schemas/CustomerRechargeWalletAddrReqDto",
+                "x-apifox-overrides": {}
               }
             }
           }
@@ -53,7 +53,9 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-67019451-run"
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-67019451-run",
+        "x-docstype": "TS.Clientapi.Fund",
+        "x-docstitle": "资金接口"
       }
     },
     "/global/fund.app.DepositAppDubboService.capitalTransferRecord": {
@@ -63,7 +65,6 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "bizType=config.app.DepositAppDubboService.capitalTransferRecord\n查询资金划转记录\n登录后方可访问",
-
         "tags": [
           "客户存款接口"
         ],
@@ -83,7 +84,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BaseResult"
+                  "$ref": "#/components/schemas/BaseResultCapitalTransferRecordResDto"
                 }
               }
             }
@@ -99,7 +100,6 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "bizType=config.app.DepositAppDubboService.createDepositProposal\n创建存款提案\n登录后方可访问",
-
         "tags": [
           "客户存款接口"
         ],
@@ -135,7 +135,6 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "bizType=config.app.DepositAppDubboService.getBindRechargeAddress\n查询直充支付钱包地址\n主要针对OPS通道\n登录后方可访问",
-
         "tags": [
           "客户存款接口"
         ],
@@ -144,7 +143,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CustomerRechargeWalletAddrReqDto"
+                "$ref": "#/components/schemas/CustomerRechargeWalletAddrReqDto",
+                "x-apifox-overrides": {}
               }
             }
           }
@@ -171,7 +171,6 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "bizType=config.app.DepositAppDubboService.getDepositAccountCurrencyList\n获取支付通道支持的账户币种信息列表\n登录后方可访问",
-
         "tags": [
           "客户存款接口"
         ],
@@ -207,7 +206,6 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "bizType=config.app.DepositAppDubboService.capitalTransfer\n不同玩法之间相同资产资金划转\n登录后方可访问",
-
         "tags": [
           "客户存款接口"
         ],
@@ -227,7 +225,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BaseResult"
+                  "$ref": "#/components/schemas/BaseResultAmountTransferVo"
                 }
               }
             }
@@ -243,7 +241,6 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "bizType=config.app.DepositAppDubboService.getDepositCoinList\n获取直充支付通道支持币种信息\n登录后方可访问",
-
         "tags": [
           "客户存款接口"
         ],
@@ -279,7 +276,6 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "bizType=config.app.DepositAppDubboService.capitalTransferSupportDiffCurr\n资产资金划转\n登录后方可访问",
-
         "tags": [
           "客户存款接口"
         ],
@@ -299,7 +295,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BaseResult"
+                  "$ref": "#/components/schemas/BaseResultAmountTransferVo"
                 }
               }
             }
@@ -315,7 +311,6 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "bizType=config.app.DepositAppDubboService.getDepositAccountCurrencyListV2\n查询支付通道支持的充值账户币种和链信息\n登录后方可访问",
-
         "tags": [
           "客户存款接口"
         ],
@@ -351,7 +346,6 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "bizType=config.app.DepositAppDubboService.getDepositCoinList\n获取客户支持的存款币种列表\n登录后方可访问",
-
         "tags": [
           "客户存款接口"
         ],
@@ -387,11 +381,61 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "bizType=config.app.DepositAppDubboService.getDepositExchangeRate\n获取存款货币对汇率\n登录后方可访问",
-
         "tags": [
           "客户存款接口"
         ],
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "version",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "zh-CN",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -423,7 +467,6 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "bizType=config.app.DepositAppDubboService.getPayChannels\n获取支付通道信息\nversion=0.0.1时请求参数中accountCurrency和rechargeType会作为查询过滤条件\nversion=0.0.2时请求参数中accountCurrency会作为查询过滤条件\n登录后方可访问",
-
         "tags": [
           "客户存款接口"
         ],
@@ -459,7 +502,6 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "bizType=config.app.DepositAppDubboService.getPayChannelsV2\n获取支付通道信息不过滤账户币种和充值方式\naccountCurrency和rechargeType不会作查询过滤条件\n登录后方可访问",
-
         "tags": [
           "客户存款接口"
         ],
@@ -495,7 +537,6 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "bizType=config.app.DepositAppDubboService.getPayChannelsV3\n获取支付通道信息过滤账户币种和链名称\n登录后方可访问",
-
         "tags": [
           "客户存款接口"
         ],
@@ -531,7 +572,6 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "bizType=config.app.DepositAppDubboService.getPayStatus\n查询加密货币支付状态\n登录后方可访问",
-
         "tags": [
           "客户存款接口"
         ],
@@ -567,7 +607,6 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "bizType=config.app.DepositAppDubboService.judgeIsAlreadyDeposit\n判断用户是否已入金\n登录后方可访问",
-
         "tags": [
           "客户存款接口"
         ],
@@ -576,7 +615,10 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/BaseDto"
+                "type": "object",
+                "properties": {},
+                "x-apifox-orders": [],
+                "x-apifox-ignore-properties": []
               }
             }
           }
@@ -603,7 +645,6 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "bizType=config.app.DepositAppDubboService.manualLoan\n手动借款\n登录后方可访问",
-
         "tags": [
           "客户存款接口"
         ],
@@ -639,7 +680,6 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "bizType=config.app.DepositAppDubboService.manualRepayment\n手动还款\n登录后方可访问",
-
         "tags": [
           "客户存款接口"
         ],
@@ -675,7 +715,6 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "bizType=config.app.DepositAppDubboService.queryDepositProposal\n查询存款提案\n登录后方可访问",
-
         "tags": [
           "客户存款接口"
         ],
@@ -711,7 +750,6 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "bizType=config.app.DepositAppDubboService.queryPayChannelType\n查询三方支付通道的支付类型\n登录后方可访问",
-
         "tags": [
           "客户存款接口"
         ],
@@ -720,7 +758,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateCustomerDepositReqDto"
+                "$ref": "#/components/schemas/QueryPayChannelTypeDto"
               }
             }
           }
@@ -747,7 +785,6 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "bizType=config.app.CustomerProposalQueryService.isHaveUnCompleteProposal\n查询客户是否有未完成的提案\n登录后方可访问",
-
         "tags": [
           "提案查询"
         ],
@@ -756,7 +793,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/BaseDto"
+                "$ref": "#/components/schemas/FundBaseDto",
+                "x-apifox-overrides": {}
               }
             }
           }
@@ -773,7 +811,9 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-67019471-run"
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-67019471-run",
+        "x-docstype": "TS.Clientapi.Fund",
+        "x-docstitle": "资金接口"
       }
     },
     "/global/fund.app.CustomerProposalQueryService.queryDepositAdjustPageList": {
@@ -783,7 +823,6 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "bizType=config.app.CustomerProposalQueryService.queryDepositAdjustPageList\n查询客户额度调整提案分页数据\n登录后方可访问",
-
         "tags": [
           "提案查询"
         ],
@@ -819,7 +858,6 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "bizType=config.app.CustomerProposalQueryService.queryDepositPageList\n查询客户取款提案分页数据\n登录后方可访问",
-
         "tags": [
           "提案查询"
         ],
@@ -855,7 +893,6 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "bizType=config.app.CustomerProposalQueryService.queryWithdrawPageList\n查询客户取款调整提案分页数据\n登录后方可访问",
-
         "tags": [
           "提案查询"
         ],
@@ -891,16 +928,67 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "bizType=config.app.FundExchangeRateQueryService.getExchangeRateList\n批量查询货币对的存取款汇率\n游客可访问",
-
         "tags": [
           "汇率查询"
         ],
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "version",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "zh-CN",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/FundExchangeRateBatchQueryDto"
+                "$ref": "#/components/schemas/FundExchangeRateBatchQueryDto",
+                "x-apifox-overrides": {}
               }
             }
           }
@@ -917,7 +1005,9 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-67019480-run"
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-67019480-run",
+        "x-docstype": "TS.Clientapi.Fund",
+        "x-docstitle": "资金接口"
       }
     },
     "/global/fund.app.WithdrawAppDubboService.computeWithdrawFee": {
@@ -927,7 +1017,6 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "bizType=fund.app.WithdrawAppDubboService.computeWithdrawFee\n获取取款(提现/提币)手续费\n登录后方可访问",
-
         "tags": [
           "客户取款接口"
         ],
@@ -936,7 +1025,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ComputeWithdrawReqDto"
+                "$ref": "#/components/schemas/ComputeWithdrawReqDto",
+                "x-apifox-overrides": {}
               }
             }
           }
@@ -953,7 +1043,9 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-67019499-run"
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-67019499-run",
+        "x-docstype": "TS.Clientapi.Fund",
+        "x-docstitle": "资金接口"
       }
     },
     "/global/fund.app.WithdrawAppDubboService.createWithdrawProposal": {
@@ -963,7 +1055,6 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "bizType=fund.app.WithdrawAppDubboService.createWithdrawProposal\n创建取款(提现/提币)提案\n登录后方可访问",
-
         "tags": [
           "客户取款接口"
         ],
@@ -999,7 +1090,6 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "bizType=fund.app.WithdrawAppDubboService.getAllWithdrawCurrencyList\n获取所有出金币种列表\n登录后方可访问",
-
         "tags": [
           "客户取款接口"
         ],
@@ -1035,7 +1125,6 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "bizType=fund.app.WithdrawAppDubboService.getAccountMarginRate\n获取开仓保证金总额/存款总额比例\n登录后方可访问",
-
         "tags": [
           "客户取款接口"
         ],
@@ -1044,7 +1133,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ComputeWithdrawReqDto"
+                "$ref": "#/components/schemas/ComputeWithdrawReqDto",
+                "x-apifox-overrides": {}
               }
             }
           }
@@ -1071,7 +1161,6 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "bizType=fund.app.WithdrawAppDubboService.getCoinWithdrawCurrencyList\n获取客户钱包类出金币种链地址列表\n登录后方可访问",
-
         "tags": [
           "客户取款接口"
         ],
@@ -1107,7 +1196,6 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "bizType=fund.app.WithdrawAppDubboService.getWithdrawAccountCurrencyList\n获取取款账户币种列表\n登录后方可访问",
-
         "tags": [
           "客户取款接口"
         ],
@@ -1143,7 +1231,6 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "bizType=fund.app.WithdrawAppDubboService.getWithdrawAmountLimitInfo\n获取取款额度限制信息\n汇率转换后的结果\n登录后方可访问",
-
         "tags": [
           "客户取款接口"
         ],
@@ -1179,7 +1266,6 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "bizType=fund.app.WithdrawAppDubboService.getWithdrawCurrencyList\n获取取款币种列表\n登录后方可访问",
-
         "tags": [
           "客户取款接口"
         ],
@@ -1215,7 +1301,6 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "bizType=fund.app.WithdrawAppDubboService.getWithdrawExchangeRate\n获取取款货币对汇率\n登录后方可访问",
-
         "tags": [
           "客户取款接口"
         ],
@@ -1251,7 +1336,6 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "bizType=fund.app.WithdrawAppDubboService.getWithdrawMethodList\n获取取款方式\n登录后方可访问",
-
         "tags": [
           "客户取款接口"
         ],
@@ -1287,7 +1371,6 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "bizType=fund.app.WithdrawAppDubboService.getWithdrawTimesIn24Hour\n获取取款方式\n登录后方可访问",
-
         "tags": [
           "客户取款接口"
         ],
@@ -1296,7 +1379,8 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ComputeWithdrawReqDto"
+                "$ref": "#/components/schemas/ComputeWithdrawReqDto",
+                "x-apifox-overrides": {}
               }
             }
           }
@@ -1323,7 +1407,6 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "bizType=fund.app.WithdrawAppDubboService.queryPayWithdrawBankList\n查询第三方支付取款银行列表\n登录后方可访问",
-
         "tags": [
           "客户取款接口"
         ],
@@ -1332,7 +1415,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateCustomerWithdrawReqDto"
+                "$ref": "#/components/schemas/QueryWithdrawBankReqDto"
               }
             }
           }
@@ -1359,7 +1442,6 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "bizType=fund.app.WithdrawAppDubboService.queryWithdrawLimitConfig\n查询取款限制配置\n登录后方可访问",
-
         "tags": [
           "客户取款接口"
         ],
@@ -1395,7 +1477,6 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "bizType=fund.app.WithdrawAppDubboService.withdrawCurrencyList\n查询取款货币列表\n登录后方可访问",
-
         "tags": [
           "客户取款接口"
         ],
@@ -1423,10 +1504,877 @@
         },
         "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-67019512-run"
       }
+    },
+    "/global/fund.app.WithdrawAppDubboService.getCustomerGroupWithdrawMethodList": {
+      "post": {
+        "summary": "获取客户组取款方式",
+        "x-apifox-folder": "客户取款接口",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "bizType=fund.app.WithdrawAppDubboService.getCustomerGroupWithdrawMethodList\n获取客户组取款方式\n登录后方可访问",
+        "tags": [
+          "客户取款接口"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CustGroupWithdrawMethodQueryReqDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResultListWithdrawMethodQueryDto"
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-75099804-run"
+      }
+    },
+    "/global/fund.app.WithdrawAppDubboService.queryCustomerGroupWithdrawRiskConfig": {
+      "post": {
+        "summary": "获取客户组取款风控配置",
+        "x-apifox-folder": "客户取款接口",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "bizType=fund.app.WithdrawAppDubboService.queryCustomerGroupWithdrawRiskConfig\n获取客户组取款风控配置\n登录后方可访问",
+        "tags": [
+          "客户取款接口"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QueryWithdrawRiskConfigReqDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResultWithdrawRiskConfigDto"
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-75101968-run"
+      }
+    },
+    "/global/fund.app.WithdrawAppDubboService.checkWithdrawRiskLimitConfig": {
+      "post": {
+        "summary": "检查客户的取款限制条件",
+        "x-apifox-folder": "客户取款接口",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "bizType=fund.app.WithdrawAppDubboService.checkWithdrawRiskLimitConfig\n检查客户的取款限制条件\n登录后方可访问",
+        "tags": [
+          "客户取款接口"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QueryWithdrawRiskLimitConfigReqDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResultQueryWithdrawRiskLimitConfigRespDto"
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-75106680-run"
+      }
+    },
+    "/global/fund.app.WithdrawAppDubboService.queryRemainWithdrawAmount": {
+      "post": {
+        "summary": "获取通道+币+链的剩余提现金额",
+        "x-apifox-folder": "客户取款接口",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "bizType=fund.app.WithdrawAppDubboService.queryRemainWithdrawAmount\n获取通道+币+链的剩余提现金额\n登录后方可访问",
+        "tags": [
+          "客户取款接口"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QueryRemainWithdrawAmountReqDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResultQueryRemainWithdrawAmountRespDto"
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-75110141-run"
+      }
     }
   },
   "components": {
     "schemas": {
+      "BaseResultQueryRemainWithdrawAmountRespDto": {
+        "type": "object",
+        "properties": {
+          "bizCode": {
+            "type": "string",
+            "description": "模块标识码"
+          },
+          "code": {
+            "type": "string",
+            "description": "状态返回码"
+          },
+          "msg": {
+            "type": "string",
+            "description": "状态描述"
+          },
+          "tm": {
+            "type": "integer",
+            "format": "int64",
+            "description": "处理时长（毫秒）"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "msgParams": {
+            "type": "string",
+            "description": "返回描述中占位符参数串，多个参数间以,分割"
+          },
+          "data": {
+            "$ref": "#/components/schemas/QueryRemainWithdrawAmountRespDto"
+          },
+          "ok": {
+            "type": "boolean"
+          },
+          "fail": {
+            "type": "boolean"
+          }
+        },
+        "x-apifox-orders": [
+          "bizCode",
+          "code",
+          "msg",
+          "tm",
+          "trace",
+          "msgParams",
+          "data",
+          "ok",
+          "fail"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "QueryRemainWithdrawAmountRespDto": {
+        "type": "object",
+        "required": [
+          "tradeType",
+          "remainAmount",
+          "limitAmount",
+          "withdrawAmount"
+        ],
+        "properties": {
+          "tradeType": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "customerGroupId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "客户组id"
+          },
+          "country": {
+            "type": "string",
+            "description": "国家编码"
+          },
+          "accountCurrency": {
+            "type": "string",
+            "description": "账户货币编码"
+          },
+          "withdrawCurrency": {
+            "type": "string",
+            "description": "客户收款货币编码"
+          },
+          "withdrawMethod": {
+            "type": "string",
+            "description": "取款方式,银行卡:bank,数字钱包:digit_wallet"
+          },
+          "withdrawType": {
+            "type": "integer",
+            "format": "int32",
+            "description": "取款类型,银行卡:1,数字钱包:2"
+          },
+          "blockchainName": {
+            "type": "string",
+            "description": "链名称,数据字典配置,收款方式是数字钱包,显示对应的链名称(又叫转账网络),如Omin、ERC20、TRC20"
+          },
+          "remainAmount": {
+            "type": "string",
+            "description": "24小时累计剩余可取金额"
+          },
+          "limitAmount": {
+            "type": "string",
+            "description": "24小时累计最高金额"
+          },
+          "withdrawAmount": {
+            "type": "string",
+            "description": "24小时累计已经提取金额"
+          }
+        },
+        "x-apifox-orders": [
+          "tradeType",
+          "customerGroupId",
+          "country",
+          "accountCurrency",
+          "withdrawCurrency",
+          "withdrawMethod",
+          "withdrawType",
+          "blockchainName",
+          "remainAmount",
+          "limitAmount",
+          "withdrawAmount"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "QueryRemainWithdrawAmountReqDto": {
+        "type": "object",
+        "required": [
+          "tradeType"
+        ],
+        "properties": {
+          "tradeType": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "customerGroupId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "客户组id"
+          },
+          "country": {
+            "type": "string",
+            "description": "国家编码"
+          },
+          "accountCurrency": {
+            "type": "string",
+            "description": "账户货币编码"
+          },
+          "withdrawCurrency": {
+            "type": "string",
+            "description": "客户收款货币编码"
+          },
+          "withdrawMethod": {
+            "type": "string",
+            "description": "取款方式,银行卡:bank,数字钱包:digit_wallet"
+          },
+          "withdrawType": {
+            "type": "integer",
+            "format": "int32",
+            "description": "取款类型,银行卡:1,数字钱包:2"
+          },
+          "blockchainName": {
+            "type": "string",
+            "description": "链名称,数据字典配置,收款方式是数字钱包,显示对应的链名称(又叫转账网络),如Omin、ERC20、TRC20"
+          }
+        },
+        "x-apifox-orders": [
+          "tradeType",
+          "customerGroupId",
+          "country",
+          "accountCurrency",
+          "withdrawCurrency",
+          "withdrawMethod",
+          "withdrawType",
+          "blockchainName"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "BaseResultQueryWithdrawRiskLimitConfigRespDto": {
+        "type": "object",
+        "properties": {
+          "bizCode": {
+            "type": "string",
+            "description": "模块标识码"
+          },
+          "code": {
+            "type": "string",
+            "description": "状态返回码"
+          },
+          "msg": {
+            "type": "string",
+            "description": "状态描述"
+          },
+          "tm": {
+            "type": "integer",
+            "format": "int64",
+            "description": "处理时长（毫秒）"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "msgParams": {
+            "type": "string",
+            "description": "返回描述中占位符参数串，多个参数间以,分割"
+          },
+          "data": {
+            "$ref": "#/components/schemas/QueryWithdrawRiskLimitConfigRespDto"
+          },
+          "ok": {
+            "type": "boolean"
+          },
+          "fail": {
+            "type": "boolean"
+          }
+        },
+        "x-apifox-orders": [
+          "bizCode",
+          "code",
+          "msg",
+          "tm",
+          "trace",
+          "msgParams",
+          "data",
+          "ok",
+          "fail"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "QueryWithdrawRiskLimitConfigRespDto": {
+        "type": "object",
+        "properties": {
+          "enableWithdraw": {
+            "type": "boolean",
+            "description": "是否允许取款"
+          },
+          "withdrawAmount": {
+            "type": "string",
+            "description": "账户可取金额"
+          },
+          "digit": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "withdrawRiskConfig": {
+            "$ref": "#/components/schemas/WithdrawRiskConfigDto"
+          },
+          "withdrawConditionConfig": {
+            "$ref": "#/components/schemas/CustomerGroupWithdrawConditionConfigDto"
+          },
+          "withdrawTimeConfigList": {
+            "type": "array",
+            "description": "取款时间限制配置",
+            "items": {
+              "$ref": "#/components/schemas/CustomerGroupWithdrawTimeConfigDto"
+            }
+          },
+          "withdrawAmountConfig": {
+            "$ref": "#/components/schemas/CustomerGroupWithdrawAmountConfigDto"
+          },
+          "withdrawFeeConfigList": {
+            "type": "array",
+            "description": "取款手续费配置",
+            "items": {
+              "$ref": "#/components/schemas/CustomerGroupWithdrawFeeConfigDto"
+            }
+          },
+          "customerGroupEnable": {
+            "type": "boolean",
+            "description": "客户组是否允许取款"
+          },
+          "timeEnable": {
+            "type": "boolean",
+            "description": "取款时间否允许取款"
+          },
+          "accountActiveEnable": {
+            "type": "boolean",
+            "description": "账户必须激活否允许取款"
+          },
+          "amountEnable": {
+            "type": "boolean",
+            "description": "客户账户余额是否允许取款"
+          },
+          "hourIn24Enable": {
+            "type": "boolean",
+            "description": "24小时内次数是否允许取款"
+          },
+          "walletEnable": {
+            "type": "boolean",
+            "description": "是否允许提币"
+          },
+          "pwdModifyEnable": {
+            "type": "boolean",
+            "description": "修改密码后间隔时长是否允许取款"
+          },
+          "loginModifyEnable": {
+            "type": "boolean",
+            "description": "修改手机号/邮箱后间隔时长是否允许取款"
+          }
+        },
+        "x-apifox-orders": [
+          "enableWithdraw",
+          "withdrawAmount",
+          "digit",
+          "withdrawRiskConfig",
+          "withdrawConditionConfig",
+          "withdrawTimeConfigList",
+          "withdrawAmountConfig",
+          "withdrawFeeConfigList",
+          "customerGroupEnable",
+          "timeEnable",
+          "accountActiveEnable",
+          "amountEnable",
+          "hourIn24Enable",
+          "walletEnable",
+          "pwdModifyEnable",
+          "loginModifyEnable"
+        ],
+        "x-apifox-folder": "Schemas",
+        "required": [
+          "withdrawRiskConfig"
+        ],
+        "x-apifox-ignore-properties": []
+      },
+      "CustomerGroupWithdrawFeeConfigDto": {
+        "type": "object",
+        "properties": {
+          "customerGroupId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "公司客户组id"
+          },
+          "accountCurrency": {
+            "type": "string",
+            "description": "账户币种"
+          },
+          "withdrawCurrency": {
+            "type": "string",
+            "description": "取款币种"
+          },
+          "blockchainName": {
+            "type": "string",
+            "description": "区块链名称"
+          },
+          "valueType": {
+            "type": "string",
+            "description": "值类型,单笔取款金额:single_amount、开仓保证金总额/存款总额(比例):open_margin_rate、24小时取款次数:with24hour_times"
+          },
+          "leftOpenValue": {
+            "type": "number",
+            "description": "区间左边值"
+          },
+          "rightCloseValue": {
+            "type": "number",
+            "description": "区间右边值"
+          },
+          "feeType": {
+            "type": "integer",
+            "format": "int32",
+            "description": "手续费类型,固定金额:1、百分比率:2"
+          },
+          "feeValue": {
+            "type": "number",
+            "description": "手续费固定金额值/比率值)"
+          },
+          "withdrawMethod": {
+            "type": "string",
+            "description": "取款方式,银行卡:bank,数字钱包:digit_wallet"
+          }
+        },
+        "x-apifox-orders": [
+          "customerGroupId",
+          "accountCurrency",
+          "withdrawCurrency",
+          "blockchainName",
+          "valueType",
+          "leftOpenValue",
+          "rightCloseValue",
+          "feeType",
+          "feeValue",
+          "withdrawMethod"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "CustomerGroupWithdrawAmountConfigDto": {
+        "type": "object",
+        "properties": {
+          "customerGroupId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "公司客户组id"
+          },
+          "accountCurrency": {
+            "type": "string",
+            "description": "账户币种"
+          },
+          "withdrawCurrency": {
+            "type": "string",
+            "description": "取款货币(支付通道支持的货币)"
+          },
+          "blockchainName": {
+            "type": "string",
+            "description": "链名称,数据字典配置,收款方式是数字钱包,显示对应的链名称(又叫转账网络),如Omin、ERC20、TRC20"
+          },
+          "singleLowAmount": {
+            "type": "number",
+            "description": "单笔最低取款金额"
+          },
+          "singleHighAmount": {
+            "type": "number",
+            "description": "单笔最高取款金额"
+          },
+          "singleCheckLowAmount": {
+            "type": "number",
+            "description": "需人工审核单笔最低取款金额"
+          },
+          "maxIn24hourAmount": {
+            "type": "number",
+            "description": "24小时内最高取款金额"
+          },
+          "withdrawMethod": {
+            "type": "string",
+            "description": "取款方式,银行卡:bank,数字钱包:digit_wallet"
+          }
+        },
+        "x-apifox-orders": [
+          "customerGroupId",
+          "accountCurrency",
+          "withdrawCurrency",
+          "blockchainName",
+          "singleLowAmount",
+          "singleHighAmount",
+          "singleCheckLowAmount",
+          "maxIn24hourAmount",
+          "withdrawMethod"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "CustomerGroupWithdrawTimeConfigDto": {
+        "type": "object",
+        "properties": {
+          "customerGroupId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "公司客户组id"
+          },
+          "companyTimezone": {
+            "type": "string",
+            "description": "公司运营所在时区"
+          },
+          "weekDay": {
+            "type": "integer",
+            "format": "int32",
+            "description": "星期几"
+          },
+          "openTime": {
+            "type": "string",
+            "description": "取款时间,格式为01:00-12:00,13:00-18:00,19:00-22:59"
+          },
+          "withdrawMethod": {
+            "type": "string",
+            "description": "取款方式,银行卡:bank,数字钱包:digit_wallet"
+          }
+        },
+        "x-apifox-orders": [
+          "customerGroupId",
+          "companyTimezone",
+          "weekDay",
+          "openTime",
+          "withdrawMethod"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "CustomerGroupWithdrawConditionConfigDto": {
+        "type": "object",
+        "properties": {
+          "customerGroupId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "公司客户组id"
+          },
+          "mustActive": {
+            "type": "boolean",
+            "description": "客户是否必须激活,才可取款"
+          },
+          "maxCount": {
+            "type": "integer",
+            "format": "int32",
+            "description": "24小时取款次数"
+          },
+          "modifyPwdDisableWithdrawIntervals": {
+            "type": "integer",
+            "format": "int64",
+            "description": "修改密码后不可取款时间:单位分钟"
+          },
+          "modifyLoginDisableWithdrawIntervals": {
+            "type": "integer",
+            "format": "int64",
+            "description": "更改手机/邮箱后不可取款时间:单位分钟"
+          },
+          "withdrawMethod": {
+            "type": "string",
+            "description": "取款方式,银行卡:bank,数字钱包:digit_wallet"
+          }
+        },
+        "x-apifox-orders": [
+          "customerGroupId",
+          "mustActive",
+          "maxCount",
+          "modifyPwdDisableWithdrawIntervals",
+          "modifyLoginDisableWithdrawIntervals",
+          "withdrawMethod"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "WithdrawRiskConfigDto": {
+        "type": "object",
+        "properties": {
+          "customerGroupId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "客户组id"
+          },
+          "mustActive": {
+            "type": "boolean",
+            "description": "客户是否必须激活,才可取款"
+          },
+          "maxCount": {
+            "type": "integer",
+            "description": "24小时取款次数"
+          },
+          "modifyLoginDisableWithdrawIntervals": {
+            "type": "integer",
+            "description": "更改手机/邮箱后不可取款时间:小时"
+          },
+          "firstSetLoginPwdDisableWithdrawIntervals": {
+            "type": "integer",
+            "description": "首次设置登录密码后不可取款时间:小时"
+          },
+          "firstSetFundPwdDisableWithdrawIntervals": {
+            "type": "integer",
+            "description": "首次设置资金密码后不可取款时间:小时"
+          },
+          "modifyPwdDisableWithdrawIntervals": {
+            "type": "integer",
+            "description": "修改登录密码、忘记登录密码、修改资金密码、重置资金密码:小时"
+          },
+          "newAddressDisableIntervals": {
+            "type": "integer",
+            "description": "新添加的提现地址禁用时间:小时"
+          }
+        },
+        "x-apifox-orders": [
+          "customerGroupId",
+          "mustActive",
+          "maxCount",
+          "modifyLoginDisableWithdrawIntervals",
+          "firstSetLoginPwdDisableWithdrawIntervals",
+          "firstSetFundPwdDisableWithdrawIntervals",
+          "modifyPwdDisableWithdrawIntervals",
+          "newAddressDisableIntervals"
+        ],
+        "x-apifox-folder": "Schemas",
+        "required": [
+          "mustActive",
+          "maxCount",
+          "modifyLoginDisableWithdrawIntervals",
+          "firstSetLoginPwdDisableWithdrawIntervals",
+          "firstSetFundPwdDisableWithdrawIntervals",
+          "modifyPwdDisableWithdrawIntervals",
+          "newAddressDisableIntervals"
+        ],
+        "x-apifox-ignore-properties": []
+      },
+      "QueryWithdrawRiskLimitConfigReqDto": {
+        "type": "object",
+        "required": [
+          "tradeType"
+        ],
+        "properties": {
+          "tradeType": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "customerGroupId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "客户组id"
+          },
+          "country": {
+            "type": "string",
+            "description": "国家编码"
+          },
+          "accountCurrency": {
+            "type": "string",
+            "description": "账户货币编码"
+          },
+          "withdrawCurrency": {
+            "type": "string",
+            "description": "客户收款货币编码"
+          },
+          "withdrawMethod": {
+            "type": "string",
+            "description": "取款方式,银行卡:bank,数字钱包:digit_wallet"
+          },
+          "withdrawType": {
+            "type": "integer",
+            "format": "int32",
+            "description": "取款类型,银行卡:1,数字钱包:2"
+          },
+          "blockchainName": {
+            "type": "string",
+            "description": "链名称,数据字典配置,收款方式是数字钱包,显示对应的链名称(又叫转账网络),如Omin、ERC20、TRC20"
+          }
+        },
+        "x-apifox-orders": [
+          "tradeType",
+          "customerGroupId",
+          "country",
+          "accountCurrency",
+          "withdrawCurrency",
+          "withdrawMethod",
+          "withdrawType",
+          "blockchainName"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "BaseResultWithdrawRiskConfigDto": {
+        "type": "object",
+        "properties": {
+          "bizCode": {
+            "type": "string",
+            "description": "模块标识码"
+          },
+          "code": {
+            "type": "string",
+            "description": "状态返回码"
+          },
+          "msg": {
+            "type": "string",
+            "description": "状态描述"
+          },
+          "tm": {
+            "type": "integer",
+            "format": "int64",
+            "description": "处理时长（毫秒）"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "msgParams": {
+            "type": "string",
+            "description": "返回描述中占位符参数串，多个参数间以,分割"
+          },
+          "data": {
+            "$ref": "#/components/schemas/WithdrawRiskConfigDto"
+          },
+          "ok": {
+            "type": "boolean"
+          },
+          "fail": {
+            "type": "boolean"
+          }
+        },
+        "x-apifox-orders": [
+          "bizCode",
+          "code",
+          "msg",
+          "tm",
+          "trace",
+          "msgParams",
+          "data",
+          "ok",
+          "fail"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "QueryWithdrawRiskConfigReqDto": {
+        "type": "object",
+        "properties": {
+          "customerGroupId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "客户组id"
+          }
+        },
+        "x-apifox-orders": [
+          "customerGroupId"
+        ],
+        "x-apifox-folder": "Schemas",
+        "required": [
+          "customerGroupId"
+        ],
+        "x-apifox-ignore-properties": []
+      },
+      "CustGroupWithdrawMethodQueryReqDto": {
+        "type": "object",
+        "properties": {
+          "customerGroupId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "客户组id"
+          },
+          "country": {
+            "type": "string",
+            "description": "国家编码"
+          }
+        },
+        "x-apifox-orders": [
+          "customerGroupId",
+          "country"
+        ],
+        "x-apifox-folder": "Schemas",
+        "required": [
+          "customerGroupId",
+          "country"
+        ],
+        "x-apifox-ignore-properties": []
+      },
       "BaseResultWithdrawCurrencyResDto": {
         "type": "object",
         "properties": {
@@ -1580,78 +2528,7 @@
       },
       "QueryWithdrawLimitConfigRespDto": {
         "type": "object",
-        "required": [
-          "tradeType"
-        ],
         "properties": {
-          "companyId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "公司ID"
-          },
-          "customerId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "客户ID"
-          },
-          "customerNo": {
-            "type": "string",
-            "description": "客户编号"
-          },
-          "accountId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "账户ID"
-          },
-          "trace": {
-            "type": "string",
-            "description": "跟踪码"
-          },
-          "ip": {
-            "type": "string",
-            "description": "操作ip"
-          },
-          "lang": {
-            "type": "string",
-            "description": "请求语言"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "description": "主键id"
-          },
-          "status": {
-            "type": "integer",
-            "format": "int32",
-            "description": "状态 1、2、3、启用、禁用、删除"
-          },
-          "revision": {
-            "type": "integer",
-            "format": "int32",
-            "description": "乐观锁"
-          },
-          "createBy": {
-            "type": "string",
-            "description": "创建人"
-          },
-          "createTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "创建时间"
-          },
-          "updateBy": {
-            "type": "string",
-            "description": "更新人"
-          },
-          "updateTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "更新时间"
-          },
-          "tradeType": {
-            "type": "integer",
-            "format": "int64"
-          },
           "enableWithdraw": {
             "type": "boolean",
             "description": "是否允许取款"
@@ -1718,21 +2595,6 @@
           }
         },
         "x-apifox-orders": [
-          "companyId",
-          "customerId",
-          "customerNo",
-          "accountId",
-          "trace",
-          "ip",
-          "lang",
-          "id",
-          "status",
-          "revision",
-          "createBy",
-          "createTime",
-          "updateBy",
-          "updateTime",
-          "tradeType",
           "enableWithdraw",
           "withdrawAmount",
           "digit",
@@ -1752,615 +2614,12 @@
         "x-apifox-folder": "Schemas",
         "x-apifox-ignore-properties": []
       },
-      "CustomerGroupWithdrawFeeConfigDto": {
-        "type": "object",
-        "required": [
-          "tradeType"
-        ],
-        "properties": {
-          "companyId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "公司ID"
-          },
-          "customerId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "客户ID"
-          },
-          "customerNo": {
-            "type": "string",
-            "description": "客户编号"
-          },
-          "accountId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "账户ID"
-          },
-          "trace": {
-            "type": "string",
-            "description": "跟踪码"
-          },
-          "ip": {
-            "type": "string",
-            "description": "操作ip"
-          },
-          "lang": {
-            "type": "string",
-            "description": "请求语言"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "description": "主键id"
-          },
-          "status": {
-            "type": "integer",
-            "format": "int32",
-            "description": "状态 1、2、3、启用、禁用、删除"
-          },
-          "revision": {
-            "type": "integer",
-            "format": "int32",
-            "description": "乐观锁"
-          },
-          "createBy": {
-            "type": "string",
-            "description": "创建人"
-          },
-          "createTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "创建时间"
-          },
-          "updateBy": {
-            "type": "string",
-            "description": "更新人"
-          },
-          "updateTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "更新时间"
-          },
-          "tradeType": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "customerGroupId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "公司客户组id"
-          },
-          "accountCurrency": {
-            "type": "string",
-            "description": "账户币种"
-          },
-          "withdrawCurrency": {
-            "type": "string",
-            "description": "取款币种"
-          },
-          "blockchainName": {
-            "type": "string",
-            "description": "区块链名称"
-          },
-          "valueType": {
-            "type": "string",
-            "description": "值类型,单笔取款金额:single_amount、开仓保证金总额/存款总额(比例):open_margin_rate、24小时取款次数:with24hour_times"
-          },
-          "leftOpenValue": {
-            "type": "number",
-            "description": "区间左边值"
-          },
-          "rightCloseValue": {
-            "type": "number",
-            "description": "区间右边值"
-          },
-          "feeType": {
-            "type": "integer",
-            "format": "int32",
-            "description": "手续费类型,固定金额:1、百分比率:2"
-          },
-          "feeValue": {
-            "type": "number",
-            "description": "手续费固定金额值/比率值)"
-          },
-          "withdrawMethod": {
-            "type": "string",
-            "description": "取款方式,银行卡:bank,数字钱包:digit_wallet"
-          }
-        },
-        "x-apifox-orders": [
-          "companyId",
-          "customerId",
-          "customerNo",
-          "accountId",
-          "trace",
-          "ip",
-          "lang",
-          "id",
-          "status",
-          "revision",
-          "createBy",
-          "createTime",
-          "updateBy",
-          "updateTime",
-          "tradeType",
-          "customerGroupId",
-          "accountCurrency",
-          "withdrawCurrency",
-          "blockchainName",
-          "valueType",
-          "leftOpenValue",
-          "rightCloseValue",
-          "feeType",
-          "feeValue",
-          "withdrawMethod"
-        ],
-        "x-apifox-folder": "Schemas",
-        "x-apifox-ignore-properties": []
-      },
-      "CustomerGroupWithdrawAmountConfigDto": {
-        "type": "object",
-        "required": [
-          "tradeType"
-        ],
-        "properties": {
-          "companyId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "公司ID"
-          },
-          "customerId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "客户ID"
-          },
-          "customerNo": {
-            "type": "string",
-            "description": "客户编号"
-          },
-          "accountId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "账户ID"
-          },
-          "trace": {
-            "type": "string",
-            "description": "跟踪码"
-          },
-          "ip": {
-            "type": "string",
-            "description": "操作ip"
-          },
-          "lang": {
-            "type": "string",
-            "description": "请求语言"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "description": "主键id"
-          },
-          "status": {
-            "type": "integer",
-            "format": "int32",
-            "description": "状态 1、2、3、启用、禁用、删除"
-          },
-          "revision": {
-            "type": "integer",
-            "format": "int32",
-            "description": "乐观锁"
-          },
-          "createBy": {
-            "type": "string",
-            "description": "创建人"
-          },
-          "createTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "创建时间"
-          },
-          "updateBy": {
-            "type": "string",
-            "description": "更新人"
-          },
-          "updateTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "更新时间"
-          },
-          "tradeType": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "customerGroupId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "公司客户组id"
-          },
-          "accountCurrency": {
-            "type": "string",
-            "description": "账户币种"
-          },
-          "withdrawCurrency": {
-            "type": "string",
-            "description": "取款货币(支付通道支持的货币)"
-          },
-          "blockchainName": {
-            "type": "string",
-            "description": "链名称,数据字典配置,收款方式是数字钱包,显示对应的链名称(又叫转账网络),如Omin、ERC20、TRC20"
-          },
-          "singleLowAmount": {
-            "type": "number",
-            "description": "单笔最低取款金额"
-          },
-          "singleHighAmount": {
-            "type": "number",
-            "description": "单笔最高取款金额"
-          },
-          "singleCheckLowAmount": {
-            "type": "number",
-            "description": "需人工审核单笔最低取款金额"
-          },
-          "maxIn24hourAmount": {
-            "type": "number",
-            "description": "24小时内最高取款金额"
-          },
-          "withdrawMethod": {
-            "type": "string",
-            "description": "取款方式,银行卡:bank,数字钱包:digit_wallet"
-          }
-        },
-        "x-apifox-orders": [
-          "companyId",
-          "customerId",
-          "customerNo",
-          "accountId",
-          "trace",
-          "ip",
-          "lang",
-          "id",
-          "status",
-          "revision",
-          "createBy",
-          "createTime",
-          "updateBy",
-          "updateTime",
-          "tradeType",
-          "customerGroupId",
-          "accountCurrency",
-          "withdrawCurrency",
-          "blockchainName",
-          "singleLowAmount",
-          "singleHighAmount",
-          "singleCheckLowAmount",
-          "maxIn24hourAmount",
-          "withdrawMethod"
-        ],
-        "x-apifox-folder": "Schemas",
-        "x-apifox-ignore-properties": []
-      },
-      "CustomerGroupWithdrawTimeConfigDto": {
-        "type": "object",
-        "required": [
-          "tradeType"
-        ],
-        "properties": {
-          "companyId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "公司ID"
-          },
-          "customerId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "客户ID"
-          },
-          "customerNo": {
-            "type": "string",
-            "description": "客户编号"
-          },
-          "accountId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "账户ID"
-          },
-          "trace": {
-            "type": "string",
-            "description": "跟踪码"
-          },
-          "ip": {
-            "type": "string",
-            "description": "操作ip"
-          },
-          "lang": {
-            "type": "string",
-            "description": "请求语言"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "description": "主键id"
-          },
-          "status": {
-            "type": "integer",
-            "format": "int32",
-            "description": "状态 1、2、3、启用、禁用、删除"
-          },
-          "revision": {
-            "type": "integer",
-            "format": "int32",
-            "description": "乐观锁"
-          },
-          "createBy": {
-            "type": "string",
-            "description": "创建人"
-          },
-          "createTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "创建时间"
-          },
-          "updateBy": {
-            "type": "string",
-            "description": "更新人"
-          },
-          "updateTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "更新时间"
-          },
-          "tradeType": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "customerGroupId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "公司客户组id"
-          },
-          "companyTimezone": {
-            "type": "string",
-            "description": "公司运营所在时区"
-          },
-          "weekDay": {
-            "type": "integer",
-            "format": "int32",
-            "description": "星期几"
-          },
-          "openTime": {
-            "type": "string",
-            "description": "取款时间,格式为01:00-12:00,13:00-18:00,19:00-22:59"
-          },
-          "withdrawMethod": {
-            "type": "string",
-            "description": "取款方式,银行卡:bank,数字钱包:digit_wallet"
-          }
-        },
-        "x-apifox-orders": [
-          "companyId",
-          "customerId",
-          "customerNo",
-          "accountId",
-          "trace",
-          "ip",
-          "lang",
-          "id",
-          "status",
-          "revision",
-          "createBy",
-          "createTime",
-          "updateBy",
-          "updateTime",
-          "tradeType",
-          "customerGroupId",
-          "companyTimezone",
-          "weekDay",
-          "openTime",
-          "withdrawMethod"
-        ],
-        "x-apifox-folder": "Schemas",
-        "x-apifox-ignore-properties": []
-      },
-      "CustomerGroupWithdrawConditionConfigDto": {
-        "type": "object",
-        "required": [
-          "tradeType"
-        ],
-        "properties": {
-          "companyId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "公司ID"
-          },
-          "customerId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "客户ID"
-          },
-          "customerNo": {
-            "type": "string",
-            "description": "客户编号"
-          },
-          "accountId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "账户ID"
-          },
-          "trace": {
-            "type": "string",
-            "description": "跟踪码"
-          },
-          "ip": {
-            "type": "string",
-            "description": "操作ip"
-          },
-          "lang": {
-            "type": "string",
-            "description": "请求语言"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "description": "主键id"
-          },
-          "status": {
-            "type": "integer",
-            "format": "int32",
-            "description": "状态 1、2、3、启用、禁用、删除"
-          },
-          "revision": {
-            "type": "integer",
-            "format": "int32",
-            "description": "乐观锁"
-          },
-          "createBy": {
-            "type": "string",
-            "description": "创建人"
-          },
-          "createTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "创建时间"
-          },
-          "updateBy": {
-            "type": "string",
-            "description": "更新人"
-          },
-          "updateTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "更新时间"
-          },
-          "tradeType": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "customerGroupId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "公司客户组id"
-          },
-          "mustActive": {
-            "type": "boolean",
-            "description": "客户是否必须激活,才可取款"
-          },
-          "maxCount": {
-            "type": "integer",
-            "format": "int32",
-            "description": "24小时取款次数"
-          },
-          "modifyPwdDisableWithdrawIntervals": {
-            "type": "integer",
-            "format": "int64",
-            "description": "修改密码后不可取款时间:单位分钟"
-          },
-          "modifyLoginDisableWithdrawIntervals": {
-            "type": "integer",
-            "format": "int64",
-            "description": "更改手机/邮箱后不可取款时间:单位分钟"
-          },
-          "withdrawMethod": {
-            "type": "string",
-            "description": "取款方式,银行卡:bank,数字钱包:digit_wallet"
-          }
-        },
-        "x-apifox-orders": [
-          "companyId",
-          "customerId",
-          "customerNo",
-          "accountId",
-          "trace",
-          "ip",
-          "lang",
-          "id",
-          "status",
-          "revision",
-          "createBy",
-          "createTime",
-          "updateBy",
-          "updateTime",
-          "tradeType",
-          "customerGroupId",
-          "mustActive",
-          "maxCount",
-          "modifyPwdDisableWithdrawIntervals",
-          "modifyLoginDisableWithdrawIntervals",
-          "withdrawMethod"
-        ],
-        "x-apifox-folder": "Schemas",
-        "x-apifox-ignore-properties": []
-      },
       "QueryWithdrawLimitConfigReqDto": {
         "type": "object",
         "required": [
           "tradeType"
         ],
         "properties": {
-          "companyId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "公司ID"
-          },
-          "customerId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "客户ID"
-          },
-          "customerNo": {
-            "type": "string",
-            "description": "客户编号"
-          },
-          "accountId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "账户ID"
-          },
-          "trace": {
-            "type": "string",
-            "description": "跟踪码"
-          },
-          "ip": {
-            "type": "string",
-            "description": "操作ip"
-          },
-          "lang": {
-            "type": "string",
-            "description": "请求语言"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "description": "主键id"
-          },
-          "status": {
-            "type": "integer",
-            "format": "int32",
-            "description": "状态 1、2、3、启用、禁用、删除"
-          },
-          "revision": {
-            "type": "integer",
-            "format": "int32",
-            "description": "乐观锁"
-          },
-          "createBy": {
-            "type": "string",
-            "description": "创建人"
-          },
-          "createTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "创建时间"
-          },
-          "updateBy": {
-            "type": "string",
-            "description": "更新人"
-          },
-          "updateTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "更新时间"
-          },
           "tradeType": {
             "type": "integer",
             "format": "int64"
@@ -2397,20 +2656,6 @@
           }
         },
         "x-apifox-orders": [
-          "companyId",
-          "customerId",
-          "customerNo",
-          "accountId",
-          "trace",
-          "ip",
-          "lang",
-          "id",
-          "status",
-          "revision",
-          "createBy",
-          "createTime",
-          "updateBy",
-          "updateTime",
           "tradeType",
           "customerGroupId",
           "country",
@@ -2456,8 +2701,13 @@
             "description": "数据体",
             "items": {
               "type": "object",
-              "x-apifox-orders": [],
+              "x-apifox-orders": [
+                "01GV5DQ8AC3WJ1A2SWA5GE6FF3"
+              ],
               "properties": {},
+              "required": [
+                "01GV5DQ8AC3WJ1A2SWA5GE6FF3"
+              ],
               "x-apifox-ignore-properties": []
             }
           },
@@ -2478,6 +2728,25 @@
           "data",
           "ok",
           "fail"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "QueryWithdrawBankReqDto": {
+        "type": "object",
+        "properties": {
+          "withdrawMethod": {
+            "type": "string",
+            "description": "取款方式"
+          },
+          "withdrawCurrency": {
+            "type": "string",
+            "description": "取款货币"
+          }
+        },
+        "x-apifox-orders": [
+          "withdrawMethod",
+          "withdrawCurrency"
         ],
         "x-apifox-folder": "Schemas",
         "x-apifox-ignore-properties": []
@@ -2598,70 +2867,6 @@
           "tradeType"
         ],
         "properties": {
-          "companyId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "公司ID"
-          },
-          "customerId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "客户ID"
-          },
-          "customerNo": {
-            "type": "string",
-            "description": "客户编号"
-          },
-          "accountId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "账户ID"
-          },
-          "trace": {
-            "type": "string",
-            "description": "跟踪码"
-          },
-          "ip": {
-            "type": "string",
-            "description": "操作ip"
-          },
-          "lang": {
-            "type": "string",
-            "description": "请求语言"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "description": "主键id"
-          },
-          "status": {
-            "type": "integer",
-            "format": "int32",
-            "description": "状态 1、2、3、启用、禁用、删除"
-          },
-          "revision": {
-            "type": "integer",
-            "format": "int32",
-            "description": "乐观锁"
-          },
-          "createBy": {
-            "type": "string",
-            "description": "创建人"
-          },
-          "createTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "创建时间"
-          },
-          "updateBy": {
-            "type": "string",
-            "description": "更新人"
-          },
-          "updateTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "更新时间"
-          },
           "tradeType": {
             "type": "integer",
             "format": "int64"
@@ -2686,44 +2891,15 @@
           "channelName": {
             "type": "string",
             "description": "通道名称"
-          },
-          "extend": {
-            "type": "object",
-            "description": "拓展数据",
-            "additionalProperties": {
-              "type": "object",
-              "additionalProperties": {
-                "type": "string"
-              },
-              "x-apifox-orders": []
-            },
-            "x-apifox-orders": [],
-            "properties": {},
-            "x-apifox-ignore-properties": []
           }
         },
         "x-apifox-orders": [
-          "companyId",
-          "customerId",
-          "customerNo",
-          "accountId",
-          "trace",
-          "ip",
-          "lang",
-          "id",
-          "status",
-          "revision",
-          "createBy",
-          "createTime",
-          "updateBy",
-          "updateTime",
           "tradeType",
           "customerGroupId",
           "country",
           "withdrawCurrency",
           "withdrawMethod",
-          "channelName",
-          "extend"
+          "channelName"
         ],
         "x-apifox-folder": "Schemas",
         "x-apifox-ignore-properties": []
@@ -2783,78 +2959,15 @@
       "QueryCustomerWithdrawExchangeRateDto": {
         "type": "object",
         "properties": {
-          "companyId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "公司ID"
-          },
-          "customerId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "客户ID"
-          },
-          "customerNo": {
-            "type": "string",
-            "description": "客户编号"
-          },
           "accountId": {
             "type": "integer",
             "format": "int64",
             "description": "账户ID"
           },
-          "trace": {
-            "type": "string",
-            "description": "跟踪码"
-          },
-          "ip": {
-            "type": "string",
-            "description": "操作ip"
-          },
-          "lang": {
-            "type": "string",
-            "description": "请求语言"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "description": "主键id"
-          },
-          "status": {
-            "type": "integer",
-            "format": "int32",
-            "description": "状态 1、2、3、启用、禁用、删除"
-          },
-          "revision": {
-            "type": "integer",
-            "format": "int32",
-            "description": "乐观锁"
-          },
-          "createBy": {
-            "type": "string",
-            "description": "创建人"
-          },
-          "createTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "创建时间"
-          },
-          "updateBy": {
-            "type": "string",
-            "description": "更新人"
-          },
-          "updateTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "更新时间"
-          },
           "customerGroupId": {
             "type": "integer",
             "format": "int64",
             "description": "客户组id"
-          },
-          "withdrawRateSerialNo": {
-            "type": "string",
-            "description": "流水号"
           },
           "withdrawCurrency": {
             "type": "string",
@@ -2883,22 +2996,8 @@
           }
         },
         "x-apifox-orders": [
-          "companyId",
-          "customerId",
-          "customerNo",
           "accountId",
-          "trace",
-          "ip",
-          "lang",
-          "id",
-          "status",
-          "revision",
-          "createBy",
-          "createTime",
-          "updateBy",
-          "updateTime",
           "customerGroupId",
-          "withdrawRateSerialNo",
           "withdrawCurrency",
           "accountCurrency",
           "exchangeRate",
@@ -2922,70 +3021,6 @@
           "paymentMerchantNo"
         ],
         "properties": {
-          "companyId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "公司ID"
-          },
-          "customerId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "客户ID"
-          },
-          "customerNo": {
-            "type": "string",
-            "description": "客户编号"
-          },
-          "accountId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "账户ID"
-          },
-          "trace": {
-            "type": "string",
-            "description": "跟踪码"
-          },
-          "ip": {
-            "type": "string",
-            "description": "操作ip"
-          },
-          "lang": {
-            "type": "string",
-            "description": "请求语言"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "description": "主键id"
-          },
-          "status": {
-            "type": "integer",
-            "format": "int32",
-            "description": "状态 1、2、3、启用、禁用、删除"
-          },
-          "revision": {
-            "type": "integer",
-            "format": "int32",
-            "description": "乐观锁"
-          },
-          "createBy": {
-            "type": "string",
-            "description": "创建人"
-          },
-          "createTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "创建时间"
-          },
-          "updateBy": {
-            "type": "string",
-            "description": "更新人"
-          },
-          "updateTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "更新时间"
-          },
           "customerGroupId": {
             "type": "integer",
             "format": "int64",
@@ -3025,20 +3060,6 @@
           }
         },
         "x-apifox-orders": [
-          "companyId",
-          "customerId",
-          "customerNo",
-          "accountId",
-          "trace",
-          "ip",
-          "lang",
-          "id",
-          "status",
-          "revision",
-          "createBy",
-          "createTime",
-          "updateBy",
-          "updateTime",
           "customerGroupId",
           "paymentChannelCode",
           "paymentChannelType",
@@ -3110,70 +3131,6 @@
           "tradeType"
         ],
         "properties": {
-          "companyId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "公司ID"
-          },
-          "customerId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "客户ID"
-          },
-          "customerNo": {
-            "type": "string",
-            "description": "客户编号"
-          },
-          "accountId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "账户ID"
-          },
-          "trace": {
-            "type": "string",
-            "description": "跟踪码"
-          },
-          "ip": {
-            "type": "string",
-            "description": "操作ip"
-          },
-          "lang": {
-            "type": "string",
-            "description": "请求语言"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "description": "主键id"
-          },
-          "status": {
-            "type": "integer",
-            "format": "int32",
-            "description": "状态 1、2、3、启用、禁用、删除"
-          },
-          "revision": {
-            "type": "integer",
-            "format": "int32",
-            "description": "乐观锁"
-          },
-          "createBy": {
-            "type": "string",
-            "description": "创建人"
-          },
-          "createTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "创建时间"
-          },
-          "updateBy": {
-            "type": "string",
-            "description": "更新人"
-          },
-          "updateTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "更新时间"
-          },
           "tradeType": {
             "type": "integer",
             "format": "int64"
@@ -3196,20 +3153,6 @@
           }
         },
         "x-apifox-orders": [
-          "companyId",
-          "customerId",
-          "customerNo",
-          "accountId",
-          "trace",
-          "ip",
-          "lang",
-          "id",
-          "status",
-          "revision",
-          "createBy",
-          "createTime",
-          "updateBy",
-          "updateTime",
           "tradeType",
           "singleLowAmount",
           "singleHighAmount",
@@ -3221,78 +3164,7 @@
       },
       "WithdrawAmountLimitReqDto": {
         "type": "object",
-        "required": [
-          "tradeType"
-        ],
         "properties": {
-          "companyId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "公司ID"
-          },
-          "customerId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "客户ID"
-          },
-          "customerNo": {
-            "type": "string",
-            "description": "客户编号"
-          },
-          "accountId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "账户ID"
-          },
-          "trace": {
-            "type": "string",
-            "description": "跟踪码"
-          },
-          "ip": {
-            "type": "string",
-            "description": "操作ip"
-          },
-          "lang": {
-            "type": "string",
-            "description": "请求语言"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "description": "主键id"
-          },
-          "status": {
-            "type": "integer",
-            "format": "int32",
-            "description": "状态 1、2、3、启用、禁用、删除"
-          },
-          "revision": {
-            "type": "integer",
-            "format": "int32",
-            "description": "乐观锁"
-          },
-          "createBy": {
-            "type": "string",
-            "description": "创建人"
-          },
-          "createTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "创建时间"
-          },
-          "updateBy": {
-            "type": "string",
-            "description": "更新人"
-          },
-          "updateTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "更新时间"
-          },
-          "tradeType": {
-            "type": "integer",
-            "format": "int64"
-          },
           "customerGroupId": {
             "type": "integer",
             "format": "int64",
@@ -3310,10 +3182,6 @@
             "type": "string",
             "description": "取款货币(支付通道支持的货币)"
           },
-          "withdrawRateSerialNo": {
-            "type": "string",
-            "description": "取款费率流水号"
-          },
           "withdrawType": {
             "type": "integer",
             "format": "int32",
@@ -3329,26 +3197,10 @@
           }
         },
         "x-apifox-orders": [
-          "companyId",
-          "customerId",
-          "customerNo",
-          "accountId",
-          "trace",
-          "ip",
-          "lang",
-          "id",
-          "status",
-          "revision",
-          "createBy",
-          "createTime",
-          "updateBy",
-          "updateTime",
-          "tradeType",
           "customerGroupId",
           "country",
           "accountCurrency",
           "withdrawCurrency",
-          "withdrawRateSerialNo",
           "withdrawType",
           "withdrawMethod",
           "blockchainName"
@@ -3362,70 +3214,6 @@
           "tradeType"
         ],
         "properties": {
-          "companyId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "公司ID"
-          },
-          "customerId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "客户ID"
-          },
-          "customerNo": {
-            "type": "string",
-            "description": "客户编号"
-          },
-          "accountId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "账户ID"
-          },
-          "trace": {
-            "type": "string",
-            "description": "跟踪码"
-          },
-          "ip": {
-            "type": "string",
-            "description": "操作ip"
-          },
-          "lang": {
-            "type": "string",
-            "description": "请求语言"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "description": "主键id"
-          },
-          "status": {
-            "type": "integer",
-            "format": "int32",
-            "description": "状态 1、2、3、启用、禁用、删除"
-          },
-          "revision": {
-            "type": "integer",
-            "format": "int32",
-            "description": "乐观锁"
-          },
-          "createBy": {
-            "type": "string",
-            "description": "创建人"
-          },
-          "createTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "创建时间"
-          },
-          "updateBy": {
-            "type": "string",
-            "description": "更新人"
-          },
-          "updateTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "更新时间"
-          },
           "tradeType": {
             "type": "integer",
             "format": "int64"
@@ -3440,20 +3228,6 @@
           }
         },
         "x-apifox-orders": [
-          "companyId",
-          "customerId",
-          "customerNo",
-          "accountId",
-          "trace",
-          "ip",
-          "lang",
-          "id",
-          "status",
-          "revision",
-          "createBy",
-          "createTime",
-          "updateBy",
-          "updateTime",
           "tradeType",
           "customerGroupId",
           "country"
@@ -3576,70 +3350,6 @@
           "tradeType"
         ],
         "properties": {
-          "companyId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "公司ID"
-          },
-          "customerId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "客户ID"
-          },
-          "customerNo": {
-            "type": "string",
-            "description": "客户编号"
-          },
-          "accountId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "账户ID"
-          },
-          "trace": {
-            "type": "string",
-            "description": "跟踪码"
-          },
-          "ip": {
-            "type": "string",
-            "description": "操作ip"
-          },
-          "lang": {
-            "type": "string",
-            "description": "请求语言"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "description": "主键id"
-          },
-          "status": {
-            "type": "integer",
-            "format": "int32",
-            "description": "状态 1、2、3、启用、禁用、删除"
-          },
-          "revision": {
-            "type": "integer",
-            "format": "int32",
-            "description": "乐观锁"
-          },
-          "createBy": {
-            "type": "string",
-            "description": "创建人"
-          },
-          "createTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "创建时间"
-          },
-          "updateBy": {
-            "type": "string",
-            "description": "更新人"
-          },
-          "updateTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "更新时间"
-          },
           "tradeType": {
             "type": "integer",
             "format": "int64"
@@ -3667,20 +3377,6 @@
           }
         },
         "x-apifox-orders": [
-          "companyId",
-          "customerId",
-          "customerNo",
-          "accountId",
-          "trace",
-          "ip",
-          "lang",
-          "id",
-          "status",
-          "revision",
-          "createBy",
-          "createTime",
-          "updateBy",
-          "updateTime",
           "tradeType",
           "customerGroupId",
           "country",
@@ -3746,98 +3442,24 @@
       "CustomerRechargeWalletAddrRespDto": {
         "type": "object",
         "properties": {
-          "companyId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "公司ID"
-          },
-          "customerId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "客户ID"
-          },
-          "customerNo": {
-            "type": "string",
-            "description": "客户编号"
-          },
-          "accountId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "账户ID"
-          },
-          "trace": {
-            "type": "string",
-            "description": "跟踪码"
-          },
-          "ip": {
-            "type": "string",
-            "description": "操作ip"
-          },
-          "lang": {
-            "type": "string",
-            "description": "请求语言"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "description": "主键id"
-          },
-          "status": {
-            "type": "integer",
-            "format": "int32",
-            "description": "状态 1、2、3、启用、禁用、删除"
-          },
-          "revision": {
-            "type": "integer",
-            "format": "int32",
-            "description": "乐观锁"
-          },
-          "createBy": {
-            "type": "string",
-            "description": "创建人"
-          },
-          "createTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "创建时间"
-          },
-          "updateBy": {
-            "type": "string",
-            "description": "更新人"
-          },
-          "updateTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "更新时间"
-          },
           "paymentCode": {
-            "type": "string"
+            "type": "string",
+            "description": "支付通道编码"
           },
           "currency": {
-            "type": "string"
+            "type": "string",
+            "description": "支付币种"
           },
           "blockchainName": {
-            "type": "string"
+            "type": "string",
+            "description": "链名称"
           },
           "address": {
-            "type": "string"
+            "type": "string",
+            "description": "支付地址"
           }
         },
         "x-apifox-orders": [
-          "companyId",
-          "customerId",
-          "customerNo",
-          "accountId",
-          "trace",
-          "ip",
-          "lang",
-          "id",
-          "status",
-          "revision",
-          "createBy",
-          "createTime",
-          "updateBy",
-          "updateTime",
           "paymentCode",
           "currency",
           "blockchainName",
@@ -3923,18 +3545,6 @@
             "format": "int64",
             "description": "账户ID"
           },
-          "trace": {
-            "type": "string",
-            "description": "跟踪码"
-          },
-          "ip": {
-            "type": "string",
-            "description": "操作ip"
-          },
-          "lang": {
-            "type": "string",
-            "description": "请求语言"
-          },
           "id": {
             "type": "integer",
             "format": "int64",
@@ -3944,11 +3554,6 @@
             "type": "integer",
             "format": "int32",
             "description": "状态 1、2、3、启用、禁用、删除"
-          },
-          "revision": {
-            "type": "integer",
-            "format": "int32",
-            "description": "乐观锁"
           },
           "createBy": {
             "type": "string",
@@ -4088,12 +3693,8 @@
           "customerId",
           "customerNo",
           "accountId",
-          "trace",
-          "ip",
-          "lang",
           "id",
           "status",
-          "revision",
           "createBy",
           "createTime",
           "updateBy",
@@ -4137,69 +3738,10 @@
           "withdrawMethod"
         ],
         "properties": {
-          "companyId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "公司ID"
-          },
-          "customerId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "客户ID"
-          },
-          "customerNo": {
-            "type": "string",
-            "description": "客户编号"
-          },
           "accountId": {
             "type": "integer",
             "format": "int64",
             "description": "账户ID"
-          },
-          "trace": {
-            "type": "string",
-            "description": "跟踪码"
-          },
-          "ip": {
-            "type": "string",
-            "description": "操作ip"
-          },
-          "lang": {
-            "type": "string",
-            "description": "请求语言"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "description": "主键id"
-          },
-          "status": {
-            "type": "integer",
-            "format": "int32",
-            "description": "状态 1、2、3、启用、禁用、删除"
-          },
-          "revision": {
-            "type": "integer",
-            "format": "int32",
-            "description": "乐观锁"
-          },
-          "createBy": {
-            "type": "string",
-            "description": "创建人"
-          },
-          "createTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "创建时间"
-          },
-          "updateBy": {
-            "type": "string",
-            "description": "更新人"
-          },
-          "updateTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "更新时间"
           },
           "tradeType": {
             "type": "integer",
@@ -4209,10 +3751,6 @@
             "type": "integer",
             "format": "int64",
             "description": "客户组id"
-          },
-          "proposalNo": {
-            "type": "string",
-            "description": "提案号"
           },
           "country": {
             "type": "string",
@@ -4289,23 +3827,9 @@
           }
         },
         "x-apifox-orders": [
-          "companyId",
-          "customerId",
-          "customerNo",
           "accountId",
-          "trace",
-          "ip",
-          "lang",
-          "id",
-          "status",
-          "revision",
-          "createBy",
-          "createTime",
-          "updateBy",
-          "updateTime",
           "tradeType",
           "customerGroupId",
-          "proposalNo",
           "country",
           "accountCurrency",
           "withdrawCurrency",
@@ -4386,70 +3910,6 @@
           "tradeType"
         ],
         "properties": {
-          "companyId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "公司ID"
-          },
-          "customerId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "客户ID"
-          },
-          "customerNo": {
-            "type": "string",
-            "description": "客户编号"
-          },
-          "accountId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "账户ID"
-          },
-          "trace": {
-            "type": "string",
-            "description": "跟踪码"
-          },
-          "ip": {
-            "type": "string",
-            "description": "操作ip"
-          },
-          "lang": {
-            "type": "string",
-            "description": "请求语言"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "description": "主键id"
-          },
-          "status": {
-            "type": "integer",
-            "format": "int32",
-            "description": "状态 1、2、3、启用、禁用、删除"
-          },
-          "revision": {
-            "type": "integer",
-            "format": "int32",
-            "description": "乐观锁"
-          },
-          "createBy": {
-            "type": "string",
-            "description": "创建人"
-          },
-          "createTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "创建时间"
-          },
-          "updateBy": {
-            "type": "string",
-            "description": "更新人"
-          },
-          "updateTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "更新时间"
-          },
           "tradeType": {
             "type": "integer",
             "format": "int64"
@@ -4476,20 +3936,6 @@
           }
         },
         "x-apifox-orders": [
-          "companyId",
-          "customerId",
-          "customerNo",
-          "accountId",
-          "trace",
-          "ip",
-          "lang",
-          "id",
-          "status",
-          "revision",
-          "createBy",
-          "createTime",
-          "updateBy",
-          "updateTime",
           "tradeType",
           "finalAmount",
           "withdrawFee",
@@ -4509,70 +3955,6 @@
           "withdrawType"
         ],
         "properties": {
-          "companyId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "公司ID"
-          },
-          "customerId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "客户ID"
-          },
-          "customerNo": {
-            "type": "string",
-            "description": "客户编号"
-          },
-          "accountId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "账户ID"
-          },
-          "trace": {
-            "type": "string",
-            "description": "跟踪码"
-          },
-          "ip": {
-            "type": "string",
-            "description": "操作ip"
-          },
-          "lang": {
-            "type": "string",
-            "description": "请求语言"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "description": "主键id"
-          },
-          "status": {
-            "type": "integer",
-            "format": "int32",
-            "description": "状态 1、2、3、启用、禁用、删除"
-          },
-          "revision": {
-            "type": "integer",
-            "format": "int32",
-            "description": "乐观锁"
-          },
-          "createBy": {
-            "type": "string",
-            "description": "创建人"
-          },
-          "createTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "创建时间"
-          },
-          "updateBy": {
-            "type": "string",
-            "description": "更新人"
-          },
-          "updateTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "更新时间"
-          },
           "tradeType": {
             "type": "integer",
             "format": "int64"
@@ -4621,20 +4003,6 @@
           }
         },
         "x-apifox-orders": [
-          "companyId",
-          "customerId",
-          "customerNo",
-          "accountId",
-          "trace",
-          "ip",
-          "lang",
-          "id",
-          "status",
-          "revision",
-          "createBy",
-          "createTime",
-          "updateBy",
-          "updateTime",
           "tradeType",
           "customerGroupId",
           "country",
@@ -5009,32 +4377,10 @@
             "format": "int64",
             "description": "账户ID"
           },
-          "trace": {
-            "type": "string",
-            "description": "跟踪码"
-          },
-          "ip": {
-            "type": "string",
-            "description": "操作ip"
-          },
-          "lang": {
-            "type": "string",
-            "description": "请求语言"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "description": "主键id"
-          },
           "status": {
             "type": "integer",
             "format": "int32",
             "description": "状态 1、2、3、启用、禁用、删除"
-          },
-          "revision": {
-            "type": "integer",
-            "format": "int32",
-            "description": "乐观锁"
           },
           "createBy": {
             "type": "string",
@@ -5216,12 +4562,7 @@
           "customerId",
           "customerNo",
           "accountId",
-          "trace",
-          "ip",
-          "lang",
-          "id",
           "status",
-          "revision",
           "createBy",
           "createTime",
           "updateBy",
@@ -5379,18 +4720,6 @@
             "format": "int64",
             "description": "账户ID"
           },
-          "trace": {
-            "type": "string",
-            "description": "跟踪码"
-          },
-          "ip": {
-            "type": "string",
-            "description": "操作ip"
-          },
-          "lang": {
-            "type": "string",
-            "description": "请求语言"
-          },
           "id": {
             "type": "integer",
             "format": "int64",
@@ -5400,11 +4729,6 @@
             "type": "integer",
             "format": "int32",
             "description": "状态 1、2、3、启用、禁用、删除"
-          },
-          "revision": {
-            "type": "integer",
-            "format": "int32",
-            "description": "乐观锁"
           },
           "createBy": {
             "type": "string",
@@ -5487,12 +4811,8 @@
           "customerId",
           "customerNo",
           "accountId",
-          "trace",
-          "ip",
-          "lang",
           "id",
           "status",
-          "revision",
           "createBy",
           "createTime",
           "updateBy",
@@ -5518,40 +4838,6 @@
       "QueryProposalPageReqDto": {
         "type": "object",
         "properties": {
-          "companyId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "公司ID"
-          },
-          "customerId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "客户ID"
-          },
-          "customerNo": {
-            "type": "string",
-            "description": "客户编号"
-          },
-          "accountId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "账户ID"
-          },
-          "trace": {
-            "type": "string",
-            "description": "跟踪码"
-          },
-          "ip": {
-            "type": "string",
-            "description": "操作ip"
-          },
-          "lang": {
-            "type": "string",
-            "description": "请求语言"
-          },
-          "username": {
-            "type": "string"
-          },
           "size": {
             "type": "integer",
             "format": "int64",
@@ -5575,6 +4861,10 @@
             }
           },
           "startTime": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "endTime": {
             "type": "integer",
             "format": "int64"
           },
@@ -5615,28 +4905,17 @@
             "type": "string",
             "description": "支付状态"
           },
-          "endTime": {
-            "type": "integer",
-            "format": "int64"
-          },
           "businessType": {
             "type": "string"
           }
         },
         "x-apifox-orders": [
-          "companyId",
-          "customerId",
-          "customerNo",
-          "accountId",
-          "trace",
-          "ip",
-          "lang",
-          "username",
           "size",
           "current",
           "downloadType",
           "orders",
           "startTime",
+          "endTime",
           "withdrawType",
           "depositCurrency",
           "paymentCurrency",
@@ -5646,7 +4925,6 @@
           "txid",
           "depositStatus",
           "paymentStatus",
-          "endTime",
           "businessType"
         ],
         "x-apifox-folder": "Schemas",
@@ -5668,6 +4946,13 @@
           "column",
           "asc"
         ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "FundBaseDto": {
+        "type": "object",
+        "properties": {},
+        "x-apifox-orders": [],
         "x-apifox-folder": "Schemas",
         "x-apifox-ignore-properties": []
       },
@@ -5746,6 +5031,47 @@
         "x-apifox-folder": "Schemas",
         "x-apifox-ignore-properties": []
       },
+      "QueryPayChannelTypeDto": {
+        "type": "object",
+        "properties": {
+          "country": {
+            "type": "string",
+            "description": "国家编码"
+          },
+          "paymentChannelCode": {
+            "type": "string",
+            "description": "支付通道编码"
+          },
+          "paymentChannelType": {
+            "type": "string",
+            "description": "支付通道类型"
+          },
+          "paymentMerchantNo": {
+            "type": "string",
+            "description": "支付商户号"
+          },
+          "paymentChannelClientType": {
+            "type": "string",
+            "description": "支付通道客户端类型pc、mobile"
+          }
+        },
+        "x-apifox-orders": [
+          "country",
+          "paymentChannelCode",
+          "paymentChannelType",
+          "paymentMerchantNo",
+          "paymentChannelClientType"
+        ],
+        "required": [
+          "country",
+          "paymentChannelCode",
+          "paymentChannelType",
+          "paymentMerchantNo",
+          "paymentChannelClientType"
+        ],
+        "x-apifox-ignore-properties": [],
+        "x-apifox-folder": "Schemas"
+      },
       "BaseResultCustomerDepositProposalDto": {
         "type": "object",
         "properties": {
@@ -5804,73 +5130,10 @@
           "tradeType"
         ],
         "properties": {
-          "companyId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "公司ID"
-          },
-          "customerId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "客户ID"
-          },
-          "customerNo": {
-            "type": "string",
-            "description": "客户编号"
-          },
-          "accountId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "账户ID"
-          },
-          "trace": {
-            "type": "string",
-            "description": "跟踪码"
-          },
-          "ip": {
-            "type": "string",
-            "description": "操作ip"
-          },
-          "lang": {
-            "type": "string",
-            "description": "请求语言"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "description": "主键id"
-          },
-          "status": {
-            "type": "integer",
-            "format": "int32",
-            "description": "状态 1、2、3、启用、禁用、删除"
-          },
-          "revision": {
-            "type": "integer",
-            "format": "int32",
-            "description": "乐观锁"
-          },
-          "createBy": {
-            "type": "string",
-            "description": "创建人"
-          },
-          "createTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "创建时间"
-          },
-          "updateBy": {
-            "type": "string",
-            "description": "更新人"
-          },
-          "updateTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "更新时间"
-          },
           "tradeType": {
             "type": "integer",
-            "format": "int64"
+            "format": "int64",
+            "description": "玩法类型"
           },
           "proposalNo": {
             "type": "string",
@@ -5878,20 +5141,6 @@
           }
         },
         "x-apifox-orders": [
-          "companyId",
-          "customerId",
-          "customerNo",
-          "accountId",
-          "trace",
-          "ip",
-          "lang",
-          "id",
-          "status",
-          "revision",
-          "createBy",
-          "createTime",
-          "updateBy",
-          "updateTime",
           "tradeType",
           "proposalNo"
         ],
@@ -5906,73 +5155,10 @@
           "tradeType"
         ],
         "properties": {
-          "companyId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "公司ID"
-          },
-          "customerId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "客户ID"
-          },
-          "customerNo": {
-            "type": "string",
-            "description": "客户编号"
-          },
-          "accountId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "账户ID"
-          },
-          "trace": {
-            "type": "string",
-            "description": "跟踪码"
-          },
-          "ip": {
-            "type": "string",
-            "description": "操作ip"
-          },
-          "lang": {
-            "type": "string",
-            "description": "请求语言"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "description": "主键id"
-          },
-          "status": {
-            "type": "integer",
-            "format": "int32",
-            "description": "状态 1、2、3、启用、禁用、删除"
-          },
-          "revision": {
-            "type": "integer",
-            "format": "int32",
-            "description": "乐观锁"
-          },
-          "createBy": {
-            "type": "string",
-            "description": "创建人"
-          },
-          "createTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "创建时间"
-          },
-          "updateBy": {
-            "type": "string",
-            "description": "更新人"
-          },
-          "updateTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "更新时间"
-          },
           "tradeType": {
             "type": "integer",
-            "format": "int64"
+            "format": "int64",
+            "description": "玩法类型"
           },
           "accountCurrency": {
             "type": "string",
@@ -5984,23 +5170,65 @@
           }
         },
         "x-apifox-orders": [
-          "companyId",
-          "customerId",
-          "customerNo",
-          "accountId",
-          "trace",
-          "ip",
-          "lang",
-          "id",
-          "status",
-          "revision",
-          "createBy",
-          "createTime",
-          "updateBy",
-          "updateTime",
           "tradeType",
           "accountCurrency",
           "amount"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "BaseResult": {
+        "type": "object",
+        "properties": {
+          "bizCode": {
+            "type": "string",
+            "description": "模块标识码"
+          },
+          "code": {
+            "type": "string",
+            "description": "状态返回码"
+          },
+          "msg": {
+            "type": "string",
+            "description": "状态描述"
+          },
+          "tm": {
+            "type": "integer",
+            "format": "int64",
+            "description": "处理时长（毫秒）"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "msgParams": {
+            "type": "string",
+            "description": "返回描述中占位符参数串，多个参数间以,分割"
+          },
+          "data": {
+            "type": "object",
+            "description": "数据体",
+            "x-apifox-orders": [],
+            "properties": {},
+            "x-apifox-ignore-properties": []
+          },
+          "ok": {
+            "type": "boolean"
+          },
+          "fail": {
+            "type": "boolean"
+          }
+        },
+        "x-apifox-orders": [
+          "bizCode",
+          "code",
+          "msg",
+          "tm",
+          "trace",
+          "msgParams",
+          "data",
+          "ok",
+          "fail"
         ],
         "x-apifox-folder": "Schemas",
         "x-apifox-ignore-properties": []
@@ -6013,73 +5241,10 @@
           "tradeType"
         ],
         "properties": {
-          "companyId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "公司ID"
-          },
-          "customerId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "客户ID"
-          },
-          "customerNo": {
-            "type": "string",
-            "description": "客户编号"
-          },
-          "accountId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "账户ID"
-          },
-          "trace": {
-            "type": "string",
-            "description": "跟踪码"
-          },
-          "ip": {
-            "type": "string",
-            "description": "操作ip"
-          },
-          "lang": {
-            "type": "string",
-            "description": "请求语言"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "description": "主键id"
-          },
-          "status": {
-            "type": "integer",
-            "format": "int32",
-            "description": "状态 1、2、3、启用、禁用、删除"
-          },
-          "revision": {
-            "type": "integer",
-            "format": "int32",
-            "description": "乐观锁"
-          },
-          "createBy": {
-            "type": "string",
-            "description": "创建人"
-          },
-          "createTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "创建时间"
-          },
-          "updateBy": {
-            "type": "string",
-            "description": "更新人"
-          },
-          "updateTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "更新时间"
-          },
           "tradeType": {
             "type": "integer",
-            "format": "int64"
+            "format": "int64",
+            "description": "玩法类型"
           },
           "accountCurrency": {
             "type": "string",
@@ -6091,20 +5256,6 @@
           }
         },
         "x-apifox-orders": [
-          "companyId",
-          "customerId",
-          "customerNo",
-          "accountId",
-          "trace",
-          "ip",
-          "lang",
-          "id",
-          "status",
-          "revision",
-          "createBy",
-          "createTime",
-          "updateBy",
-          "updateTime",
           "tradeType",
           "accountCurrency",
           "amount"
@@ -6165,53 +5316,6 @@
         "x-apifox-folder": "Schemas",
         "x-apifox-ignore-properties": []
       },
-      "BaseDto": {
-        "type": "object",
-        "properties": {
-          "companyId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "公司ID"
-          },
-          "customerId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "客户ID"
-          },
-          "customerNo": {
-            "type": "string",
-            "description": "客户编号"
-          },
-          "accountId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "账户ID"
-          },
-          "trace": {
-            "type": "string",
-            "description": "跟踪码"
-          },
-          "ip": {
-            "type": "string",
-            "description": "操作ip"
-          },
-          "lang": {
-            "type": "string",
-            "description": "请求语言"
-          }
-        },
-        "x-apifox-orders": [
-          "companyId",
-          "customerId",
-          "customerNo",
-          "accountId",
-          "trace",
-          "ip",
-          "lang"
-        ],
-        "x-apifox-folder": "Schemas",
-        "x-apifox-ignore-properties": []
-      },
       "BaseResultQueryCoinPayStatusRespDto": {
         "type": "object",
         "properties": {
@@ -6267,75 +5371,6 @@
       "QueryCoinPayStatusRespDto": {
         "type": "object",
         "properties": {
-          "companyId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "公司ID"
-          },
-          "customerId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "客户ID"
-          },
-          "customerNo": {
-            "type": "string",
-            "description": "客户编号"
-          },
-          "accountId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "账户ID"
-          },
-          "trace": {
-            "type": "string",
-            "description": "跟踪码"
-          },
-          "ip": {
-            "type": "string",
-            "description": "操作ip"
-          },
-          "lang": {
-            "type": "string",
-            "description": "请求语言"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "description": "主键id"
-          },
-          "status": {
-            "type": "integer",
-            "format": "int32",
-            "description": "状态 1、2、3、启用、禁用、删除"
-          },
-          "revision": {
-            "type": "integer",
-            "format": "int32",
-            "description": "乐观锁"
-          },
-          "createBy": {
-            "type": "string",
-            "description": "创建人"
-          },
-          "createTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "创建时间"
-          },
-          "updateBy": {
-            "type": "string",
-            "description": "更新人"
-          },
-          "updateTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "更新时间"
-          },
-          "customerGroupId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "客户组id"
-          },
           "accountCurrency": {
             "type": "string",
             "description": "账户货币编码"
@@ -6371,21 +5406,6 @@
           }
         },
         "x-apifox-orders": [
-          "companyId",
-          "customerId",
-          "customerNo",
-          "accountId",
-          "trace",
-          "ip",
-          "lang",
-          "id",
-          "status",
-          "revision",
-          "createBy",
-          "createTime",
-          "updateBy",
-          "updateTime",
-          "customerGroupId",
           "accountCurrency",
           "channelCode",
           "blockchainName",
@@ -6403,79 +5423,9 @@
         "required": [
           "accountCurrency",
           "blockchainName",
-          "channelCode",
-          "customerGroupId"
+          "channelCode"
         ],
         "properties": {
-          "companyId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "公司ID"
-          },
-          "customerId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "客户ID"
-          },
-          "customerNo": {
-            "type": "string",
-            "description": "客户编号"
-          },
-          "accountId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "账户ID"
-          },
-          "trace": {
-            "type": "string",
-            "description": "跟踪码"
-          },
-          "ip": {
-            "type": "string",
-            "description": "操作ip"
-          },
-          "lang": {
-            "type": "string",
-            "description": "请求语言"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "description": "主键id"
-          },
-          "status": {
-            "type": "integer",
-            "format": "int32",
-            "description": "状态 1、2、3、启用、禁用、删除"
-          },
-          "revision": {
-            "type": "integer",
-            "format": "int32",
-            "description": "乐观锁"
-          },
-          "createBy": {
-            "type": "string",
-            "description": "创建人"
-          },
-          "createTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "创建时间"
-          },
-          "updateBy": {
-            "type": "string",
-            "description": "更新人"
-          },
-          "updateTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "更新时间"
-          },
-          "customerGroupId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "客户组id"
-          },
           "accountCurrency": {
             "type": "string",
             "description": "账户货币编码"
@@ -6494,21 +5444,6 @@
           }
         },
         "x-apifox-orders": [
-          "companyId",
-          "customerId",
-          "customerNo",
-          "accountId",
-          "trace",
-          "ip",
-          "lang",
-          "id",
-          "status",
-          "revision",
-          "createBy",
-          "createTime",
-          "updateBy",
-          "updateTime",
-          "customerGroupId",
           "accountCurrency",
           "channelCode",
           "blockchainName",
@@ -6579,73 +5514,10 @@
           "tradeType"
         ],
         "properties": {
-          "companyId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "公司ID"
-          },
-          "customerId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "客户ID"
-          },
-          "customerNo": {
-            "type": "string",
-            "description": "客户编号"
-          },
-          "accountId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "账户ID"
-          },
-          "trace": {
-            "type": "string",
-            "description": "跟踪码"
-          },
-          "ip": {
-            "type": "string",
-            "description": "操作ip"
-          },
-          "lang": {
-            "type": "string",
-            "description": "请求语言"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "description": "主键id"
-          },
-          "status": {
-            "type": "integer",
-            "format": "int32",
-            "description": "状态 1、2、3、启用、禁用、删除"
-          },
-          "revision": {
-            "type": "integer",
-            "format": "int32",
-            "description": "乐观锁"
-          },
-          "createBy": {
-            "type": "string",
-            "description": "创建人"
-          },
-          "createTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "创建时间"
-          },
-          "updateBy": {
-            "type": "string",
-            "description": "更新人"
-          },
-          "updateTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "更新时间"
-          },
           "tradeType": {
             "type": "integer",
-            "format": "int64"
+            "format": "int64",
+            "description": "玩法类型"
           },
           "customerGroupId": {
             "type": "integer",
@@ -6715,20 +5587,6 @@
           }
         },
         "x-apifox-orders": [
-          "companyId",
-          "customerId",
-          "customerNo",
-          "accountId",
-          "trace",
-          "ip",
-          "lang",
-          "id",
-          "status",
-          "revision",
-          "createBy",
-          "createTime",
-          "updateBy",
-          "updateTime",
           "tradeType",
           "customerGroupId",
           "paymentCode",
@@ -6817,73 +5675,10 @@
           "tradeType"
         ],
         "properties": {
-          "companyId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "公司ID"
-          },
-          "customerId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "客户ID"
-          },
-          "customerNo": {
-            "type": "string",
-            "description": "客户编号"
-          },
-          "accountId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "账户ID"
-          },
-          "trace": {
-            "type": "string",
-            "description": "跟踪码"
-          },
-          "ip": {
-            "type": "string",
-            "description": "操作ip"
-          },
-          "lang": {
-            "type": "string",
-            "description": "请求语言"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "description": "主键id"
-          },
-          "status": {
-            "type": "integer",
-            "format": "int32",
-            "description": "状态 1、2、3、启用、禁用、删除"
-          },
-          "revision": {
-            "type": "integer",
-            "format": "int32",
-            "description": "乐观锁"
-          },
-          "createBy": {
-            "type": "string",
-            "description": "创建人"
-          },
-          "createTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "创建时间"
-          },
-          "updateBy": {
-            "type": "string",
-            "description": "更新人"
-          },
-          "updateTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "更新时间"
-          },
           "tradeType": {
             "type": "integer",
-            "format": "int64"
+            "format": "int64",
+            "description": "玩法类型"
           },
           "customerGroupId": {
             "type": "integer",
@@ -6908,20 +5703,6 @@
           }
         },
         "x-apifox-orders": [
-          "companyId",
-          "customerId",
-          "customerNo",
-          "accountId",
-          "trace",
-          "ip",
-          "lang",
-          "id",
-          "status",
-          "revision",
-          "createBy",
-          "createTime",
-          "updateBy",
-          "updateTime",
           "tradeType",
           "customerGroupId",
           "clientType",
@@ -6941,73 +5722,10 @@
           "tradeType"
         ],
         "properties": {
-          "companyId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "公司ID"
-          },
-          "customerId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "客户ID"
-          },
-          "customerNo": {
-            "type": "string",
-            "description": "客户编号"
-          },
-          "accountId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "账户ID"
-          },
-          "trace": {
-            "type": "string",
-            "description": "跟踪码"
-          },
-          "ip": {
-            "type": "string",
-            "description": "操作ip"
-          },
-          "lang": {
-            "type": "string",
-            "description": "请求语言"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "description": "主键id"
-          },
-          "status": {
-            "type": "integer",
-            "format": "int32",
-            "description": "状态 1、2、3、启用、禁用、删除"
-          },
-          "revision": {
-            "type": "integer",
-            "format": "int32",
-            "description": "乐观锁"
-          },
-          "createBy": {
-            "type": "string",
-            "description": "创建人"
-          },
-          "createTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "创建时间"
-          },
-          "updateBy": {
-            "type": "string",
-            "description": "更新人"
-          },
-          "updateTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "更新时间"
-          },
           "tradeType": {
             "type": "integer",
-            "format": "int64"
+            "format": "int64",
+            "description": "玩法类型"
           },
           "customerGroupId": {
             "type": "integer",
@@ -7040,20 +5758,6 @@
           }
         },
         "x-apifox-orders": [
-          "companyId",
-          "customerId",
-          "customerNo",
-          "accountId",
-          "trace",
-          "ip",
-          "lang",
-          "id",
-          "status",
-          "revision",
-          "createBy",
-          "createTime",
-          "updateBy",
-          "updateTime",
           "tradeType",
           "customerGroupId",
           "paymentCode",
@@ -7128,70 +5832,6 @@
           "tradeType"
         ],
         "properties": {
-          "companyId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "公司ID"
-          },
-          "customerId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "客户ID"
-          },
-          "customerNo": {
-            "type": "string",
-            "description": "客户编号"
-          },
-          "accountId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "账户ID"
-          },
-          "trace": {
-            "type": "string",
-            "description": "跟踪码"
-          },
-          "ip": {
-            "type": "string",
-            "description": "操作ip"
-          },
-          "lang": {
-            "type": "string",
-            "description": "请求语言"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "description": "主键id"
-          },
-          "status": {
-            "type": "integer",
-            "format": "int32",
-            "description": "状态 1、2、3、启用、禁用、删除"
-          },
-          "revision": {
-            "type": "integer",
-            "format": "int32",
-            "description": "乐观锁"
-          },
-          "createBy": {
-            "type": "string",
-            "description": "创建人"
-          },
-          "createTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "创建时间"
-          },
-          "updateBy": {
-            "type": "string",
-            "description": "更新人"
-          },
-          "updateTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "更新时间"
-          },
           "tradeType": {
             "type": "integer",
             "format": "int64"
@@ -7294,20 +5934,6 @@
           }
         },
         "x-apifox-orders": [
-          "companyId",
-          "customerId",
-          "customerNo",
-          "accountId",
-          "trace",
-          "ip",
-          "lang",
-          "id",
-          "status",
-          "revision",
-          "createBy",
-          "createTime",
-          "updateBy",
-          "updateTime",
           "tradeType",
           "customerGroupId",
           "paymentCode",
@@ -7406,73 +6032,10 @@
           "tradeType"
         ],
         "properties": {
-          "companyId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "公司ID"
-          },
-          "customerId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "客户ID"
-          },
-          "customerNo": {
-            "type": "string",
-            "description": "客户编号"
-          },
-          "accountId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "账户ID"
-          },
-          "trace": {
-            "type": "string",
-            "description": "跟踪码"
-          },
-          "ip": {
-            "type": "string",
-            "description": "操作ip"
-          },
-          "lang": {
-            "type": "string",
-            "description": "请求语言"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "description": "主键id"
-          },
-          "status": {
-            "type": "integer",
-            "format": "int32",
-            "description": "状态 1、2、3、启用、禁用、删除"
-          },
-          "revision": {
-            "type": "integer",
-            "format": "int32",
-            "description": "乐观锁"
-          },
-          "createBy": {
-            "type": "string",
-            "description": "创建人"
-          },
-          "createTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "创建时间"
-          },
-          "updateBy": {
-            "type": "string",
-            "description": "更新人"
-          },
-          "updateTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "更新时间"
-          },
           "tradeType": {
             "type": "integer",
-            "format": "int64"
+            "format": "int64",
+            "description": "玩法类型"
           },
           "customerGroupId": {
             "type": "integer",
@@ -7505,20 +6068,6 @@
           }
         },
         "x-apifox-orders": [
-          "companyId",
-          "customerId",
-          "customerNo",
-          "accountId",
-          "trace",
-          "ip",
-          "lang",
-          "id",
-          "status",
-          "revision",
-          "createBy",
-          "createTime",
-          "updateBy",
-          "updateTime",
           "tradeType",
           "customerGroupId",
           "paymentCode",
@@ -7560,7 +6109,7 @@
             "description": "返回描述中占位符参数串，多个参数间以,分割"
           },
           "data": {
-            "$ref": "#/components/schemas/QueryCustomerDepositExchangeRateDto"
+            "$ref": "#/components/schemas/QueryCustomerDepositExchangeRateDtoResp"
           },
           "ok": {
             "type": "boolean"
@@ -7583,82 +6132,9 @@
         "x-apifox-folder": "Schemas",
         "x-apifox-ignore-properties": []
       },
-      "QueryCustomerDepositExchangeRateDto": {
+      "QueryCustomerDepositExchangeRateDtoResp": {
         "type": "object",
         "properties": {
-          "companyId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "公司ID"
-          },
-          "customerId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "客户ID"
-          },
-          "customerNo": {
-            "type": "string",
-            "description": "客户编号"
-          },
-          "accountId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "账户ID"
-          },
-          "trace": {
-            "type": "string",
-            "description": "跟踪码"
-          },
-          "ip": {
-            "type": "string",
-            "description": "操作ip"
-          },
-          "lang": {
-            "type": "string",
-            "description": "请求语言"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "description": "主键id"
-          },
-          "status": {
-            "type": "integer",
-            "format": "int32",
-            "description": "状态 1、2、3、启用、禁用、删除"
-          },
-          "revision": {
-            "type": "integer",
-            "format": "int32",
-            "description": "乐观锁"
-          },
-          "createBy": {
-            "type": "string",
-            "description": "创建人"
-          },
-          "createTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "创建时间"
-          },
-          "updateBy": {
-            "type": "string",
-            "description": "更新人"
-          },
-          "updateTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "更新时间"
-          },
-          "customerGroupId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "客户组id"
-          },
-          "depositRateSerialNo": {
-            "type": "string",
-            "description": "流水号"
-          },
           "paymentCurrency": {
             "type": "string",
             "description": "支付货币编码"
@@ -7671,8 +6147,12 @@
             "type": "string",
             "description": "支付通道编码"
           },
+          "depositRateSerialNo": {
+            "type": "string",
+            "description": "流水号"
+          },
           "exchangeRate": {
-            "type": "number",
+            "type": "string",
             "description": "汇率"
           },
           "formulaSymbol": {
@@ -7680,129 +6160,54 @@
             "description": "汇率方向"
           },
           "sourceDigits": {
-            "type": "integer",
-            "format": "int32",
+            "type": "string",
             "description": "原币种资产小数位"
           },
           "targetDigits": {
-            "type": "integer",
-            "format": "int32",
+            "type": "string",
             "description": "目标币种资产小数位"
           }
         },
         "x-apifox-orders": [
-          "companyId",
-          "customerId",
-          "customerNo",
-          "accountId",
-          "trace",
-          "ip",
-          "lang",
-          "id",
-          "status",
-          "revision",
-          "createBy",
-          "createTime",
-          "updateBy",
-          "updateTime",
-          "customerGroupId",
-          "depositRateSerialNo",
           "paymentCurrency",
           "accountCurrency",
           "channelCode",
+          "depositRateSerialNo",
           "exchangeRate",
           "formulaSymbol",
           "sourceDigits",
           "targetDigits"
         ],
         "x-apifox-folder": "Schemas",
+        "required": [
+          "depositRateSerialNo",
+          "exchangeRate",
+          "formulaSymbol",
+          "sourceDigits",
+          "targetDigits"
+        ],
         "x-apifox-ignore-properties": []
       },
-      "CapitalTransferRecordDto": {
+      "QueryCustomerDepositExchangeRateDto": {
         "type": "object",
         "properties": {
-          "companyId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "公司ID"
-          },
-          "customerId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "客户ID"
-          },
-          "customerNo": {
+          "paymentCurrency": {
             "type": "string",
-            "description": "客户编号"
+            "description": "支付货币编码"
           },
-          "accountId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "账户ID"
-          },
-          "trace": {
+          "accountCurrency": {
             "type": "string",
-            "description": "跟踪码"
+            "description": "账户货币编码"
           },
-          "ip": {
+          "channelCode": {
             "type": "string",
-            "description": "操作ip"
-          },
-          "lang": {
-            "type": "string",
-            "description": "请求语言"
-          },
-          "username": {
-            "type": "string"
-          },
-          "size": {
-            "type": "integer",
-            "format": "int64",
-            "description": "每页条数"
-          },
-          "current": {
-            "type": "integer",
-            "format": "int64",
-            "description": "当前页"
-          },
-          "downloadType": {
-            "type": "integer",
-            "format": "int32",
-            "description": "下载类型 1：直接下载，2：异步下载"
-          },
-          "startTime": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "endTime": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "tradeType": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "assetsId": {
-            "type": "integer",
-            "format": "int64"
+            "description": "支付通道编码"
           }
         },
         "x-apifox-orders": [
-          "companyId",
-          "customerId",
-          "customerNo",
-          "accountId",
-          "trace",
-          "ip",
-          "lang",
-          "username",
-          "size",
-          "current",
-          "downloadType",
-          "startTime",
-          "endTime",
-          "tradeType",
-          "assetsId"
+          "paymentCurrency",
+          "accountCurrency",
+          "channelCode"
         ],
         "x-apifox-folder": "Schemas",
         "x-apifox-ignore-properties": []
@@ -7873,73 +6278,10 @@
           "tradeType"
         ],
         "properties": {
-          "companyId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "公司ID"
-          },
-          "customerId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "客户ID"
-          },
-          "customerNo": {
-            "type": "string",
-            "description": "客户编号"
-          },
-          "accountId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "账户ID"
-          },
-          "trace": {
-            "type": "string",
-            "description": "跟踪码"
-          },
-          "ip": {
-            "type": "string",
-            "description": "操作ip"
-          },
-          "lang": {
-            "type": "string",
-            "description": "请求语言"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "description": "主键id"
-          },
-          "status": {
-            "type": "integer",
-            "format": "int32",
-            "description": "状态 1、2、3、启用、禁用、删除"
-          },
-          "revision": {
-            "type": "integer",
-            "format": "int32",
-            "description": "乐观锁"
-          },
-          "createBy": {
-            "type": "string",
-            "description": "创建人"
-          },
-          "createTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "创建时间"
-          },
-          "updateBy": {
-            "type": "string",
-            "description": "更新人"
-          },
-          "updateTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "更新时间"
-          },
           "tradeType": {
             "type": "integer",
-            "format": "int64"
+            "format": "int64",
+            "description": "玩法类型"
           },
           "customerGroupId": {
             "type": "integer",
@@ -7956,20 +6298,6 @@
           }
         },
         "x-apifox-orders": [
-          "companyId",
-          "customerId",
-          "customerNo",
-          "accountId",
-          "trace",
-          "ip",
-          "lang",
-          "id",
-          "status",
-          "revision",
-          "createBy",
-          "createTime",
-          "updateBy",
-          "updateTime",
           "tradeType",
           "customerGroupId",
           "clientType",
@@ -8070,73 +6398,10 @@
           "tradeType"
         ],
         "properties": {
-          "companyId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "公司ID"
-          },
-          "customerId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "客户ID"
-          },
-          "customerNo": {
-            "type": "string",
-            "description": "客户编号"
-          },
-          "accountId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "账户ID"
-          },
-          "trace": {
-            "type": "string",
-            "description": "跟踪码"
-          },
-          "ip": {
-            "type": "string",
-            "description": "操作ip"
-          },
-          "lang": {
-            "type": "string",
-            "description": "请求语言"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "description": "主键id"
-          },
-          "status": {
-            "type": "integer",
-            "format": "int32",
-            "description": "状态 1、2、3、启用、禁用、删除"
-          },
-          "revision": {
-            "type": "integer",
-            "format": "int32",
-            "description": "乐观锁"
-          },
-          "createBy": {
-            "type": "string",
-            "description": "创建人"
-          },
-          "createTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "创建时间"
-          },
-          "updateBy": {
-            "type": "string",
-            "description": "更新人"
-          },
-          "updateTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "更新时间"
-          },
           "tradeType": {
             "type": "integer",
-            "format": "int64"
+            "format": "int64",
+            "description": "玩法类型"
           },
           "customerGroupId": {
             "type": "integer",
@@ -8161,20 +6426,6 @@
           }
         },
         "x-apifox-orders": [
-          "companyId",
-          "customerId",
-          "customerNo",
-          "accountId",
-          "trace",
-          "ip",
-          "lang",
-          "id",
-          "status",
-          "revision",
-          "createBy",
-          "createTime",
-          "updateBy",
-          "updateTime",
           "tradeType",
           "customerGroupId",
           "clientType",
@@ -8190,132 +6441,56 @@
         "required": [
           "amount",
           "currency",
-          "customerGroupId",
           "toCurrency",
           "toCustomerNo",
           "toTradeType",
           "tradeType"
         ],
         "properties": {
-          "companyId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "公司ID"
-          },
-          "customerId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "客户ID"
-          },
-          "customerNo": {
-            "type": "string",
-            "description": "客户编号"
-          },
-          "accountId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "账户ID"
-          },
-          "trace": {
-            "type": "string",
-            "description": "跟踪码"
-          },
-          "ip": {
-            "type": "string",
-            "description": "操作ip"
-          },
-          "lang": {
-            "type": "string",
-            "description": "请求语言"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "description": "主键id"
-          },
-          "status": {
-            "type": "integer",
-            "format": "int32",
-            "description": "状态 1、2、3、启用、禁用、删除"
-          },
-          "revision": {
-            "type": "integer",
-            "format": "int32",
-            "description": "乐观锁"
-          },
-          "createBy": {
-            "type": "string",
-            "description": "创建人"
-          },
-          "createTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "创建时间"
-          },
-          "updateBy": {
-            "type": "string",
-            "description": "更新人"
-          },
-          "updateTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "更新时间"
-          },
           "tradeType": {
             "type": "integer",
-            "format": "int64"
-          },
-          "customerGroupId": {
-            "type": "integer",
             "format": "int64",
-            "description": "客户组id"
+            "description": "划入账户玩法"
           },
           "accountDigit": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "description": "划出账户小数位"
           },
           "toTradeType": {
             "type": "integer",
-            "format": "int64"
+            "format": "int64",
+            "description": "划出账户玩法"
           },
           "toAccountId": {
             "type": "integer",
-            "format": "int64"
+            "format": "int64",
+            "description": "划入账户id"
           },
           "toCustomerNo": {
-            "type": "string"
+            "type": "string",
+            "description": "划入客户编号"
           },
           "toAccountDigit": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "description": "划入账户小数位"
           },
           "amount": {
-            "type": "number"
+            "type": "number",
+            "description": "滑动金额"
           },
           "currency": {
-            "type": "string"
+            "type": "string",
+            "description": "划出币种"
           },
           "toCurrency": {
-            "type": "string"
+            "type": "string",
+            "description": "划入币种"
           }
         },
         "x-apifox-orders": [
-          "companyId",
-          "customerId",
-          "customerNo",
-          "accountId",
-          "trace",
-          "ip",
-          "lang",
-          "id",
-          "status",
-          "revision",
-          "createBy",
-          "createTime",
-          "updateBy",
-          "updateTime",
           "tradeType",
-          "customerGroupId",
           "accountDigit",
           "toTradeType",
           "toAccountId",
@@ -8415,70 +6590,6 @@
           "tradeType"
         ],
         "properties": {
-          "companyId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "公司ID"
-          },
-          "customerId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "客户ID"
-          },
-          "customerNo": {
-            "type": "string",
-            "description": "客户编号"
-          },
-          "accountId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "账户ID"
-          },
-          "trace": {
-            "type": "string",
-            "description": "跟踪码"
-          },
-          "ip": {
-            "type": "string",
-            "description": "操作ip"
-          },
-          "lang": {
-            "type": "string",
-            "description": "请求语言"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "description": "主键id"
-          },
-          "status": {
-            "type": "integer",
-            "format": "int32",
-            "description": "状态 1、2、3、启用、禁用、删除"
-          },
-          "revision": {
-            "type": "integer",
-            "format": "int32",
-            "description": "乐观锁"
-          },
-          "createBy": {
-            "type": "string",
-            "description": "创建人"
-          },
-          "createTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "创建时间"
-          },
-          "updateBy": {
-            "type": "string",
-            "description": "更新人"
-          },
-          "updateTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "更新时间"
-          },
           "tradeType": {
             "type": "integer",
             "format": "int64"
@@ -8493,20 +6604,6 @@
           }
         },
         "x-apifox-orders": [
-          "companyId",
-          "customerId",
-          "customerNo",
-          "accountId",
-          "trace",
-          "ip",
-          "lang",
-          "id",
-          "status",
-          "revision",
-          "createBy",
-          "createTime",
-          "updateBy",
-          "updateTime",
           "tradeType",
           "paymentCode",
           "currency"
@@ -8514,132 +6611,125 @@
         "x-apifox-folder": "Schemas",
         "x-apifox-ignore-properties": []
       },
+      "BaseResultAmountTransferVo": {
+        "type": "object",
+        "properties": {
+          "bizCode": {
+            "type": "string",
+            "title": "模块标识码"
+          },
+          "code": {
+            "type": "string",
+            "title": "状态返回码"
+          },
+          "msg": {
+            "type": "string",
+            "title": "状态描述"
+          },
+          "tm": {
+            "type": "integer",
+            "format": "int64",
+            "title": "处理时长（毫秒）"
+          },
+          "trace": {
+            "type": "string",
+            "title": "跟踪码"
+          },
+          "msgParams": {
+            "type": "string",
+            "title": "返回描述中占位符参数串，多个参数间以,分割"
+          },
+          "ok": {
+            "type": "boolean"
+          },
+          "fail": {
+            "type": "boolean"
+          },
+          "data": {
+            "title": "数据体",
+            "$ref": "#/components/schemas/AmountTransferVo"
+          }
+        },
+        "title": "BaseResultAmountTransferVo",
+        "x-apifox-orders": [
+          "bizCode",
+          "code",
+          "msg",
+          "tm",
+          "trace",
+          "msgParams",
+          "ok",
+          "fail",
+          "data"
+        ],
+        "x-apifox-ignore-properties": [],
+        "x-apifox-folder": "Schemas"
+      },
+      "AmountTransferVo": {
+        "type": "object",
+        "properties": {
+          "surplusAmount": {
+            "type": "string",
+            "description": "变动金额"
+          }
+        },
+        "x-apifox-orders": [
+          "surplusAmount"
+        ],
+        "required": [
+          "surplusAmount"
+        ],
+        "x-apifox-ignore-properties": [],
+        "x-apifox-folder": "Schemas"
+      },
       "CapitalTransferReqDto": {
         "type": "object",
         "required": [
           "amount",
-          "customerGroupId",
           "toCustomerNo",
-          "toTradeType",
-          "tradeType"
+          "toTradeType"
         ],
         "properties": {
-          "companyId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "公司ID"
-          },
-          "customerId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "客户ID"
-          },
-          "customerNo": {
-            "type": "string",
-            "description": "客户编号"
-          },
           "accountId": {
             "type": "integer",
             "format": "int64",
             "description": "账户ID"
           },
-          "trace": {
-            "type": "string",
-            "description": "跟踪码"
-          },
-          "ip": {
-            "type": "string",
-            "description": "操作ip"
-          },
-          "lang": {
-            "type": "string",
-            "description": "请求语言"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "description": "主键id"
-          },
-          "status": {
-            "type": "integer",
-            "format": "int32",
-            "description": "状态 1、2、3、启用、禁用、删除"
-          },
-          "revision": {
-            "type": "integer",
-            "format": "int32",
-            "description": "乐观锁"
-          },
-          "createBy": {
-            "type": "string",
-            "description": "创建人"
-          },
-          "createTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "创建时间"
-          },
-          "updateBy": {
-            "type": "string",
-            "description": "更新人"
-          },
-          "updateTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "更新时间"
-          },
-          "tradeType": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "customerGroupId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "客户组id"
-          },
           "accountDigit": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "description": "账户小数位"
           },
           "toTradeType": {
             "type": "integer",
-            "format": "int64"
+            "format": "int64",
+            "description": "划入账户玩法"
           },
           "toAccountId": {
             "type": "integer",
-            "format": "int64"
+            "format": "int64",
+            "description": "划入账户id"
           },
           "toCustomerNo": {
-            "type": "string"
+            "type": "string",
+            "description": "划入客户编号"
           },
           "toAccountDigit": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "description": "划入账户小数位"
           },
           "amount": {
-            "type": "number"
+            "type": "number",
+            "description": "amount"
           },
           "currency": {
-            "type": "string"
+            "type": "string",
+            "description": "划转的币种"
           }
         },
         "x-apifox-orders": [
-          "companyId",
-          "customerId",
-          "customerNo",
           "accountId",
-          "trace",
-          "ip",
-          "lang",
-          "id",
-          "status",
-          "revision",
-          "createBy",
-          "createTime",
-          "updateBy",
-          "updateTime",
-          "tradeType",
-          "customerGroupId",
           "accountDigit",
           "toTradeType",
           "toAccountId",
@@ -8790,73 +6880,10 @@
           "tradeType"
         ],
         "properties": {
-          "companyId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "公司ID"
-          },
-          "customerId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "客户ID"
-          },
-          "customerNo": {
-            "type": "string",
-            "description": "客户编号"
-          },
-          "accountId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "账户ID"
-          },
-          "trace": {
-            "type": "string",
-            "description": "跟踪码"
-          },
-          "ip": {
-            "type": "string",
-            "description": "操作ip"
-          },
-          "lang": {
-            "type": "string",
-            "description": "请求语言"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "description": "主键id"
-          },
-          "status": {
-            "type": "integer",
-            "format": "int32",
-            "description": "状态 1、2、3、启用、禁用、删除"
-          },
-          "revision": {
-            "type": "integer",
-            "format": "int32",
-            "description": "乐观锁"
-          },
-          "createBy": {
-            "type": "string",
-            "description": "创建人"
-          },
-          "createTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "创建时间"
-          },
-          "updateBy": {
-            "type": "string",
-            "description": "更新人"
-          },
-          "updateTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "更新时间"
-          },
           "tradeType": {
             "type": "integer",
-            "format": "int64"
+            "format": "int64",
+            "description": "玩法类型"
           },
           "customerGroupId": {
             "type": "integer",
@@ -8881,20 +6908,6 @@
           }
         },
         "x-apifox-orders": [
-          "companyId",
-          "customerId",
-          "customerNo",
-          "accountId",
-          "trace",
-          "ip",
-          "lang",
-          "id",
-          "status",
-          "revision",
-          "createBy",
-          "createTime",
-          "updateBy",
-          "updateTime",
           "tradeType",
           "customerGroupId",
           "clientType",
@@ -9006,73 +7019,15 @@
           "tradeType"
         ],
         "properties": {
-          "companyId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "公司ID"
-          },
-          "customerId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "客户ID"
-          },
-          "customerNo": {
-            "type": "string",
-            "description": "客户编号"
-          },
           "accountId": {
             "type": "integer",
             "format": "int64",
             "description": "账户ID"
           },
-          "trace": {
-            "type": "string",
-            "description": "跟踪码"
-          },
-          "ip": {
-            "type": "string",
-            "description": "操作ip"
-          },
-          "lang": {
-            "type": "string",
-            "description": "请求语言"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "description": "主键id"
-          },
-          "status": {
-            "type": "integer",
-            "format": "int32",
-            "description": "状态 1、2、3、启用、禁用、删除"
-          },
-          "revision": {
-            "type": "integer",
-            "format": "int32",
-            "description": "乐观锁"
-          },
-          "createBy": {
-            "type": "string",
-            "description": "创建人"
-          },
-          "createTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "创建时间"
-          },
-          "updateBy": {
-            "type": "string",
-            "description": "更新人"
-          },
-          "updateTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "更新时间"
-          },
           "tradeType": {
             "type": "integer",
-            "format": "int64"
+            "format": "int64",
+            "description": "玩法类型"
           },
           "customerGroupId": {
             "type": "integer",
@@ -9161,20 +7116,7 @@
           }
         },
         "x-apifox-orders": [
-          "companyId",
-          "customerId",
-          "customerNo",
           "accountId",
-          "trace",
-          "ip",
-          "lang",
-          "id",
-          "status",
-          "revision",
-          "createBy",
-          "createTime",
-          "updateBy",
-          "updateTime",
           "tradeType",
           "customerGroupId",
           "depositRateSerialNo",
@@ -9201,7 +7143,7 @@
         "x-apifox-folder": "Schemas",
         "x-apifox-ignore-properties": []
       },
-      "BaseResult": {
+      "BaseResultCapitalTransferRecordResDto": {
         "type": "object",
         "properties": {
           "bizCode": {
@@ -9230,11 +7172,8 @@
             "description": "返回描述中占位符参数串，多个参数间以,分割"
           },
           "data": {
-            "type": "object",
             "description": "数据体",
-            "x-apifox-orders": [],
-            "properties": {},
-            "x-apifox-ignore-properties": []
+            "$ref": "#/components/schemas/BasePageVoCapitalTransferRecordResDto"
           },
           "ok": {
             "type": "boolean"
@@ -9253,6 +7192,157 @@
           "data",
           "ok",
           "fail"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "BasePageVoCapitalTransferRecordResDto": {
+        "type": "object",
+        "properties": {
+          "records": {
+            "type": "array",
+            "description": "结果列表",
+            "items": {
+              "$ref": "#/components/schemas/CapitalTransferRecordResDto"
+            }
+          },
+          "total": {
+            "type": "integer",
+            "format": "int64",
+            "description": "总数"
+          },
+          "size": {
+            "type": "integer",
+            "format": "int64",
+            "description": "每页条数"
+          },
+          "current": {
+            "type": "integer",
+            "format": "int64",
+            "description": "当前页"
+          }
+        },
+        "x-apifox-orders": [
+          "records",
+          "total",
+          "size",
+          "current"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "CapitalTransferRecordResDto": {
+        "type": "object",
+        "properties": {
+          "outAccountId": {
+            "type": "integer",
+            "description": "出账账户Id"
+          },
+          "outCurrencyCode": {
+            "type": "string",
+            "description": "出账账户币种"
+          },
+          "outTradeType": {
+            "type": "integer",
+            "description": "出账账户玩法类型"
+          },
+          "outAmount": {
+            "type": "string",
+            "description": "出账金额"
+          },
+          "inAccountId": {
+            "type": "integer",
+            "description": "入账账户Id"
+          },
+          "inCurrencyCode": {
+            "type": "string",
+            "description": "入账账户币种"
+          },
+          "inTradeType": {
+            "type": "integer",
+            "description": "入账账户玩法类型"
+          },
+          "inAmount": {
+            "type": "string",
+            "description": "入账金额"
+          },
+          "createTime": {
+            "type": "string",
+            "description": "创建时间"
+          }
+        },
+        "x-apifox-orders": [
+          "outAccountId",
+          "outCurrencyCode",
+          "outTradeType",
+          "outAmount",
+          "inAccountId",
+          "inCurrencyCode",
+          "inTradeType",
+          "inAmount",
+          "createTime"
+        ],
+        "required": [
+          "outAccountId",
+          "outCurrencyCode",
+          "outTradeType",
+          "outAmount",
+          "inAccountId",
+          "inCurrencyCode",
+          "inTradeType",
+          "inAmount",
+          "createTime"
+        ],
+        "x-apifox-ignore-properties": [],
+        "x-apifox-folder": "Schemas"
+      },
+      "CapitalTransferRecordDto": {
+        "type": "object",
+        "properties": {
+          "size": {
+            "type": "integer",
+            "format": "int64",
+            "description": "每页条数"
+          },
+          "current": {
+            "type": "integer",
+            "format": "int64",
+            "description": "当前页"
+          },
+          "downloadType": {
+            "type": "integer",
+            "format": "int32",
+            "description": "下载类型 1：直接下载，2：异步下载"
+          },
+          "startTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "开始时间"
+          },
+          "endTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "结束时间"
+          },
+          "tradeType": {
+            "type": "integer",
+            "format": "int64",
+            "description": "玩法标识"
+          },
+          "assetsId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "资产id"
+          }
+        },
+        "x-apifox-orders": [
+          "size",
+          "current",
+          "downloadType",
+          "startTime",
+          "endTime",
+          "tradeType",
+          "assetsId"
         ],
         "x-apifox-folder": "Schemas",
         "x-apifox-ignore-properties": []
