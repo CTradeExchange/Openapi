@@ -16211,7 +16211,7 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "pwd": {
+                  "newPwd": {
                     "type": "string",
                     "description": "密码，MD5加密",
                     "minLength": 5,
@@ -16239,14 +16239,14 @@
                 },
                 "x-apifox-refs": {},
                 "x-apifox-orders": [
-                  "pwd",
+                  "newPwd",
                   "verifyCode",
                   "sendToken",
                   "type",
                   "googleCode"
                 ],
                 "required": [
-                  "pwd",
+                  "newPwd",
                   "type",
                   "verifyCode",
                   "sendToken"
