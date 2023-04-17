@@ -16478,9 +16478,16 @@
                     "maxLength": 40,
                     "minLength": 4
                   },
+                  "type": {
+                    "type": "integer",
+                    "description": "类型：1邮箱，2手机号码",
+                    "format": "int32",
+                    "minimum": 1,
+                    "maximum": 2
+                  },
                   "verifyCode": {
                     "type": "string",
-                    "description": "验证码"
+                    "description": "验证码，发送验证码接口bizType=EMAIL_LOGINED_VERIFICATION_CODE(邮箱),SMS_LOGINED_VERIFICATION_CODE（手机）"
                   },
                   "sendToken": {
                     "type": "string",
@@ -16497,6 +16504,7 @@
                   "chainName",
                   "address",
                   "remark",
+                  "type",
                   "verifyCode",
                   "sendToken",
                   "googleCode"
