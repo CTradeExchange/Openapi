@@ -16145,6 +16145,155 @@
     },
     "/global/customer.app.CustomerWebApiService.bindAssertsPwdMFA": {
       "post": {
+        "summary": "设置资金密码（MFA）",
+        "x-apifox-folder": "客户基础信息",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "version=0.0.1\nbizType=customer.app.CustomerWebApiService.bindAssertsPwdMFA\n登录之后可以访问",
+        "tags": [
+          "客户基础信息"
+        ],
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "en-US",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "pwd": {
+                    "type": "string",
+                    "description": "密码，MD5加密",
+                    "minLength": 5,
+                    "maxLength": 50
+                  },
+                  "verifyCode": {
+                    "type": "string",
+                    "description": "验证码，发送验证码接口bizType=EMAIL_LOGINED_VERIFICATION_CODE(邮箱),SMS_LOGINED_VERIFICATION_CODE（手机）"
+                  },
+                  "sendToken": {
+                    "type": "string",
+                    "description": "发送票据"
+                  },
+                  "type": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "类型：1邮箱，2手机号码",
+                    "minimum": 1,
+                    "maximum": 3
+                  },
+                  "googleCode": {
+                    "type": "string",
+                    "description": "谷歌验证码"
+                  }
+                },
+                "x-apifox-refs": {},
+                "x-apifox-orders": [
+                  "pwd",
+                  "verifyCode",
+                  "sendToken",
+                  "type",
+                  "googleCode"
+                ],
+                "required": [
+                  "pwd",
+                  "type",
+                  "verifyCode",
+                  "sendToken"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": {
+                "pwd": "sunt",
+                "googleCode": "44"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResult",
+                  "x-apifox-overrides": {}
+                },
+                "examples": {
+                  "1": {
+                    "summary": "异常示例-资金密码已设置",
+                    "value": {
+                      "msg": "Fund password has been set",
+                      "fail": true,
+                      "trace": "x-kwm21-v8951-5vor62ft-006o-1677737070",
+                      "code": "CUSTOMER_API_0000133",
+                      "data": "customer.app.CustomerWebApiService.bindAssertsPwd",
+                      "bizCode": "US",
+                      "tm": 3851542,
+                      "msgParams": null,
+                      "ok": false
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-75665892-run"
+      }
+    },
+    "/global/customer.app.CustomerWebApiService.forgetAssertsPwdMFA": {
+      "post": {
         "summary": "重置资金密码（MFA）",
         "x-apifox-folder": "客户基础信息",
         "x-apifox-status": "developing",
@@ -16298,7 +16447,7 @@
         "x-apifox-folder": "客户钱包管理",
         "x-apifox-status": "developing",
         "deprecated": false,
-        "description": "version=0.0.1\nbizType=customer.app.CustomerWalletWebApiService.addWithdrawalAddressMFA\n登录之后可以访问\n\n如果客户开启谷歌验证码（MFA），则入参中的谷歌验证码（googleCode）必填，\n同时，用户不用输入手机号码、邮箱，\n如果手机、邮箱同时存在，优先校验手机号码",
+        "description": "version=0.0.1\nbizType=customer.app.CustomerWalletWebApiService.addWithdrawalAddressMFA\n登录之后可以访问\n",
         "tags": [
           "客户钱包管理"
         ],
