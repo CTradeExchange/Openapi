@@ -13,6 +13,12 @@
       "name": "客户基础信息"
     },
     {
+      "name": "客户基础信息/4.客户资料接口"
+    },
+    {
+      "name": "客户基础信息/4.客户资料接口/客户信息接口"
+    },
+    {
       "name": "客户扩展信息"
     },
     {
@@ -2405,7 +2411,48 @@
         "tags": [
           "社交账号登录"
         ],
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "",
+            "required": "true",
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "header",
+            "description": "",
+            "required": "true",
+            "example": "en-US",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "",
+            "required": "true",
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "header",
+            "description": "",
+            "required": "true",
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -2648,7 +2695,9 @@
                   "utmCampaign",
                   "utmContent",
                   "utmTerm",
-                  "lang"
+                  "lang",
+                  "thirdServerCode",
+                  "thirdServerSource"
                 ],
                 "properties": {
                   "country": {
@@ -2713,6 +2762,16 @@
                   "lang": {
                     "type": "string",
                     "description": "语言信息"
+                  },
+                  "thirdServerCode": {
+                    "type": "string",
+                    "description": "第三方系统唯一编号",
+                    "maxLength": 45
+                  },
+                  "thirdServerSource": {
+                    "type": "string",
+                    "description": "第三方系统来源",
+                    "maxLength": 10
                   }
                 },
                 "x-apifox-ignore-properties": []
@@ -3112,7 +3171,7 @@
         "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65127587-run"
       }
     },
-    "/h/com.cats.customer.api.app.CustomerWalletWebApiService/add": {
+    "/global/customer.app.CustomerWalletWebApiService.add": {
       "post": {
         "summary": "新增钱包",
         "x-apifox-folder": "客户钱包管理",
@@ -3191,7 +3250,8 @@
                   },
                   "address": {
                     "type": "string",
-                    "description": "钱包地址"
+                    "description": "钱包地址",
+                    "maxLength": 150
                   },
                   "remark": {
                     "type": "string",
@@ -3259,7 +3319,7 @@
         "x-docstitle": "客户接口"
       }
     },
-    "/h/com.cats.customer.api.app.CustomerWalletWebApiService/addV1v1v2": {
+    "/global/customer.app.CustomerWalletWebApiService.addV1v1v2": {
       "post": {
         "summary": "新增钱包(MFA)",
         "x-apifox-folder": "客户钱包管理",
@@ -3269,7 +3329,58 @@
         "tags": [
           "客户钱包管理"
         ],
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "zh-CN",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -3287,7 +3398,8 @@
                   },
                   "address": {
                     "type": "string",
-                    "description": "钱包地址"
+                    "description": "钱包地址",
+                    "maxLength": 150
                   },
                   "remark": {
                     "type": "string",
@@ -8707,10 +8819,6 @@
                         "allCurrency",
                         "tradeType"
                       ],
-                      "required": [
-                        "allCurrency",
-                        "tradeType"
-                      ],
                       "x-apifox-ignore-properties": []
                     },
                     "maxItems": 2147483647,
@@ -8762,8 +8870,7 @@
                   "country",
                   "loginName",
                   "sendToken",
-                  "verifyCode",
-                  "tradeTypeCurrencyList"
+                  "verifyCode"
                 ],
                 "x-apifox-ignore-properties": []
               }
@@ -9584,7 +9691,7 @@
                     },
                     "msg": {
                       "type": "string",
-                      "description": "状态描述"
+                      "description": "KYC拒绝原因"
                     },
                     "tm": {
                       "type": "integer",
@@ -9839,8 +9946,131 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BaseResultListKycCusAuthVO",
-                  "x-apifox-overrides": {}
+                  "x-apifox-overrides": {},
+                  "type": "object",
+                  "properties": {
+                    "bizCode": {
+                      "type": "string",
+                      "description": "模块标识码"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "状态返回码"
+                    },
+                    "msg": {
+                      "type": "string",
+                      "description": "状态描述"
+                    },
+                    "tm": {
+                      "type": "integer",
+                      "format": "int64",
+                      "description": "处理时长（毫秒）"
+                    },
+                    "trace": {
+                      "type": "string",
+                      "description": "跟踪码"
+                    },
+                    "msgParams": {
+                      "type": "string",
+                      "description": "返回描述中占位符参数串，多个参数间以,分割"
+                    },
+                    "data": {
+                      "type": "array",
+                      "description": "数据体",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "levelCode": {
+                            "type": "string",
+                            "description": "KYC等级code"
+                          },
+                          "levelName": {
+                            "type": "string",
+                            "description": "KYC等级名称"
+                          },
+                          "status": {
+                            "type": "integer",
+                            "format": "int32",
+                            "description": "认证状态,0认证，1审核中，2审核通过，3审核拒绝"
+                          },
+                          "statusName": {
+                            "type": "string",
+                            "description": "认证状态名称,0认证，1审核中，2审核通过，3审核拒绝"
+                          },
+                          "sort": {
+                            "type": "integer",
+                            "format": "int32",
+                            "description": "排序"
+                          },
+                          "preLevelName": {
+                            "type": "string",
+                            "description": "前置等级信息"
+                          },
+                          "businessNameList": {
+                            "type": "array",
+                            "description": "业务场景名称集合",
+                            "uniqueItems": true,
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "businessCodeList": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "description": "业务场景code集合"
+                          },
+                          "companyType": {
+                            "type": "string",
+                            "description": "企业类型 "
+                          },
+                          "openAccountType": {
+                            "type": "string",
+                            "description": "开户类型：0.个人 1.企业 "
+                          },
+                          "pathCode": {
+                            "type": "string",
+                            "description": "认证路径"
+                          }
+                        },
+                        "x-apifox-refs": {},
+                        "x-apifox-orders": [
+                          "levelCode",
+                          "levelName",
+                          "status",
+                          "statusName",
+                          "sort",
+                          "preLevelName",
+                          "businessNameList",
+                          "businessCodeList",
+                          "companyType",
+                          "openAccountType",
+                          "pathCode"
+                        ],
+                        "x-apifox-ignore-properties": []
+                      }
+                    },
+                    "ok": {
+                      "type": "boolean"
+                    },
+                    "fail": {
+                      "type": "boolean"
+                    }
+                  },
+                  "x-apifox-refs": {},
+                  "x-apifox-orders": [
+                    "bizCode",
+                    "code",
+                    "msg",
+                    "tm",
+                    "trace",
+                    "msgParams",
+                    "data",
+                    "ok",
+                    "fail"
+                  ],
+                  "x-apifox-ignore-properties": []
                 }
               }
             }
@@ -16147,7 +16377,7 @@
       "post": {
         "summary": "设置资金密码（MFA）",
         "x-apifox-folder": "客户基础信息",
-        "x-apifox-status": "developing",
+        "x-apifox-status": "tested",
         "deprecated": false,
         "description": "version=0.0.1\nbizType=customer.app.CustomerWebApiService.bindAssertsPwdMFA\n登录之后可以访问",
         "tags": [
@@ -16254,8 +16484,10 @@
                 "x-apifox-ignore-properties": []
               },
               "example": {
-                "pwd": "sunt",
-                "googleCode": "44"
+                "newPwd": "eu Ut sint",
+                "type": 1,
+                "verifyCode": "712311",
+                "sendToken": ""
               }
             }
           }
@@ -16292,15 +16524,15 @@
         "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-75665892-run"
       }
     },
-    "/global/customer.app.CustomerWebApiService.forgetAssertsPwdMFA": {
+    "/global/customer.app.CustomerWalletWebApiService.addWithdrawalAddressMFA": {
       "post": {
-        "summary": "重置资金密码（MFA）",
-        "x-apifox-folder": "客户基础信息",
-        "x-apifox-status": "developing",
+        "summary": "新增提现地址(MFA) ",
+        "x-apifox-folder": "客户钱包管理",
+        "x-apifox-status": "tested",
         "deprecated": false,
-        "description": "version=0.0.1\nbizType=customer.app.CustomerWebApiService.forgetAssertsPwdMFA\n登录之后可以访问",
+        "description": "version=0.0.1\nbizType=customer.app.CustomerWalletWebApiService.addWithdrawalAddressMFA\n登录之后可以访问\n",
         "tags": [
-          "客户基础信息"
+          "客户钱包管理"
         ],
         "parameters": [
           {
@@ -16358,104 +16590,6 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "newPwd": {
-                    "type": "string",
-                    "description": "新密码，MD5加密",
-                    "minLength": 5,
-                    "maxLength": 50
-                  },
-                  "verifyCode": {
-                    "type": "string",
-                    "description": "验证码，发送验证码接口bizType=EMAIL_LOGINED_VERIFICATION_CODE(邮箱),SMS_LOGINED_VERIFICATION_CODE（手机）"
-                  },
-                  "sendToken": {
-                    "type": "string",
-                    "description": "发送票据"
-                  },
-                  "type": {
-                    "type": "integer",
-                    "format": "int32",
-                    "description": "类型：1邮箱，2手机号码",
-                    "minimum": 1,
-                    "maximum": 3
-                  },
-                  "googleCode": {
-                    "type": "string",
-                    "description": "谷歌验证码"
-                  }
-                },
-                "x-apifox-refs": {},
-                "x-apifox-orders": [
-                  "newPwd",
-                  "verifyCode",
-                  "sendToken",
-                  "type",
-                  "googleCode"
-                ],
-                "required": [
-                  "newPwd",
-                  "type",
-                  "verifyCode",
-                  "sendToken"
-                ],
-                "x-apifox-ignore-properties": []
-              },
-              "example": {
-                "pwd": "sunt",
-                "googleCode": "44"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "成功",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BaseResult",
-                  "x-apifox-overrides": {}
-                },
-                "examples": {
-                  "1": {
-                    "summary": "异常示例-资金密码已设置",
-                    "value": {
-                      "msg": "Fund password has been set",
-                      "fail": true,
-                      "trace": "x-kwm21-v8951-5vor62ft-006o-1677737070",
-                      "code": "CUSTOMER_API_0000133",
-                      "data": "customer.app.CustomerWebApiService.bindAssertsPwd",
-                      "bizCode": "US",
-                      "tm": 3851542,
-                      "msgParams": null,
-                      "ok": false
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-75666686-run"
-      }
-    },
-    "/h/com.cats.customer.api.app.CustomerWalletWebApiService/addWithdrawalAddressMFA": {
-      "post": {
-        "summary": "新增提现地址(MFA) ",
-        "x-apifox-folder": "客户钱包管理",
-        "x-apifox-status": "developing",
-        "deprecated": false,
-        "description": "version=0.0.1\nbizType=customer.app.CustomerWalletWebApiService.addWithdrawalAddressMFA\n登录之后可以访问\n",
-        "tags": [
-          "客户钱包管理"
-        ],
-        "parameters": [],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
                 "x-apifox-overrides": {},
                 "type": "object",
                 "properties": {
@@ -16470,7 +16604,7 @@
                   "address": {
                     "type": "string",
                     "description": "提现地址",
-                    "maxLength": 100
+                    "maxLength": 150
                   },
                   "remark": {
                     "type": "string",
@@ -16696,6 +16830,10 @@
                             "type": "integer",
                             "format": "int32",
                             "description": "提现地址状态，1启用，2禁用"
+                          },
+                          "withdrawRiskFailTime": {
+                            "type": "integer",
+                            "description": "提现地址时间，风控失效时间"
                           }
                         },
                         "x-apifox-refs": {},
@@ -16705,7 +16843,8 @@
                           "chainName",
                           "address",
                           "remark",
-                          "withdrawalAddressStatus"
+                          "withdrawalAddressStatus",
+                          "withdrawRiskFailTime"
                         ],
                         "x-apifox-ignore-properties": []
                       }
@@ -16882,7 +17021,6 @@
                     },
                     "data": {
                       "type": "array",
-                      "description": "Map<币种，地址列表>",
                       "items": {
                         "x-apifox-overrides": {},
                         "type": "object",
@@ -16907,6 +17045,10 @@
                           "remark": {
                             "type": "string",
                             "description": "提现备注"
+                          },
+                          "createTime": {
+                            "type": "integer",
+                            "description": "创建时间"
                           }
                         },
                         "x-apifox-refs": {},
@@ -16915,11 +17057,13 @@
                           "currency",
                           "chainName",
                           "address",
-                          "remark"
+                          "remark",
+                          "createTime"
                         ],
-                        "description": "地址列表",
+                        "description": "Map<币种，地址列表>",
                         "x-apifox-ignore-properties": []
-                      }
+                      },
+                      "description": "数据体"
                     },
                     "ok": {
                       "type": "boolean"
@@ -16972,6 +17116,334 @@
           }
         },
         "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-75683285-run"
+      }
+    },
+    "/global/customer.app.CustomerWebApiService.forgetAssertsPwdMFA": {
+      "post": {
+        "summary": "重置资金密码（MFA）",
+        "x-apifox-folder": "客户基础信息",
+        "x-apifox-status": "tested",
+        "deprecated": false,
+        "description": "version=0.0.1\nbizType=customer.app.CustomerWebApiService.forgetAssertsPwdMFA\n登录之后可以访问",
+        "tags": [
+          "客户基础信息"
+        ],
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "en-US",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "newPwd": {
+                    "type": "string",
+                    "description": "密码，MD5加密",
+                    "minLength": 5,
+                    "maxLength": 50
+                  },
+                  "verifyCode": {
+                    "type": "string",
+                    "description": "验证码，发送验证码接口bizType=EMAIL_LOGINED_VERIFICATION_CODE(邮箱),SMS_LOGINED_VERIFICATION_CODE（手机）"
+                  },
+                  "sendToken": {
+                    "type": "string",
+                    "description": "发送票据"
+                  },
+                  "type": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "类型：1邮箱，2手机号码",
+                    "minimum": 1,
+                    "maximum": 3
+                  },
+                  "googleCode": {
+                    "type": "string",
+                    "description": "谷歌验证码"
+                  }
+                },
+                "x-apifox-refs": {},
+                "x-apifox-orders": [
+                  "newPwd",
+                  "verifyCode",
+                  "sendToken",
+                  "type",
+                  "googleCode"
+                ],
+                "required": [
+                  "newPwd",
+                  "type",
+                  "verifyCode",
+                  "sendToken"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": {
+                "newPwd": "eu Ut sint",
+                "type": 1,
+                "verifyCode": "712311",
+                "sendToken": ""
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResult",
+                  "x-apifox-overrides": {}
+                },
+                "examples": {
+                  "1": {
+                    "summary": "异常示例-资金密码已设置",
+                    "value": {
+                      "msg": "Fund password has been set",
+                      "fail": true,
+                      "trace": "x-kwm21-v8951-5vor62ft-006o-1677737070",
+                      "code": "CUSTOMER_API_0000133",
+                      "data": "customer.app.CustomerWebApiService.bindAssertsPwd",
+                      "bizCode": "US",
+                      "tm": 3851542,
+                      "msgParams": null,
+                      "ok": false
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-77234494-run"
+      }
+    },
+    "/global/customer.app.CustomerWebApiService.bindThirdAccount": {
+      "post": {
+        "summary": "绑定三方账户信息",
+        "x-apifox-folder": "客户基础信息",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "version=0.0.1\nbizType=customer.app.CustomerWebApiService.bindThirdAccount\n登录之后可以访问",
+        "tags": [
+          "客户基础信息"
+        ],
+        "parameters": [
+          {
+            "name": "version",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "zh-CN",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "thirdLoginSource": {
+                    "type": "string",
+                    "maxLength": 10,
+                    "description": "三方来源,telegram"
+                  },
+                  "thirdUserId": {
+                    "type": "string",
+                    "description": "三方userId",
+                    "maxLength": 45
+                  }
+                },
+                "x-apifox-orders": [
+                  "thirdLoginSource",
+                  "thirdUserId"
+                ],
+                "required": [
+                  "thirdLoginSource",
+                  "thirdUserId"
+                ],
+                "x-apifox-ignore-properties": []
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "x-apifox-overrides": {},
+                  "type": "object",
+                  "properties": {
+                    "bizCode": {
+                      "type": "string",
+                      "description": "模块标识码"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "状态返回码"
+                    },
+                    "msg": {
+                      "type": "string",
+                      "description": "状态描述"
+                    },
+                    "tm": {
+                      "type": "integer",
+                      "format": "int64",
+                      "description": "处理时长（毫秒）"
+                    },
+                    "trace": {
+                      "type": "string",
+                      "description": "跟踪码"
+                    },
+                    "msgParams": {
+                      "type": "string",
+                      "description": "返回描述中占位符参数串，多个参数间以,分割"
+                    },
+                    "data": {
+                      "type": "object",
+                      "description": "数据体",
+                      "x-apifox-orders": [],
+                      "properties": {},
+                      "x-apifox-ignore-properties": []
+                    },
+                    "ok": {
+                      "type": "boolean"
+                    },
+                    "fail": {
+                      "type": "boolean"
+                    }
+                  },
+                  "x-apifox-refs": {},
+                  "x-apifox-orders": [
+                    "bizCode",
+                    "code",
+                    "msg",
+                    "tm",
+                    "trace",
+                    "msgParams",
+                    "data",
+                    "ok",
+                    "fail"
+                  ],
+                  "x-apifox-ignore-properties": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "msg": "Success",
+                      "fail": false,
+                      "trace": "x-w67a-m983h6dw-30535g-x321-1677575540",
+                      "code": "0",
+                      "data": null,
+                      "bizCode": "",
+                      "tm": 46426649,
+                      "msgParams": null,
+                      "ok": true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-79481483-run"
       }
     }
   },
@@ -17132,127 +17604,6 @@
         "x-apifox-orders": [
           "elementValue",
           "elementCode"
-        ],
-        "x-apifox-ignore-properties": [],
-        "x-apifox-folder": "Schemas"
-      },
-      "BaseResultListKycCusAuthVO": {
-        "type": "object",
-        "properties": {
-          "bizCode": {
-            "type": "string",
-            "description": "模块标识码"
-          },
-          "code": {
-            "type": "string",
-            "description": "状态返回码"
-          },
-          "msg": {
-            "type": "string",
-            "description": "状态描述"
-          },
-          "tm": {
-            "type": "integer",
-            "format": "int64",
-            "description": "处理时长（毫秒）"
-          },
-          "trace": {
-            "type": "string",
-            "description": "跟踪码"
-          },
-          "msgParams": {
-            "type": "string",
-            "description": "返回描述中占位符参数串，多个参数间以,分割"
-          },
-          "data": {
-            "type": "array",
-            "description": "数据体",
-            "items": {
-              "$ref": "#/components/schemas/KycCusAuthVO"
-            }
-          },
-          "ok": {
-            "type": "boolean"
-          },
-          "fail": {
-            "type": "boolean"
-          }
-        },
-        "x-apifox-orders": [
-          "bizCode",
-          "code",
-          "msg",
-          "tm",
-          "trace",
-          "msgParams",
-          "data",
-          "ok",
-          "fail"
-        ],
-        "x-apifox-ignore-properties": [],
-        "x-apifox-folder": "Schemas"
-      },
-      "KycCusAuthVO": {
-        "type": "object",
-        "properties": {
-          "levelCode": {
-            "type": "string",
-            "description": "KYC等级code"
-          },
-          "levelName": {
-            "type": "string",
-            "description": "KYC等级名称"
-          },
-          "status": {
-            "type": "integer",
-            "format": "int32",
-            "description": "认证状态,0认证，1审核中，2审核通过，3审核拒绝"
-          },
-          "statusName": {
-            "type": "string",
-            "description": "认证状态名称,0认证，1审核中，2审核通过，3审核拒绝"
-          },
-          "sort": {
-            "type": "integer",
-            "format": "int32",
-            "description": "排序"
-          },
-          "preLevelName": {
-            "type": "string",
-            "description": "前置等级信息"
-          },
-          "businessNameList": {
-            "type": "array",
-            "description": "业务场景名称集合",
-            "uniqueItems": true,
-            "items": {
-              "type": "string"
-            }
-          },
-          "companyType": {
-            "type": "string",
-            "description": "企业类型 "
-          },
-          "openAccountType": {
-            "type": "string",
-            "description": "开户类型：0.个人 1.企业 "
-          },
-          "pathCode": {
-            "type": "string",
-            "description": "认证路径"
-          }
-        },
-        "x-apifox-orders": [
-          "levelCode",
-          "levelName",
-          "status",
-          "statusName",
-          "sort",
-          "preLevelName",
-          "businessNameList",
-          "companyType",
-          "openAccountType",
-          "pathCode"
         ],
         "x-apifox-ignore-properties": [],
         "x-apifox-folder": "Schemas"
