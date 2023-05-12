@@ -26,7 +26,7 @@
         "x-apifox-folder": "客户存款接口",
         "x-apifox-status": "released",
         "deprecated": false,
-        "description": "bizType=config.app.DepositAppDubboService.applyRechargeBindAddress\n申请绑直充支付钱包地址\n登录后方可访问",
+        "description": "bizType=fund.app.DepositAppDubboService.applyRechargeBindAddress\n申请绑直充支付钱包地址\n登录后方可访问",
         "tags": [
           "客户存款接口"
         ],
@@ -64,7 +64,7 @@
         "x-apifox-folder": "客户存款接口",
         "x-apifox-status": "released",
         "deprecated": false,
-        "description": "bizType=config.app.DepositAppDubboService.capitalTransferRecord\n查询资金划转记录\n登录后方可访问",
+        "description": "bizType=fund.app.DepositAppDubboService.capitalTransferRecord\n查询资金划转记录\n登录后方可访问",
         "tags": [
           "客户存款接口"
         ],
@@ -100,11 +100,62 @@
         "x-apifox-folder": "客户存款接口",
         "x-apifox-status": "released",
         "deprecated": false,
-        "description": "bizType=config.app.DepositAppDubboService.createDepositProposal\n创建存款提案\n登录后方可访问",
+        "description": "bizType=fund.app.DepositAppDubboService.createDepositProposal\n创建存款提案\n登录后方可访问",
         "tags": [
           "客户存款接口"
         ],
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "version",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "zh-CN",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -136,7 +187,7 @@
         "x-apifox-folder": "客户存款接口",
         "x-apifox-status": "released",
         "deprecated": false,
-        "description": "bizType=config.app.DepositAppDubboService.getBindRechargeAddress\n查询直充支付钱包地址\n主要针对OPS通道\n登录后方可访问",
+        "description": "bizType=fund.app.DepositAppDubboService.getBindRechargeAddress\n查询直充支付钱包地址\n登录后方可访问",
         "tags": [
           "客户存款接口"
         ],
@@ -173,7 +224,7 @@
         "x-apifox-folder": "客户存款接口",
         "x-apifox-status": "released",
         "deprecated": false,
-        "description": "bizType=config.app.DepositAppDubboService.getDepositAccountCurrencyList\n获取支付通道支持的账户币种信息列表\n登录后方可访问",
+        "description": "bizType=fund.app.DepositAppDubboService.getDepositAccountCurrencyList\n获取支付通道支持的账户币种信息列表\n登录后方可访问",
         "tags": [
           "客户存款接口"
         ],
@@ -209,7 +260,7 @@
         "x-apifox-folder": "客户存款接口",
         "x-apifox-status": "released",
         "deprecated": false,
-        "description": "bizType=config.app.DepositAppDubboService.capitalTransfer\n不同玩法之间相同资产资金划转\n登录后方可访问",
+        "description": "bizType=fund.app.DepositAppDubboService.capitalTransfer\n不同玩法之间相同资产资金划转\n登录后方可访问",
         "tags": [
           "客户存款接口"
         ],
@@ -245,7 +296,7 @@
         "x-apifox-folder": "客户存款接口",
         "x-apifox-status": "released",
         "deprecated": false,
-        "description": "bizType=config.app.DepositAppDubboService.getDepositCoinList\n获取直充支付通道支持币种信息\n登录后方可访问",
+        "description": "bizType=fund.app.DepositAppDubboService.getDepositCoinList\n获取直充支付通道支持币种信息\n登录后方可访问",
         "tags": [
           "客户存款接口"
         ],
@@ -281,7 +332,7 @@
         "x-apifox-folder": "客户存款接口",
         "x-apifox-status": "released",
         "deprecated": false,
-        "description": "bizType=config.app.DepositAppDubboService.capitalTransferSupportDiffCurr\n资产资金划转\n登录后方可访问",
+        "description": "bizType=fund.app.DepositAppDubboService.capitalTransferSupportDiffCurr\n资产资金划转\n登录后方可访问",
         "tags": [
           "客户存款接口"
         ],
@@ -317,7 +368,7 @@
         "x-apifox-folder": "客户存款接口",
         "x-apifox-status": "released",
         "deprecated": false,
-        "description": "bizType=config.app.DepositAppDubboService.getDepositAccountCurrencyListV2\n查询支付通道支持的充值账户币种和链信息\n登录后方可访问",
+        "description": "bizType=fund.app.DepositAppDubboService.getDepositAccountCurrencyListV2\n查询支付通道支持的充值账户币种和链信息\n登录后方可访问",
         "tags": [
           "客户存款接口"
         ],
@@ -353,7 +404,7 @@
         "x-apifox-folder": "客户存款接口",
         "x-apifox-status": "released",
         "deprecated": false,
-        "description": "bizType=config.app.DepositAppDubboService.getDepositCoinList\n获取客户支持的存款币种列表\n登录后方可访问",
+        "description": "bizType=fund.app.DepositAppDubboService.getDepositCoinList\n获取客户支持的存款币种列表\n登录后方可访问",
         "tags": [
           "客户存款接口"
         ],
@@ -389,7 +440,7 @@
         "x-apifox-folder": "客户存款接口",
         "x-apifox-status": "released",
         "deprecated": false,
-        "description": "bizType=config.app.DepositAppDubboService.getDepositExchangeRate\n获取存款货币对汇率\n登录后方可访问",
+        "description": "bizType=fund.app.DepositAppDubboService.getDepositExchangeRate\n获取存款货币对汇率\n登录后方可访问",
         "tags": [
           "客户存款接口"
         ],
@@ -476,7 +527,7 @@
         "x-apifox-folder": "客户存款接口",
         "x-apifox-status": "released",
         "deprecated": false,
-        "description": "bizType=config.app.DepositAppDubboService.getPayChannels\n获取支付通道信息\nversion=0.0.1时请求参数中accountCurrency和rechargeType会作为查询过滤条件\nversion=0.0.2时请求参数中accountCurrency会作为查询过滤条件\n登录后方可访问",
+        "description": "bizType=fund.app.DepositAppDubboService.getPayChannels\n获取支付通道信息\nversion=0.0.1时请求参数中accountCurrency和rechargeType会作为查询过滤条件\nversion=0.0.2时请求参数中accountCurrency会作为查询过滤条件\n登录后方可访问",
         "tags": [
           "客户存款接口"
         ],
@@ -512,7 +563,7 @@
         "x-apifox-folder": "客户存款接口",
         "x-apifox-status": "released",
         "deprecated": false,
-        "description": "bizType=config.app.DepositAppDubboService.getPayChannelsV2\n获取支付通道信息不过滤账户币种和充值方式\naccountCurrency和rechargeType不会作查询过滤条件\n登录后方可访问",
+        "description": "bizType=fund.app.DepositAppDubboService.getPayChannelsV2\n获取支付通道信息不过滤账户币种和充值方式\naccountCurrency和rechargeType不会作查询过滤条件\n登录后方可访问",
         "tags": [
           "客户存款接口"
         ],
@@ -548,7 +599,7 @@
         "x-apifox-folder": "客户存款接口",
         "x-apifox-status": "released",
         "deprecated": false,
-        "description": "bizType=config.app.DepositAppDubboService.getPayChannelsV3\n获取支付通道信息过滤账户币种和链名称\n登录后方可访问",
+        "description": "bizType=fund.app.DepositAppDubboService.getPayChannelsV3\n获取支付通道信息过滤账户币种和链名称\n登录后方可访问",
         "tags": [
           "客户存款接口"
         ],
@@ -584,7 +635,7 @@
         "x-apifox-folder": "客户存款接口",
         "x-apifox-status": "released",
         "deprecated": false,
-        "description": "bizType=config.app.DepositAppDubboService.getPayStatus\n查询加密货币支付状态\n登录后方可访问",
+        "description": "bizType=fund.app.DepositAppDubboService.getPayStatus\n查询加密货币支付状态\n登录后方可访问",
         "tags": [
           "客户存款接口"
         ],
@@ -620,7 +671,7 @@
         "x-apifox-folder": "客户存款接口",
         "x-apifox-status": "released",
         "deprecated": false,
-        "description": "bizType=config.app.DepositAppDubboService.judgeIsAlreadyDeposit\n判断用户是否已入金\n登录后方可访问",
+        "description": "bizType=fund.app.DepositAppDubboService.judgeIsAlreadyDeposit\n判断用户是否已入金\n登录后方可访问",
         "tags": [
           "客户存款接口"
         ],
@@ -659,7 +710,7 @@
         "x-apifox-folder": "客户存款接口",
         "x-apifox-status": "released",
         "deprecated": false,
-        "description": "bizType=config.app.DepositAppDubboService.manualLoan\n手动借款\n登录后方可访问",
+        "description": "bizType=fund.app.DepositAppDubboService.manualLoan\n手动借款\n登录后方可访问",
         "tags": [
           "客户存款接口"
         ],
@@ -695,7 +746,7 @@
         "x-apifox-folder": "客户存款接口",
         "x-apifox-status": "released",
         "deprecated": false,
-        "description": "bizType=config.app.DepositAppDubboService.manualRepayment\n手动还款\n登录后方可访问",
+        "description": "bizType=fund.app.DepositAppDubboService.manualRepayment\n手动还款\n登录后方可访问",
         "tags": [
           "客户存款接口"
         ],
@@ -731,7 +782,7 @@
         "x-apifox-folder": "客户存款接口",
         "x-apifox-status": "released",
         "deprecated": false,
-        "description": "bizType=config.app.DepositAppDubboService.queryDepositProposal\n查询存款提案\n登录后方可访问",
+        "description": "bizType=fund.app.DepositAppDubboService.queryDepositProposal\n查询存款提案\n登录后方可访问",
         "tags": [
           "客户存款接口"
         ],
@@ -767,7 +818,7 @@
         "x-apifox-folder": "客户存款接口",
         "x-apifox-status": "released",
         "deprecated": false,
-        "description": "bizType=config.app.DepositAppDubboService.queryPayChannelType\n查询三方支付通道的支付类型\n登录后方可访问",
+        "description": "bizType=fund.app.DepositAppDubboService.queryPayChannelType\n查询三方支付通道的支付类型\n登录后方可访问",
         "tags": [
           "客户存款接口"
         ],
@@ -803,7 +854,7 @@
         "x-apifox-folder": "提案查询",
         "x-apifox-status": "released",
         "deprecated": false,
-        "description": "bizType=config.app.CustomerProposalQueryService.isHaveUnCompleteProposal\n查询客户是否有未完成的提案\n登录后方可访问",
+        "description": "bizType=fund.app.CustomerProposalQueryService.isHaveUnCompleteProposal\n查询客户是否有未完成的提案\n登录后方可访问",
         "tags": [
           "提案查询"
         ],
@@ -841,7 +892,7 @@
         "x-apifox-folder": "提案查询",
         "x-apifox-status": "released",
         "deprecated": false,
-        "description": "bizType=config.app.CustomerProposalQueryService.queryDepositAdjustPageList\n查询客户额度调整提案分页数据\n登录后方可访问",
+        "description": "bizType=fund.app.CustomerProposalQueryService.queryDepositAdjustPageList\n查询客户额度调整提案分页数据\n登录后方可访问",
         "tags": [
           "提案查询"
         ],
@@ -873,11 +924,11 @@
     },
     "/global/fund.app.CustomerProposalQueryService.queryDepositPageList": {
       "post": {
-        "summary": "查询客户取款提案分页数据",
+        "summary": "查询客户存款提案分页数据",
         "x-apifox-folder": "提案查询",
         "x-apifox-status": "released",
         "deprecated": false,
-        "description": "bizType=config.app.CustomerProposalQueryService.queryDepositPageList\n查询客户取款提案分页数据\n登录后方可访问",
+        "description": "bizType=fund.app.CustomerProposalQueryService.queryDepositPageList\n查询客户取款提案分页数据\n登录后方可访问",
         "tags": [
           "提案查询"
         ],
@@ -886,7 +937,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/QueryProposalPageReqDto"
+                "$ref": "#/components/schemas/QueryDepositProposalPageReqDto"
               },
               "example": ""
             }
@@ -909,20 +960,71 @@
     },
     "/global/fund.app.CustomerProposalQueryService.queryWithdrawPageList": {
       "post": {
-        "summary": "查询客户取款调整提案分页数据",
+        "summary": "查询客户取款提案分页数据",
         "x-apifox-folder": "提案查询",
         "x-apifox-status": "released",
         "deprecated": false,
-        "description": "bizType=config.app.CustomerProposalQueryService.queryWithdrawPageList\n查询客户取款调整提案分页数据\n登录后方可访问",
+        "description": "bizType=fund.app.CustomerProposalQueryService.queryWithdrawPageList\n查询客户取款提案分页数据\n登录后方可访问",
         "tags": [
           "提案查询"
         ],
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "version",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "zh-CN",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/QueryProposalPageReqDto"
+                "$ref": "#/components/schemas/QueryWithdrawProposalPageReqDto"
               },
               "example": ""
             }
@@ -949,7 +1051,7 @@
         "x-apifox-folder": "汇率查询",
         "x-apifox-status": "released",
         "deprecated": false,
-        "description": "bizType=config.app.FundExchangeRateQueryService.getExchangeRateList\n批量查询货币对的存取款汇率\n游客可访问",
+        "description": "bizType=fund.app.FundExchangeRateQueryService.getExchangeRateList\n批量查询货币对的存取款汇率\n游客可访问",
         "tags": [
           "汇率查询"
         ],
@@ -1080,7 +1182,58 @@
         "tags": [
           "客户取款接口"
         ],
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "version",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "zh-CN",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -1116,7 +1269,58 @@
         "tags": [
           "客户取款接口"
         ],
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "version",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "zh-CN",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -1297,7 +1501,58 @@
         "tags": [
           "客户取款接口"
         ],
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "version",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "zh-CN",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -1369,7 +1624,58 @@
         "tags": [
           "客户取款接口"
         ],
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "version",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "zh-CN",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -1550,12 +1856,67 @@
         "tags": [
           "客户取款接口"
         ],
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "version",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "zh-CN",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CustGroupWithdrawMethodQueryReqDto"
+                "type": "object",
+                "x-apifox-refs": {},
+                "x-apifox-orders": [],
+                "properties": {},
+                "x-apifox-ignore-properties": []
               },
               "example": ""
             }
@@ -1580,13 +1941,64 @@
       "post": {
         "summary": "获取客户组取款风控配置",
         "x-apifox-folder": "客户取款接口",
-        "x-apifox-status": "released",
+        "x-apifox-status": "testing",
         "deprecated": false,
         "description": "bizType=fund.app.WithdrawAppDubboService.queryCustomerGroupWithdrawRiskConfig\n获取客户组取款风控配置\n登录后方可访问",
         "tags": [
           "客户取款接口"
         ],
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "version",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "zh-CN",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -1609,13 +2021,12 @@
                     "description": "取款方式"
                   }
                 },
-                "required": [
-                  "withdrawMethod",
-                  "customerGroupId"
-                ],
                 "x-apifox-orders": [
                   "01GY6NTWF4NMN5ATZTK254HJDH",
                   "withdrawMethod"
+                ],
+                "required": [
+                  "customerGroupId"
                 ],
                 "x-apifox-ignore-properties": [
                   "customerGroupId"
@@ -1632,21 +2043,483 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "x-apifox-refs": {
-                    "01GY6NVVJF8HR05BQCQ53G1KDY": {
-                      "$ref": "#/components/schemas/BaseResultWithdrawRiskConfigDto",
-                      "x-apifox-overrides": {
-                        "data": {
-                          "description": "数据体",
-                          "$ref": "#/components/schemas/BaseResultQueryWithdrawRiskLimitConfigRespDto"
+                  "properties": {
+                    "bizCode": {
+                      "type": "string",
+                      "description": "模块标识码"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "状态返回码"
+                    },
+                    "msg": {
+                      "type": "string",
+                      "description": "状态描述"
+                    },
+                    "tm": {
+                      "type": "integer",
+                      "description": "处理时长（毫秒）"
+                    },
+                    "trace": {
+                      "type": "string",
+                      "description": "跟踪码"
+                    },
+                    "msgParams": {
+                      "type": "null"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "withdrawTimeConfigList": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "withdrawMethod": {
+                                "type": "string"
+                              },
+                              "weekDay": {
+                                "type": "integer",
+                                "description": "星期"
+                              },
+                              "companyTimezone": {
+                                "type": "string",
+                                "description": "UTC"
+                              },
+                              "openTime": {
+                                "type": "string",
+                                "description": "取款时间"
+                              },
+                              "status": {
+                                "type": "null"
+                              }
+                            },
+                            "required": [
+                              "withdrawMethod",
+                              "weekDay",
+                              "companyTimezone",
+                              "openTime",
+                              "status"
+                            ],
+                            "x-apifox-orders": [
+                              "withdrawMethod",
+                              "weekDay",
+                              "companyTimezone",
+                              "openTime",
+                              "status"
+                            ],
+                            "x-apifox-ignore-properties": []
+                          },
+                          "description": "通道取款时间"
+                        },
+                        "withdrawAmountConfigList": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "singleCheckLowAmount": {
+                                "type": "integer",
+                                "description": "人工审核单笔最低取款金额"
+                              },
+                              "accountCurrency": {
+                                "type": "null",
+                                "description": "账户币种"
+                              },
+                              "blockchainName": {
+                                "type": "string",
+                                "description": "链"
+                              },
+                              "withdrawMethod": {
+                                "type": "string"
+                              },
+                              "singleHighAmount": {
+                                "type": "integer",
+                                "description": "单笔最大取款金额"
+                              },
+                              "maxIn24hourAmount": {
+                                "type": "integer",
+                                "description": "24小时累计最高"
+                              },
+                              "withdrawCurrency": {
+                                "type": "string",
+                                "description": "取款币种"
+                              },
+                              "singleLowAmount": {
+                                "type": "number",
+                                "description": "单笔最低取款金额"
+                              },
+                              "status": {
+                                "type": "null"
+                              }
+                            },
+                            "required": [
+                              "withdrawMethod",
+                              "singleHighAmount",
+                              "maxIn24hourAmount",
+                              "withdrawCurrency",
+                              "singleLowAmount",
+                              "status"
+                            ],
+                            "x-apifox-orders": [
+                              "singleCheckLowAmount",
+                              "accountCurrency",
+                              "blockchainName",
+                              "withdrawMethod",
+                              "singleHighAmount",
+                              "maxIn24hourAmount",
+                              "withdrawCurrency",
+                              "singleLowAmount",
+                              "status"
+                            ],
+                            "x-apifox-ignore-properties": []
+                          },
+                          "description": "通道取款金额设置"
+                        },
+                        "enableWithdraw": {
+                          "type": "boolean",
+                          "description": "是否允许取款，true：允许，false：不允许"
+                        },
+                        "withdrawConditionConfig": {
+                          "type": "object",
+                          "properties": {
+                            "maxCount": {
+                              "type": "integer",
+                              "description": "24小时取款次数"
+                            },
+                            "mustActive": {
+                              "type": "boolean",
+                              "description": "是否必须激活"
+                            },
+                            "modifyLoginDisableWithdrawIntervals": {
+                              "type": "integer",
+                              "description": "更改手机/邮箱后不可取款时间"
+                            },
+                            "modifyPwdDisableWithdrawIntervals": {
+                              "type": "integer",
+                              "description": "修改密码后不可取款时间"
+                            },
+                            "status": {
+                              "type": "null"
+                            }
+                          },
+                          "required": [
+                            "maxCount",
+                            "mustActive",
+                            "modifyLoginDisableWithdrawIntervals",
+                            "modifyPwdDisableWithdrawIntervals",
+                            "status"
+                          ],
+                          "x-apifox-orders": [
+                            "maxCount",
+                            "mustActive",
+                            "modifyLoginDisableWithdrawIntervals",
+                            "modifyPwdDisableWithdrawIntervals",
+                            "status"
+                          ],
+                          "description": "通道取款条件",
+                          "x-apifox-ignore-properties": []
+                        },
+                        "withdrawRiskConfig": {
+                          "type": "object",
+                          "properties": {
+                            "customerGroupId": {
+                              "type": "integer"
+                            },
+                            "firstSetLoginPwdDisableWithdrawIntervals": {
+                              "type": "integer",
+                              "description": "首次设置登录密码后不可取款时间"
+                            },
+                            "updateTime": {
+                              "type": "integer",
+                              "description": "修改时间"
+                            },
+                            "maxCount": {
+                              "type": "integer",
+                              "description": "24小时最大取款次数"
+                            },
+                            "firstSetFundPwdDisableWithdrawIntervals": {
+                              "type": "integer",
+                              "description": "首次设置资金密码后不可取款时间"
+                            },
+                            "newAddressDisableIntervals": {
+                              "type": "integer",
+                              "description": "新添加的提现地址禁用时间"
+                            },
+                            "mustActive": {
+                              "type": "boolean",
+                              "description": "是否必须激活，true：是，false：否"
+                            },
+                            "modifyLoginDisableWithdrawIntervals": {
+                              "type": "integer",
+                              "description": "更改手机/邮箱后不可取款时间:小时"
+                            },
+                            "modifyPwdDisableWithdrawIntervals": {
+                              "type": "integer",
+                              "description": "修改密码后不可取款时间"
+                            },
+                            "status": {
+                              "type": "integer",
+                              "description": "状态1，代表后台启用"
+                            }
+                          },
+                          "x-apifox-orders": [
+                            "customerGroupId",
+                            "firstSetLoginPwdDisableWithdrawIntervals",
+                            "updateTime",
+                            "maxCount",
+                            "firstSetFundPwdDisableWithdrawIntervals",
+                            "newAddressDisableIntervals",
+                            "mustActive",
+                            "modifyLoginDisableWithdrawIntervals",
+                            "modifyPwdDisableWithdrawIntervals",
+                            "status"
+                          ],
+                          "description": "客户组取款风控",
+                          "x-apifox-ignore-properties": []
+                        },
+                        "withdrawFeeConfigList": {
+                          "type": "null",
+                          "description": "通道取款手续费"
                         }
                       },
-                      "required": []
+                      "x-apifox-orders": [
+                        "withdrawTimeConfigList",
+                        "withdrawAmountConfigList",
+                        "enableWithdraw",
+                        "withdrawConditionConfig",
+                        "withdrawRiskConfig",
+                        "withdrawFeeConfigList"
+                      ],
+                      "required": [
+                        "withdrawFeeConfigList"
+                      ],
+                      "x-apifox-ignore-properties": []
+                    },
+                    "ok": {
+                      "type": "boolean"
+                    },
+                    "fail": {
+                      "type": "boolean"
+                    },
+                    "class": {
+                      "type": "string"
                     }
                   },
                   "x-apifox-orders": [
-                    "01GY6NVVJF8HR05BQCQ53G1KDY"
+                    "bizCode",
+                    "code",
+                    "msg",
+                    "tm",
+                    "trace",
+                    "msgParams",
+                    "data",
+                    "ok",
+                    "fail",
+                    "class"
                   ],
+                  "x-apifox-refs": {},
+                  "x-apifox-ignore-properties": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "msg": "Success",
+                      "fail": false,
+                      "trace": "x-1s331-3wq3-xxhig-98yvi37-1682325786",
+                      "code": "0",
+                      "data": {
+                        "withdrawTimeConfigList": null,
+                        "hourIn24Enable": null,
+                        "trace": null,
+                        "withdrawAmountConfigList": null,
+                        "updateBy": null,
+                        "customerId": null,
+                        "enableWithdraw": null,
+                        "withdrawConditionConfig": null,
+                        "id": null,
+                        "lang": null,
+                        "class": "com.cats.fund.api.dto.app.QueryWithdrawRiskLimitConfigRespDto",
+                        "tradeType": null,
+                        "customerGroupEnable": null,
+                        "amountEnable": null,
+                        "ip": null,
+                        "updateTime": null,
+                        "withdrawRiskConfig": {
+                          "customerGroupId": 1,
+                          "firstSetLoginPwdDisableWithdrawIntervals": 60,
+                          "ip": null,
+                          "updateTime": 1682325006727,
+                          "maxCount": 10,
+                          "revision": 15,
+                          "accountId": null,
+                          "firstSetFundPwdDisableWithdrawIntervals": 240,
+                          "createBy": "admin",
+                          "companyId": 1,
+                          "trace": null,
+                          "newAddressDisableIntervals": 60,
+                          "mustActive": true,
+                          "modifyLoginDisableWithdrawIntervals": 0,
+                          "createTime": 1681867998763,
+                          "updateBy": "admin",
+                          "modifyPwdDisableWithdrawIntervals": 360,
+                          "customerId": null,
+                          "id": 334,
+                          "lang": null,
+                          "class": "com.cats.fund.api.dto.app.WithdrawRiskConfigDto",
+                          "tradeType": null,
+                          "customerNo": null,
+                          "status": 1
+                        },
+                        "accountActiveEnable": null,
+                        "revision": null,
+                        "accountId": null,
+                        "createBy": null,
+                        "companyId": null,
+                        "createTime": null,
+                        "timeEnable": null,
+                        "withdrawFeeConfigList": null,
+                        "customerNo": null,
+                        "status": null
+                      },
+                      "bizCode": "",
+                      "tm": 15,
+                      "msgParams": null,
+                      "ok": true,
+                      "class": "com.cats.common.core.base.vo.BaseResult"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-75101968-run"
+      }
+    },
+    "/global/fund.app.WithdrawAppDubboService.checkWithdrawRiskLimitConfig": {
+      "post": {
+        "summary": "检查客户的取款限制条件",
+        "x-apifox-folder": "客户取款接口",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "bizType=fund.app.WithdrawAppDubboService.checkWithdrawRiskLimitConfig\n检查客户的取款限制条件\n登录后方可访问\ncode ( \"51021\", \"客户组取款配置，不允许取款\"),\ncode ( \"51011\", \"客户组取款配置,账户必须激活才可取款\"),\ncode (\"51012\", \"当前时间不允许取款\"),\ncode (\"51025\", \"修改密码后{0}分钟内不允许取款\"),\ncode (\"51026\", \"修改手机或邮箱后{0}分钟内不允许取款\"),\ncode (\"51037\", \"修改资金密码后{0}分钟内不允许取款\"),\ncode (\"51016\", \"超过24小时内最大取款次数\"),\n\n\n\n\n```以下提示信息中的占位符“%s”，取值为响应结果中的msgParams，多个以\",\"拼接```\nUSCUSTOMER_API_0001006=1. 非常抱歉，设置登录密码后%s小时内禁止提现，您可以稍后再进行提现操作；\\n2. 如果您有任何疑问或需要帮助，请联系在线客服。\nUSCUSTOMER_API_0001007=1. 非常抱歉，设置资金密码后%s小时内禁止提现，您可以稍后再进行提现操作；\\n2. 如果您有任何疑问或需要帮助，请联系在线客服。\nUSCUSTOMER_API_0001008=1. 非常抱歉，修改登录密码后%s小时内禁止提现，您可以稍后再进行提现操作；\\n2. 如果您有任何疑问或需要帮助，请联系在线客服。\nUSCUSTOMER_API_0001009=1. 非常抱歉，重置登录密码后%s小时内禁止提现，您可以稍后再进行提现操作；\\n2. 如果您有任何疑问或需要帮助，请联系在线客服。\nUSCUSTOMER_API_0001010=1. 非常抱歉，修改资金密码后%s小时内禁止提现，您可以稍后再进行提现操作；\\n2. 如果您有任何疑问或需要帮助，请联系在线客服。\nUSCUSTOMER_API_0001011=1. 非常抱歉，重置资金密码后%s小时内禁止提现，您可以稍后再进行提现操作；\\n2. 如果您有任何疑问或需要帮助，请联系在线客服。\nUSCUSTOMER_API_0001012=1. 非常抱歉，更换邮箱后%s小时内禁止提现，您可以稍后再进行提现操作；\\n2. 如果您有任何疑问或需要帮助，请联系在线客服。\nUSCUSTOMER_API_0001013=1. 非常抱歉，更换手机后%s小时内禁止提现，您可以稍后再进行提现操作；\\n2. 如果您有任何疑问或需要帮助，请联系在线客服。\nUSCUSTOMER_API_0001014=1. 非常抱歉，新增的提现地址%s小时内禁止提现，您可以稍后再进行提现操作；\\n2. 如果您有任何疑问或需要帮助，请联系在线客服。\nUSCUSTOMER_API_0001016=当前提现地址不存在，请核对数据",
+        "tags": [
+          "客户取款接口"
+        ],
+        "parameters": [
+          {
+            "name": "version",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "zh-CN",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "tradeType": {
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  "accountCurrency": {
+                    "type": "string",
+                    "description": "账户货币编码"
+                  },
+                  "withdrawCurrency": {
+                    "type": "string",
+                    "description": "客户收款货币编码"
+                  },
+                  "withdrawMethod": {
+                    "type": "string",
+                    "description": "取款方式,银行卡:bank,数字钱包:digit_wallet"
+                  },
+                  "withdrawType": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "取款类型,银行卡:1,数字钱包:2"
+                  },
+                  "blockchainName": {
+                    "type": "string",
+                    "description": "witdrawType为2时必填，链名称,数据字典配置,收款方式是数字钱包,显示对应的链名称(又叫转账网络),如Omin、ERC20、TRC20"
+                  }
+                },
+                "x-apifox-refs": {},
+                "x-apifox-orders": [
+                  "tradeType",
+                  "accountCurrency",
+                  "withdrawCurrency",
+                  "withdrawMethod",
+                  "withdrawType",
+                  "blockchainName"
+                ],
+                "required": [
+                  "tradeType",
+                  "accountCurrency",
+                  "withdrawCurrency",
+                  "withdrawType",
+                  "withdrawMethod"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": ""
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
                   "properties": {
                     "bizCode": {
                       "type": "string",
@@ -1674,8 +2547,7 @@
                       "description": "返回描述中占位符参数串，多个参数间以,分割"
                     },
                     "data": {
-                      "description": "数据体",
-                      "$ref": "#/components/schemas/BaseResultQueryWithdrawRiskLimitConfigRespDto"
+                      "type": "boolean"
                     },
                     "ok": {
                       "type": "boolean"
@@ -1684,7 +2556,8 @@
                       "type": "boolean"
                     }
                   },
-                  "x-apifox-ignore-properties": [
+                  "x-apifox-refs": {},
+                  "x-apifox-orders": [
                     "bizCode",
                     "code",
                     "msg",
@@ -1694,44 +2567,8 @@
                     "data",
                     "ok",
                     "fail"
-                  ]
-                }
-              }
-            }
-          }
-        },
-        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-75101968-run"
-      }
-    },
-    "/global/fund.app.WithdrawAppDubboService.checkWithdrawRiskLimitConfig": {
-      "post": {
-        "summary": "检查客户的取款限制条件",
-        "x-apifox-folder": "客户取款接口",
-        "x-apifox-status": "released",
-        "deprecated": false,
-        "description": "bizType=fund.app.WithdrawAppDubboService.checkWithdrawRiskLimitConfig\n检查客户的取款限制条件\n登录后方可访问",
-        "tags": [
-          "客户取款接口"
-        ],
-        "parameters": [],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/QueryWithdrawRiskLimitConfigReqDto"
-              },
-              "example": ""
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "成功",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "description": "数据体",
-                  "$ref": "#/components/schemas/BaseResultQueryWithdrawRiskLimitConfigRespDto"
+                  ],
+                  "x-apifox-ignore-properties": []
                 }
               }
             }
@@ -1746,11 +2583,62 @@
         "x-apifox-folder": "客户取款接口",
         "x-apifox-status": "released",
         "deprecated": false,
-        "description": "bizType=fund.app.WithdrawAppDubboService.queryRemainWithdrawAmount\n获取通道+币+链的剩余提现金额\n登录后方可访问",
+        "description": "bizType=fund.app.WithdrawAppDubboService.queryRemainWithdrawAmount\n获取方式+币+链的剩余提现金额\n登录后方可访问",
         "tags": [
           "客户取款接口"
         ],
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "version",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "zh-CN",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -1906,21 +2794,19 @@
       "QueryRemainWithdrawAmountReqDto": {
         "type": "object",
         "required": [
-          "tradeType"
+          "withdrawType",
+          "withdrawMethod",
+          "accountCurrency"
         ],
         "properties": {
-          "tradeType": {
+          "withdrawType": {
             "type": "integer",
-            "format": "int64"
+            "format": "int32",
+            "description": "取款类型,银行卡:1,数字钱包:2"
           },
-          "customerGroupId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "客户组id"
-          },
-          "country": {
+          "withdrawMethod": {
             "type": "string",
-            "description": "国家编码"
+            "description": "取款方式,coin_blockatmpay,coin_mdpay等"
           },
           "accountCurrency": {
             "type": "string",
@@ -1928,538 +2814,19 @@
           },
           "withdrawCurrency": {
             "type": "string",
-            "description": "客户收款货币编码"
-          },
-          "withdrawMethod": {
-            "type": "string",
-            "description": "取款方式,银行卡:bank,数字钱包:digit_wallet"
-          },
-          "withdrawType": {
-            "type": "integer",
-            "format": "int32",
-            "description": "取款类型,银行卡:1,数字钱包:2"
+            "description": "witdrawType为2时必填，客户收款货币编码"
           },
           "blockchainName": {
             "type": "string",
-            "description": "链名称,数据字典配置,收款方式是数字钱包,显示对应的链名称(又叫转账网络),如Omin、ERC20、TRC20"
+            "description": "witdrawType为2时必填，链名称,数据字典配置,收款方式是数字钱包,显示对应的链名称(又叫转账网络),如Omin、ERC20、TRC20"
           }
         },
         "x-apifox-orders": [
-          "tradeType",
-          "customerGroupId",
-          "country",
-          "accountCurrency",
-          "withdrawCurrency",
-          "withdrawMethod",
           "withdrawType",
-          "blockchainName"
-        ],
-        "x-apifox-folder": "Schemas",
-        "x-apifox-ignore-properties": []
-      },
-      "QueryWithdrawRiskLimitConfigReqDto": {
-        "type": "object",
-        "required": [
-          "tradeType"
-        ],
-        "properties": {
-          "tradeType": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "customerGroupId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "客户组id"
-          },
-          "country": {
-            "type": "string",
-            "description": "国家编码"
-          },
-          "accountCurrency": {
-            "type": "string",
-            "description": "账户货币编码"
-          },
-          "withdrawCurrency": {
-            "type": "string",
-            "description": "客户收款货币编码"
-          },
-          "withdrawMethod": {
-            "type": "string",
-            "description": "取款方式,银行卡:bank,数字钱包:digit_wallet"
-          },
-          "withdrawType": {
-            "type": "integer",
-            "format": "int32",
-            "description": "取款类型,银行卡:1,数字钱包:2"
-          },
-          "blockchainName": {
-            "type": "string",
-            "description": "链名称,数据字典配置,收款方式是数字钱包,显示对应的链名称(又叫转账网络),如Omin、ERC20、TRC20"
-          }
-        },
-        "x-apifox-orders": [
-          "tradeType",
-          "customerGroupId",
-          "country",
-          "accountCurrency",
-          "withdrawCurrency",
           "withdrawMethod",
-          "withdrawType",
+          "accountCurrency",
+          "withdrawCurrency",
           "blockchainName"
-        ],
-        "x-apifox-folder": "Schemas",
-        "x-apifox-ignore-properties": []
-      },
-      "BaseResultQueryWithdrawRiskLimitConfigRespDto": {
-        "type": "object",
-        "properties": {
-          "bizCode": {
-            "type": "string",
-            "description": "模块标识码"
-          },
-          "code": {
-            "type": "string",
-            "description": "状态返回码"
-          },
-          "msg": {
-            "type": "string",
-            "description": "状态描述"
-          },
-          "tm": {
-            "type": "integer",
-            "format": "int64",
-            "description": "处理时长（毫秒）"
-          },
-          "trace": {
-            "type": "string",
-            "description": "跟踪码"
-          },
-          "msgParams": {
-            "type": "string",
-            "description": "返回描述中占位符参数串，多个参数间以,分割"
-          },
-          "data": {
-            "$ref": "#/components/schemas/QueryWithdrawRiskLimitConfigRespDto"
-          },
-          "ok": {
-            "type": "boolean"
-          },
-          "fail": {
-            "type": "boolean"
-          }
-        },
-        "x-apifox-orders": [
-          "bizCode",
-          "code",
-          "msg",
-          "tm",
-          "trace",
-          "msgParams",
-          "data",
-          "ok",
-          "fail"
-        ],
-        "x-apifox-folder": "Schemas",
-        "x-apifox-ignore-properties": []
-      },
-      "QueryWithdrawRiskLimitConfigRespDto": {
-        "type": "object",
-        "properties": {
-          "enableWithdraw": {
-            "type": "boolean",
-            "description": "是否允许取款"
-          },
-          "withdrawAmount": {
-            "type": "string",
-            "description": "账户可取金额"
-          },
-          "digit": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "withdrawRiskConfig": {
-            "$ref": "#/components/schemas/WithdrawRiskConfigDto"
-          },
-          "withdrawConditionConfig": {
-            "$ref": "#/components/schemas/CustomerGroupWithdrawConditionConfigDto"
-          },
-          "withdrawTimeConfigList": {
-            "type": "array",
-            "description": "取款时间限制配置",
-            "items": {
-              "$ref": "#/components/schemas/CustomerGroupWithdrawTimeConfigDto"
-            }
-          },
-          "withdrawAmountConfig": {
-            "$ref": "#/components/schemas/CustomerGroupWithdrawAmountConfigDto"
-          },
-          "withdrawFeeConfigList": {
-            "type": "array",
-            "description": "取款手续费配置",
-            "items": {
-              "$ref": "#/components/schemas/CustomerGroupWithdrawFeeConfigDto"
-            }
-          },
-          "customerGroupEnable": {
-            "type": "boolean",
-            "description": "客户组是否允许取款"
-          },
-          "timeEnable": {
-            "type": "boolean",
-            "description": "取款时间否允许取款"
-          },
-          "accountActiveEnable": {
-            "type": "boolean",
-            "description": "账户必须激活否允许取款"
-          },
-          "amountEnable": {
-            "type": "boolean",
-            "description": "客户账户余额是否允许取款"
-          },
-          "hourIn24Enable": {
-            "type": "boolean",
-            "description": "24小时内次数是否允许取款"
-          },
-          "walletEnable": {
-            "type": "boolean",
-            "description": "是否允许提币"
-          },
-          "pwdModifyEnable": {
-            "type": "boolean",
-            "description": "修改密码后间隔时长是否允许取款"
-          },
-          "loginModifyEnable": {
-            "type": "boolean",
-            "description": "修改手机号/邮箱后间隔时长是否允许取款"
-          }
-        },
-        "x-apifox-orders": [
-          "enableWithdraw",
-          "withdrawAmount",
-          "digit",
-          "withdrawRiskConfig",
-          "withdrawConditionConfig",
-          "withdrawTimeConfigList",
-          "withdrawAmountConfig",
-          "withdrawFeeConfigList",
-          "customerGroupEnable",
-          "timeEnable",
-          "accountActiveEnable",
-          "amountEnable",
-          "hourIn24Enable",
-          "walletEnable",
-          "pwdModifyEnable",
-          "loginModifyEnable"
-        ],
-        "x-apifox-folder": "Schemas",
-        "required": [
-          "withdrawRiskConfig"
-        ],
-        "x-apifox-ignore-properties": []
-      },
-      "CustomerGroupWithdrawFeeConfigDto": {
-        "type": "object",
-        "properties": {
-          "customerGroupId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "公司客户组id"
-          },
-          "accountCurrency": {
-            "type": "string",
-            "description": "账户币种"
-          },
-          "withdrawCurrency": {
-            "type": "string",
-            "description": "取款币种"
-          },
-          "blockchainName": {
-            "type": "string",
-            "description": "区块链名称"
-          },
-          "valueType": {
-            "type": "string",
-            "description": "值类型,单笔取款金额:single_amount、开仓保证金总额/存款总额(比例):open_margin_rate、24小时取款次数:with24hour_times"
-          },
-          "leftOpenValue": {
-            "type": "number",
-            "description": "区间左边值"
-          },
-          "rightCloseValue": {
-            "type": "number",
-            "description": "区间右边值"
-          },
-          "feeType": {
-            "type": "integer",
-            "format": "int32",
-            "description": "手续费类型,固定金额:1、百分比率:2"
-          },
-          "feeValue": {
-            "type": "number",
-            "description": "手续费固定金额值/比率值)"
-          },
-          "withdrawMethod": {
-            "type": "string",
-            "description": "取款方式,银行卡:bank,数字钱包:digit_wallet"
-          }
-        },
-        "x-apifox-orders": [
-          "customerGroupId",
-          "accountCurrency",
-          "withdrawCurrency",
-          "blockchainName",
-          "valueType",
-          "leftOpenValue",
-          "rightCloseValue",
-          "feeType",
-          "feeValue",
-          "withdrawMethod"
-        ],
-        "x-apifox-folder": "Schemas",
-        "x-apifox-ignore-properties": []
-      },
-      "CustomerGroupWithdrawAmountConfigDto": {
-        "type": "object",
-        "properties": {
-          "customerGroupId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "公司客户组id"
-          },
-          "accountCurrency": {
-            "type": "string",
-            "description": "账户币种"
-          },
-          "withdrawCurrency": {
-            "type": "string",
-            "description": "取款货币(支付通道支持的货币)"
-          },
-          "blockchainName": {
-            "type": "string",
-            "description": "链名称,数据字典配置,收款方式是数字钱包,显示对应的链名称(又叫转账网络),如Omin、ERC20、TRC20"
-          },
-          "singleLowAmount": {
-            "type": "number",
-            "description": "单笔最低取款金额"
-          },
-          "singleHighAmount": {
-            "type": "number",
-            "description": "单笔最高取款金额"
-          },
-          "singleCheckLowAmount": {
-            "type": "number",
-            "description": "需人工审核单笔最低取款金额"
-          },
-          "maxIn24hourAmount": {
-            "type": "number",
-            "description": "24小时内最高取款金额"
-          },
-          "withdrawMethod": {
-            "type": "string",
-            "description": "取款方式,银行卡:bank,数字钱包:digit_wallet"
-          }
-        },
-        "x-apifox-orders": [
-          "customerGroupId",
-          "accountCurrency",
-          "withdrawCurrency",
-          "blockchainName",
-          "singleLowAmount",
-          "singleHighAmount",
-          "singleCheckLowAmount",
-          "maxIn24hourAmount",
-          "withdrawMethod"
-        ],
-        "x-apifox-folder": "Schemas",
-        "x-apifox-ignore-properties": []
-      },
-      "CustomerGroupWithdrawTimeConfigDto": {
-        "type": "object",
-        "properties": {
-          "customerGroupId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "公司客户组id"
-          },
-          "companyTimezone": {
-            "type": "string",
-            "description": "公司运营所在时区"
-          },
-          "weekDay": {
-            "type": "integer",
-            "format": "int32",
-            "description": "星期几"
-          },
-          "openTime": {
-            "type": "string",
-            "description": "取款时间,格式为01:00-12:00,13:00-18:00,19:00-22:59"
-          },
-          "withdrawMethod": {
-            "type": "string",
-            "description": "取款方式,银行卡:bank,数字钱包:digit_wallet"
-          }
-        },
-        "x-apifox-orders": [
-          "customerGroupId",
-          "companyTimezone",
-          "weekDay",
-          "openTime",
-          "withdrawMethod"
-        ],
-        "x-apifox-folder": "Schemas",
-        "x-apifox-ignore-properties": []
-      },
-      "CustomerGroupWithdrawConditionConfigDto": {
-        "type": "object",
-        "properties": {
-          "customerGroupId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "公司客户组id"
-          },
-          "mustActive": {
-            "type": "boolean",
-            "description": "客户是否必须激活,才可取款"
-          },
-          "maxCount": {
-            "type": "integer",
-            "format": "int32",
-            "description": "24小时取款次数"
-          },
-          "modifyPwdDisableWithdrawIntervals": {
-            "type": "integer",
-            "format": "int64",
-            "description": "修改密码后不可取款时间:单位分钟"
-          },
-          "modifyLoginDisableWithdrawIntervals": {
-            "type": "integer",
-            "format": "int64",
-            "description": "更改手机/邮箱后不可取款时间:单位分钟"
-          },
-          "withdrawMethod": {
-            "type": "string",
-            "description": "取款方式,银行卡:bank,数字钱包:digit_wallet"
-          }
-        },
-        "x-apifox-orders": [
-          "customerGroupId",
-          "mustActive",
-          "maxCount",
-          "modifyPwdDisableWithdrawIntervals",
-          "modifyLoginDisableWithdrawIntervals",
-          "withdrawMethod"
-        ],
-        "x-apifox-folder": "Schemas",
-        "x-apifox-ignore-properties": []
-      },
-      "WithdrawRiskConfigDto": {
-        "type": "object",
-        "properties": {
-          "customerGroupId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "客户组id"
-          },
-          "mustActive": {
-            "type": "boolean",
-            "description": "客户是否必须激活,才可取款"
-          },
-          "maxCount": {
-            "type": "integer",
-            "description": "24小时取款次数"
-          },
-          "modifyLoginDisableWithdrawIntervals": {
-            "type": "integer",
-            "description": "更改手机/邮箱后不可取款时间:小时"
-          },
-          "firstSetLoginPwdDisableWithdrawIntervals": {
-            "type": "integer",
-            "description": "首次设置登录密码后不可取款时间:小时"
-          },
-          "firstSetFundPwdDisableWithdrawIntervals": {
-            "type": "integer",
-            "description": "首次设置资金密码后不可取款时间:小时"
-          },
-          "modifyPwdDisableWithdrawIntervals": {
-            "type": "integer",
-            "description": "修改登录密码、忘记登录密码、修改资金密码、重置资金密码:小时"
-          },
-          "newAddressDisableIntervals": {
-            "type": "integer",
-            "description": "新添加的提现地址禁用时间:小时"
-          }
-        },
-        "x-apifox-orders": [
-          "customerGroupId",
-          "mustActive",
-          "maxCount",
-          "modifyLoginDisableWithdrawIntervals",
-          "firstSetLoginPwdDisableWithdrawIntervals",
-          "firstSetFundPwdDisableWithdrawIntervals",
-          "modifyPwdDisableWithdrawIntervals",
-          "newAddressDisableIntervals"
-        ],
-        "x-apifox-folder": "Schemas",
-        "required": [
-          "mustActive",
-          "maxCount",
-          "modifyLoginDisableWithdrawIntervals",
-          "firstSetLoginPwdDisableWithdrawIntervals",
-          "firstSetFundPwdDisableWithdrawIntervals",
-          "modifyPwdDisableWithdrawIntervals",
-          "newAddressDisableIntervals"
-        ],
-        "x-apifox-ignore-properties": []
-      },
-      "BaseResultWithdrawRiskConfigDto": {
-        "type": "object",
-        "properties": {
-          "bizCode": {
-            "type": "string",
-            "description": "模块标识码"
-          },
-          "code": {
-            "type": "string",
-            "description": "状态返回码"
-          },
-          "msg": {
-            "type": "string",
-            "description": "状态描述"
-          },
-          "tm": {
-            "type": "integer",
-            "format": "int64",
-            "description": "处理时长（毫秒）"
-          },
-          "trace": {
-            "type": "string",
-            "description": "跟踪码"
-          },
-          "msgParams": {
-            "type": "string",
-            "description": "返回描述中占位符参数串，多个参数间以,分割"
-          },
-          "data": {
-            "$ref": "#/components/schemas/WithdrawRiskConfigDto"
-          },
-          "ok": {
-            "type": "boolean"
-          },
-          "fail": {
-            "type": "boolean"
-          }
-        },
-        "x-apifox-orders": [
-          "bizCode",
-          "code",
-          "msg",
-          "tm",
-          "trace",
-          "msgParams",
-          "data",
-          "ok",
-          "fail"
         ],
         "x-apifox-folder": "Schemas",
         "x-apifox-ignore-properties": []
@@ -2479,30 +2846,6 @@
         "x-apifox-folder": "Schemas",
         "required": [
           "customerGroupId"
-        ],
-        "x-apifox-ignore-properties": []
-      },
-      "CustGroupWithdrawMethodQueryReqDto": {
-        "type": "object",
-        "properties": {
-          "customerGroupId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "客户组id"
-          },
-          "country": {
-            "type": "string",
-            "description": "国家编码"
-          }
-        },
-        "x-apifox-orders": [
-          "customerGroupId",
-          "country"
-        ],
-        "x-apifox-folder": "Schemas",
-        "required": [
-          "customerGroupId",
-          "country"
         ],
         "x-apifox-ignore-properties": []
       },
@@ -2741,6 +3084,201 @@
           "walletEnable",
           "pwdModifyEnable",
           "loginModifyEnable"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "CustomerGroupWithdrawFeeConfigDto": {
+        "type": "object",
+        "properties": {
+          "customerGroupId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "公司客户组id"
+          },
+          "accountCurrency": {
+            "type": "string",
+            "description": "账户币种"
+          },
+          "withdrawCurrency": {
+            "type": "string",
+            "description": "取款币种"
+          },
+          "blockchainName": {
+            "type": "string",
+            "description": "区块链名称"
+          },
+          "valueType": {
+            "type": "string",
+            "description": "值类型,单笔取款金额:single_amount、开仓保证金总额/存款总额(比例):open_margin_rate、24小时取款次数:with24hour_times"
+          },
+          "leftOpenValue": {
+            "type": "number",
+            "description": "区间左边值"
+          },
+          "rightCloseValue": {
+            "type": "number",
+            "description": "区间右边值"
+          },
+          "feeType": {
+            "type": "integer",
+            "format": "int32",
+            "description": "手续费类型,固定金额:1、百分比率:2"
+          },
+          "feeValue": {
+            "type": "number",
+            "description": "手续费固定金额值/比率值)"
+          },
+          "withdrawMethod": {
+            "type": "string",
+            "description": "取款方式,银行卡:bank,数字钱包:digit_wallet"
+          }
+        },
+        "x-apifox-orders": [
+          "customerGroupId",
+          "accountCurrency",
+          "withdrawCurrency",
+          "blockchainName",
+          "valueType",
+          "leftOpenValue",
+          "rightCloseValue",
+          "feeType",
+          "feeValue",
+          "withdrawMethod"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "CustomerGroupWithdrawAmountConfigDto": {
+        "type": "object",
+        "properties": {
+          "customerGroupId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "公司客户组id"
+          },
+          "accountCurrency": {
+            "type": "string",
+            "description": "账户币种"
+          },
+          "withdrawCurrency": {
+            "type": "string",
+            "description": "取款货币(支付通道支持的货币)"
+          },
+          "blockchainName": {
+            "type": "string",
+            "description": "链名称,数据字典配置,收款方式是数字钱包,显示对应的链名称(又叫转账网络),如Omin、ERC20、TRC20"
+          },
+          "singleLowAmount": {
+            "type": "number",
+            "description": "单笔最低取款金额"
+          },
+          "singleHighAmount": {
+            "type": "number",
+            "description": "单笔最高取款金额"
+          },
+          "singleCheckLowAmount": {
+            "type": "number",
+            "description": "需人工审核单笔最低取款金额"
+          },
+          "maxIn24hourAmount": {
+            "type": "number",
+            "description": "24小时内最高取款金额"
+          },
+          "withdrawMethod": {
+            "type": "string",
+            "description": "取款方式,银行卡:bank,数字钱包:digit_wallet"
+          }
+        },
+        "x-apifox-orders": [
+          "customerGroupId",
+          "accountCurrency",
+          "withdrawCurrency",
+          "blockchainName",
+          "singleLowAmount",
+          "singleHighAmount",
+          "singleCheckLowAmount",
+          "maxIn24hourAmount",
+          "withdrawMethod"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "CustomerGroupWithdrawTimeConfigDto": {
+        "type": "object",
+        "properties": {
+          "customerGroupId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "公司客户组id"
+          },
+          "companyTimezone": {
+            "type": "string",
+            "description": "公司运营所在时区"
+          },
+          "weekDay": {
+            "type": "integer",
+            "format": "int32",
+            "description": "星期几"
+          },
+          "openTime": {
+            "type": "string",
+            "description": "取款时间,格式为01:00-12:00,13:00-18:00,19:00-22:59"
+          },
+          "withdrawMethod": {
+            "type": "string",
+            "description": "取款方式,银行卡:bank,数字钱包:digit_wallet"
+          }
+        },
+        "x-apifox-orders": [
+          "customerGroupId",
+          "companyTimezone",
+          "weekDay",
+          "openTime",
+          "withdrawMethod"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "CustomerGroupWithdrawConditionConfigDto": {
+        "type": "object",
+        "properties": {
+          "customerGroupId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "公司客户组id"
+          },
+          "mustActive": {
+            "type": "boolean",
+            "description": "客户是否必须激活,才可取款"
+          },
+          "maxCount": {
+            "type": "integer",
+            "format": "int32",
+            "description": "24小时取款次数"
+          },
+          "modifyPwdDisableWithdrawIntervals": {
+            "type": "integer",
+            "format": "int64",
+            "description": "修改密码后不可取款时间:单位分钟"
+          },
+          "modifyLoginDisableWithdrawIntervals": {
+            "type": "integer",
+            "format": "int64",
+            "description": "更改手机/邮箱后不可取款时间:单位分钟"
+          },
+          "withdrawMethod": {
+            "type": "string",
+            "description": "取款方式,银行卡:bank,数字钱包:digit_wallet"
+          }
+        },
+        "x-apifox-orders": [
+          "customerGroupId",
+          "mustActive",
+          "maxCount",
+          "modifyPwdDisableWithdrawIntervals",
+          "modifyLoginDisableWithdrawIntervals",
+          "withdrawMethod"
         ],
         "x-apifox-folder": "Schemas",
         "x-apifox-ignore-properties": []
@@ -3654,7 +4192,8 @@
       "CustomerWithdrawProposalDto": {
         "type": "object",
         "required": [
-          "tradeType"
+          "tradeType",
+          "withdrawViewStatus"
         ],
         "properties": {
           "companyId": {
@@ -3817,6 +4356,14 @@
           "thirdMessage": {
             "type": "string",
             "description": "调用第三方响应消息"
+          },
+          "withdrawViewStatus": {
+            "type": "integer",
+            "description": "取款状态码,待审批:1、审批失败:2、失败:3、已完成:4、处理中:5"
+          },
+          "transferRejectReason": {
+            "type": "string",
+            "description": "转账拒绝原因"
           }
         },
         "x-apifox-orders": [
@@ -3856,7 +4403,9 @@
           "blockchainName",
           "txid",
           "customerGroupId",
-          "thirdMessage"
+          "thirdMessage",
+          "withdrawViewStatus",
+          "transferRejectReason"
         ],
         "x-apifox-folder": "Schemas",
         "x-apifox-ignore-properties": []
@@ -4396,6 +4945,85 @@
         "x-apifox-folder": "Schemas",
         "x-apifox-ignore-properties": []
       },
+      "QueryWithdrawProposalPageReqDto": {
+        "type": "object",
+        "properties": {
+          "size": {
+            "type": "integer",
+            "format": "int64",
+            "description": "每页条数"
+          },
+          "current": {
+            "type": "integer",
+            "format": "int64",
+            "description": "当前页"
+          },
+          "orders": {
+            "type": "array",
+            "description": "排序字段列表",
+            "items": {
+              "$ref": "#/components/schemas/FieldOrderDto"
+            }
+          },
+          "startTime": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "endTime": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "withdrawType": {
+            "type": "integer",
+            "format": "int32",
+            "description": "取款类型,提现:1(提款到银行卡)、提币:2(提数字币到数字钱包)"
+          },
+          "accountCurrency": {
+            "type": "string",
+            "description": "账户币种(客户出账币种)"
+          },
+          "withdrawCurrency": {
+            "type": "string",
+            "description": "取款币种(客户入账币种)"
+          },
+          "txid": {
+            "type": "string",
+            "description": "交易id"
+          }
+        },
+        "x-apifox-orders": [
+          "size",
+          "current",
+          "orders",
+          "startTime",
+          "endTime",
+          "withdrawType",
+          "accountCurrency",
+          "withdrawCurrency",
+          "txid"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "FieldOrderDto": {
+        "type": "object",
+        "properties": {
+          "column": {
+            "type": "string",
+            "description": "排序字段列"
+          },
+          "asc": {
+            "type": "boolean",
+            "description": "顺序方式"
+          }
+        },
+        "x-apifox-orders": [
+          "column",
+          "asc"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
       "BaseResultBasePageVoCustomerDepositProposalDto": {
         "type": "object",
         "properties": {
@@ -4739,6 +5367,75 @@
         "x-apifox-folder": "Schemas",
         "x-apifox-ignore-properties": []
       },
+      "QueryDepositProposalPageReqDto": {
+        "type": "object",
+        "properties": {
+          "size": {
+            "type": "integer",
+            "format": "int64",
+            "description": "每页条数"
+          },
+          "current": {
+            "type": "integer",
+            "format": "int64",
+            "description": "当前页"
+          },
+          "orders": {
+            "type": "array",
+            "description": "排序字段列表",
+            "items": {
+              "$ref": "#/components/schemas/FieldOrderDto"
+            }
+          },
+          "startTime": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "endTime": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "depositCurrency": {
+            "type": "string",
+            "description": "存款币种"
+          },
+          "paymentCurrency": {
+            "type": "string",
+            "description": "支付币种"
+          },
+          "rechargeType": {
+            "type": "string",
+            "description": "充值方式,1:直充,2:汇兑"
+          },
+          "txid": {
+            "type": "string",
+            "description": "交易id"
+          },
+          "depositStatus": {
+            "type": "string",
+            "description": "存款状态"
+          },
+          "paymentStatus": {
+            "type": "string",
+            "description": "支付状态"
+          }
+        },
+        "x-apifox-orders": [
+          "size",
+          "current",
+          "orders",
+          "startTime",
+          "endTime",
+          "depositCurrency",
+          "paymentCurrency",
+          "rechargeType",
+          "txid",
+          "depositStatus",
+          "paymentStatus"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
       "BaseResultBasePageVoCustomerAdjustProposalDto": {
         "type": "object",
         "properties": {
@@ -5057,25 +5754,6 @@
           "depositStatus",
           "paymentStatus",
           "businessType"
-        ],
-        "x-apifox-folder": "Schemas",
-        "x-apifox-ignore-properties": []
-      },
-      "FieldOrderDto": {
-        "type": "object",
-        "properties": {
-          "column": {
-            "type": "string",
-            "description": "排序字段列"
-          },
-          "asc": {
-            "type": "boolean",
-            "description": "顺序方式"
-          }
-        },
-        "x-apifox-orders": [
-          "column",
-          "asc"
         ],
         "x-apifox-folder": "Schemas",
         "x-apifox-ignore-properties": []
