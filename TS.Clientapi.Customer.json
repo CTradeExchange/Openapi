@@ -2494,7 +2494,326 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BaseResultCustomerLoginVO"
+                  "type": "object",
+                  "properties": {
+                    "bizCode": {
+                      "type": "string",
+                      "description": "模块标识码"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "状态返回码"
+                    },
+                    "msg": {
+                      "type": "string",
+                      "description": "状态描述"
+                    },
+                    "tm": {
+                      "type": "integer",
+                      "format": "int64",
+                      "description": "处理时长（毫秒）"
+                    },
+                    "trace": {
+                      "type": "string",
+                      "description": "跟踪码"
+                    },
+                    "msgParams": {
+                      "type": "string",
+                      "description": "返回描述中占位符参数串，多个参数间以,分割"
+                    },
+                    "data": {
+                      "type": "object",
+                      "x-apifox-refs": {
+                        "01H0H4RG0F2CHMQ2CV21JTAVHX": {
+                          "$ref": "#/components/schemas/CustomerLoginVO",
+                          "x-apifox-overrides": {
+                            "activateStatus": {
+                              "type": "integer",
+                              "format": "int32",
+                              "description": "激活状态，0未激活，1已激活"
+                            }
+                          },
+                          "required": []
+                        }
+                      },
+                      "x-apifox-orders": [
+                        "01H0H4RG0F2CHMQ2CV21JTAVHX"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "format": "int64",
+                          "description": "客户id"
+                        },
+                        "companyId": {
+                          "type": "integer",
+                          "format": "int64",
+                          "description": "公司"
+                        },
+                        "customerGroupId": {
+                          "type": "integer",
+                          "format": "int64",
+                          "description": "客户组"
+                        },
+                        "customerNo": {
+                          "type": "string",
+                          "description": "客户账号"
+                        },
+                        "kycAuditStatus": {
+                          "type": "integer",
+                          "format": "int32",
+                          "description": "注册KYC审核状态:0未认证跳转到认证页面,1待审核,2审核通过,3审核不通过"
+                        },
+                        "kycAuditRemark": {
+                          "type": "string",
+                          "description": "注册KYC审核备注,审核拒绝不为空"
+                        },
+                        "kycStatus": {
+                          "type": "integer",
+                          "format": "int32",
+                          "description": "KYC状态"
+                        },
+                        "kycRemark": {
+                          "type": "string",
+                          "description": "KYC状态名称"
+                        },
+                        "accountList": {
+                          "type": "object",
+                          "description": "交易账户列表",
+                          "x-apifox-orders": [],
+                          "properties": {},
+                          "x-apifox-ignore-properties": []
+                        },
+                        "accountRemark": {
+                          "type": "string",
+                          "description": "客户是否有交易账户备注"
+                        },
+                        "loginPassStatus": {
+                          "type": "string",
+                          "description": "设置密码提醒标志，1需要设置密码，2不需要"
+                        },
+                        "payPassStatus": {
+                          "type": "string",
+                          "description": "支付密码是否存在状态，1不存在，2存在"
+                        },
+                        "email": {
+                          "type": "string",
+                          "description": "邮箱"
+                        },
+                        "phone": {
+                          "type": "string",
+                          "description": "手机"
+                        },
+                        "phoneArea": {
+                          "type": "string",
+                          "description": "手机区号"
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "姓名"
+                        },
+                        "country": {
+                          "type": "string",
+                          "description": "国家"
+                        },
+                        "type": {
+                          "type": "integer",
+                          "format": "int32",
+                          "description": "组类型 <0真实，1模拟，2游客>"
+                        },
+                        "deposit": {
+                          "type": "integer",
+                          "format": "int32",
+                          "description": "可存款,1可存款"
+                        },
+                        "withdraw": {
+                          "type": "integer",
+                          "format": "int32",
+                          "description": "可取款,1可取款"
+                        },
+                        "optional": {
+                          "type": "integer",
+                          "format": "int32",
+                          "description": "自选标志0未添加1已添加"
+                        },
+                        "activateStatus": {
+                          "type": "integer",
+                          "format": "int32",
+                          "description": "激活状态，0未激活，1已激活"
+                        },
+                        "activateTime": {
+                          "type": "integer",
+                          "format": "int64",
+                          "description": "激活时间"
+                        },
+                        "companyKycStatus": {
+                          "type": "integer",
+                          "format": "int32",
+                          "description": "公司KYC开户状态，1开启2未开启"
+                        },
+                        "status": {
+                          "type": "integer",
+                          "format": "int32",
+                          "description": "状态:1正常、2禁用、3删除，4销户，5锁定，6销户中"
+                        },
+                        "thirdServerCode": {
+                          "type": "string",
+                          "description": "第三方系统唯一编号"
+                        },
+                        "source": {
+                          "type": "string",
+                          "description": "来源"
+                        },
+                        "thirdLoginSource": {
+                          "type": "string",
+                          "description": "第三方登录源 google,facebook,twitter"
+                        },
+                        "thirdUserId": {
+                          "type": "string",
+                          "description": "第三方userId"
+                        },
+                        "idCard": {
+                          "type": "string",
+                          "description": "证件号码"
+                        },
+                        "idCardType": {
+                          "type": "string",
+                          "description": "证件类型"
+                        },
+                        "thirdIntactMsg": {
+                          "type": "string",
+                          "description": "第三方登录完整数据"
+                        },
+                        "firstName": {
+                          "type": "string",
+                          "description": "名"
+                        },
+                        "lastName": {
+                          "type": "string",
+                          "description": "姓"
+                        },
+                        "isFund": {
+                          "type": "integer",
+                          "format": "int32",
+                          "description": "是否为基金经理，1是，默认0否"
+                        },
+                        "assertPassStatus": {
+                          "type": "string",
+                          "description": "设置资金密码提醒标志，1需要设置密码，2不需要"
+                        },
+                        "googleId": {
+                          "type": "integer",
+                          "format": "int64",
+                          "description": "是否开启MFA，大于0，开启，其余未开启"
+                        },
+                        "openAccountType": {
+                          "type": "integer",
+                          "format": "int32",
+                          "description": "开户类型：0.个人 1.企业 "
+                        },
+                        "loginTime": {
+                          "type": "integer",
+                          "format": "int64",
+                          "description": "登陆时间"
+                        },
+                        "createTime": {
+                          "type": "integer",
+                          "format": "int64",
+                          "description": "创建时间"
+                        },
+                        "relationCustomerId": {
+                          "type": "integer",
+                          "format": "int64",
+                          "description": "关联账户id"
+                        },
+                        "companyType": {
+                          "type": "string",
+                          "description": "公司类型"
+                        },
+                        "registerSource": {
+                          "type": "integer",
+                          "format": "int32",
+                          "description": "注册来源"
+                        },
+                        "associationCompanyId": {
+                          "type": "integer",
+                          "format": "int64",
+                          "description": "关联公司Id"
+                        },
+                        "registerTime": {
+                          "type": "integer",
+                          "format": "int64",
+                          "description": "注册时间"
+                        }
+                      },
+                      "x-apifox-ignore-properties": [
+                        "id",
+                        "companyId",
+                        "customerGroupId",
+                        "customerNo",
+                        "kycAuditStatus",
+                        "kycAuditRemark",
+                        "kycStatus",
+                        "kycRemark",
+                        "accountList",
+                        "accountRemark",
+                        "loginPassStatus",
+                        "payPassStatus",
+                        "email",
+                        "phone",
+                        "phoneArea",
+                        "name",
+                        "country",
+                        "type",
+                        "deposit",
+                        "withdraw",
+                        "optional",
+                        "activateStatus",
+                        "activateTime",
+                        "companyKycStatus",
+                        "status",
+                        "thirdServerCode",
+                        "source",
+                        "thirdLoginSource",
+                        "thirdUserId",
+                        "idCard",
+                        "idCardType",
+                        "thirdIntactMsg",
+                        "firstName",
+                        "lastName",
+                        "isFund",
+                        "assertPassStatus",
+                        "googleId",
+                        "openAccountType",
+                        "loginTime",
+                        "createTime",
+                        "relationCustomerId",
+                        "companyType",
+                        "registerSource",
+                        "associationCompanyId",
+                        "registerTime"
+                      ]
+                    },
+                    "ok": {
+                      "type": "boolean"
+                    },
+                    "fail": {
+                      "type": "boolean"
+                    }
+                  },
+                  "x-apifox-refs": {},
+                  "x-apifox-orders": [
+                    "bizCode",
+                    "code",
+                    "msg",
+                    "tm",
+                    "trace",
+                    "msgParams",
+                    "data",
+                    "ok",
+                    "fail"
+                  ],
+                  "x-apifox-ignore-properties": []
                 }
               }
             }
@@ -2677,6 +2996,7 @@
                 "x-apifox-orders": [
                   "country",
                   "thirdSource",
+                  "userId",
                   "customerGroupId",
                   "email",
                   "phone",
@@ -2702,6 +3022,10 @@
                     "type": "string",
                     "description": "第三方源 google,facebook,twitter,telegram,apple,metamask"
                   },
+                  "userId": {
+                    "type": "string",
+                    "description": "第三方userId"
+                  },
                   "customerGroupId": {
                     "type": "integer",
                     "format": "int64",
@@ -2709,7 +3033,7 @@
                   },
                   "email": {
                     "type": "string",
-                    "description": "邮箱"
+                    "description": "邮箱 与手机号码必须存在一个"
                   },
                   "phone": {
                     "type": "string",
@@ -2768,6 +3092,9 @@
                     "maxLength": 10
                   }
                 },
+                "required": [
+                  "country"
+                ],
                 "x-apifox-ignore-properties": []
               }
             }
@@ -5617,30 +5944,57 @@
                     },
                     "data": {
                       "type": "object",
-                      "x-apifox-refs": {
-                        "01GXAS3AKMSVSMNC3R82QR52YA": {
-                          "$ref": "#/components/schemas/CustomerAllInfoVO",
-                          "x-apifox-overrides": {
-                            "accountList": {
-                              "type": "object",
-                              "description": "交易账户列表",
-                              "x-apifox-orders": []
-                            },
-                            "kycRemark": {
-                              "type": "string",
-                              "description": "KYC状态名称 (1, \"未验证\", \"配置了KYC，但KYC都未提交过\"),(2, \"审核中\", \"配置了KYC，且KYC正在审核中，至少一个等级在审核中\"),(3, \"认证失败\", \"配置了KYC，且提交的KYC被拒绝，至少一个等级被拒绝\"),(4, \"已认证\", \"配置了KYC，且全部都已认证通过\"),(-1, \"\", \"配置了KYC，有多等级，已认证部分\")"
-                            },
-                            "kycStatus": {
-                              "type": "integer",
-                              "format": "int32",
-                              "description": "KYC状态,与kycRemark，保持一致： 1=未验证，2=审核中，3=认证失败，4=已认证，-1=’’"
-                            }
-                          },
-                          "required": []
-                        }
-                      },
+                      "x-apifox-refs": {},
                       "x-apifox-orders": [
-                        "01GXAS3AKMSVSMNC3R82QR52YA"
+                        "id",
+                        "companyId",
+                        "customerGroupId",
+                        "customerNo",
+                        "kycAuditStatus",
+                        "kycAuditRemark",
+                        "kycStatus",
+                        "kycRemark",
+                        "accountList",
+                        "accountRemark",
+                        "loginPassStatus",
+                        "payPassStatus",
+                        "email",
+                        "phone",
+                        "phoneArea",
+                        "name",
+                        "country",
+                        "type",
+                        "deposit",
+                        "withdraw",
+                        "optional",
+                        "activateStatus",
+                        "activateTime",
+                        "companyKycStatus",
+                        "status",
+                        "thirdServerCode",
+                        "source",
+                        "thirdLoginSource",
+                        "thirdUserId",
+                        "idCard",
+                        "idCardType",
+                        "thirdIntactMsg",
+                        "firstName",
+                        "lastName",
+                        "isFund",
+                        "assertPassStatus",
+                        "googleId",
+                        "openAccountType",
+                        "loginTime",
+                        "createTime",
+                        "relationCustomerId",
+                        "companyType",
+                        "registerSource",
+                        "associationCompanyId",
+                        "registerTime",
+                        "utmSource",
+                        "forceLevel",
+                        "earlyWarningLevel",
+                        "withdrawLevel"
                       ],
                       "properties": {
                         "id": {
@@ -5742,7 +6096,7 @@
                         "activateStatus": {
                           "type": "integer",
                           "format": "int32",
-                          "description": "激活状态"
+                          "description": "激活状态，0未激活，1已激活"
                         },
                         "activateTime": {
                           "type": "integer",
@@ -5874,57 +6228,7 @@
                           "x-apifox-ignore-properties": []
                         }
                       },
-                      "x-apifox-ignore-properties": [
-                        "id",
-                        "companyId",
-                        "customerGroupId",
-                        "customerNo",
-                        "kycAuditStatus",
-                        "kycAuditRemark",
-                        "kycStatus",
-                        "kycRemark",
-                        "accountList",
-                        "accountRemark",
-                        "loginPassStatus",
-                        "payPassStatus",
-                        "email",
-                        "phone",
-                        "phoneArea",
-                        "name",
-                        "country",
-                        "type",
-                        "deposit",
-                        "withdraw",
-                        "optional",
-                        "activateStatus",
-                        "activateTime",
-                        "companyKycStatus",
-                        "status",
-                        "thirdServerCode",
-                        "source",
-                        "thirdLoginSource",
-                        "thirdUserId",
-                        "idCard",
-                        "idCardType",
-                        "thirdIntactMsg",
-                        "firstName",
-                        "lastName",
-                        "isFund",
-                        "assertPassStatus",
-                        "googleId",
-                        "openAccountType",
-                        "loginTime",
-                        "createTime",
-                        "relationCustomerId",
-                        "companyType",
-                        "registerSource",
-                        "associationCompanyId",
-                        "registerTime",
-                        "utmSource",
-                        "forceLevel",
-                        "earlyWarningLevel",
-                        "withdrawLevel"
-                      ]
+                      "x-apifox-ignore-properties": []
                     },
                     "ok": {
                       "type": "boolean"
@@ -11563,7 +11867,7 @@
                         "activateStatus": {
                           "type": "integer",
                           "format": "int32",
-                          "description": "激活状态"
+                          "description": "激活状态，0未激活，1已激活"
                         },
                         "activateTime": {
                           "type": "integer",
@@ -16438,14 +16742,14 @@
                   "newPwd": {
                     "type": "string",
                     "description": "密码，MD5加密",
-                    "minLength": 5,
+                    "minLength": 6,
                     "maxLength": 50
                   },
                   "verifyCode": {
                     "type": "string",
                     "description": "验证码，发送验证码接口bizType=EMAIL_LOGINED_VERIFICATION_CODE(邮箱),SMS_LOGINED_VERIFICATION_CODE（手机）"
                   },
-                  "sendToken": {
+                  "sendToken6": {
                     "type": "string",
                     "description": "发送票据"
                   },
@@ -16465,7 +16769,7 @@
                 "x-apifox-orders": [
                   "newPwd",
                   "verifyCode",
-                  "sendToken",
+                  "sendToken6",
                   "type",
                   "googleCode"
                 ],
@@ -16473,7 +16777,7 @@
                   "newPwd",
                   "type",
                   "verifyCode",
-                  "sendToken"
+                  "sendToken6"
                 ],
                 "x-apifox-ignore-properties": []
               },
@@ -17183,7 +17487,7 @@
                   "newPwd": {
                     "type": "string",
                     "description": "密码，MD5加密",
-                    "minLength": 5,
+                    "minLength": 6,
                     "maxLength": 50
                   },
                   "verifyCode": {
@@ -17438,6 +17742,192 @@
           }
         },
         "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-79481483-run"
+      }
+    },
+    "/global/customer.app.CustomerWebApiService.findThirdAccountInfo": {
+      "post": {
+        "summary": "查询客户3方绑定信息",
+        "x-apifox-folder": "客户基础信息",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "version=0.0.1\nbizType=customer.app.CustomerWebApiService.findThirdAccountInfo\n登录之后可以访问",
+        "tags": [
+          "客户基础信息"
+        ],
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "en-US",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {},
+                "x-apifox-refs": {},
+                "x-apifox-orders": [],
+                "x-apifox-ignore-properties": []
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "bizCode": {
+                      "type": "string",
+                      "description": "模块标识码"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "状态返回码"
+                    },
+                    "msg": {
+                      "type": "string",
+                      "description": "状态描述"
+                    },
+                    "tm": {
+                      "type": "integer",
+                      "format": "int64",
+                      "description": "处理时长（毫秒）"
+                    },
+                    "trace": {
+                      "type": "string",
+                      "description": "跟踪码"
+                    },
+                    "msgParams": {
+                      "type": "string",
+                      "description": "返回描述中占位符参数串，多个参数间以,分割"
+                    },
+                    "data": {
+                      "type": "object",
+                      "x-apifox-orders": [
+                        "customerNo",
+                        "thirdLoginSource",
+                        "thirdUserId",
+                        "thirdIntactMsg",
+                        "tgStatus"
+                      ],
+                      "properties": {
+                        "customerNo": {
+                          "type": "string",
+                          "description": "客户账号"
+                        },
+                        "thirdLoginSource": {
+                          "type": "string",
+                          "description": "第三方来源，多个逗号链接，google,facebook,twitter "
+                        },
+                        "thirdUserId": {
+                          "type": "string",
+                          "description": "第三方userId，多个逗号链接，顺序与thirdLoginSource保持一致"
+                        },
+                        "thirdIntactMsg": {
+                          "type": "string",
+                          "description": "从第三方获取的完整用户信息"
+                        },
+                        "tgStatus": {
+                          "type": "string",
+                          "description": "tg关注机器人状态，SUBSCRIBE=订阅， UNSUBSCRIBE=未订阅"
+                        }
+                      },
+                      "description": "数据体",
+                      "x-apifox-ignore-properties": []
+                    },
+                    "ok": {
+                      "type": "boolean"
+                    },
+                    "fail": {
+                      "type": "boolean"
+                    }
+                  },
+                  "x-apifox-refs": {},
+                  "x-apifox-orders": [
+                    "bizCode",
+                    "code",
+                    "msg",
+                    "tm",
+                    "trace",
+                    "msgParams",
+                    "data",
+                    "ok",
+                    "fail"
+                  ],
+                  "x-apifox-ignore-properties": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "msg": "Success",
+                      "fail": false,
+                      "trace": "x-k5l8-b16p6c93-d2glxw5-6z178usp-1677738101",
+                      "code": "0",
+                      "data": null,
+                      "bizCode": "",
+                      "tm": 3818289,
+                      "msgParams": null,
+                      "ok": true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-81090198-run"
       }
     }
   },
@@ -17798,294 +18288,6 @@
         "x-apifox-folder": "Schemas",
         "x-apifox-ignore-properties": []
       },
-      "CustomerAllInfoVO": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "description": "客户id"
-          },
-          "companyId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "公司"
-          },
-          "customerGroupId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "客户组"
-          },
-          "customerNo": {
-            "type": "string",
-            "description": "客户账号"
-          },
-          "kycAuditStatus": {
-            "type": "integer",
-            "format": "int32",
-            "description": "注册KYC审核状态:0未认证跳转到认证页面,1待审核,2审核通过,3审核不通过"
-          },
-          "kycAuditRemark": {
-            "type": "string",
-            "description": "注册KYC审核备注,审核拒绝不为空"
-          },
-          "kycStatus": {
-            "type": "integer",
-            "format": "int32",
-            "description": "KYC状态"
-          },
-          "kycRemark": {
-            "type": "string",
-            "description": "KYC状态名称"
-          },
-          "accountList": {
-            "type": "object",
-            "description": "交易账户列表",
-            "x-apifox-orders": [],
-            "properties": {},
-            "x-apifox-ignore-properties": []
-          },
-          "accountRemark": {
-            "type": "string",
-            "description": "客户是否有交易账户备注"
-          },
-          "loginPassStatus": {
-            "type": "string",
-            "description": "设置密码提醒标志，1需要设置密码，2不需要"
-          },
-          "payPassStatus": {
-            "type": "string",
-            "description": "支付密码是否存在状态，1不存在，2存在"
-          },
-          "email": {
-            "type": "string",
-            "description": "邮箱"
-          },
-          "phone": {
-            "type": "string",
-            "description": "手机"
-          },
-          "phoneArea": {
-            "type": "string",
-            "description": "手机区号"
-          },
-          "name": {
-            "type": "string",
-            "description": "姓名"
-          },
-          "country": {
-            "type": "string",
-            "description": "国家"
-          },
-          "type": {
-            "type": "integer",
-            "format": "int32",
-            "description": "组类型 <0真实，1模拟，2游客>"
-          },
-          "deposit": {
-            "type": "integer",
-            "format": "int32",
-            "description": "可存款,1可存款"
-          },
-          "withdraw": {
-            "type": "integer",
-            "format": "int32",
-            "description": "可取款,1可取款"
-          },
-          "optional": {
-            "type": "integer",
-            "format": "int32",
-            "description": "自选标志0未添加1已添加"
-          },
-          "activateStatus": {
-            "type": "integer",
-            "format": "int32",
-            "description": "激活状态"
-          },
-          "activateTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "激活时间"
-          },
-          "companyKycStatus": {
-            "type": "integer",
-            "format": "int32",
-            "description": "公司KYC开户状态，1开启2未开启"
-          },
-          "status": {
-            "type": "integer",
-            "format": "int32",
-            "description": "状态:1正常、2禁用、3删除，4销户，5锁定，6销户中"
-          },
-          "thirdServerCode": {
-            "type": "string",
-            "description": "第三方系统唯一编号"
-          },
-          "source": {
-            "type": "string",
-            "description": "来源"
-          },
-          "thirdLoginSource": {
-            "type": "string",
-            "description": "第三方登录源 google,facebook,twitter"
-          },
-          "thirdUserId": {
-            "type": "string",
-            "description": "第三方userId"
-          },
-          "idCard": {
-            "type": "string",
-            "description": "证件号码"
-          },
-          "idCardType": {
-            "type": "string",
-            "description": "证件类型"
-          },
-          "thirdIntactMsg": {
-            "type": "string",
-            "description": "第三方登录完整数据"
-          },
-          "firstName": {
-            "type": "string",
-            "description": "名"
-          },
-          "lastName": {
-            "type": "string",
-            "description": "姓"
-          },
-          "isFund": {
-            "type": "integer",
-            "format": "int32",
-            "description": "是否为基金经理，1是，默认0否"
-          },
-          "assertPassStatus": {
-            "type": "string",
-            "description": "设置资金密码提醒标志，1需要设置密码，2不需要"
-          },
-          "googleId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "是否开启MFA，大于0，开启，其余未开启"
-          },
-          "openAccountType": {
-            "type": "integer",
-            "format": "int32",
-            "description": "开户类型：0.个人 1.企业 "
-          },
-          "loginTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "登陆时间"
-          },
-          "createTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "创建时间"
-          },
-          "relationCustomerId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "关联账户id"
-          },
-          "companyType": {
-            "type": "string",
-            "description": "公司类型"
-          },
-          "registerSource": {
-            "type": "integer",
-            "format": "int32",
-            "description": "注册来源"
-          },
-          "associationCompanyId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "关联公司Id"
-          },
-          "registerTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "注册时间"
-          },
-          "utmSource": {
-            "type": "string",
-            "description": "广告来源"
-          },
-          "forceLevel": {
-            "type": "object",
-            "description": "强平水平",
-            "x-apifox-orders": [],
-            "properties": {},
-            "x-apifox-ignore-properties": []
-          },
-          "earlyWarningLevel": {
-            "type": "object",
-            "description": "预警水平",
-            "x-apifox-orders": [],
-            "properties": {},
-            "x-apifox-ignore-properties": []
-          },
-          "withdrawLevel": {
-            "type": "object",
-            "description": "取款水平",
-            "x-apifox-orders": [],
-            "properties": {},
-            "x-apifox-ignore-properties": []
-          }
-        },
-        "x-apifox-orders": [
-          "id",
-          "companyId",
-          "customerGroupId",
-          "customerNo",
-          "kycAuditStatus",
-          "kycAuditRemark",
-          "kycStatus",
-          "kycRemark",
-          "accountList",
-          "accountRemark",
-          "loginPassStatus",
-          "payPassStatus",
-          "email",
-          "phone",
-          "phoneArea",
-          "name",
-          "country",
-          "type",
-          "deposit",
-          "withdraw",
-          "optional",
-          "activateStatus",
-          "activateTime",
-          "companyKycStatus",
-          "status",
-          "thirdServerCode",
-          "source",
-          "thirdLoginSource",
-          "thirdUserId",
-          "idCard",
-          "idCardType",
-          "thirdIntactMsg",
-          "firstName",
-          "lastName",
-          "isFund",
-          "assertPassStatus",
-          "googleId",
-          "openAccountType",
-          "loginTime",
-          "createTime",
-          "relationCustomerId",
-          "companyType",
-          "registerSource",
-          "associationCompanyId",
-          "registerTime",
-          "utmSource",
-          "forceLevel",
-          "earlyWarningLevel",
-          "withdrawLevel"
-        ],
-        "x-apifox-ignore-properties": [],
-        "x-apifox-folder": "Schemas"
-      },
       "EnableOrForbidMFADTO": {
         "type": "object",
         "required": [
@@ -18416,58 +18618,6 @@
           "companyType",
           "associationCompanyId",
           "registerTime"
-        ],
-        "x-apifox-ignore-properties": [],
-        "x-apifox-folder": "Schemas"
-      },
-      "BaseResultCustomerLoginVO": {
-        "type": "object",
-        "properties": {
-          "bizCode": {
-            "type": "string",
-            "description": "模块标识码"
-          },
-          "code": {
-            "type": "string",
-            "description": "状态返回码"
-          },
-          "msg": {
-            "type": "string",
-            "description": "状态描述"
-          },
-          "tm": {
-            "type": "integer",
-            "format": "int64",
-            "description": "处理时长（毫秒）"
-          },
-          "trace": {
-            "type": "string",
-            "description": "跟踪码"
-          },
-          "msgParams": {
-            "type": "string",
-            "description": "返回描述中占位符参数串，多个参数间以,分割"
-          },
-          "data": {
-            "$ref": "#/components/schemas/CustomerLoginVO"
-          },
-          "ok": {
-            "type": "boolean"
-          },
-          "fail": {
-            "type": "boolean"
-          }
-        },
-        "x-apifox-orders": [
-          "bizCode",
-          "code",
-          "msg",
-          "tm",
-          "trace",
-          "msgParams",
-          "data",
-          "ok",
-          "fail"
         ],
         "x-apifox-ignore-properties": [],
         "x-apifox-folder": "Schemas"
