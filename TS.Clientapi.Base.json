@@ -2312,7 +2312,7 @@
         "x-apifox-folder": "基础数据",
         "x-apifox-status": "released",
         "deprecated": false,
-        "description": "bizType=config.app.AppSymbolDubboService.getSymbolDetail\n获取产品配置详细交易参数\n游客可访问",
+        "description": "bizType=config.app.AppSymbolDubboService.getSymbolDetail\n获取产品配置详细交易参数\n",
         "tags": [
           "基础数据"
         ],
@@ -2353,6 +2353,16 @@
             "description": "语言",
             "required": true,
             "example": "zh-CN",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "0.0.2",
             "schema": {
               "type": "string"
             }
@@ -2621,7 +2631,7 @@
                           "type": "array",
                           "items": {
                             "$ref": "#/components/schemas/TradeTime",
-                            "x-apifox-overrides": {}
+                            "description": "交易时间"
                           },
                           "description": "交易时间"
                         },
@@ -2637,7 +2647,7 @@
                           "type": "array",
                           "items": {
                             "$ref": "#/components/schemas/HolidayTime",
-                            "x-apifox-overrides": {}
+                            "description": "假期时间"
                           },
                           "description": "假期时间"
                         },
@@ -4703,6 +4713,22 @@
             "type": "integer",
             "format": "int32",
             "description": "是否可交易"
+          },
+          "inHolidayTime": {
+            "type": "integer",
+            "description": "是否假期中"
+          },
+          "inTradeTime": {
+            "type": "integer",
+            "description": "是否交易时间中"
+          },
+          "holidayTimeList": {
+            "$ref": "#/components/schemas/HolidayTime",
+            "description": "假期时间"
+          },
+          "tradeTimeList": {
+            "$ref": "#/components/schemas/TradeTime",
+            "description": "交易时间"
           }
         },
         "x-apifox-orders": [
@@ -4725,7 +4751,137 @@
           "sortNum",
           "enableShortLoan",
           "enableLongLoan",
-          "dividend"
+          "dividend",
+          "inHolidayTime",
+          "inTradeTime",
+          "holidayTimeList",
+          "tradeTimeList"
+        ],
+        "x-apifox-folder": "Schemas",
+        "required": [
+          "inHolidayTime",
+          "inTradeTime",
+          "holidayTimeList",
+          "tradeTimeList"
+        ],
+        "x-apifox-ignore-properties": []
+      },
+      "CountryDictVo": {
+        "type": "object",
+        "properties": {
+          "parentId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "上级ID"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "主键id"
+          },
+          "name": {
+            "type": "string",
+            "description": "国家地区名称"
+          },
+          "displayName": {
+            "type": "string",
+            "description": "显示名称"
+          },
+          "nameTw": {
+            "type": "string",
+            "description": "国家地区名称TW"
+          },
+          "nameEn": {
+            "type": "string",
+            "description": "国家地区名称EN"
+          },
+          "code": {
+            "type": "string",
+            "description": "国家代码"
+          },
+          "parentCode": {
+            "type": "string",
+            "description": "上级代码"
+          },
+          "nationalCode": {
+            "type": "string",
+            "description": "国家简称"
+          },
+          "countryCode": {
+            "type": "string",
+            "description": "电话区号"
+          },
+          "extend": {
+            "type": "string",
+            "description": "扩展属性"
+          },
+          "sort": {
+            "type": "integer",
+            "format": "int32",
+            "description": "排序"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "description": "状态 1、2、3、启用、禁用、删除"
+          },
+          "revision": {
+            "type": "integer",
+            "format": "int32",
+            "description": "乐观锁"
+          },
+          "createBy": {
+            "type": "string",
+            "description": "创建人"
+          },
+          "createTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "创建时间"
+          },
+          "updateBy": {
+            "type": "string",
+            "description": "更新人"
+          },
+          "updateTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "更新时间"
+          },
+          "hasLeaf": {
+            "type": "integer",
+            "format": "int32",
+            "description": "是否有子节点"
+          },
+          "childs": {
+            "type": "array",
+            "description": "子节点数据",
+            "items": {
+              "$ref": "#/components/schemas/CountryDictVo"
+            }
+          }
+        },
+        "x-apifox-orders": [
+          "parentId",
+          "id",
+          "name",
+          "displayName",
+          "nameTw",
+          "nameEn",
+          "code",
+          "parentCode",
+          "nationalCode",
+          "countryCode",
+          "extend",
+          "sort",
+          "status",
+          "revision",
+          "createBy",
+          "createTime",
+          "updateBy",
+          "updateTime",
+          "hasLeaf",
+          "childs"
         ],
         "x-apifox-folder": "Schemas",
         "x-apifox-ignore-properties": []
@@ -5500,126 +5656,6 @@
           "initState",
           "type",
           "fundId"
-        ],
-        "x-apifox-folder": "Schemas",
-        "x-apifox-ignore-properties": []
-      },
-      "CountryDictVo": {
-        "type": "object",
-        "properties": {
-          "parentId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "上级ID"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "description": "主键id"
-          },
-          "name": {
-            "type": "string",
-            "description": "国家地区名称"
-          },
-          "displayName": {
-            "type": "string",
-            "description": "显示名称"
-          },
-          "nameTw": {
-            "type": "string",
-            "description": "国家地区名称TW"
-          },
-          "nameEn": {
-            "type": "string",
-            "description": "国家地区名称EN"
-          },
-          "code": {
-            "type": "string",
-            "description": "国家代码"
-          },
-          "parentCode": {
-            "type": "string",
-            "description": "上级代码"
-          },
-          "nationalCode": {
-            "type": "string",
-            "description": "国家简称"
-          },
-          "countryCode": {
-            "type": "string",
-            "description": "电话区号"
-          },
-          "extend": {
-            "type": "string",
-            "description": "扩展属性"
-          },
-          "sort": {
-            "type": "integer",
-            "format": "int32",
-            "description": "排序"
-          },
-          "status": {
-            "type": "integer",
-            "format": "int32",
-            "description": "状态 1、2、3、启用、禁用、删除"
-          },
-          "revision": {
-            "type": "integer",
-            "format": "int32",
-            "description": "乐观锁"
-          },
-          "createBy": {
-            "type": "string",
-            "description": "创建人"
-          },
-          "createTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "创建时间"
-          },
-          "updateBy": {
-            "type": "string",
-            "description": "更新人"
-          },
-          "updateTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "更新时间"
-          },
-          "hasLeaf": {
-            "type": "integer",
-            "format": "int32",
-            "description": "是否有子节点"
-          },
-          "childs": {
-            "type": "array",
-            "description": "子节点数据",
-            "items": {
-              "$ref": "#/components/schemas/CountryDictVo"
-            }
-          }
-        },
-        "x-apifox-orders": [
-          "parentId",
-          "id",
-          "name",
-          "displayName",
-          "nameTw",
-          "nameEn",
-          "code",
-          "parentCode",
-          "nationalCode",
-          "countryCode",
-          "extend",
-          "sort",
-          "status",
-          "revision",
-          "createBy",
-          "createTime",
-          "updateBy",
-          "updateTime",
-          "hasLeaf",
-          "childs"
         ],
         "x-apifox-folder": "Schemas",
         "x-apifox-ignore-properties": []
