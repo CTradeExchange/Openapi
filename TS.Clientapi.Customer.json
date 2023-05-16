@@ -2410,7 +2410,7 @@
             "name": "companyId",
             "in": "header",
             "description": "",
-            "required": "true",
+            "required": true,
             "example": "",
             "schema": {
               "type": "string"
@@ -2420,7 +2420,7 @@
             "name": "lang",
             "in": "header",
             "description": "",
-            "required": "true",
+            "required": true,
             "example": "en-US",
             "schema": {
               "type": "string"
@@ -2430,7 +2430,7 @@
             "name": "trace",
             "in": "header",
             "description": "",
-            "required": "true",
+            "required": true,
             "example": "",
             "schema": {
               "type": "string"
@@ -2440,7 +2440,7 @@
             "name": "version",
             "in": "header",
             "description": "",
-            "required": "true",
+            "required": true,
             "example": "0.0.1",
             "schema": {
               "type": "string"
