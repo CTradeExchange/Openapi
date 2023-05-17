@@ -2926,6 +2926,10 @@
                         "phone": {
                           "type": "string",
                           "title": "手机号"
+                        },
+                        "authToken": {
+                          "type": "string",
+                          "description": "三方授权凭证"
                         }
                       },
                       "x-apifox-orders": [
@@ -2935,7 +2939,8 @@
                         "failReason",
                         "thirdSource",
                         "email",
-                        "phone"
+                        "phone",
+                        "authToken"
                       ],
                       "required": [
                         "userId",
@@ -2944,7 +2949,8 @@
                         "thirdSource",
                         "failReason",
                         "result",
-                        "action"
+                        "action",
+                        "authToken"
                       ],
                       "x-apifox-ignore-properties": []
                     }
@@ -3088,7 +3094,7 @@
                   },
                   "thirdServerSource": {
                     "type": "string",
-                    "description": "第三方系统来源",
+                    "description": "第三方系统来源，如：代理=agent",
                     "maxLength": 10
                   }
                 },
@@ -9137,7 +9143,7 @@
                   },
                   "thirdServerSource": {
                     "type": "string",
-                    "description": "第三方系统来源,取值agent"
+                    "description": "第三方系统来源，如：代理=agent"
                   }
                 },
                 "x-apifox-refs": {},
@@ -15491,20 +15497,40 @@
     },
     "/global/customer.app.CustomerWebApiService.firstSetLoginPwd": {
       "post": {
-        "summary": "首次设置登录密码(TG)",
-        "x-apifox-folder": "客户基础信息",
-        "x-apifox-status": "released",
+        "summary": "首次设置密码",
+        "x-apifox-folder": "信用卡相关",
+        "x-apifox-status": "developing",
         "deprecated": false,
-        "description": "version=0.0.1\nbizType=customer.app.CustomerWebApiService.firstSetLoginPwd\n登录之后可以访问",
+        "description": "version=0.0.1\nbizType=customer.app.CustomerWebApiService.firstSetLoginPwd\n游客可访问，设置成功后自动登录",
         "tags": [
-          "客户基础信息"
+          "信用卡相关"
         ],
         "parameters": [
           {
+            "name": "version",
+            "in": "header",
+            "description": "版本号",
+            "required": true,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "name": "companyId",
             "in": "header",
-            "description": "",
-            "required": false,
+            "description": "公司ID，通过环境变量获取",
+            "required": true,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "随机跟踪码UUID",
+            "required": true,
             "example": "",
             "schema": {
               "type": "string"
@@ -15513,8 +15539,8 @@
           {
             "name": "token",
             "in": "header",
-            "description": "",
-            "required": false,
+            "description": "登录token",
+            "required": true,
             "example": "",
             "schema": {
               "type": "string"
@@ -15523,29 +15549,9 @@
           {
             "name": "lang",
             "in": "header",
-            "description": "",
-            "required": false,
-            "example": "en-US",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "trace",
-            "in": "header",
-            "description": "",
-            "required": false,
-            "example": "",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "version",
-            "in": "header",
-            "description": "",
-            "required": false,
-            "example": "0.0.1",
+            "description": "语言",
+            "required": true,
+            "example": "zh-CN",
             "schema": {
               "type": "string"
             }
@@ -15559,43 +15565,43 @@
                 "properties": {
                   "newPwd": {
                     "type": "string",
-                    "description": "密码，MD5加密",
+                    "title": "新密码，MD5加密",
                     "minLength": 6,
                     "maxLength": 50
                   },
-                  "thirdSource": {
-                    "type": "string",
-                    "description": "三方来源：telegram"
+                  "device": {
+                    "type": "integer",
+                    "title": "登录设备",
+                    "description": "登录设备:1=移动端web：H5，2=pcweb：PC_Web，3=系统&后台注册：System，4=安卓原生app：Android，5=苹果原生app：iOS，6=鸿蒙OS：HOS，7=pc windows客户端：PC_Win,8=pc mac客户端：PC_Mac，9=不属于以上的：其他"
                   },
-                  "verifyCodeThirdType": {
+                  "validToken": {
                     "type": "string",
-                    "description": "三方验证码，与thirdSource配合使用，当thirdSource=telegram,发送验证码bizType只能为TELEGRAM_VERIFICATION_CODE",
-                    "title": ""
-                  },
-                  "sendTokenThirdType": {
-                    "type": "string",
-                    "description": "三方验证码发送票据，与thirdSource配合使用，当thirdSource=telegram,发送验证码bizType只能为TELEGRAM_VERIFICATION_CODE"
-                  },
-                  "googleCode": {
-                    "type": "string",
-                    "description": "谷歌验证码"
+                    "title": "校验票据",
+                    "description": "前一步生成token"
                   }
                 },
-                "x-apifox-refs": {},
                 "x-apifox-orders": [
                   "newPwd",
-                  "thirdSource",
-                  "verifyCodeThirdType",
-                  "sendTokenThirdType",
-                  "googleCode"
+                  "device",
+                  "validToken"
                 ],
                 "required": [
-                  "verifyCodeThirdType",
-                  "sendTokenThirdType",
-                  "thirdSource",
-                  "newPwd"
+                  "newPwd",
+                  "device"
                 ],
                 "x-apifox-ignore-properties": []
+              },
+              "example": {
+                "companyId": 72,
+                "country": "w",
+                "customerId": 11,
+                "customerNo": "86009002",
+                "ip": "::1",
+                "lang": "zh-CN",
+                "trace": "ryder_test",
+                "cardId": 1614830250530730000,
+                "smsSendToken": "incididunt eiusmod nulla voluptate",
+                "smsCode": "16"
               }
             }
           }
@@ -15635,9 +15641,71 @@
                     },
                     "data": {
                       "type": "object",
-                      "x-apifox-orders": [],
-                      "properties": {},
-                      "description": "语言信息",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "format": "int64",
+                          "description": "客户id"
+                        },
+                        "companyId": {
+                          "type": "integer",
+                          "format": "int64",
+                          "description": "公司"
+                        },
+                        "customerGroupId": {
+                          "type": "integer",
+                          "format": "int64",
+                          "description": "客户组"
+                        },
+                        "customerNo": {
+                          "type": "string",
+                          "description": "客户账号"
+                        },
+                        "country": {
+                          "type": "string",
+                          "description": "国家"
+                        },
+                        "thirdServerCode": {
+                          "type": "string",
+                          "description": "第三方系统唯一编号"
+                        },
+                        "source": {
+                          "type": "string",
+                          "description": "来源，即：登录设备"
+                        },
+                        "relationCustomerId": {
+                          "type": "integer",
+                          "format": "int64",
+                          "description": "关联账户id"
+                        },
+                        "companyType": {
+                          "type": "string",
+                          "description": "公司类型"
+                        },
+                        "associationCompanyId": {
+                          "type": "integer",
+                          "format": "int64",
+                          "description": "关联公司Id"
+                        },
+                        "token": {
+                          "type": "string",
+                          "description": "鉴权token"
+                        }
+                      },
+                      "x-apifox-refs": {},
+                      "x-apifox-orders": [
+                        "id",
+                        "companyId",
+                        "customerGroupId",
+                        "customerNo",
+                        "country",
+                        "thirdServerCode",
+                        "source",
+                        "relationCustomerId",
+                        "companyType",
+                        "associationCompanyId",
+                        "token"
+                      ],
                       "x-apifox-ignore-properties": []
                     },
                     "ok": {
@@ -15665,15 +15733,27 @@
                   "1": {
                     "summary": "成功示例",
                     "value": {
-                      "msg": "Success",
-                      "fail": false,
-                      "trace": "x-k5l8-b16p6c93-d2glxw5-6z178usp-1677738101",
-                      "code": "0",
-                      "data": null,
-                      "bizCode": "",
-                      "tm": 3818289,
-                      "msgParams": null,
-                      "ok": true
+                      "data": {
+                        "id": 61,
+                        "thirdServerCode": "48",
+                        "token": "velit eiusmod",
+                        "companyId": 67,
+                        "relationCustomerId": 6,
+                        "country": "commodo ex culpa ea",
+                        "associationCompanyId": 19,
+                        "source": "sit velit tempor et enim",
+                        "companyType": "eiusmod",
+                        "customerNo": "cillum tempor sed aute aliquip",
+                        "customerGroupId": 67
+                      },
+                      "fail": true,
+                      "code": "54",
+                      "bizCode": "23",
+                      "msg": "tempor incididunt eu laborum",
+                      "msgParams": "quis",
+                      "ok": false,
+                      "trace": "cillum",
+                      "tm": 29
                     }
                   }
                 }
@@ -15681,7 +15761,7 @@
             }
           }
         },
-        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-81848887-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-68207437-run"
       }
     },
     "/global/customer.app.CustomerWebApiService.groupList": {
@@ -18303,16 +18383,24 @@
                   "userId": {
                     "type": "string",
                     "description": "第三方userId"
+                  },
+                  "authToken": {
+                    "type": "string",
+                    "description": "三方授权凭证",
+                    "minLength": 64,
+                    "maxLength": 64
                   }
                 },
                 "x-apifox-refs": {},
                 "x-apifox-orders": [
                   "thirdSource",
-                  "userId"
+                  "userId",
+                  "authToken"
                 ],
                 "required": [
                   "thirdSource",
-                  "userId"
+                  "userId",
+                  "authToken"
                 ],
                 "x-apifox-ignore-properties": []
               }
@@ -18660,6 +18748,7 @@
                   "country",
                   "thirdSource",
                   "userId",
+                  "authToken",
                   "registerSource",
                   "customerGroupId",
                   "utmSource",
@@ -18683,6 +18772,12 @@
                   "userId": {
                     "type": "string",
                     "description": "第三方userId"
+                  },
+                  "authToken": {
+                    "type": "string",
+                    "description": "三方授权凭证",
+                    "minLength": 64,
+                    "maxLength": 64
                   },
                   "registerSource": {
                     "type": "integer",
@@ -18726,7 +18821,7 @@
                   },
                   "thirdServerSource": {
                     "type": "string",
-                    "description": "第三方系统来源",
+                    "description": "第三方系统来源，如：代理=agent",
                     "maxLength": 10
                   }
                 },
@@ -18734,7 +18829,8 @@
                   "country",
                   "thirdSource",
                   "userId",
-                  "registerSource"
+                  "registerSource",
+                  "authToken"
                 ],
                 "x-apifox-ignore-properties": []
               }
@@ -18940,6 +19036,182 @@
           }
         },
         "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-81090198-run"
+      }
+    },
+    "/global/customer.app.CustomerWebApiService.firstTimeSettingLoginPassword": {
+      "post": {
+        "summary": "首次设置登录密码(TG)",
+        "x-apifox-folder": "客户基础信息",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "version=0.0.1\nbizType=customer.app.CustomerWebApiService.firstTimeSettingLoginPassword\n登录之后可以访问",
+        "tags": [
+          "客户基础信息"
+        ],
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "en-US",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "newPwd": {
+                    "type": "string",
+                    "description": "密码，MD5加密",
+                    "minLength": 32,
+                    "maxLength": 32
+                  },
+                  "googleCode": {
+                    "type": "string",
+                    "description": "谷歌验证码"
+                  }
+                },
+                "x-apifox-refs": {},
+                "x-apifox-orders": [
+                  "newPwd",
+                  "googleCode"
+                ],
+                "required": [
+                  "newPwd"
+                ],
+                "x-apifox-ignore-properties": []
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "bizCode": {
+                      "type": "string",
+                      "description": "模块标识码"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "状态返回码"
+                    },
+                    "msg": {
+                      "type": "string",
+                      "description": "状态描述"
+                    },
+                    "tm": {
+                      "type": "integer",
+                      "format": "int64",
+                      "description": "处理时长（毫秒）"
+                    },
+                    "trace": {
+                      "type": "string",
+                      "description": "跟踪码"
+                    },
+                    "msgParams": {
+                      "type": "string",
+                      "description": "返回描述中占位符参数串，多个参数间以,分割"
+                    },
+                    "data": {
+                      "type": "object",
+                      "x-apifox-orders": [],
+                      "properties": {},
+                      "description": "语言信息",
+                      "x-apifox-ignore-properties": []
+                    },
+                    "ok": {
+                      "type": "boolean"
+                    },
+                    "fail": {
+                      "type": "boolean"
+                    }
+                  },
+                  "x-apifox-refs": {},
+                  "x-apifox-orders": [
+                    "bizCode",
+                    "code",
+                    "msg",
+                    "tm",
+                    "trace",
+                    "msgParams",
+                    "data",
+                    "ok",
+                    "fail"
+                  ],
+                  "x-apifox-ignore-properties": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "msg": "Success",
+                      "fail": false,
+                      "trace": "x-k5l8-b16p6c93-d2glxw5-6z178usp-1677738101",
+                      "code": "0",
+                      "data": null,
+                      "bizCode": "",
+                      "tm": 3818289,
+                      "msgParams": null,
+                      "ok": true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-81848887-run"
       }
     }
   },
