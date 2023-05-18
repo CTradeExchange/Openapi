@@ -2828,7 +2828,7 @@
         "x-apifox-folder": "社交账号登录",
         "x-apifox-status": "released",
         "deprecated": false,
-        "description": "version=0.0.1\nbizType=customer.app.CustomerThirdLoginService.telegramVerify\n登录之后可以访问",
+        "description": "version=0.0.1\nbizType=customer.app.CustomerThirdLoginService.telegramVerify\n###0.0.2版本，配合三方注册，登录（不需要手机、邮箱）使用\nversion=0.0.2\nbizType=customer.app.CustomerThirdLoginService.telegramVerify\n登录之后可以访问",
         "tags": [
           "社交账号登录"
         ],
@@ -2876,30 +2876,36 @@
                     },
                     "msg": {
                       "type": "string",
-                      "title": "返回信息"
+                      "title": "返回信息",
+                      "description": "返回信息"
                     },
                     "bizCode": {
                       "type": "string",
-                      "title": "模块标识码"
+                      "title": "模块标识码",
+                      "description": "模块标识码"
                     },
                     "tm": {
                       "title": "处理时长（毫秒）",
-                      "type": "integer"
+                      "type": "integer",
+                      "description": "处理时长（毫秒）"
                     },
                     "trace": {
                       "type": "string",
-                      "title": "全局链路标志信息"
+                      "title": "全局链路标志信息",
+                      "description": "全局链路标志信息"
                     },
                     "msgParams": {
                       "type": "string",
-                      "title": "返回描述中占位符参数串，多个参数间以,分割"
+                      "title": "返回描述中占位符参数串，多个参数间以,分割",
+                      "description": "返回描述中占位符参数串，多个参数间以,分割"
                     },
                     "data": {
                       "type": "object",
                       "properties": {
                         "userId": {
                           "type": "string",
-                          "title": "第三方userId"
+                          "title": "第三方userId",
+                          "description": "第三方userId"
                         },
                         "action": {
                           "type": "string",
@@ -2908,28 +2914,32 @@
                         },
                         "result": {
                           "title": "校验结果",
-                          "type": "boolean"
+                          "type": "boolean",
+                          "description": "校验结果"
                         },
                         "failReason": {
                           "type": "string",
-                          "title": "校验失败原因"
+                          "title": "校验失败原因",
+                          "description": "校验失败原因"
                         },
                         "thirdSource": {
                           "type": "string",
                           "title": "第三方登录源",
-                          "description": "google,facebook,twitter…"
+                          "description": "第三方登录源,google,facebook,twitter…"
                         },
                         "email": {
                           "type": "string",
-                          "title": "邮箱"
+                          "title": "邮箱",
+                          "description": "邮箱"
                         },
                         "phone": {
                           "type": "string",
-                          "title": "手机号"
+                          "title": "手机号",
+                          "description": "手机号"
                         },
                         "authToken": {
                           "type": "string",
-                          "description": "三方授权凭证"
+                          "description": "三方授权凭证（version=0.0.2返回）"
                         }
                       },
                       "x-apifox-orders": [
@@ -18115,207 +18125,6 @@
           }
         },
         "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-81078578-run"
-      }
-    },
-    "/global/customer.app.CustomerWebApiService.firstSetEmail": {
-      "post": {
-        "summary": "首次设置邮箱(TG)",
-        "x-apifox-folder": "客户基础信息",
-        "x-apifox-status": "released",
-        "deprecated": false,
-        "description": "version=0.0.1\nbizType=customer.app.CustomerWebApiService.firstSetEmail\n登录之后可以访问",
-        "tags": [
-          "客户基础信息"
-        ],
-        "parameters": [
-          {
-            "name": "companyId",
-            "in": "header",
-            "description": "",
-            "required": false,
-            "example": "",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "token",
-            "in": "header",
-            "description": "",
-            "required": false,
-            "example": "",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "lang",
-            "in": "header",
-            "description": "",
-            "required": false,
-            "example": "en-US",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "trace",
-            "in": "header",
-            "description": "",
-            "required": false,
-            "example": "",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "version",
-            "in": "header",
-            "description": "",
-            "required": false,
-            "example": "0.0.1",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "email": {
-                    "type": "string",
-                    "maxLength": 50,
-                    "description": "邮箱"
-                  },
-                  "verifyCode": {
-                    "type": "string",
-                    "description": "邮箱验证码，发送验证码bizType=SMS_COMMON_VERIFICATION_CODE"
-                  },
-                  "sendToken": {
-                    "type": "string",
-                    "description": "邮箱验证码发送票据"
-                  },
-                  "thirdSource": {
-                    "type": "string",
-                    "description": "三方来源：telegram"
-                  },
-                  "verifyCodeThirdType": {
-                    "type": "string",
-                    "description": "三方验证码，与thirdSource配合使用，当thirdSource=telegram,发送验证码bizType只能为TELEGRAM_VERIFICATION_CODE",
-                    "title": ""
-                  },
-                  "sendTokenThirdType": {
-                    "type": "string",
-                    "description": "三方验证码发送票据，与thirdSource配合使用，当thirdSource=telegram,发送验证码bizType只能为TELEGRAM_VERIFICATION_CODE"
-                  }
-                },
-                "x-apifox-refs": {},
-                "x-apifox-orders": [
-                  "email",
-                  "verifyCode",
-                  "sendToken",
-                  "thirdSource",
-                  "verifyCodeThirdType",
-                  "sendTokenThirdType"
-                ],
-                "required": [
-                  "verifyCode",
-                  "sendToken",
-                  "verifyCodeThirdType",
-                  "sendTokenThirdType",
-                  "thirdSource",
-                  "email"
-                ],
-                "x-apifox-ignore-properties": []
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "成功",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "bizCode": {
-                      "type": "string",
-                      "description": "模块标识码"
-                    },
-                    "code": {
-                      "type": "string",
-                      "description": "状态返回码"
-                    },
-                    "msg": {
-                      "type": "string",
-                      "description": "状态描述"
-                    },
-                    "tm": {
-                      "type": "integer",
-                      "format": "int64",
-                      "description": "处理时长（毫秒）"
-                    },
-                    "trace": {
-                      "type": "string",
-                      "description": "跟踪码"
-                    },
-                    "msgParams": {
-                      "type": "string",
-                      "description": "返回描述中占位符参数串，多个参数间以,分割"
-                    },
-                    "data": {
-                      "type": "object",
-                      "x-apifox-orders": [],
-                      "properties": {},
-                      "description": "语言信息",
-                      "x-apifox-ignore-properties": []
-                    },
-                    "ok": {
-                      "type": "boolean"
-                    },
-                    "fail": {
-                      "type": "boolean"
-                    }
-                  },
-                  "x-apifox-refs": {},
-                  "x-apifox-orders": [
-                    "bizCode",
-                    "code",
-                    "msg",
-                    "tm",
-                    "trace",
-                    "msgParams",
-                    "data",
-                    "ok",
-                    "fail"
-                  ],
-                  "x-apifox-ignore-properties": []
-                },
-                "examples": {
-                  "1": {
-                    "summary": "成功示例",
-                    "value": {
-                      "msg": "Success",
-                      "fail": false,
-                      "trace": "x-k5l8-b16p6c93-d2glxw5-6z178usp-1677738101",
-                      "code": "0",
-                      "data": null,
-                      "bizCode": "",
-                      "tm": 3818289,
-                      "msgParams": null,
-                      "ok": true
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-81081072-run"
       }
     },
     "/third/login/customer.app.CustomerThirdLoginService.socialLogin": {
