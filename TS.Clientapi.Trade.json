@@ -1,5 +1,5 @@
 {
-  "openapi": "3.1.0",
+  "openapi": "3.0.1",
   "info": {
     "title": "交易接口",
     "description": "",
@@ -23,15 +23,15 @@
     }
   ],
   "paths": {
-    "/global/tradeapi.app.CfdMMOrderApiService.addMarketOrder": {
+    "/global/tradeapi.app.OrderApiService.addMarketOrder": {
       "post": {
         "summary": "下单",
-        "x-apifox-folder": "全仓合约交易",
+        "x-apifox-folder": "逐仓合约交易",
         "x-apifox-status": "developing",
         "deprecated": false,
-        "description": "说明：合约全仓交易下单\n\n```\ngroup=tradeApi\nversion=0.0.1\nbizType=tradeapi.app.OrderApiService.addMarketOrder\n```",
+        "description": "说明：合约逐仓交易下单\n\n```\ngroup=tradeApi\nversion=0.0.1\nbizType=tradeapi.app.OrderApiService.addMarketOrder\n```",
         "tags": [
-          "全仓合约交易"
+          "逐仓合约交易"
         ],
         "parameters": [
           {
@@ -104,87 +104,96 @@
                   "tradeType": {
                     "type": "integer",
                     "title": "玩法ID",
-                    "description": "本玩法下应填1",
+                    "description": "玩法ID，本玩法下应填2",
                     "format": "long"
                   },
                   "accountId": {
                     "type": "integer",
                     "title": "账户ID",
-                    "description": "非必填。如填，已该账户进行交易",
+                    "description": "账户ID，非必填。如填，已该账户进行交易",
                     "format": "long"
                   },
                   "bizType": {
                     "type": "integer",
                     "title": "业务类型",
-                    "description": "1-市价开；2-市价平；3-止损平仓单；4-止盈平仓单；5-爆仓强平单；6-到期平仓单；7-销户平仓单；8-手动强平单；9-延时订单；10-限价预埋单；11-停损预埋单；12-限价开",
+                    "description": "业务类型，1-市价开；2-市价平；10-限价预埋单；11-停损预埋单；12-限价开",
                     "format": "int32"
                   },
                   "direction": {
                     "type": "integer",
                     "title": "订单买卖方向",
-                    "description": "1-买；2-卖；",
+                    "description": "订单买卖方向，1-买；2-卖；",
                     "format": "int32"
                   },
                   "symbolId": {
                     "type": "integer",
                     "title": "产品ID",
-                    "format": "long"
+                    "format": "long",
+                    "description": "产品ID"
                   },
                   "positionId": {
                     "type": "integer",
                     "title": "仓位ID",
-                    "description": "平仓下单时，必填",
+                    "description": "仓位ID，平仓下单时，必填",
                     "format": "long"
                   },
                   "requestTime": {
                     "type": "integer",
                     "title": "下单请求时间",
-                    "description": "13位时间戳",
+                    "description": "下单请求时间，13位时间戳",
                     "format": "long"
                   },
                   "requestPrice": {
                     "type": "string",
                     "title": "下单时价格",
-                    "description": "需乘以10的`产品报价小数位`次方，处理为整数传入。仅作下单记录，非成交价格。"
+                    "description": "下单时价格，需乘以10的`产品报价小数位`次方，处理为整数传入。仅作下单记录，非成交价格。"
                   },
                   "requestNum": {
                     "type": "string",
-                    "title": "下单手数"
+                    "title": "下单手数",
+                    "description": "下单手数或下单额度，配合entryType使用"
                   },
                   "stopLoss": {
                     "type": "string",
                     "title": "止损单价",
-                    "description": "需乘以10的`产品报价小数位`次方，处理为整数传入。"
+                    "description": "止损单价，需乘以10的`产品报价小数位`次方，处理为整数传入。"
                   },
                   "takeProfit": {
                     "type": "string",
                     "title": "止盈单价",
-                    "description": "需乘以10的`产品报价小数位`次方，处理为整数传入。"
+                    "description": "止盈单价，需乘以10的`产品报价小数位`次方，处理为整数传入。"
                   },
                   "expireType": {
                     "type": "integer",
                     "title": "过期类型",
-                    "description": "仅预埋单有效。1-当日有效；2-当周有效；",
+                    "description": "过期类型，仅预埋单有效。1-当日有效；2-当周有效；",
                     "format": "int32"
                   },
                   "remark": {
                     "type": "string",
-                    "title": "备注"
+                    "title": "备注",
+                    "description": "备注"
                   },
                   "accountCurrency": {
                     "type": "string",
-                    "title": "账户货币"
+                    "title": "账户货币",
+                    "description": "账户货币"
                   },
                   "accountDigits": {
                     "type": "integer",
                     "title": "账户小数位",
-                    "format": "int32"
+                    "format": "int32",
+                    "description": "账户小数位"
                   },
                   "crossLevelNum": {
                     "type": "integer",
                     "title": "杠杆倍数",
                     "format": "int32",
-                    "description": "仅开仓有效，同个产品应仅有一个杠杆倍数"
+                    "description": "杠杆倍数，本参数需针对产品一致。如不一致，将无法下单成功"
+                  },
+                  "entryType": {
+                    "type": "integer",
+                    "description": "下单类型 1 按数量 , 2 按额"
                   }
                 },
                 "x-apifox-orders": [
@@ -203,7 +212,8 @@
                   "remark",
                   "accountCurrency",
                   "accountDigits",
-                  "crossLevelNum"
+                  "crossLevelNum",
+                  "entryType"
                 ],
                 "required": [
                   "tradeType",
@@ -214,7 +224,8 @@
                   "requestPrice",
                   "requestNum",
                   "accountCurrency",
-                  "accountDigits"
+                  "accountDigits",
+                  "entryType"
                 ],
                 "x-apifox-ignore-properties": []
               }
@@ -231,34 +242,42 @@
                   "properties": {
                     "bizCode": {
                       "type": "string",
-                      "title": "模块标识码"
+                      "title": "模块标识码",
+                      "description": "模块标识码"
                     },
                     "code": {
                       "type": "string",
-                      "title": "状态返回码"
+                      "title": "状态返回码",
+                      "description": "状态返回码"
                     },
                     "msg": {
                       "type": "string",
-                      "title": "状态描述"
+                      "title": "状态描述",
+                      "description": "状态描述"
                     },
                     "tm": {
                       "type": "integer",
                       "format": "int64",
-                      "title": "处理时长（毫秒）"
+                      "title": "处理时长（毫秒）",
+                      "description": "处理时长（毫秒）"
                     },
                     "trace": {
                       "type": "string",
-                      "title": "跟踪码"
+                      "title": "跟踪码",
+                      "description": "跟踪码"
                     },
                     "msgParams": {
                       "type": "string",
-                      "title": "返回描述中占位符参数串，多个参数间以,分割"
+                      "title": "返回描述中占位符参数串，多个参数间以,分割",
+                      "description": "返回描述中占位符参数串，多个参数间以,分割"
                     },
                     "ok": {
-                      "type": "boolean"
+                      "type": "boolean",
+                      "description": "响应是否成功"
                     },
                     "fail": {
-                      "type": "boolean"
+                      "type": "boolean",
+                      "description": "响应是否失败"
                     },
                     "data": {
                       "type": "object",
@@ -266,80 +285,89 @@
                         "orderId": {
                           "type": "integer",
                           "title": "订单号",
-                          "format": "long"
+                          "format": "long",
+                          "description": "订单号"
                         },
                         "positionId": {
                           "type": "integer",
                           "title": "持仓单号",
-                          "format": "long"
+                          "format": "long",
+                          "description": "持仓单号"
                         },
                         "tradeVolume": {
                           "type": "string",
-                          "title": "交易手数"
+                          "title": "交易手数",
+                          "description": "交易手数"
                         },
                         "openPrice": {
                           "type": "string",
-                          "title": "开仓价"
+                          "title": "开仓价",
+                          "description": "开仓价"
                         },
                         "executePrice": {
                           "type": "string",
-                          "title": "成交价"
+                          "title": "成交价",
+                          "description": "成交价"
                         },
                         "openDirection": {
                           "type": "integer",
                           "title": "开仓时买卖方向",
-                          "description": "1-买；2-卖；",
+                          "description": "开仓时买卖方向，1-买；2-卖；",
                           "format": "int32"
                         },
                         "direction": {
                           "type": "integer",
                           "title": "本次下单买卖方向",
-                          "description": "1-买；2-卖；",
+                          "description": "本次下单买卖方向，1-买；2-卖；",
                           "format": "int32"
                         },
                         "openOrClose": {
                           "type": "integer",
                           "title": "本次下单开平类型",
-                          "description": "1-开仓；2-平仓；",
+                          "description": "本次下单开平类型，1-开仓；2-平仓；",
                           "format": "int32"
                         },
                         "symbolName": {
                           "type": "string",
-                          "title": "产品名称"
+                          "title": "产品名称",
+                          "description": "产品名称"
                         },
                         "symbolId": {
                           "type": "integer",
                           "title": "产品Id",
-                          "format": "long"
+                          "format": "long",
+                          "description": "产品Id"
                         },
                         "stopLoss": {
                           "type": "string",
                           "title": "止损价",
-                          "description": "与入参一致"
+                          "description": "止损价，与入参一致"
                         },
                         "takeProfit": {
                           "type": "string",
                           "title": "止盈价",
-                          "description": "与入参一致"
+                          "description": "止盈价，与入参一致"
                         },
                         "digits": {
                           "type": "integer",
                           "title": "产品小数位",
-                          "format": "int32"
+                          "format": "int32",
+                          "description": "产品小数位"
                         },
                         "fee": {
                           "type": "string",
-                          "title": "下单手续费"
+                          "title": "下单手续费",
+                          "description": "下单手续费"
                         },
                         "interest": {
                           "type": "string",
                           "title": "利息",
-                          "description": "仅平仓是存在"
+                          "description": "利息，仅平仓是存在"
                         },
                         "profit": {
                           "type": "string",
                           "title": "盈亏",
-                          "description": "仅平仓是存在"
+                          "description": "盈亏，仅平仓是存在"
                         }
                       },
                       "x-apifox-orders": [
@@ -361,6 +389,7 @@
                         "profit"
                       ],
                       "title": "数据体",
+                      "description": "数据体",
                       "x-apifox-ignore-properties": []
                     }
                   },
@@ -415,7 +444,7 @@
             }
           }
         },
-        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65051960-run",
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65669842-run",
         "x-docstype": "TS.Clientapi.Trade",
         "x-docstitle": "交易接口"
       }
@@ -507,42 +536,46 @@
                   "accountId": {
                     "type": "integer",
                     "title": "账户ID",
-                    "description": "*",
-                    "format": "long"
+                    "format": "long",
+                    "description": "账户ID，必须与账户货币二者填其一"
                   },
                   "accountCurrency": {
                     "type": "string",
                     "title": "账户货币",
-                    "description": "*"
+                    "description": "账户货币，必须与账户ID二者填其一"
                   },
                   "orderId": {
                     "type": "integer",
                     "title": "订单ID",
-                    "format": "long"
+                    "format": "long",
+                    "description": "订单ID"
                   },
                   "positionId": {
                     "type": "integer",
                     "title": "仓位ID",
-                    "format": "long"
+                    "format": "long",
+                    "description": "仓位ID"
                   },
                   "accountDigits": {
                     "type": "integer",
                     "title": "账户小数位",
-                    "format": "long"
+                    "format": "long",
+                    "description": "账户小数位"
                   },
                   "stopLoss": {
                     "type": "string",
                     "title": "止损单价",
-                    "description": "需乘以10的`产品报价小数位`次方，处理为整数传入。"
+                    "description": "止损单价，需乘以10的`产品报价小数位`次方，处理为整数传入。"
                   },
                   "takeProfit": {
                     "type": "string",
                     "title": "止盈单价",
-                    "description": "需乘以10的`产品报价小数位`次方，处理为整数传入。"
+                    "description": "止盈单价，需乘以10的`产品报价小数位`次方，处理为整数传入。"
                   },
                   "remark": {
                     "type": "string",
-                    "title": "备注"
+                    "title": "备注",
+                    "description": "备注"
                   }
                 },
                 "x-apifox-orders": [
@@ -560,10 +593,7 @@
                   "tradeType",
                   "orderId",
                   "positionId",
-                  "accountDigits",
-                  "stopLoss",
-                  "takeProfit",
-                  "remark"
+                  "accountDigits"
                 ],
                 "x-apifox-ignore-properties": []
               }
@@ -834,13 +864,13 @@
         "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65087793-run"
       }
     },
-    "/global/tradeapi.app.CfdMMOrderApiService.queryOrderPage": {
+    "/global/tradeapi.app.OrderApiService.queryPBOOrderPage": {
       "post": {
-        "summary": "订单列表",
+        "summary": "预埋单列表",
         "x-apifox-folder": "全仓合约交易",
         "x-apifox-status": "developing",
         "deprecated": false,
-        "description": "说明：查看订单列表\n\n```\ngroup=tradeApi\nversion=0.0.1\nbizType=tradeapi.app.OrderApiService.queryOrderPage\n```",
+        "description": "group=tradeApi\nversion=0.0.1\nbizType=tradeapi.app.OrderApiService.queryPBOOrderPage",
         "tags": [
           "全仓合约交易"
         ],
@@ -921,56 +951,42 @@
                   "accountId": {
                     "type": "integer",
                     "title": "账户ID",
+                    "description": "非必填。如填，已该账户进行交易",
                     "format": "long"
                   },
-                  "bizType": {
-                    "type": "integer",
-                    "title": "业务类型",
-                    "description": "1-市价开；2-市价平；3-止损平仓单；4-止盈平仓单；5-爆仓强平单；6-到期平仓单；7-销户平仓单；8-手动强平单；9-延时订单；10-限价预埋单；11-停损预埋单；",
-                    "format": "int32"
-                  },
-                  "direction": {
-                    "type": "integer",
-                    "title": "订单买卖方向",
-                    "description": "1-买；2-卖；",
-                    "format": "int32"
-                  },
-                  "status": {
-                    "type": "integer",
-                    "title": "订单状态",
-                    "description": "1-收到订单；2-订单成交；3-订单部分成交；4-订单取消；5-订单部分取消；6-订单拒绝；7-订单过期；",
-                    "format": "long"
-                  },
-                  "symbolId": {
-                    "type": "integer",
-                    "title": "产品ID",
-                    "format": "int32"
-                  },
-                  "orderIds": {
+                  "customerNo": {
                     "type": "string",
-                    "title": "订单ID串",
-                    "description": "多个订单ID间以,分割"
+                    "title": "客户编号"
                   },
-                  "positionId": {
-                    "type": "integer",
-                    "title": "仓位id",
-                    "format": "long"
+                  "sortFieldName": {
+                    "type": "string",
+                    "title": "排序字段",
+                    "description": "排序字段名 orderTime(openTime,orderId),symbolId,symbolCode"
+                  },
+                  "sortType": {
+                    "type": "string",
+                    "title": "",
+                    "description": "排序类型 desc 降序；asc 升序"
                   }
                 },
                 "x-apifox-orders": [
                   "tradeType",
                   "accountId",
-                  "bizType",
-                  "direction",
-                  "status",
-                  "symbolId",
-                  "orderIds",
-                  "positionId"
+                  "customerNo",
+                  "sortFieldName",
+                  "sortType"
                 ],
                 "required": [
                   "tradeType"
                 ],
                 "x-apifox-ignore-properties": []
+              },
+              "example": {
+                "tradeType": 81,
+                "accountId": 15,
+                "sortType": "desc",
+                "sortFieldName": "orderTime",
+                "accountCurrency": "USDT"
               }
             }
           }
@@ -1017,212 +1033,148 @@
                     "data": {
                       "type": "object",
                       "properties": {
-                        "current": {
+                        "id": {
+                          "type": "string",
+                          "title": "预埋单ID"
+                        },
+                        "symbolId": {
                           "type": "integer",
-                          "title": "当前页码",
+                          "title": "产品Id",
+                          "format": "long"
+                        },
+                        "type": {
+                          "type": "integer",
+                          "title": "订单类型：9：预埋单，10:延时单 11:止损止盈单 0：市价单",
+                          "format": "long"
+                        },
+                        "direction": {
+                          "type": "integer",
+                          "title": "本次下单买卖方向",
+                          "description": "1-买；2-卖；",
                           "format": "int32"
                         },
-                        "size": {
+                        "state": {
                           "type": "integer",
-                          "title": "每页数据量",
+                          "title": "是否转成市价单 0:否，1:是；",
                           "format": "int32"
                         },
-                        "total": {
+                        "requestPrice": {
                           "type": "integer",
-                          "title": "数据总数",
+                          "title": "请求价格"
+                        },
+                        "openPrice": {
+                          "type": "string",
+                          "title": "请求价格(已处理小数位)"
+                        },
+                        "digits": {
+                          "type": "integer",
+                          "title": "产品小数位",
                           "format": "int32"
                         },
-                        "records": {
-                          "type": "array",
-                          "items": {
-                            "type": "object",
-                            "properties": {
-                              "id": {
-                                "type": "integer",
-                                "title": "主键",
-                                "format": "long"
-                              },
-                              "dealId": {
-                                "type": "integer",
-                                "title": "成交单id",
-                                "format": "long"
-                              },
-                              "bizType": {
-                                "type": "integer",
-                                "title": "订单业务类型",
-                                "description": "1-市价开；2-市价平；3-止损平仓单；4-止盈平仓单；5-爆仓强平单；6-到期平仓单；7-销户平仓单；8-手动强平单；9-延时订单；10-限价预埋单；11-停损预埋单；",
-                                "format": "int32"
-                              },
-                              "direction": {
-                                "type": "integer",
-                                "title": "订单买卖方向",
-                                "description": "1-买；2-卖；",
-                                "format": "int32"
-                              },
-                              "status": {
-                                "type": "integer",
-                                "title": "订单状态",
-                                "description": "1-收到订单；2-订单成交；3-订单部分成交；4-订单取消；5-订单部分取消；6-订单拒绝；7-订单过期；",
-                                "format": "int32"
-                              },
-                              "customerGroupId": {
-                                "type": "integer",
-                                "title": "客户组ID",
-                                "format": "long"
-                              },
-                              "symbolId": {
-                                "type": "integer",
-                                "title": "产品ID",
-                                "format": "long"
-                              },
-                              "digits": {
-                                "type": "integer",
-                                "title": "产品小数位",
-                                "format": "long"
-                              },
-                              "symbolName": {
-                                "type": "string",
-                                "title": "产品名称"
-                              },
-                              "requestPrice": {
-                                "type": "string",
-                                "title": "请求价格"
-                              },
-                              "requestNum": {
-                                "type": "string",
-                                "title": "请求数量"
-                              },
-                              "contractSize": {
-                                "type": "integer",
-                                "title": "产品合约大小",
-                                "format": "int32"
-                              },
-                              "executePrice": {
-                                "type": "string",
-                                "title": "成交价"
-                              },
-                              "requestTime": {
-                                "type": "integer",
-                                "title": "请求时间",
-                                "description": "13位时间戳",
-                                "format": "long"
-                              },
-                              "executeTime": {
-                                "type": "integer",
-                                "title": "成交时间",
-                                "description": "13位时间戳",
-                                "format": "long"
-                              },
-                              "fee": {
-                                "type": "string",
-                                "title": "成交手续费"
-                              },
-                              "executeMargin": {
-                                "type": "integer",
-                                "title": "执行保证金",
-                                "format": "int32"
-                              },
-                              "accountDigits": {
-                                "type": "integer",
-                                "title": "账户小数位",
-                                "format": "int32"
-                              },
-                              "executeNum": {
-                                "type": "string",
-                                "title": "已成交数量"
-                              },
-                              "cancelNum": {
-                                "type": "string",
-                                "title": "已取消数量"
-                              },
-                              "positionId": {
-                                "type": "integer",
-                                "title": "仓位ID",
-                                "format": "long"
-                              },
-                              "stopLoss": {
-                                "type": "string",
-                                "title": "止损单价"
-                              },
-                              "takeProfit": {
-                                "type": "string",
-                                "title": "止盈单价"
-                              },
-                              "remark": {
-                                "type": "string",
-                                "title": "备注"
-                              },
-                              "createTime": {
-                                "type": "integer",
-                                "title": "创建时间",
-                                "description": "13位时间戳",
-                                "format": "long"
-                              },
-                              "updateTime": {
-                                "type": "integer",
-                                "title": "最后更新时间",
-                                "description": "13位时间戳",
-                                "format": "long"
-                              },
-                              "seq": {
-                                "type": "integer",
-                                "title": "报价序号",
-                                "format": "long"
-                              },
-                              "interest": {
-                                "type": "integer",
-                                "title": "持仓利息",
-                                "format": "long"
-                              },
-                              "pnl": {
-                                "type": "integer",
-                                "title": "盈亏",
-                                "format": "long"
-                              }
-                            },
-                            "x-apifox-orders": [
-                              "id",
-                              "dealId",
-                              "bizType",
-                              "direction",
-                              "status",
-                              "customerGroupId",
-                              "symbolId",
-                              "digits",
-                              "symbolName",
-                              "requestPrice",
-                              "requestNum",
-                              "contractSize",
-                              "executePrice",
-                              "requestTime",
-                              "executeTime",
-                              "fee",
-                              "executeMargin",
-                              "accountDigits",
-                              "executeNum",
-                              "cancelNum",
-                              "positionId",
-                              "stopLoss",
-                              "takeProfit",
-                              "remark",
-                              "createTime",
-                              "updateTime",
-                              "seq",
-                              "interest",
-                              "pnl"
-                            ],
-                            "x-apifox-ignore-properties": []
-                          },
-                          "title": "订单集合"
+                        "orderTime": {
+                          "type": "integer",
+                          "title": "预埋单和延时单生成时间"
+                        },
+                        "delayTime": {
+                          "type": "string",
+                          "title": "延时区间开始时间，单位毫秒，延时单用"
+                        },
+                        "delayEndTime": {
+                          "type": "string",
+                          "title": "延时区间结束时间，单位毫秒，延时单用"
+                        },
+                        "exchangeTime": {
+                          "type": "string",
+                          "title": "转成市价单生成时间"
+                        },
+                        "reserve": {
+                          "type": "string",
+                          "title": "保留字段"
+                        },
+                        "customerGroupId": {
+                          "type": "string",
+                          "title": "客户组ID"
+                        },
+                        "contractSize": {
+                          "type": "integer",
+                          "title": "本次下单开平类型",
+                          "description": "1-开仓；2-平仓；",
+                          "format": "int32"
+                        },
+                        "requestVolume": {
+                          "type": "integer",
+                          "title": "请求数量"
+                        },
+                        "stopLoss": {
+                          "type": "integer",
+                          "title": "止损价"
+                        },
+                        "stopLossTarget": {
+                          "type": "integer",
+                          "title": "止损单价(已处理小数位)"
+                        },
+                        "takeProfit": {
+                          "type": "integer",
+                          "title": "止盈单价"
+                        },
+                        "takeProfitTarget": {
+                          "type": "integer",
+                          "title": "止盈单价(已处理小数位)"
+                        },
+                        "tradeType": {
+                          "type": "integer",
+                          "title": "下单手续费"
+                        },
+                        "expireType": {
+                          "type": "string",
+                          "title": "过期类型1.当日有效2.当周有效"
+                        },
+                        "remark": {
+                          "type": "string",
+                          "title": "备注"
+                        },
+                        "loanAmount": {
+                          "type": "integer",
+                          "title": "借款金额(杠杆全仓)"
+                        },
+                        "tradeModel": {
+                          "type": "integer",
+                          "title": "成交模式"
+                        },
+                        "crossLevelNum": {
+                          "type": "integer",
+                          "title": "杠杆倍数"
                         }
                       },
-                      "title": "数据体",
                       "x-apifox-orders": [
-                        "current",
-                        "size",
-                        "total",
-                        "records"
+                        "id",
+                        "symbolId",
+                        "type",
+                        "direction",
+                        "state",
+                        "requestPrice",
+                        "openPrice",
+                        "digits",
+                        "orderTime",
+                        "delayTime",
+                        "delayEndTime",
+                        "exchangeTime",
+                        "reserve",
+                        "customerGroupId",
+                        "contractSize",
+                        "requestVolume",
+                        "stopLoss",
+                        "stopLossTarget",
+                        "takeProfit",
+                        "takeProfitTarget",
+                        "tradeType",
+                        "expireType",
+                        "remark",
+                        "loanAmount",
+                        "tradeModel",
+                        "crossLevelNum"
                       ],
+                      "title": "数据体",
                       "x-apifox-ignore-properties": []
                     }
                   },
@@ -1246,27 +1198,30 @@
                     "value": {
                       "msg": "Success",
                       "fail": false,
-                      "trace": "x-11w38izu-238ws9-maphaym-1f261yz-1677573205",
+                      "trace": "x-dqxq8-qu20y7y-dq58lhn-39i483-1677570581",
                       "code": "0",
-                      "data": [],
+                      "data": {
+                        "tradeVolume": "0.1",
+                        "symbolId": 720,
+                        "orderId": 14460002,
+                        "fee": "-0.0668",
+                        "openOrClose": 1,
+                        "openPrice": "22.25",
+                        "takeProfit": "0",
+                        "positionId": 2023022819810,
+                        "interest": "0",
+                        "openDirection": 1,
+                        "stopLoss": "0",
+                        "executePrice": "22.25",
+                        "digits": 2,
+                        "symbolName": "BINAN_SOL_USDT",
+                        "profit": "0",
+                        "direction": 1
+                      },
                       "bizCode": "",
-                      "tm": 7,
+                      "tm": 162,
                       "msgParams": null,
                       "ok": true
-                    }
-                  },
-                  "2": {
-                    "summary": "异常示例",
-                    "value": {
-                      "msg": "System error",
-                      "fail": true,
-                      "trace": "x-6c5e5-162tc21-ri3151-6m634-1677573324",
-                      "code": "500",
-                      "data": "tradeapi.app.OrderApiService.queryOrderPage",
-                      "bizCode": "TA",
-                      "tm": 0,
-                      "msgParams": null,
-                      "ok": false
                     }
                   }
                 }
@@ -1274,7 +1229,7 @@
             }
           }
         },
-        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65096793-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65971010-run"
       }
     },
     "/global/tradeapi.app.CfdMMOrderApiService.queryHistoryCloseOrderList": {
@@ -1768,52 +1723,53 @@
                   "sortFieldName": {
                     "type": "string",
                     "title": "排序字段名",
-                    "description": "executeTime-成交时间；direction-方向；symbolId-产品id；"
+                    "description": "排序字段名，executeTime-成交时间；direction-方向；symbolId-产品id；"
                   },
                   "sortType": {
                     "type": "string",
                     "title": "排序类型",
-                    "description": "desc-降序；asc-升序；"
+                    "description": "排序类型，desc-降序；asc-升序；"
                   },
                   "symbolId": {
                     "type": "integer",
                     "title": "产品ID",
-                    "format": "long"
+                    "format": "long",
+                    "description": "产品ID"
                   },
                   "direction": {
                     "type": "integer",
                     "title": "买卖方向",
-                    "description": "-1-全部；1-买；2-卖；",
+                    "description": "买卖方向，-1-全部；1-买；2-卖；",
                     "format": "int32"
                   },
                   "orderType": {
                     "type": "integer",
                     "title": "订单类型",
-                    "description": "-1-全部；1-开；2-平；3-市价；4-限价；",
+                    "description": "订单类型，-1-全部；1-开；2-平；3-市价；4-限价；",
                     "format": "int32"
                   },
                   "executeStartTime": {
                     "type": "integer",
                     "title": "成交起始时间",
-                    "description": "13位时间戳",
+                    "description": "成交起始时间，13位时间戳",
                     "format": "long"
                   },
                   "executeEndTime": {
                     "type": "integer",
                     "title": "成交结束时间",
-                    "description": "13位时间戳",
+                    "description": "成交结束时间，13位时间戳",
                     "format": "long"
                   },
                   "current": {
                     "type": "integer",
                     "title": "页码",
-                    "description": "默认1",
+                    "description": "页码，默认1",
                     "format": "int32"
                   },
                   "size": {
                     "type": "integer",
                     "title": "每页数据量",
-                    "description": "默认20",
+                    "description": "每页数据量，默认20",
                     "format": "int32"
                   }
                 },
@@ -1850,34 +1806,42 @@
                   "properties": {
                     "bizCode": {
                       "type": "string",
-                      "title": "模块标识码"
+                      "title": "模块标识码",
+                      "description": "模块标识码"
                     },
                     "code": {
                       "type": "string",
-                      "title": "状态返回码"
+                      "title": "状态返回码",
+                      "description": "状态返回码，0成功，其他失败"
                     },
                     "msg": {
                       "type": "string",
-                      "title": "状态描述"
+                      "title": "状态描述",
+                      "description": "状态描述"
                     },
                     "tm": {
                       "type": "integer",
                       "format": "int64",
-                      "title": "处理时长（毫秒）"
+                      "title": "处理时长（毫秒）",
+                      "description": "处理时长（毫秒）"
                     },
                     "trace": {
                       "type": "string",
-                      "title": "跟踪码"
+                      "title": "跟踪码",
+                      "description": "跟踪码"
                     },
                     "msgParams": {
                       "type": "string",
-                      "title": "返回描述中占位符参数串，多个参数间以,分割"
+                      "title": "返回描述中占位符参数串，多个参数间以,分割",
+                      "description": "返回描述中占位符参数串，多个参数间以,分割"
                     },
                     "ok": {
-                      "type": "boolean"
+                      "type": "boolean",
+                      "description": "成功标志"
                     },
                     "fail": {
-                      "type": "boolean"
+                      "type": "boolean",
+                      "description": "失败标志"
                     },
                     "data": {
                       "type": "object",
@@ -1885,42 +1849,50 @@
                         "accountId": {
                           "type": "integer",
                           "title": "账户id",
-                          "format": "long"
+                          "format": "long",
+                          "description": "账户id"
                         },
                         "companyId": {
                           "type": "integer",
                           "title": "公司id",
-                          "format": "long"
+                          "format": "long",
+                          "description": "公司id"
                         },
                         "customerId": {
                           "type": "integer",
                           "title": "客户id",
-                          "format": "long"
+                          "format": "long",
+                          "description": "客户id"
                         },
                         "customerNo": {
                           "type": "string",
-                          "title": "客户编号"
+                          "title": "客户编号",
+                          "description": "客户编号"
                         },
                         "current": {
                           "type": "integer",
                           "format": "int32",
-                          "title": "当前页码"
+                          "title": "当前页码",
+                          "description": "当前页码"
                         },
                         "size": {
                           "type": "integer",
                           "format": "int32",
-                          "title": "每页数据量"
+                          "title": "每页数据量",
+                          "description": "每页数据量"
                         },
                         "totalPage": {
                           "type": "integer",
                           "title": "总页数",
-                          "format": "int32"
+                          "format": "int32",
+                          "description": "总页数"
                         },
                         "bizTypeText": {
                           "type": "object",
                           "properties": {},
                           "title": "交易类型映射",
                           "x-apifox-orders": [],
+                          "description": "交易类型映射",
                           "x-apifox-ignore-properties": []
                         },
                         "list": {
@@ -1931,73 +1903,87 @@
                               "symbolId": {
                                 "type": "integer",
                                 "title": "产品id",
-                                "format": "long"
+                                "format": "long",
+                                "description": "产品id"
                               },
                               "orderId": {
                                 "type": "integer",
                                 "title": "委托单号",
-                                "format": "long"
+                                "format": "long",
+                                "description": "委托单号"
                               },
                               "bizType": {
                                 "type": "integer",
                                 "format": "long",
-                                "title": "订单类型"
+                                "title": "订单类型",
+                                "description": "订单类型"
                               },
                               "symbolName": {
                                 "type": "string",
-                                "title": "产品名称"
+                                "title": "产品名称",
+                                "description": "产品名称"
                               },
                               "direction": {
                                 "type": "integer",
                                 "format": "int32",
                                 "title": "成交方向",
-                                "description": "1-买；2-卖；"
+                                "description": "成交方向,1-买；2-卖；"
                               },
                               "requestPrice": {
                                 "type": "string",
-                                "title": "请求价"
+                                "title": "请求价",
+                                "description": "请求价"
                               },
                               "executePrice": {
                                 "type": "string",
-                                "title": "成交价"
+                                "title": "成交价",
+                                "description": "成交价"
                               },
                               "executeNum": {
                                 "type": "string",
-                                "title": "成交数量（手数）"
+                                "title": "成交数量（手数）",
+                                "description": "成交数量（手数）"
                               },
                               "loanAmount": {
                                 "type": "string",
-                                "title": "借款金额"
+                                "title": "借款金额",
+                                "description": "借款金额"
                               },
                               "executeTime": {
                                 "type": "integer",
                                 "format": "long",
                                 "title": "成交时间",
-                                "description": "13位时间戳"
+                                "description": "成交时间,13位时间戳"
                               },
                               "outCurrency": {
                                 "type": "string",
-                                "title": "借款币种"
+                                "title": "借款币种",
+                                "description": "借款币种"
                               },
                               "stopLoss": {
                                 "type": "string",
-                                "title": "止损价"
+                                "title": "止损价",
+                                "description": "止损价"
                               },
                               "takeProfit": {
                                 "type": "string",
-                                "title": "止盈价"
+                                "title": "止盈价",
+                                "description": "止盈价"
                               },
                               "commission": {
                                 "type": "string",
-                                "title": "手续费"
+                                "title": "手续费",
+                                "description": "手续费"
                               },
                               "profitLoss": {
                                 "type": "string",
-                                "title": "盈亏"
+                                "title": "盈亏",
+                                "description": "盈亏"
                               },
                               "overnightInterest": {
                                 "type": "string",
-                                "title": "隔夜利息"
+                                "title": "隔夜利息",
+                                "description": "隔夜利息"
                               },
                               "numberStatisticMode": {
                                 "type": "string",
@@ -2006,12 +1992,19 @@
                               },
                               "accountCurrency": {
                                 "type": "string",
-                                "title": "账户币种"
+                                "title": "账户币种",
+                                "description": "账户币种"
                               },
                               "dealId": {
                                 "type": "integer",
                                 "format": "long",
-                                "title": "成交单号"
+                                "title": "成交单号",
+                                "description": "成交单号"
+                              },
+                              "positionId": {
+                                "type": "integer",
+                                "format": "long",
+                                "description": "持仓id"
                               }
                             },
                             "x-apifox-orders": [
@@ -2033,7 +2026,8 @@
                               "overnightInterest",
                               "numberStatisticMode",
                               "accountCurrency",
-                              "dealId"
+                              "dealId",
+                              "positionId"
                             ],
                             "required": [
                               "executePrice",
@@ -2052,7 +2046,8 @@
                             ],
                             "x-apifox-ignore-properties": []
                           },
-                          "title": "成交列表集合"
+                          "title": "成交列表集合",
+                          "description": "成交列表集合"
                         }
                       },
                       "title": "数据体",
@@ -2067,6 +2062,7 @@
                         "bizTypeText",
                         "list"
                       ],
+                      "description": "数据体",
                       "x-apifox-ignore-properties": []
                     }
                   },
@@ -2343,7 +2339,7 @@
         "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65137998-run"
       }
     },
-    "/global/tradeapi.app.CfdMMOrderApiService.calculateMarketOrder": {
+    "/global/tradeapi.app.OrderApiService.calculateMarketOrder": {
       "post": {
         "summary": "下单试算",
         "x-apifox-folder": "全仓合约交易",
@@ -2436,7 +2432,7 @@
                   "bizType": {
                     "type": "integer",
                     "title": "业务类型",
-                    "description": "1-市价开；2-市价平；3-止损平仓单；4-止盈平仓单；5-爆仓强平单；6-到期平仓单；7-销户平仓单；8-手动强平单；9-延时订单；10-限价预埋单；11-停损预埋单；12-限价开",
+                    "description": "1-市价开；2-市价平；10-限价预埋单；11-停损预埋单；12-限价开",
                     "format": "int32"
                   },
                   "direction": {
@@ -3067,7 +3063,7 @@
         "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65151619-run"
       }
     },
-    "/global/tradeapi.app.CfdMMPositionApiService.queryPositionPage": {
+    "/global/tradeapi.app.PositionApiService.queryPositionPage": {
       "post": {
         "summary": "持仓列表",
         "x-apifox-folder": "全仓合约交易",
@@ -4199,34 +4195,42 @@
                   "properties": {
                     "bizCode": {
                       "type": "string",
-                      "title": "模块标识码"
+                      "title": "模块标识码",
+                      "description": "模块标识码"
                     },
                     "code": {
                       "type": "string",
-                      "title": "状态返回码"
+                      "title": "状态返回码",
+                      "description": "状态返回码，0成功，其他失败"
                     },
                     "msg": {
                       "type": "string",
-                      "title": "状态描述"
+                      "title": "状态描述",
+                      "description": "状态描述"
                     },
                     "tm": {
                       "type": "integer",
                       "format": "int64",
-                      "title": "处理时长（毫秒）"
+                      "title": "处理时长（毫秒）",
+                      "description": "处理时长（毫秒）"
                     },
                     "trace": {
                       "type": "string",
-                      "title": "跟踪码"
+                      "title": "跟踪码",
+                      "description": "跟踪码"
                     },
                     "msgParams": {
                       "type": "string",
-                      "title": "返回描述中占位符参数串，多个参数间以,分割"
+                      "title": "返回描述中占位符参数串，多个参数间以,分割",
+                      "description": "返回描述中占位符参数串，多个参数间以,分割"
                     },
                     "ok": {
-                      "type": "boolean"
+                      "type": "boolean",
+                      "description": "成功标志"
                     },
                     "fail": {
-                      "type": "boolean"
+                      "type": "boolean",
+                      "description": "失败标志"
                     },
                     "data": {
                       "type": "object",
@@ -4240,17 +4244,20 @@
                         "total": {
                           "type": "integer",
                           "title": "总数",
-                          "format": "long"
+                          "format": "long",
+                          "description": "总数"
                         },
                         "size": {
                           "type": "integer",
                           "format": "long",
-                          "title": "每页条数"
+                          "title": "每页条数",
+                          "description": "每页条数"
                         },
                         "current": {
                           "type": "integer",
                           "format": "long",
-                          "title": "当前页"
+                          "title": "当前页",
+                          "description": "当前页"
                         },
                         "records": {
                           "type": "array",
@@ -4259,86 +4266,106 @@
                             "properties": {
                               "remark": {
                                 "type": "string",
-                                "title": "备注"
+                                "title": "备注",
+                                "description": "备注"
                               },
                               "createTime": {
                                 "type": "integer",
                                 "title": "创建日期",
-                                "description": "13位时间戳",
+                                "description": "创建日期,13位时间戳",
                                 "format": "long"
                               },
                               "updateTime": {
                                 "type": "integer",
                                 "format": "long",
                                 "title": "更新时间",
-                                "description": "13位时间戳"
+                                "description": "更新时间,13位时间戳"
                               },
                               "subjectId": {
                                 "type": "integer",
                                 "format": "long",
-                                "title": "科目ID"
+                                "title": "科目ID",
+                                "description": "科目ID"
                               },
                               "bookkeepId": {
                                 "type": "integer",
                                 "format": "long",
-                                "title": "凭证ID"
+                                "title": "凭证ID",
+                                "description": "凭证ID"
                               },
                               "amountIn": {
                                 "type": "string",
-                                "title": "增加金额"
+                                "title": "增加金额",
+                                "description": "增加金额"
                               },
                               "amountOut": {
                                 "type": "string",
-                                "title": "减少金额"
+                                "title": "减少金额",
+                                "description": "减少金额"
                               },
                               "status": {
                                 "type": "integer",
                                 "format": "int32",
                                 "title": "状态",
-                                "description": "1-初始化；2-处理成功；3-处理失败；"
+                                "description": "状态，1-初始化；2-处理成功；3-处理失败；"
                               },
                               "amountAfter": {
                                 "type": "string",
-                                "title": "变动后余额"
+                                "title": "变动后余额",
+                                "description": "变动后余额"
                               },
                               "businessType": {
                                 "type": "integer",
                                 "title": "业务类型",
                                 "format": "int32",
-                                "description": "1-存款；2-取款；3-系统清零；4-额度调整；5-冻结；6-交易；36-划转；42-奖励；"
+                                "description": "业务类型，1-存款；2-取款；3-系统清零；4-额度调整；5-冻结；6-交易；36-划转；42-奖励；"
                               },
                               "businessType1": {
                                 "type": "integer",
                                 "format": "int32",
-                                "description": "1001-前端存款；1002-存款手续费；2001-前端取款；2002-取消取款；2003-取款手续费；2004-取消手续费；2005-确认转账；3001-系统清零；4001-额度调整_存款；4002-额度调整_取款；4003-额度调整_其他；4004-额度调整_赠金；4005-额度调整_释放不可提；4006-额度调整_不可提；4007-额度调整_转入返佣；5001-冻结；5002-解冻；6001-开仓手续费；6002-平仓手续费；6003-隔夜利息；6004-市价平仓盈亏；6005-止损平仓盈亏；6006-止盈平仓盈亏；6007-系统强平盈亏；6008-到期强平盈亏；6009-手动强平盈亏；36001-划入金额；36002-划出金额；42001-发放奖励；42002-扣回奖励；42003-发放返佣；42004-扣回返佣；",
+                                "description": "业务子类型，1001-前端存款；1002-存款手续费；2001-前端取款；2002-取消取款；2003-取款手续费；2004-取消手续费；2005-确认转账；3001-系统清零；4001-额度调整_存款；4002-额度调整_取款；4003-额度调整_其他；4004-额度调整_赠金；4005-额度调整_释放不可提；4006-额度调整_不可提；4007-额度调整_转入返佣；5001-冻结；5002-解冻；6001-开仓手续费；6002-平仓手续费；6003-隔夜利息；6004-市价平仓盈亏；6005-止损平仓盈亏；6006-止盈平仓盈亏；6007-系统强平盈亏；6008-到期强平盈亏；6009-手动强平盈亏；36001-划入金额；36002-划出金额；42001-发放奖励；42002-扣回奖励；42003-发放返佣；42004-扣回返佣；",
                                 "title": "业务子类型"
                               },
                               "customerNo": {
                                 "type": "string",
-                                "title": "客户编号"
+                                "title": "客户编号",
+                                "description": "客户编号"
                               },
                               "digits": {
                                 "type": "string",
-                                "title": "小数位"
+                                "title": "小数位",
+                                "description": "小数位"
                               },
                               "currency": {
                                 "type": "string",
-                                "title": "币种"
+                                "title": "币种",
+                                "description": "币种"
                               },
                               "businessTypeName": {
                                 "type": "string",
                                 "title": "业务类型名称",
-                                "description": "按传入`lang`确认语种"
+                                "description": "业务类型名称，按传入`lang`确认语种"
                               },
                               "businessType1Name": {
                                 "type": "string",
                                 "title": "业务子类型名称",
-                                "description": "按传入`lang`确认语种"
+                                "description": "业务子类型名称，按传入`lang`确认语种"
                               },
                               "accountId": {
                                 "type": "integer",
                                 "title": "账户Id",
-                                "format": "long"
+                                "format": "long",
+                                "description": "账户Id"
+                              },
+                              "orderId": {
+                                "type": "integer",
+                                "format": "long",
+                                "description": "订单id"
+                              },
+                              "dealId": {
+                                "type": "integer",
+                                "format": "long",
+                                "description": "成交id"
                               }
                             },
                             "title": "数据体",
@@ -4359,13 +4386,18 @@
                               "currency",
                               "businessTypeName",
                               "businessType1Name",
-                              "accountId"
+                              "accountId",
+                              "orderId",
+                              "dealId"
                             ],
+                            "description": "数据体",
                             "x-apifox-ignore-properties": []
                           },
-                          "title": "流水集合"
+                          "title": "流水集合",
+                          "description": "流水集合"
                         }
                       },
+                      "description": "数据体",
                       "x-apifox-ignore-properties": []
                     }
                   },
@@ -4583,7 +4615,9 @@
             }
           }
         },
-        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65204886-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65204886-run",
+        "x-docstype": "TS.Clientapi.Trade",
+        "x-docstitle": "交易接口"
       }
     },
     "/global/tradeapi.app.StockOrderApiService.cancelOrder": {
@@ -7557,407 +7591,6 @@
         "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65230556-run"
       }
     },
-    "/global/tradeapi.app.CfdWBWOrderApiService.addMarketOrder": {
-      "post": {
-        "summary": "下单",
-        "x-apifox-folder": "逐仓合约交易",
-        "x-apifox-status": "developing",
-        "deprecated": false,
-        "description": "说明：合约逐仓交易下单\n\n```\ngroup=tradeApi\nversion=0.0.1\nbizType=tradeapi.app.OrderApiService.addMarketOrder2\n```",
-        "tags": [
-          "逐仓合约交易"
-        ],
-        "parameters": [
-          {
-            "name": "companyId",
-            "in": "header",
-            "description": "",
-            "required": false,
-            "example": "",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "token",
-            "in": "header",
-            "description": "",
-            "required": false,
-            "example": "",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "lang",
-            "in": "header",
-            "description": "",
-            "required": false,
-            "example": "en-US",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "group",
-            "in": "header",
-            "description": "",
-            "required": false,
-            "example": "tradeApi",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "trace",
-            "in": "header",
-            "description": "",
-            "required": false,
-            "example": "",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "version",
-            "in": "header",
-            "description": "",
-            "required": false,
-            "example": "0.0.1",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "tradeType": {
-                    "type": "integer",
-                    "title": "玩法ID",
-                    "description": "本玩法下应填2",
-                    "format": "long"
-                  },
-                  "accountId": {
-                    "type": "integer",
-                    "title": "账户ID",
-                    "description": "非必填。如填，已该账户进行交易",
-                    "format": "long"
-                  },
-                  "bizType": {
-                    "type": "integer",
-                    "title": "业务类型",
-                    "description": "1-市价开；2-市价平；3-止损平仓单；4-止盈平仓单；5-爆仓强平单；6-到期平仓单；7-销户平仓单；8-手动强平单；9-延时订单；10-限价预埋单；11-停损预埋单；12-限价开",
-                    "format": "int32"
-                  },
-                  "direction": {
-                    "type": "integer",
-                    "title": "订单买卖方向",
-                    "description": "1-买；2-卖；",
-                    "format": "int32"
-                  },
-                  "symbolId": {
-                    "type": "integer",
-                    "title": "产品ID",
-                    "format": "long"
-                  },
-                  "positionId": {
-                    "type": "integer",
-                    "title": "仓位ID",
-                    "description": "平仓下单时，必填",
-                    "format": "long"
-                  },
-                  "requestTime": {
-                    "type": "integer",
-                    "title": "下单请求时间",
-                    "description": "13位时间戳",
-                    "format": "long"
-                  },
-                  "requestPrice": {
-                    "type": "string",
-                    "title": "下单时价格",
-                    "description": "需乘以10的`产品报价小数位`次方，处理为整数传入。仅作下单记录，非成交价格。"
-                  },
-                  "requestNum": {
-                    "type": "string",
-                    "title": "下单手数"
-                  },
-                  "stopLoss": {
-                    "type": "string",
-                    "title": "止损单价",
-                    "description": "需乘以10的`产品报价小数位`次方，处理为整数传入。"
-                  },
-                  "takeProfit": {
-                    "type": "string",
-                    "title": "止盈单价",
-                    "description": "需乘以10的`产品报价小数位`次方，处理为整数传入。"
-                  },
-                  "expireType": {
-                    "type": "integer",
-                    "title": "过期类型",
-                    "description": "仅预埋单有效。1-当日有效；2-当周有效；",
-                    "format": "int32"
-                  },
-                  "remark": {
-                    "type": "string",
-                    "title": "备注"
-                  },
-                  "accountCurrency": {
-                    "type": "string",
-                    "title": "账户货币"
-                  },
-                  "accountDigits": {
-                    "type": "integer",
-                    "title": "账户小数位",
-                    "format": "int32"
-                  },
-                  "crossLevelNum": {
-                    "type": "integer",
-                    "title": "杠杆倍数",
-                    "format": "int32",
-                    "description": "本参数需针对产品一致。如不一致，将无法下单成功"
-                  },
-                  "entryType": {
-                    "type": "integer",
-                    "description": "下单类型 1 按数量 , 2 按额"
-                  }
-                },
-                "x-apifox-orders": [
-                  "tradeType",
-                  "accountId",
-                  "bizType",
-                  "direction",
-                  "symbolId",
-                  "positionId",
-                  "requestTime",
-                  "requestPrice",
-                  "requestNum",
-                  "stopLoss",
-                  "takeProfit",
-                  "expireType",
-                  "remark",
-                  "accountCurrency",
-                  "accountDigits",
-                  "crossLevelNum",
-                  "entryType"
-                ],
-                "required": [
-                  "tradeType",
-                  "bizType",
-                  "direction",
-                  "symbolId",
-                  "requestTime",
-                  "requestPrice",
-                  "requestNum",
-                  "accountCurrency",
-                  "accountDigits",
-                  "entryType"
-                ],
-                "x-apifox-ignore-properties": []
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "成功",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "bizCode": {
-                      "type": "string",
-                      "title": "模块标识码"
-                    },
-                    "code": {
-                      "type": "string",
-                      "title": "状态返回码"
-                    },
-                    "msg": {
-                      "type": "string",
-                      "title": "状态描述"
-                    },
-                    "tm": {
-                      "type": "integer",
-                      "format": "int64",
-                      "title": "处理时长（毫秒）"
-                    },
-                    "trace": {
-                      "type": "string",
-                      "title": "跟踪码"
-                    },
-                    "msgParams": {
-                      "type": "string",
-                      "title": "返回描述中占位符参数串，多个参数间以,分割"
-                    },
-                    "ok": {
-                      "type": "boolean"
-                    },
-                    "fail": {
-                      "type": "boolean"
-                    },
-                    "data": {
-                      "type": "object",
-                      "properties": {
-                        "orderId": {
-                          "type": "integer",
-                          "title": "订单号",
-                          "format": "long"
-                        },
-                        "positionId": {
-                          "type": "integer",
-                          "title": "持仓单号",
-                          "format": "long"
-                        },
-                        "tradeVolume": {
-                          "type": "string",
-                          "title": "交易手数"
-                        },
-                        "openPrice": {
-                          "type": "string",
-                          "title": "开仓价"
-                        },
-                        "executePrice": {
-                          "type": "string",
-                          "title": "成交价"
-                        },
-                        "openDirection": {
-                          "type": "integer",
-                          "title": "开仓时买卖方向",
-                          "description": "1-买；2-卖；",
-                          "format": "int32"
-                        },
-                        "direction": {
-                          "type": "integer",
-                          "title": "本次下单买卖方向",
-                          "description": "1-买；2-卖；",
-                          "format": "int32"
-                        },
-                        "openOrClose": {
-                          "type": "integer",
-                          "title": "本次下单开平类型",
-                          "description": "1-开仓；2-平仓；",
-                          "format": "int32"
-                        },
-                        "symbolName": {
-                          "type": "string",
-                          "title": "产品名称"
-                        },
-                        "symbolId": {
-                          "type": "integer",
-                          "title": "产品Id",
-                          "format": "long"
-                        },
-                        "stopLoss": {
-                          "type": "string",
-                          "title": "止损价",
-                          "description": "与入参一致"
-                        },
-                        "takeProfit": {
-                          "type": "string",
-                          "title": "止盈价",
-                          "description": "与入参一致"
-                        },
-                        "digits": {
-                          "type": "integer",
-                          "title": "产品小数位",
-                          "format": "int32"
-                        },
-                        "fee": {
-                          "type": "string",
-                          "title": "下单手续费"
-                        },
-                        "interest": {
-                          "type": "string",
-                          "title": "利息",
-                          "description": "仅平仓是存在"
-                        },
-                        "profit": {
-                          "type": "string",
-                          "title": "盈亏",
-                          "description": "仅平仓是存在"
-                        }
-                      },
-                      "x-apifox-orders": [
-                        "orderId",
-                        "positionId",
-                        "tradeVolume",
-                        "openPrice",
-                        "executePrice",
-                        "openDirection",
-                        "direction",
-                        "openOrClose",
-                        "symbolName",
-                        "symbolId",
-                        "stopLoss",
-                        "takeProfit",
-                        "digits",
-                        "fee",
-                        "interest",
-                        "profit"
-                      ],
-                      "title": "数据体",
-                      "x-apifox-ignore-properties": []
-                    }
-                  },
-                  "x-apifox-orders": [
-                    "bizCode",
-                    "code",
-                    "msg",
-                    "tm",
-                    "trace",
-                    "msgParams",
-                    "ok",
-                    "fail",
-                    "data"
-                  ],
-                  "x-apifox-refs": {},
-                  "x-apifox-ignore-properties": []
-                },
-                "examples": {
-                  "1": {
-                    "summary": "成功示例",
-                    "value": {
-                      "msg": "Success",
-                      "fail": false,
-                      "trace": "x-dqxq8-qu20y7y-dq58lhn-39i483-1677570581",
-                      "code": "0",
-                      "data": {
-                        "tradeVolume": "0.1",
-                        "symbolId": 720,
-                        "orderId": 14460002,
-                        "fee": "-0.0668",
-                        "openOrClose": 1,
-                        "openPrice": "22.25",
-                        "takeProfit": "0",
-                        "positionId": 2023022819810,
-                        "interest": "0",
-                        "openDirection": 1,
-                        "stopLoss": "0",
-                        "executePrice": "22.25",
-                        "digits": 2,
-                        "symbolName": "BINAN_SOL_USDT",
-                        "profit": "0",
-                        "direction": 1
-                      },
-                      "bizCode": "",
-                      "tm": 162,
-                      "msgParams": null,
-                      "ok": true
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65669842-run"
-      }
-    },
     "/global/tradeapi.app.CfdWBWOrderApiService.updateOrder": {
       "post": {
         "summary": "设置仓位止损止盈",
@@ -8046,41 +7679,45 @@
                     "type": "integer",
                     "title": "账户ID",
                     "format": "long",
-                    "description": "必须与账户货币二者填其一"
+                    "description": "账户ID，必须与账户货币二者填其一"
                   },
                   "accountCurrency": {
                     "type": "string",
                     "title": "账户货币",
-                    "description": "必须与账户ID二者填其一"
+                    "description": "账户货币，必须与账户ID二者填其一"
                   },
                   "orderId": {
                     "type": "integer",
                     "title": "订单ID",
-                    "format": "long"
+                    "format": "long",
+                    "description": "订单ID"
                   },
                   "positionId": {
                     "type": "integer",
                     "title": "仓位ID",
-                    "format": "long"
+                    "format": "long",
+                    "description": "仓位ID"
                   },
                   "accountDigits": {
                     "type": "integer",
                     "title": "账户小数位",
-                    "format": "long"
+                    "format": "long",
+                    "description": "账户小数位"
                   },
                   "stopLoss": {
                     "type": "string",
                     "title": "止损单价",
-                    "description": "需乘以10的`产品报价小数位`次方，处理为整数传入。"
+                    "description": "止损单价，需乘以10的`产品报价小数位`次方，处理为整数传入。"
                   },
                   "takeProfit": {
                     "type": "string",
                     "title": "止盈单价",
-                    "description": "需乘以10的`产品报价小数位`次方，处理为整数传入。"
+                    "description": "止盈单价，需乘以10的`产品报价小数位`次方，处理为整数传入。"
                   },
                   "remark": {
                     "type": "string",
-                    "title": "备注"
+                    "title": "备注",
+                    "description": "备注"
                   }
                 },
                 "x-apifox-orders": [
@@ -8636,52 +8273,54 @@
                   "tradeType": {
                     "type": "integer",
                     "title": "玩法ID",
-                    "description": "本玩法下应填2",
+                    "description": "玩法ID，本玩法下应填2",
                     "format": "long"
                   },
                   "accountId": {
                     "type": "integer",
                     "title": "账户ID",
-                    "description": "*",
+                    "description": "账户ID",
                     "format": "long"
                   },
                   "accountCurrency": {
                     "type": "string",
                     "title": "账户货币",
-                    "description": "*"
+                    "description": "账户货币"
                   },
                   "bizType": {
                     "type": "integer",
                     "title": "业务类型",
-                    "description": "1-市价开；2-市价平；3-止损平仓单；4-止盈平仓单；5-爆仓强平单；6-到期平仓单；7-销户平仓单；8-手动强平单；9-延时订单；10-限价预埋单；11-停损预埋单；",
+                    "description": "业务类型，1-市价开；2-市价平；3-止损平仓单；4-止盈平仓单；5-爆仓强平单；6-到期平仓单；7-销户平仓单；8-手动强平单；9-延时订单；10-限价预埋单；11-停损预埋单；",
                     "format": "int32"
                   },
                   "direction": {
                     "type": "integer",
                     "title": "订单买卖方向",
-                    "description": "1-买；2-卖；",
+                    "description": "订单买卖方向，1-买；2-卖；",
                     "format": "int32"
                   },
                   "status": {
                     "type": "integer",
                     "title": "订单状态",
-                    "description": "1-收到订单；2-订单成交；3-订单部分成交；4-订单取消；5-订单部分取消；6-订单拒绝；7-订单过期；",
+                    "description": "订单状态，1-收到订单；2-订单成交；3-订单部分成交；4-订单取消；5-订单部分取消；6-订单拒绝；7-订单过期；",
                     "format": "long"
                   },
                   "symbolId": {
                     "type": "integer",
                     "title": "产品ID",
-                    "format": "int32"
+                    "format": "int32",
+                    "description": "产品ID"
                   },
                   "orderIds": {
                     "type": "string",
                     "title": "订单ID串",
-                    "description": "多个订单ID间以,分割"
+                    "description": "订单ID串，多个订单ID间以,分割"
                   },
                   "positionId": {
                     "type": "integer",
                     "title": "仓位id",
-                    "format": "long"
+                    "format": "long",
+                    "description": "仓位id"
                   }
                 },
                 "x-apifox-orders": [
@@ -9525,52 +9164,53 @@
                   "sortFieldName": {
                     "type": "string",
                     "title": "排序字段名",
-                    "description": "executeTime-成交时间；direction-方向；symbolId-产品id；"
+                    "description": "排序字段名，executeTime-成交时间；direction-方向；symbolId-产品id；"
                   },
                   "sortType": {
                     "type": "string",
                     "title": "排序类型",
-                    "description": "desc-降序；asc-升序；"
+                    "description": "排序类型，desc-降序；asc-升序；"
                   },
                   "symbolId": {
                     "type": "integer",
                     "title": "产品ID",
-                    "format": "long"
+                    "format": "long",
+                    "description": "产品ID"
                   },
                   "direction": {
                     "type": "integer",
                     "title": "买卖方向",
-                    "description": "-1-全部；1-买；2-卖；",
+                    "description": "买卖方向，-1-全部；1-买；2-卖；",
                     "format": "int32"
                   },
                   "orderType": {
                     "type": "integer",
                     "title": "订单类型",
-                    "description": "-1-全部；1-开；2-平；3-市价；4-限价；",
+                    "description": "订单类型，-1-全部；1-开；2-平；3-市价；4-限价；",
                     "format": "int32"
                   },
                   "executeStartTime": {
                     "type": "integer",
                     "title": "成交起始时间",
-                    "description": "13位时间戳",
+                    "description": "成交起始时间，13位时间戳",
                     "format": "long"
                   },
                   "executeEndTime": {
                     "type": "integer",
                     "title": "成交结束时间",
-                    "description": "13位时间戳",
+                    "description": "成交结束时间，13位时间戳",
                     "format": "long"
                   },
                   "current": {
                     "type": "integer",
                     "title": "页码",
-                    "description": "默认1",
+                    "description": "页码，默认1",
                     "format": "int32"
                   },
                   "size": {
                     "type": "integer",
                     "title": "每页数据量",
-                    "description": "默认20",
+                    "description": "每页数据量，默认20",
                     "format": "int32"
                   }
                 },
@@ -9607,34 +9247,42 @@
                   "properties": {
                     "bizCode": {
                       "type": "string",
-                      "title": "模块标识码"
+                      "title": "模块标识码",
+                      "description": "模块标识码"
                     },
                     "code": {
                       "type": "string",
-                      "title": "状态返回码"
+                      "title": "状态返回码",
+                      "description": "状态返回码，0成功，其他失败"
                     },
                     "msg": {
                       "type": "string",
-                      "title": "状态描述"
+                      "title": "状态描述",
+                      "description": "状态描述"
                     },
                     "tm": {
                       "type": "integer",
                       "format": "int64",
-                      "title": "处理时长（毫秒）"
+                      "title": "处理时长（毫秒）",
+                      "description": "处理时长（毫秒）"
                     },
                     "trace": {
                       "type": "string",
-                      "title": "跟踪码"
+                      "title": "跟踪码",
+                      "description": "跟踪码"
                     },
                     "msgParams": {
                       "type": "string",
-                      "title": "返回描述中占位符参数串，多个参数间以,分割"
+                      "title": "返回描述中占位符参数串，多个参数间以,分割",
+                      "description": "返回描述中占位符参数串，多个参数间以,分割"
                     },
                     "ok": {
-                      "type": "boolean"
+                      "type": "boolean",
+                      "description": "成功标志"
                     },
                     "fail": {
-                      "type": "boolean"
+                      "type": "boolean",
+                      "description": "失败标志"
                     },
                     "data": {
                       "type": "object",
@@ -9642,42 +9290,50 @@
                         "accountId": {
                           "type": "integer",
                           "title": "账户id",
-                          "format": "long"
+                          "format": "long",
+                          "description": "账户id"
                         },
                         "companyId": {
                           "type": "integer",
                           "title": "公司id",
-                          "format": "long"
+                          "format": "long",
+                          "description": "公司id"
                         },
                         "customerId": {
                           "type": "integer",
                           "title": "客户id",
-                          "format": "long"
+                          "format": "long",
+                          "description": "客户id"
                         },
                         "customerNo": {
                           "type": "string",
-                          "title": "客户编号"
+                          "title": "客户编号",
+                          "description": "客户编号"
                         },
                         "current": {
                           "type": "integer",
                           "format": "int32",
-                          "title": "当前页码"
+                          "title": "当前页码",
+                          "description": "当前页码"
                         },
                         "size": {
                           "type": "integer",
                           "format": "int32",
-                          "title": "每页数据量"
+                          "title": "每页数据量",
+                          "description": "每页数据量"
                         },
                         "totalPage": {
                           "type": "integer",
                           "title": "总页数",
-                          "format": "int32"
+                          "format": "int32",
+                          "description": "总页数"
                         },
                         "bizTypeText": {
                           "type": "object",
                           "properties": {},
                           "title": "交易类型映射",
                           "x-apifox-orders": [],
+                          "description": "交易类型映射",
                           "x-apifox-ignore-properties": []
                         },
                         "list": {
@@ -9688,77 +9344,87 @@
                               "symbolId": {
                                 "type": "integer",
                                 "title": "产品id",
-                                "format": "long"
+                                "format": "long",
+                                "description": "产品id"
                               },
                               "orderId": {
                                 "type": "integer",
                                 "title": "委托单号",
-                                "format": "long"
+                                "format": "long",
+                                "description": "委托单号"
                               },
                               "bizType": {
                                 "type": "integer",
                                 "format": "long",
-                                "title": "订单类型"
+                                "title": "订单类型",
+                                "description": "订单类型"
                               },
                               "symbolName": {
                                 "type": "string",
-                                "title": "产品名称"
+                                "title": "产品名称",
+                                "description": "产品名称"
                               },
                               "direction": {
                                 "type": "integer",
                                 "format": "int32",
                                 "title": "成交方向",
-                                "description": "1-买；2-卖；"
+                                "description": "成交方向,1-买；2-卖；"
                               },
                               "requestPrice": {
                                 "type": "string",
                                 "title": "请求价",
-                                "description": "*"
+                                "description": "请求价"
                               },
                               "executePrice": {
                                 "type": "string",
-                                "title": "成交价"
+                                "title": "成交价",
+                                "description": "成交价"
                               },
                               "executeNum": {
                                 "type": "string",
                                 "title": "成交数量（手数）",
-                                "description": "*"
+                                "description": "成交数量（手数）"
                               },
                               "loanAmount": {
                                 "type": "string",
                                 "title": "借款金额",
-                                "description": "*"
+                                "description": "借款金额"
                               },
                               "executeTime": {
                                 "type": "integer",
                                 "format": "long",
                                 "title": "成交时间",
-                                "description": "13位时间戳"
+                                "description": "成交时间,13位时间戳"
                               },
                               "outCurrency": {
                                 "type": "string",
                                 "title": "借款币种",
-                                "description": "*"
+                                "description": "借款币种"
                               },
                               "stopLoss": {
                                 "type": "string",
-                                "title": "止损价"
+                                "title": "止损价",
+                                "description": "止损价"
                               },
                               "takeProfit": {
                                 "type": "string",
-                                "title": "止盈价"
+                                "title": "止盈价",
+                                "description": "止盈价"
                               },
                               "commission": {
                                 "type": "string",
-                                "title": "手续费"
+                                "title": "手续费",
+                                "description": "手续费"
                               },
                               "profitLoss": {
                                 "type": "string",
-                                "title": "盈亏"
+                                "title": "盈亏",
+                                "description": "盈亏"
                               },
                               "overnightInterest": {
                                 "type": "string",
-                                "title": "隔夜利息"
+                                "title": "隔夜利息",
+                                "description": "隔夜利息"
                               },
                               "numberStatisticMode": {
                                 "type": "string",
@@ -9767,12 +9433,19 @@
                               },
                               "accountCurrency": {
                                 "type": "string",
-                                "title": "账户币种"
+                                "title": "账户币种",
+                                "description": "账户币种"
                               },
                               "dealId": {
                                 "type": "integer",
                                 "format": "long",
-                                "title": "成交单号"
+                                "title": "成交单号",
+                                "description": "成交单号"
+                              },
+                              "positionId": {
+                                "type": "integer",
+                                "format": "long",
+                                "description": "持仓id"
                               }
                             },
                             "x-apifox-orders": [
@@ -9794,7 +9467,8 @@
                               "overnightInterest",
                               "numberStatisticMode",
                               "accountCurrency",
-                              "dealId"
+                              "dealId",
+                              "positionId"
                             ],
                             "required": [
                               "executePrice",
@@ -9813,7 +9487,8 @@
                             ],
                             "x-apifox-ignore-properties": []
                           },
-                          "title": "成交列表集合"
+                          "title": "成交列表集合",
+                          "description": "成交列表集合"
                         }
                       },
                       "title": "数据体",
@@ -9828,6 +9503,7 @@
                         "bizTypeText",
                         "list"
                       ],
+                      "description": "数据体",
                       "x-apifox-ignore-properties": []
                     }
                   },
@@ -9986,60 +9662,30 @@
                   "tradeType": {
                     "type": "integer",
                     "title": "玩法ID",
-                    "description": "本玩法下应填1",
-                    "format": "long"
-                  },
-                  "companyId": {
-                    "type": "integer",
-                    "title": "公司ID",
-                    "format": "long"
-                  },
-                  "customerId": {
-                    "type": "integer",
-                    "title": "客户ID",
-                    "format": "long"
-                  },
-                  "customerNo": {
-                    "type": "string",
-                    "title": "客户编号"
-                  },
-                  "customerGroupId": {
-                    "type": "integer",
-                    "title": "客户组Id",
+                    "description": "本玩法下应填2",
                     "format": "long"
                   },
                   "symbolId": {
                     "type": "integer",
                     "title": "产品ID",
-                    "format": "long"
+                    "format": "long",
+                    "description": "产品ID"
                   },
                   "requestTime": {
                     "type": "integer",
                     "title": "杠杆倍数",
-                    "format": "int32"
-                  },
-                  "trace": {
-                    "type": "string",
-                    "title": "追踪码"
+                    "format": "int32",
+                    "description": "杠杆倍数"
                   }
                 },
                 "x-apifox-orders": [
                   "tradeType",
-                  "companyId",
-                  "customerId",
-                  "customerNo",
-                  "customerGroupId",
                   "symbolId",
-                  "requestTime",
-                  "trace"
+                  "requestTime"
                 ],
                 "required": [
                   "tradeType",
-                  "customerId",
-                  "customerNo",
-                  "customerGroupId",
                   "requestTime",
-                  "companyId",
                   "symbolId"
                 ],
                 "x-apifox-ignore-properties": []
@@ -10700,13 +10346,13 @@
                   "accountId": {
                     "type": "integer",
                     "title": "账户ID",
-                    "description": "*",
+                    "description": "账户id",
                     "format": "long"
                   },
                   "accountCurrency": {
                     "type": "string",
                     "title": "账户货币",
-                    "description": "*"
+                    "description": "账户币种"
                   },
                   "status": {
                     "type": "integer",
@@ -10717,17 +10363,20 @@
                   "orderId": {
                     "type": "integer",
                     "title": "订单ID",
-                    "format": "long"
+                    "format": "long",
+                    "description": "订单id"
                   },
                   "dealId": {
                     "type": "integer",
                     "format": "long",
-                    "title": "成交单ID"
+                    "title": "成交单ID",
+                    "description": "成交id"
                   },
                   "symbolId": {
                     "type": "integer",
                     "format": "long",
-                    "title": "产品ID"
+                    "title": "产品ID",
+                    "description": "产品id"
                   },
                   "startTime": {
                     "type": "integer",
@@ -11687,56 +11336,50 @@
                   "accountId": {
                     "type": "integer",
                     "format": "long",
-                    "title": "账户ID"
+                    "title": "账户ID",
+                    "description": "账户id"
                   },
                   "size": {
                     "type": "integer",
                     "title": "每页数据条数",
-                    "format": "long"
+                    "format": "long",
+                    "description": "每页数据条数"
                   },
                   "current": {
                     "type": "integer",
                     "title": "当前页",
-                    "format": "long"
+                    "format": "long",
+                    "description": "当前页"
                   },
                   "businessType": {
                     "type": "integer",
                     "format": "int32",
                     "title": "业务类型",
-                    "description": "0-不限制；1-存款；2-取款；3-系统清零；4-额度调整；5-冻结；6-交易；36-划转；42-奖励；"
+                    "description": "业务类型，0-不限制；1-存款；2-取款；3-系统清零；4-额度调整；5-冻结；6-交易；36-划转；42-奖励；"
                   },
                   "status": {
                     "type": "integer",
                     "format": "int32",
                     "title": "状态",
-                    "description": "0-不限制；1-初始化；2-处理成功；3-处理失败；"
+                    "description": "状态，0-不限制；1-初始化；2-处理成功；3-处理失败；"
                   },
                   "startTime": {
                     "type": "integer",
                     "format": "long",
-                    "description": "13位时间戳",
+                    "description": "起始时间，13位时间戳",
                     "title": "起始时间"
                   },
                   "endTime": {
                     "type": "integer",
                     "format": "long",
-                    "description": "13位时间戳",
+                    "description": "结束时间，13位时间戳",
                     "title": "结束时间"
                   },
                   "operate": {
                     "type": "integer",
                     "format": "int32",
                     "title": "资金流向",
-                    "description": "0-不限制；1-增加；2-减少；"
-                  },
-                  "assetsId": {
-                    "type": "integer",
-                    "format": "long",
-                    "title": "资产Id"
-                  },
-                  "lang": {
-                    "type": "string",
-                    "title": "语种"
+                    "description": "资金流向，0-不限制；1-增加；2-减少；"
                   }
                 },
                 "x-apifox-orders": [
@@ -11748,9 +11391,7 @@
                   "status",
                   "startTime",
                   "endTime",
-                  "operate",
-                  "assetsId",
-                  "lang"
+                  "operate"
                 ],
                 "required": [
                   "tradeType"
@@ -11770,34 +11411,42 @@
                   "properties": {
                     "bizCode": {
                       "type": "string",
-                      "title": "模块标识码"
+                      "title": "模块标识码",
+                      "description": "模块标识码"
                     },
                     "code": {
                       "type": "string",
-                      "title": "状态返回码"
+                      "title": "状态返回码",
+                      "description": "状态返回码，0成功，其他失败"
                     },
                     "msg": {
                       "type": "string",
-                      "title": "状态描述"
+                      "title": "状态描述",
+                      "description": "状态描述"
                     },
                     "tm": {
                       "type": "integer",
                       "format": "int64",
-                      "title": "处理时长（毫秒）"
+                      "title": "处理时长（毫秒）",
+                      "description": "处理时长（毫秒）"
                     },
                     "trace": {
                       "type": "string",
-                      "title": "跟踪码"
+                      "title": "跟踪码",
+                      "description": "跟踪码"
                     },
                     "msgParams": {
                       "type": "string",
-                      "title": "返回描述中占位符参数串，多个参数间以,分割"
+                      "title": "返回描述中占位符参数串，多个参数间以,分割",
+                      "description": "返回描述中占位符参数串，多个参数间以,分割"
                     },
                     "ok": {
-                      "type": "boolean"
+                      "type": "boolean",
+                      "description": "成功标志"
                     },
                     "fail": {
-                      "type": "boolean"
+                      "type": "boolean",
+                      "description": "失败标志"
                     },
                     "data": {
                       "type": "object",
@@ -11811,17 +11460,20 @@
                         "total": {
                           "type": "integer",
                           "title": "总数",
-                          "format": "long"
+                          "format": "long",
+                          "description": "总数"
                         },
                         "size": {
                           "type": "integer",
                           "format": "long",
-                          "title": "每页条数"
+                          "title": "每页条数",
+                          "description": "每页条数"
                         },
                         "current": {
                           "type": "integer",
                           "format": "long",
-                          "title": "当前页"
+                          "title": "当前页",
+                          "description": "当前页"
                         },
                         "records": {
                           "type": "array",
@@ -11830,86 +11482,106 @@
                             "properties": {
                               "remark": {
                                 "type": "string",
-                                "title": "备注"
+                                "title": "备注",
+                                "description": "备注"
                               },
                               "createTime": {
                                 "type": "integer",
                                 "title": "创建日期",
-                                "description": "13位时间戳",
+                                "description": "创建日期,13位时间戳",
                                 "format": "long"
                               },
                               "updateTime": {
                                 "type": "integer",
                                 "format": "long",
                                 "title": "更新时间",
-                                "description": "13位时间戳"
+                                "description": "更新时间,13位时间戳"
                               },
                               "subjectId": {
                                 "type": "integer",
                                 "format": "long",
-                                "title": "科目ID"
+                                "title": "科目ID",
+                                "description": "科目ID"
                               },
                               "bookkeepId": {
                                 "type": "integer",
                                 "format": "long",
-                                "title": "凭证ID"
+                                "title": "凭证ID",
+                                "description": "凭证ID"
                               },
                               "amountIn": {
                                 "type": "string",
-                                "title": "增加金额"
+                                "title": "增加金额",
+                                "description": "增加金额"
                               },
                               "amountOut": {
                                 "type": "string",
-                                "title": "减少金额"
+                                "title": "减少金额",
+                                "description": "减少金额"
                               },
                               "status": {
                                 "type": "integer",
                                 "format": "int32",
                                 "title": "状态",
-                                "description": "1-初始化；2-处理成功；3-处理失败；"
+                                "description": "状态，1-初始化；2-处理成功；3-处理失败；"
                               },
                               "amountAfter": {
                                 "type": "string",
-                                "title": "变动后余额"
+                                "title": "变动后余额",
+                                "description": "变动后余额"
                               },
                               "businessType": {
                                 "type": "integer",
                                 "title": "业务类型",
                                 "format": "int32",
-                                "description": "1-存款；2-取款；3-系统清零；4-额度调整；5-冻结；6-交易；36-划转；42-奖励；"
+                                "description": "业务类型，1-存款；2-取款；3-系统清零；4-额度调整；5-冻结；6-交易；36-划转；42-奖励；"
                               },
                               "businessType1": {
                                 "type": "integer",
                                 "format": "int32",
-                                "description": "1001-前端存款；1002-存款手续费；2001-前端取款；2002-取消取款；2003-取款手续费；2004-取消手续费；2005-确认转账；3001-系统清零；4001-额度调整_存款；4002-额度调整_取款；4003-额度调整_其他；4004-额度调整_赠金；4005-额度调整_释放不可提；4006-额度调整_不可提；4007-额度调整_转入返佣；5001-冻结；5002-解冻；6001-开仓手续费；6002-平仓手续费；6003-隔夜利息；6004-市价平仓盈亏；6005-止损平仓盈亏；6006-止盈平仓盈亏；6007-系统强平盈亏；6008-到期强平盈亏；6009-手动强平盈亏；36001-划入金额；36002-划出金额；42001-发放奖励；42002-扣回奖励；42003-发放返佣；42004-扣回返佣；",
+                                "description": "业务子类型，1001-前端存款；1002-存款手续费；2001-前端取款；2002-取消取款；2003-取款手续费；2004-取消手续费；2005-确认转账；3001-系统清零；4001-额度调整_存款；4002-额度调整_取款；4003-额度调整_其他；4004-额度调整_赠金；4005-额度调整_释放不可提；4006-额度调整_不可提；4007-额度调整_转入返佣；5001-冻结；5002-解冻；6001-开仓手续费；6002-平仓手续费；6003-隔夜利息；6004-市价平仓盈亏；6005-止损平仓盈亏；6006-止盈平仓盈亏；6007-系统强平盈亏；6008-到期强平盈亏；6009-手动强平盈亏；36001-划入金额；36002-划出金额；42001-发放奖励；42002-扣回奖励；42003-发放返佣；42004-扣回返佣；",
                                 "title": "业务子类型"
                               },
                               "customerNo": {
                                 "type": "string",
-                                "title": "客户编号"
+                                "title": "客户编号",
+                                "description": "客户编号"
                               },
                               "digits": {
                                 "type": "string",
-                                "title": "小数位"
+                                "title": "小数位",
+                                "description": "小数位"
                               },
                               "currency": {
                                 "type": "string",
-                                "title": "币种"
+                                "title": "币种",
+                                "description": "币种"
                               },
                               "businessTypeName": {
                                 "type": "string",
                                 "title": "业务类型名称",
-                                "description": "按传入`lang`确认语种"
+                                "description": "业务类型名称，按传入`lang`确认语种"
                               },
                               "businessType1Name": {
                                 "type": "string",
                                 "title": "业务子类型名称",
-                                "description": "按传入`lang`确认语种"
+                                "description": "业务子类型名称，按传入`lang`确认语种"
                               },
                               "accountId": {
                                 "type": "integer",
                                 "title": "账户Id",
-                                "format": "long"
+                                "format": "long",
+                                "description": "账户Id"
+                              },
+                              "orderId": {
+                                "type": "integer",
+                                "format": "long",
+                                "description": "订单id"
+                              },
+                              "dealId": {
+                                "type": "integer",
+                                "format": "long",
+                                "description": "成交id"
                               }
                             },
                             "title": "数据体",
@@ -11930,13 +11602,18 @@
                               "currency",
                               "businessTypeName",
                               "businessType1Name",
-                              "accountId"
+                              "accountId",
+                              "orderId",
+                              "dealId"
                             ],
+                            "description": "数据体",
                             "x-apifox-ignore-properties": []
                           },
-                          "title": "流水集合"
+                          "title": "流水集合",
+                          "description": "流水集合"
                         }
                       },
+                      "description": "数据体",
                       "x-apifox-ignore-properties": []
                     }
                   },
@@ -12564,35 +12241,38 @@
                   "accountId": {
                     "type": "integer",
                     "title": "账户ID",
-                    "format": "long"
+                    "format": "long",
+                    "description": "账户id"
                   },
                   "accountCurrency": {
                     "type": "string",
-                    "title": "账户货币"
+                    "title": "账户货币",
+                    "description": "账户币种"
                   },
                   "positionId": {
                     "type": "integer",
-                    "title": "仓位ID"
+                    "title": "仓位ID",
+                    "description": "仓位id"
                   },
                   "accountDigits": {
                     "type": "string",
-                    "title": "账户小数位"
+                    "title": "账户小数位",
+                    "description": "账户小数位"
                   },
                   "occupyTheMargin": {
                     "type": "string",
-                    "title": "修改占用保证金金额"
+                    "title": "修改占用保证金金额",
+                    "description": "修改占用保证金金额，可以负数"
                   },
                   "orderId": {
                     "type": "integer",
-                    "title": "订单Id"
+                    "title": "订单Id",
+                    "description": "订单id"
                   },
                   "remark": {
                     "type": "string",
-                    "title": "备注"
-                  },
-                  "resp": {
-                    "type": "string",
-                    "title": "备注"
+                    "title": "备注",
+                    "description": "备注"
                   }
                 },
                 "x-apifox-orders": [
@@ -12603,8 +12283,7 @@
                   "accountDigits",
                   "occupyTheMargin",
                   "orderId",
-                  "remark",
-                  "resp"
+                  "remark"
                 ],
                 "required": [
                   "tradeType",
@@ -12612,8 +12291,7 @@
                   "accountDigits",
                   "occupyTheMargin",
                   "orderId",
-                  "remark",
-                  "resp"
+                  "remark"
                 ],
                 "x-apifox-ignore-properties": []
               }
@@ -12728,15 +12406,15 @@
         "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65890324-run"
       }
     },
-    "/global/tradeapi.app.CrossLeverOrderApiService.addOrder": {
+    "/global/tradeapi.app.OrderApiService.addOrder": {
       "post": {
         "summary": "下单",
-        "x-apifox-folder": "杠杆交易",
-        "x-apifox-status": "developing",
+        "x-apifox-folder": "现货交易",
+        "x-apifox-status": "released",
         "deprecated": false,
-        "description": "说明：合约逐仓交易下单\n\n```\ngroup=tradeApi\nversion=0.0.1\nbizType=tradeapi.app.OrderApiService.addMarketOrder2\n```",
+        "description": "说明：现货玩法下单\n登录后方可访问\n\n```\ngroup=tradeApi\nversion=0.0.1\nbizType=tradeapi.app.OrderApiService.addOrder\n```",
         "tags": [
-          "杠杆交易"
+          "现货交易"
         ],
         "parameters": [
           {
@@ -12804,104 +12482,9 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "tradeType": {
-                    "type": "integer",
-                    "title": "玩法ID",
-                    "description": "本玩法下应填2",
-                    "format": "long"
-                  },
-                  "accountId": {
-                    "type": "integer",
-                    "title": "账户ID",
-                    "description": "非必填。如填，已该账户进行交易",
-                    "format": "long"
-                  },
-                  "bizType": {
-                    "type": "integer",
-                    "title": "业务类型",
-                    "format": "int32",
-                    "description": "业务类型。1-市价单；12 市价按额单；13-限价单"
-                  },
-                  "direction": {
-                    "type": "integer",
-                    "title": "订单买卖方向",
-                    "description": "1-买；2-卖；",
-                    "format": "int32"
-                  },
-                  "symbolId": {
-                    "type": "integer",
-                    "title": "产品ID",
-                    "format": "long"
-                  },
-                  "requestTime": {
-                    "type": "integer",
-                    "title": "下单请求时间",
-                    "description": "13位时间戳",
-                    "format": "long"
-                  },
-                  "requestPrice": {
-                    "type": "string",
-                    "title": "下单时价格",
-                    "description": "需乘以10的`产品报价小数位`次方，处理为整数传入。仅作下单记录，非成交价格。"
-                  },
-                  "requestNum": {
-                    "type": "string",
-                    "title": "下单手数"
-                  },
-                  "remark": {
-                    "type": "string",
-                    "title": "备注"
-                  },
-                  "accountCurrency": {
-                    "type": "string",
-                    "title": "账户货币"
-                  },
-                  "accountDigits": {
-                    "type": "integer",
-                    "title": "账户小数位",
-                    "format": "int32"
-                  },
-                  "operationType": {
-                    "type": "integer",
-                    "description": "操作类型。1-普通；2-自动借款；3-自动还款"
-                  },
-                  "expireType": {
-                    "type": "string",
-                    "description": "预埋单必填，过期类型1.当日有效2.当周有效"
-                  }
-                },
-                "x-apifox-orders": [
-                  "tradeType",
-                  "accountId",
-                  "bizType",
-                  "direction",
-                  "symbolId",
-                  "requestTime",
-                  "requestPrice",
-                  "requestNum",
-                  "remark",
-                  "accountCurrency",
-                  "accountDigits",
-                  "operationType",
-                  "expireType"
-                ],
-                "required": [
-                  "tradeType",
-                  "bizType",
-                  "direction",
-                  "symbolId",
-                  "requestTime",
-                  "requestPrice",
-                  "requestNum",
-                  "accountCurrency",
-                  "accountDigits",
-                  "operationType",
-                  "expireType"
-                ],
-                "x-apifox-ignore-properties": []
-              }
+                "$ref": "#/components/schemas/SpotOrderAddDto"
+              },
+              "example": ""
             }
           }
         },
@@ -12911,195 +12494,15 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "bizCode": {
-                      "type": "string",
-                      "title": "模块标识码"
-                    },
-                    "code": {
-                      "type": "string",
-                      "title": "状态返回码"
-                    },
-                    "msg": {
-                      "type": "string",
-                      "title": "状态描述"
-                    },
-                    "tm": {
-                      "type": "integer",
-                      "format": "int64",
-                      "title": "处理时长（毫秒）"
-                    },
-                    "trace": {
-                      "type": "string",
-                      "title": "跟踪码"
-                    },
-                    "msgParams": {
-                      "type": "string",
-                      "title": "返回描述中占位符参数串，多个参数间以,分割"
-                    },
-                    "ok": {
-                      "type": "boolean"
-                    },
-                    "fail": {
-                      "type": "boolean"
-                    },
-                    "data": {
-                      "type": "object",
-                      "properties": {
-                        "orderId": {
-                          "type": "integer",
-                          "title": "订单号",
-                          "format": "long"
-                        },
-                        "positionId": {
-                          "type": "integer",
-                          "title": "持仓单号",
-                          "format": "long"
-                        },
-                        "tradeVolume": {
-                          "type": "string",
-                          "title": "交易手数"
-                        },
-                        "openPrice": {
-                          "type": "string",
-                          "title": "开仓价"
-                        },
-                        "executePrice": {
-                          "type": "string",
-                          "title": "成交价"
-                        },
-                        "openDirection": {
-                          "type": "integer",
-                          "title": "开仓时买卖方向",
-                          "description": "1-买；2-卖；",
-                          "format": "int32"
-                        },
-                        "direction": {
-                          "type": "integer",
-                          "title": "本次下单买卖方向",
-                          "description": "1-买；2-卖；",
-                          "format": "int32"
-                        },
-                        "openOrClose": {
-                          "type": "integer",
-                          "title": "本次下单开平类型",
-                          "description": "1-开仓；2-平仓；",
-                          "format": "int32"
-                        },
-                        "symbolName": {
-                          "type": "string",
-                          "title": "产品名称"
-                        },
-                        "symbolId": {
-                          "type": "integer",
-                          "title": "产品Id",
-                          "format": "long"
-                        },
-                        "stopLoss": {
-                          "type": "string",
-                          "title": "止损价",
-                          "description": "与入参一致"
-                        },
-                        "takeProfit": {
-                          "type": "string",
-                          "title": "止盈价",
-                          "description": "与入参一致"
-                        },
-                        "digits": {
-                          "type": "integer",
-                          "title": "产品小数位",
-                          "format": "int32"
-                        },
-                        "fee": {
-                          "type": "string",
-                          "title": "下单手续费"
-                        },
-                        "interest": {
-                          "type": "string",
-                          "title": "利息",
-                          "description": "仅平仓是存在"
-                        },
-                        "profit": {
-                          "type": "string",
-                          "title": "盈亏",
-                          "description": "仅平仓是存在"
-                        }
-                      },
-                      "x-apifox-orders": [
-                        "orderId",
-                        "positionId",
-                        "tradeVolume",
-                        "openPrice",
-                        "executePrice",
-                        "openDirection",
-                        "direction",
-                        "openOrClose",
-                        "symbolName",
-                        "symbolId",
-                        "stopLoss",
-                        "takeProfit",
-                        "digits",
-                        "fee",
-                        "interest",
-                        "profit"
-                      ],
-                      "title": "数据体",
-                      "x-apifox-ignore-properties": []
-                    }
-                  },
-                  "x-apifox-orders": [
-                    "bizCode",
-                    "code",
-                    "msg",
-                    "tm",
-                    "trace",
-                    "msgParams",
-                    "ok",
-                    "fail",
-                    "data"
-                  ],
-                  "x-apifox-refs": {},
-                  "x-apifox-ignore-properties": []
-                },
-                "examples": {
-                  "1": {
-                    "summary": "成功示例",
-                    "value": {
-                      "msg": "Success",
-                      "fail": false,
-                      "trace": "x-dqxq8-qu20y7y-dq58lhn-39i483-1677570581",
-                      "code": "0",
-                      "data": {
-                        "tradeVolume": "0.1",
-                        "symbolId": 720,
-                        "orderId": 14460002,
-                        "fee": "-0.0668",
-                        "openOrClose": 1,
-                        "openPrice": "22.25",
-                        "takeProfit": "0",
-                        "positionId": 2023022819810,
-                        "interest": "0",
-                        "openDirection": 1,
-                        "stopLoss": "0",
-                        "executePrice": "22.25",
-                        "digits": 2,
-                        "symbolName": "BINAN_SOL_USDT",
-                        "profit": "0",
-                        "direction": 1
-                      },
-                      "bizCode": "",
-                      "tm": 162,
-                      "msgParams": null,
-                      "ok": true
-                    }
-                  }
+                  "$ref": "#/components/schemas/BaseResultSpotOrderAddVo"
                 }
               }
             }
           }
         },
-        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65896896-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-67257029-run",
+        "x-docstype": "TS.Clientapi.Trade",
+        "x-docstitle": "交易接口"
       }
     },
     "/global/tradeapi.app.CrossLeverOrderApiService.updateOrder": {
@@ -15638,335 +15041,11 @@
         "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65953175-run"
       }
     },
-    "/global/tradeapi.app.CfdMMOrderApiService.updatePboOrder": {
-      "post": {
-        "summary": "修改预埋单",
-        "x-apifox-folder": "全仓合约交易",
-        "x-apifox-status": "developing",
-        "deprecated": false,
-        "description": "group=tradeApi\nversion=0.0.1\nbizType=tradeapi.app.OrderApiService.updatePboOrder",
-        "tags": [
-          "全仓合约交易"
-        ],
-        "parameters": [
-          {
-            "name": "companyId",
-            "in": "header",
-            "description": "",
-            "required": false,
-            "example": "",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "token",
-            "in": "header",
-            "description": "",
-            "required": false,
-            "example": "",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "lang",
-            "in": "header",
-            "description": "",
-            "required": false,
-            "example": "en-US",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "group",
-            "in": "header",
-            "description": "",
-            "required": false,
-            "example": "tradeApi",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "trace",
-            "in": "header",
-            "description": "",
-            "required": false,
-            "example": "",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "version",
-            "in": "header",
-            "description": "",
-            "required": false,
-            "example": "0.0.1",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "tradeType": {
-                    "type": "integer",
-                    "title": "玩法ID",
-                    "description": "玩法ID，本玩法下应填1",
-                    "format": "long"
-                  },
-                  "accountId": {
-                    "type": "integer",
-                    "title": "账户ID",
-                    "description": "账户ID，非必填。如填，已该账户进行交易",
-                    "format": "long"
-                  },
-                  "pboId": {
-                    "type": "string",
-                    "title": "预埋单ID",
-                    "description": "预埋单ID"
-                  },
-                  "stopLoss": {
-                    "type": "number",
-                    "title": "止损单价",
-                    "description": "止损单价，需乘以10的`产品报价小数位`次方，处理为整数传入。"
-                  },
-                  "takeProfit": {
-                    "type": "number",
-                    "title": "止盈单价",
-                    "description": "止盈单价，需乘以10的`产品报价小数位`次方，处理为整数传入。"
-                  },
-                  "requestNum": {
-                    "type": "number",
-                    "description": "请求数量、额度"
-                  }
-                },
-                "x-apifox-orders": [
-                  "tradeType",
-                  "accountId",
-                  "pboId",
-                  "stopLoss",
-                  "takeProfit",
-                  "requestNum"
-                ],
-                "required": [
-                  "tradeType",
-                  "pboId"
-                ],
-                "x-apifox-ignore-properties": []
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "成功",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "bizCode": {
-                      "type": "string",
-                      "title": "模块标识码"
-                    },
-                    "code": {
-                      "type": "string",
-                      "title": "状态返回码"
-                    },
-                    "msg": {
-                      "type": "string",
-                      "title": "状态描述"
-                    },
-                    "tm": {
-                      "type": "integer",
-                      "format": "int64",
-                      "title": "处理时长（毫秒）"
-                    },
-                    "trace": {
-                      "type": "string",
-                      "title": "跟踪码"
-                    },
-                    "msgParams": {
-                      "type": "string",
-                      "title": "返回描述中占位符参数串，多个参数间以,分割"
-                    },
-                    "ok": {
-                      "type": "boolean"
-                    },
-                    "fail": {
-                      "type": "boolean"
-                    },
-                    "data": {
-                      "type": "object",
-                      "properties": {
-                        "orderId": {
-                          "type": "integer",
-                          "title": "订单号",
-                          "format": "long"
-                        },
-                        "positionId": {
-                          "type": "integer",
-                          "title": "持仓单号",
-                          "format": "long"
-                        },
-                        "tradeVolume": {
-                          "type": "string",
-                          "title": "交易手数"
-                        },
-                        "openPrice": {
-                          "type": "string",
-                          "title": "开仓价"
-                        },
-                        "executePrice": {
-                          "type": "string",
-                          "title": "成交价"
-                        },
-                        "openDirection": {
-                          "type": "integer",
-                          "title": "开仓时买卖方向",
-                          "description": "1-买；2-卖；",
-                          "format": "int32"
-                        },
-                        "direction": {
-                          "type": "integer",
-                          "title": "本次下单买卖方向",
-                          "description": "1-买；2-卖；",
-                          "format": "int32"
-                        },
-                        "openOrClose": {
-                          "type": "integer",
-                          "title": "本次下单开平类型",
-                          "description": "1-开仓；2-平仓；",
-                          "format": "int32"
-                        },
-                        "symbolName": {
-                          "type": "string",
-                          "title": "产品名称"
-                        },
-                        "symbolId": {
-                          "type": "integer",
-                          "title": "产品Id",
-                          "format": "long"
-                        },
-                        "stopLoss": {
-                          "type": "string",
-                          "title": "止损价",
-                          "description": "与入参一致"
-                        },
-                        "takeProfit": {
-                          "type": "string",
-                          "title": "止盈价",
-                          "description": "与入参一致"
-                        },
-                        "digits": {
-                          "type": "integer",
-                          "title": "产品小数位",
-                          "format": "int32"
-                        },
-                        "fee": {
-                          "type": "string",
-                          "title": "下单手续费"
-                        },
-                        "interest": {
-                          "type": "string",
-                          "title": "利息",
-                          "description": "仅平仓是存在"
-                        },
-                        "profit": {
-                          "type": "string",
-                          "title": "盈亏",
-                          "description": "仅平仓是存在"
-                        }
-                      },
-                      "x-apifox-orders": [
-                        "orderId",
-                        "positionId",
-                        "tradeVolume",
-                        "openPrice",
-                        "executePrice",
-                        "openDirection",
-                        "direction",
-                        "openOrClose",
-                        "symbolName",
-                        "symbolId",
-                        "stopLoss",
-                        "takeProfit",
-                        "digits",
-                        "fee",
-                        "interest",
-                        "profit"
-                      ],
-                      "title": "数据体",
-                      "x-apifox-ignore-properties": []
-                    }
-                  },
-                  "x-apifox-orders": [
-                    "bizCode",
-                    "code",
-                    "msg",
-                    "tm",
-                    "trace",
-                    "msgParams",
-                    "ok",
-                    "fail",
-                    "data"
-                  ],
-                  "x-apifox-refs": {},
-                  "x-apifox-ignore-properties": []
-                },
-                "examples": {
-                  "1": {
-                    "summary": "成功示例",
-                    "value": {
-                      "msg": "Success",
-                      "fail": false,
-                      "trace": "x-dqxq8-qu20y7y-dq58lhn-39i483-1677570581",
-                      "code": "0",
-                      "data": {
-                        "tradeVolume": "0.1",
-                        "symbolId": 720,
-                        "orderId": 14460002,
-                        "fee": "-0.0668",
-                        "openOrClose": 1,
-                        "openPrice": "22.25",
-                        "takeProfit": "0",
-                        "positionId": 2023022819810,
-                        "interest": "0",
-                        "openDirection": 1,
-                        "stopLoss": "0",
-                        "executePrice": "22.25",
-                        "digits": 2,
-                        "symbolName": "BINAN_SOL_USDT",
-                        "profit": "0",
-                        "direction": 1
-                      },
-                      "bizCode": "",
-                      "tm": 162,
-                      "msgParams": null,
-                      "ok": true
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65956752-run"
-      }
-    },
-    "/global/tradeapi.app.CfdWBWOrderApiService.updatePboOrder": {
+    "/global/tradeapi.app.OrderApiService.updatePboOrder": {
       "post": {
         "summary": "修改预埋单",
         "x-apifox-folder": "逐仓合约交易",
-        "x-apifox-status": "developing",
+        "x-apifox-status": "testing",
         "deprecated": false,
         "description": "group=tradeApi\nversion=0.0.1\nbizType=tradeapi.app.OrderApiService.updatePboOrder",
         "tags": [
@@ -16043,33 +15122,36 @@
                   "tradeType": {
                     "type": "integer",
                     "title": "玩法ID",
-                    "description": "玩法ID，本玩法下应填2",
+                    "description": "本玩法下应填2",
                     "format": "long"
                   },
                   "accountId": {
                     "type": "integer",
                     "title": "账户ID",
-                    "description": "账户ID，非必填。如填，已该账户进行交易",
+                    "description": "非必填。如填，已该账户进行交易",
                     "format": "long"
                   },
                   "pboId": {
                     "type": "string",
-                    "title": "预埋单ID",
-                    "description": "预埋单ID"
+                    "title": "预埋单ID"
                   },
                   "stopLoss": {
                     "type": "number",
                     "title": "止损单价",
-                    "description": "止损单价，需乘以10的`产品报价小数位`次方，处理为整数传入。"
+                    "description": "需乘以10的`产品报价小数位`次方，处理为整数传入。"
                   },
                   "takeProfit": {
                     "type": "number",
                     "title": "止盈单价",
-                    "description": "止盈单价，需乘以10的`产品报价小数位`次方，处理为整数传入。"
+                    "description": "需乘以10的`产品报价小数位`次方，处理为整数传入。"
                   },
                   "requestNum": {
                     "type": "number",
-                    "description": "请求数量、额度"
+                    "title": "请求数量/额度"
+                  },
+                  "requestPrice": {
+                    "type": "number",
+                    "title": "请求价格"
                   }
                 },
                 "x-apifox-orders": [
@@ -16078,13 +15160,23 @@
                   "pboId",
                   "stopLoss",
                   "takeProfit",
-                  "requestNum"
+                  "requestNum",
+                  "requestPrice"
                 ],
                 "required": [
                   "tradeType",
                   "pboId"
                 ],
                 "x-apifox-ignore-properties": []
+              },
+              "example": {
+                "tradeType": 82,
+                "pboId": "77",
+                "stopLoss": 9,
+                "accountId": 78,
+                "requestPrice": 19,
+                "takeProfit": 35,
+                "requestNum": 47
               }
             }
           }
@@ -16286,728 +15378,6 @@
         "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65957110-run"
       }
     },
-    "/global/tradeapi.app.CfdWBWOrderApiService.queryPBOOrderPage": {
-      "post": {
-        "summary": "预埋单列表",
-        "x-apifox-folder": "逐仓合约交易",
-        "x-apifox-status": "developing",
-        "deprecated": false,
-        "description": "group=tradeApi\nversion=0.0.1\nbizType=tradeapi.app.OrderApiService.queryPBOOrderPage",
-        "tags": [
-          "逐仓合约交易"
-        ],
-        "parameters": [
-          {
-            "name": "companyId",
-            "in": "header",
-            "description": "",
-            "required": false,
-            "example": "",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "token",
-            "in": "header",
-            "description": "",
-            "required": false,
-            "example": "",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "lang",
-            "in": "header",
-            "description": "",
-            "required": false,
-            "example": "en-US",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "group",
-            "in": "header",
-            "description": "",
-            "required": false,
-            "example": "tradeApi",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "trace",
-            "in": "header",
-            "description": "",
-            "required": false,
-            "example": "",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "version",
-            "in": "header",
-            "description": "",
-            "required": false,
-            "example": "0.0.1",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "tradeType": {
-                    "type": "integer",
-                    "title": "玩法ID",
-                    "description": "本玩法下应填2",
-                    "format": "long"
-                  },
-                  "accountId": {
-                    "type": "integer",
-                    "title": "账户ID",
-                    "description": "非必填。如填，已该账户进行交易",
-                    "format": "long"
-                  },
-                  "accountCurrency": {
-                    "type": "string",
-                    "title": "账户货币"
-                  },
-                  "sortFieldName": {
-                    "type": "string",
-                    "title": "排序字段",
-                    "description": "排序字段名 orderTime(openTime,orderId),symbolId,symbolCode"
-                  },
-                  "sortType": {
-                    "type": "string",
-                    "title": "",
-                    "description": "\t排序类型 desc 降序；asc 升序"
-                  }
-                },
-                "x-apifox-orders": [
-                  "tradeType",
-                  "accountId",
-                  "accountCurrency",
-                  "sortFieldName",
-                  "sortType"
-                ],
-                "required": [
-                  "tradeType"
-                ],
-                "x-apifox-ignore-properties": []
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "成功",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "bizCode": {
-                      "type": "string",
-                      "title": "模块标识码"
-                    },
-                    "code": {
-                      "type": "string",
-                      "title": "状态返回码"
-                    },
-                    "msg": {
-                      "type": "string",
-                      "title": "状态描述"
-                    },
-                    "tm": {
-                      "type": "integer",
-                      "format": "int64",
-                      "title": "处理时长（毫秒）"
-                    },
-                    "trace": {
-                      "type": "string",
-                      "title": "跟踪码"
-                    },
-                    "msgParams": {
-                      "type": "string",
-                      "title": "返回描述中占位符参数串，多个参数间以,分割"
-                    },
-                    "ok": {
-                      "type": "boolean"
-                    },
-                    "fail": {
-                      "type": "boolean"
-                    },
-                    "data": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "string",
-                          "title": "预埋单ID"
-                        },
-                        "symbolId": {
-                          "type": "integer",
-                          "title": "产品Id",
-                          "format": "long"
-                        },
-                        "type": {
-                          "type": "integer",
-                          "title": "订单类型：9：预埋单，10:延时单 11:止损止盈单 0：市价单",
-                          "format": "long"
-                        },
-                        "direction": {
-                          "type": "integer",
-                          "title": "本次下单买卖方向",
-                          "description": "1-买；2-卖；",
-                          "format": "int32"
-                        },
-                        "state": {
-                          "type": "integer",
-                          "title": "是否转成市价单 0:否，1:是；",
-                          "format": "int32"
-                        },
-                        "requestPrice": {
-                          "type": "integer",
-                          "title": "请求价格"
-                        },
-                        "openPrice": {
-                          "type": "string",
-                          "title": "请求价格(已处理小数位)"
-                        },
-                        "digits": {
-                          "type": "integer",
-                          "title": "产品小数位",
-                          "format": "int32"
-                        },
-                        "orderTime": {
-                          "type": "integer",
-                          "title": "预埋单和延时单生成时间"
-                        },
-                        "delayTime": {
-                          "type": "string",
-                          "title": "延时区间开始时间，单位毫秒，延时单用"
-                        },
-                        "delayEndTime": {
-                          "type": "string",
-                          "title": "延时区间结束时间，单位毫秒，延时单用"
-                        },
-                        "exchangeTime": {
-                          "type": "string",
-                          "title": "转成市价单生成时间"
-                        },
-                        "reserve": {
-                          "type": "string",
-                          "title": "保留字段"
-                        },
-                        "customerGroupId": {
-                          "type": "string",
-                          "title": "客户组ID"
-                        },
-                        "contractSize": {
-                          "type": "integer",
-                          "title": "本次下单开平类型",
-                          "description": "1-开仓；2-平仓；",
-                          "format": "int32"
-                        },
-                        "requestVolume": {
-                          "type": "integer",
-                          "title": "请求数量"
-                        },
-                        "stopLoss": {
-                          "type": "integer",
-                          "title": "止损价"
-                        },
-                        "stopLossTarget": {
-                          "type": "integer",
-                          "title": "止损单价(已处理小数位)"
-                        },
-                        "takeProfit": {
-                          "type": "integer",
-                          "title": "止盈单价"
-                        },
-                        "takeProfitTarget": {
-                          "type": "integer",
-                          "title": "止盈单价(已处理小数位)"
-                        },
-                        "tradeType": {
-                          "type": "integer",
-                          "title": "下单手续费"
-                        },
-                        "expireType": {
-                          "type": "string",
-                          "title": "过期类型1.当日有效2.当周有效"
-                        },
-                        "remark": {
-                          "type": "string",
-                          "title": "备注"
-                        },
-                        "loanAmount": {
-                          "type": "integer",
-                          "title": "借款金额(杠杆全仓)"
-                        },
-                        "tradeModel": {
-                          "type": "integer",
-                          "title": "成交模式"
-                        },
-                        "crossLevelNum": {
-                          "type": "integer",
-                          "title": "杠杆倍数"
-                        }
-                      },
-                      "x-apifox-orders": [
-                        "id",
-                        "symbolId",
-                        "type",
-                        "direction",
-                        "state",
-                        "requestPrice",
-                        "openPrice",
-                        "digits",
-                        "orderTime",
-                        "delayTime",
-                        "delayEndTime",
-                        "exchangeTime",
-                        "reserve",
-                        "customerGroupId",
-                        "contractSize",
-                        "requestVolume",
-                        "stopLoss",
-                        "stopLossTarget",
-                        "takeProfit",
-                        "takeProfitTarget",
-                        "tradeType",
-                        "expireType",
-                        "remark",
-                        "loanAmount",
-                        "tradeModel",
-                        "crossLevelNum"
-                      ],
-                      "title": "数据体",
-                      "x-apifox-ignore-properties": []
-                    }
-                  },
-                  "x-apifox-orders": [
-                    "bizCode",
-                    "code",
-                    "msg",
-                    "tm",
-                    "trace",
-                    "msgParams",
-                    "ok",
-                    "fail",
-                    "data"
-                  ],
-                  "x-apifox-refs": {},
-                  "x-apifox-ignore-properties": []
-                },
-                "examples": {
-                  "1": {
-                    "summary": "成功示例",
-                    "value": {
-                      "msg": "Success",
-                      "fail": false,
-                      "trace": "x-dqxq8-qu20y7y-dq58lhn-39i483-1677570581",
-                      "code": "0",
-                      "data": {
-                        "tradeVolume": "0.1",
-                        "symbolId": 720,
-                        "orderId": 14460002,
-                        "fee": "-0.0668",
-                        "openOrClose": 1,
-                        "openPrice": "22.25",
-                        "takeProfit": "0",
-                        "positionId": 2023022819810,
-                        "interest": "0",
-                        "openDirection": 1,
-                        "stopLoss": "0",
-                        "executePrice": "22.25",
-                        "digits": 2,
-                        "symbolName": "BINAN_SOL_USDT",
-                        "profit": "0",
-                        "direction": 1
-                      },
-                      "bizCode": "",
-                      "tm": 162,
-                      "msgParams": null,
-                      "ok": true
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65957261-run"
-      }
-    },
-    "/global/tradeapi.app.CfdMMOrderApiService.queryPBOOrderPage2": {
-      "post": {
-        "summary": "预埋单列表",
-        "x-apifox-folder": "全仓合约交易",
-        "x-apifox-status": "developing",
-        "deprecated": false,
-        "description": "group=tradeApi\nversion=0.0.1\nbizType=tradeapi.app.OrderApiService.queryPBOOrderPage",
-        "tags": [
-          "全仓合约交易"
-        ],
-        "parameters": [
-          {
-            "name": "companyId",
-            "in": "header",
-            "description": "",
-            "required": false,
-            "example": "",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "token",
-            "in": "header",
-            "description": "",
-            "required": false,
-            "example": "",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "lang",
-            "in": "header",
-            "description": "",
-            "required": false,
-            "example": "en-US",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "group",
-            "in": "header",
-            "description": "",
-            "required": false,
-            "example": "tradeApi",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "trace",
-            "in": "header",
-            "description": "",
-            "required": false,
-            "example": "",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "version",
-            "in": "header",
-            "description": "",
-            "required": false,
-            "example": "0.0.1",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "tradeType": {
-                    "type": "integer",
-                    "title": "玩法ID",
-                    "description": "本玩法下应填1",
-                    "format": "long"
-                  },
-                  "accountId": {
-                    "type": "integer",
-                    "title": "账户ID",
-                    "description": "非必填。如填，已该账户进行交易",
-                    "format": "long"
-                  },
-                  "accountCurrency": {
-                    "type": "string",
-                    "title": "账户货币"
-                  },
-                  "sortFieldName": {
-                    "type": "string",
-                    "title": "排序字段",
-                    "description": "排序字段名 orderTime(openTime,orderId),symbolId,symbolCode"
-                  },
-                  "sortType": {
-                    "type": "string",
-                    "title": "",
-                    "description": "\t排序类型 desc 降序；asc 升序"
-                  }
-                },
-                "x-apifox-orders": [
-                  "tradeType",
-                  "accountId",
-                  "accountCurrency",
-                  "sortFieldName",
-                  "sortType"
-                ],
-                "required": [
-                  "tradeType"
-                ],
-                "x-apifox-ignore-properties": []
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "成功",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "bizCode": {
-                      "type": "string",
-                      "title": "模块标识码"
-                    },
-                    "code": {
-                      "type": "string",
-                      "title": "状态返回码"
-                    },
-                    "msg": {
-                      "type": "string",
-                      "title": "状态描述"
-                    },
-                    "tm": {
-                      "type": "integer",
-                      "format": "int64",
-                      "title": "处理时长（毫秒）"
-                    },
-                    "trace": {
-                      "type": "string",
-                      "title": "跟踪码"
-                    },
-                    "msgParams": {
-                      "type": "string",
-                      "title": "返回描述中占位符参数串，多个参数间以,分割"
-                    },
-                    "ok": {
-                      "type": "boolean"
-                    },
-                    "fail": {
-                      "type": "boolean"
-                    },
-                    "data": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "type": "string",
-                          "title": "预埋单ID"
-                        },
-                        "symbolId": {
-                          "type": "integer",
-                          "title": "产品Id",
-                          "format": "long"
-                        },
-                        "type": {
-                          "type": "integer",
-                          "title": "订单类型：9：预埋单，10:延时单 11:止损止盈单 0：市价单",
-                          "format": "long"
-                        },
-                        "direction": {
-                          "type": "integer",
-                          "title": "本次下单买卖方向",
-                          "description": "1-买；2-卖；",
-                          "format": "int32"
-                        },
-                        "state": {
-                          "type": "integer",
-                          "title": "是否转成市价单 0:否，1:是；",
-                          "format": "int32"
-                        },
-                        "requestPrice": {
-                          "type": "integer",
-                          "title": "请求价格"
-                        },
-                        "openPrice": {
-                          "type": "string",
-                          "title": "请求价格(已处理小数位)"
-                        },
-                        "digits": {
-                          "type": "integer",
-                          "title": "产品小数位",
-                          "format": "int32"
-                        },
-                        "orderTime": {
-                          "type": "integer",
-                          "title": "预埋单和延时单生成时间"
-                        },
-                        "delayTime": {
-                          "type": "string",
-                          "title": "延时区间开始时间，单位毫秒，延时单用"
-                        },
-                        "delayEndTime": {
-                          "type": "string",
-                          "title": "延时区间结束时间，单位毫秒，延时单用"
-                        },
-                        "exchangeTime": {
-                          "type": "string",
-                          "title": "转成市价单生成时间"
-                        },
-                        "reserve": {
-                          "type": "string",
-                          "title": "保留字段"
-                        },
-                        "customerGroupId": {
-                          "type": "string",
-                          "title": "客户组ID"
-                        },
-                        "contractSize": {
-                          "type": "integer",
-                          "title": "本次下单开平类型",
-                          "description": "1-开仓；2-平仓；",
-                          "format": "int32"
-                        },
-                        "requestVolume": {
-                          "type": "integer",
-                          "title": "请求数量"
-                        },
-                        "stopLoss": {
-                          "type": "integer",
-                          "title": "止损价"
-                        },
-                        "stopLossTarget": {
-                          "type": "integer",
-                          "title": "止损单价(已处理小数位)"
-                        },
-                        "takeProfit": {
-                          "type": "integer",
-                          "title": "止盈单价"
-                        },
-                        "takeProfitTarget": {
-                          "type": "integer",
-                          "title": "止盈单价(已处理小数位)"
-                        },
-                        "tradeType": {
-                          "type": "integer",
-                          "title": "下单手续费"
-                        },
-                        "expireType": {
-                          "type": "string",
-                          "title": "过期类型1.当日有效2.当周有效"
-                        },
-                        "remark": {
-                          "type": "string",
-                          "title": "备注"
-                        },
-                        "loanAmount": {
-                          "type": "integer",
-                          "title": "借款金额(杠杆全仓)"
-                        },
-                        "tradeModel": {
-                          "type": "integer",
-                          "title": "成交模式"
-                        },
-                        "crossLevelNum": {
-                          "type": "integer",
-                          "title": "杠杆倍数"
-                        }
-                      },
-                      "x-apifox-orders": [
-                        "id",
-                        "symbolId",
-                        "type",
-                        "direction",
-                        "state",
-                        "requestPrice",
-                        "openPrice",
-                        "digits",
-                        "orderTime",
-                        "delayTime",
-                        "delayEndTime",
-                        "exchangeTime",
-                        "reserve",
-                        "customerGroupId",
-                        "contractSize",
-                        "requestVolume",
-                        "stopLoss",
-                        "stopLossTarget",
-                        "takeProfit",
-                        "takeProfitTarget",
-                        "tradeType",
-                        "expireType",
-                        "remark",
-                        "loanAmount",
-                        "tradeModel",
-                        "crossLevelNum"
-                      ],
-                      "title": "数据体",
-                      "x-apifox-ignore-properties": []
-                    }
-                  },
-                  "x-apifox-orders": [
-                    "bizCode",
-                    "code",
-                    "msg",
-                    "tm",
-                    "trace",
-                    "msgParams",
-                    "ok",
-                    "fail",
-                    "data"
-                  ],
-                  "x-apifox-refs": {},
-                  "x-apifox-ignore-properties": []
-                },
-                "examples": {
-                  "1": {
-                    "summary": "成功示例",
-                    "value": {
-                      "msg": "Success",
-                      "fail": false,
-                      "trace": "x-dqxq8-qu20y7y-dq58lhn-39i483-1677570581",
-                      "code": "0",
-                      "data": {
-                        "tradeVolume": "0.1",
-                        "symbolId": 720,
-                        "orderId": 14460002,
-                        "fee": "-0.0668",
-                        "openOrClose": 1,
-                        "openPrice": "22.25",
-                        "takeProfit": "0",
-                        "positionId": 2023022819810,
-                        "interest": "0",
-                        "openDirection": 1,
-                        "stopLoss": "0",
-                        "executePrice": "22.25",
-                        "digits": 2,
-                        "symbolName": "BINAN_SOL_USDT",
-                        "profit": "0",
-                        "direction": 1
-                      },
-                      "bizCode": "",
-                      "tm": 162,
-                      "msgParams": null,
-                      "ok": true
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65971010-run"
-      }
-    },
     "/global/tradeapi.app.SpotOrderApiService.queryCapitalFlowList": {
       "post": {
         "summary": "资金流水",
@@ -17042,42 +15412,6 @@
           }
         },
         "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-67257028-run"
-      }
-    },
-    "/global/tradeapi.app.SpotOrderApiService.addOrder": {
-      "post": {
-        "summary": "下单",
-        "x-apifox-folder": "现货交易",
-        "x-apifox-status": "released",
-        "deprecated": false,
-        "description": "说明：现货玩法下单\n登录后方可访问\n\n```\ngroup=tradeApi\nversion=0.0.1\nbizType=tradeapi.app.SpotOrderApiService.addOrder\n```",
-        "tags": [
-          "现货交易"
-        ],
-        "parameters": [],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/SpotOrderAddDto"
-              },
-              "example": ""
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "成功",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BaseResultSpotOrderAddVo"
-                }
-              }
-            }
-          }
-        },
-        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-67257029-run"
       }
     },
     "/global/tradeapi.app.SpotOrderApiService.queryOrderPage": {
@@ -18057,32 +16391,34 @@
       "SpotOrderAddDto": {
         "type": "object",
         "required": [
-          "accountCurrency",
-          "accountDigits",
           "bizType",
           "direction",
           "requestPrice",
-          "requestTime",
           "symbolId",
-          "tradeType"
+          "tradeType",
+          "requestNum"
         ],
         "properties": {
           "tradeType": {
             "type": "integer",
             "format": "int64",
-            "minimum": 1
+            "minimum": 1,
+            "description": "玩法类型,固定值5"
           },
           "bizType": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "description": "订单业务类型(市价:12、限价:13)"
           },
           "direction": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "description": "订单买卖方向(买方向:1;卖方向:2)"
           },
           "symbolId": {
             "type": "integer",
-            "format": "int64"
+            "format": "int64",
+            "description": "产品ID"
           },
           "accountCurrency": {
             "type": "string"
@@ -18092,10 +16428,12 @@
             "format": "int64"
           },
           "requestPrice": {
-            "type": "number"
+            "type": "number",
+            "description": "请求价格"
           },
           "requestNum": {
-            "type": "number"
+            "type": "number",
+            "description": "请求数量(买方向,当请求金额;卖方向,当请求数量)"
           },
           "accountDigits": {
             "type": "integer",
