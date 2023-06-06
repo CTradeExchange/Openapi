@@ -2214,7 +2214,7 @@
           {
             "name": "companyId",
             "in": "header",
-            "description": "",
+            "description": "公司ID，通过环境变量获取",
             "required": true,
             "example": "",
             "schema": {
@@ -2224,8 +2224,18 @@
           {
             "name": "trace",
             "in": "header",
-            "description": "",
+            "description": "随机跟踪码UUID",
             "required": true,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "登录token",
+            "required": false,
             "example": "",
             "schema": {
               "type": "string"
@@ -2234,7 +2244,7 @@
           {
             "name": "lang",
             "in": "header",
-            "description": "",
+            "description": "语言",
             "required": true,
             "example": "zh-CN",
             "schema": {
@@ -2258,7 +2268,202 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BaseResultListSymbolInfoVo"
+                  "type": "object",
+                  "properties": {
+                    "bizCode": {
+                      "type": "string",
+                      "description": "模块标识码"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "状态返回码"
+                    },
+                    "msg": {
+                      "type": "string",
+                      "description": "状态描述"
+                    },
+                    "tm": {
+                      "type": "integer",
+                      "format": "int64",
+                      "description": "处理时长（毫秒）"
+                    },
+                    "trace": {
+                      "type": "string",
+                      "description": "跟踪码"
+                    },
+                    "msgParams": {
+                      "type": "string",
+                      "description": "返回描述中占位符参数串，多个参数间以,分割"
+                    },
+                    "data": {
+                      "type": "array",
+                      "description": "数据体",
+                      "items": {
+                        "type": "object",
+                        "x-apifox-refs": {},
+                        "x-apifox-orders": [
+                          "tradeType",
+                          "symbolId",
+                          "symbolCode",
+                          "symbolName",
+                          "baseCurrency",
+                          "profitCurrency",
+                          "customerGroupIds",
+                          "symbolGroupIds",
+                          "symbolDigits",
+                          "askSpread",
+                          "bidSpread",
+                          "pointRatio",
+                          "dealMode",
+                          "etf",
+                          "fundId",
+                          "labels",
+                          "sortNum",
+                          "enableShortLoan",
+                          "enableLongLoan",
+                          "dividend",
+                          "inHolidayTime",
+                          "inTradeTime",
+                          "holidayTimeList",
+                          "tradeTimeList"
+                        ],
+                        "properties": {
+                          "tradeType": {
+                            "type": "integer",
+                            "format": "int64",
+                            "description": "玩法"
+                          },
+                          "symbolId": {
+                            "type": "integer",
+                            "format": "int64",
+                            "description": "产品ID"
+                          },
+                          "symbolCode": {
+                            "type": "string",
+                            "description": "产品代码"
+                          },
+                          "symbolName": {
+                            "type": "string",
+                            "description": "产品名称"
+                          },
+                          "baseCurrency": {
+                            "type": "string",
+                            "description": "基础货币"
+                          },
+                          "profitCurrency": {
+                            "type": "string",
+                            "description": "盈利货币"
+                          },
+                          "customerGroupIds": {
+                            "type": "string",
+                            "description": "客户组权限"
+                          },
+                          "symbolGroupIds": {
+                            "type": "string",
+                            "description": "产品组关系"
+                          },
+                          "symbolDigits": {
+                            "type": "integer",
+                            "format": "int32",
+                            "description": "小数位"
+                          },
+                          "askSpread": {
+                            "type": "string",
+                            "description": "askSpread"
+                          },
+                          "bidSpread": {
+                            "type": "string",
+                            "description": "bidSpread"
+                          },
+                          "pointRatio": {
+                            "type": "integer",
+                            "format": "int32",
+                            "description": "大点比率"
+                          },
+                          "dealMode": {
+                            "type": "integer",
+                            "format": "int32",
+                            "description": "成交模式"
+                          },
+                          "etf": {
+                            "type": "boolean",
+                            "description": "是否是ETF"
+                          },
+                          "fundId": {
+                            "type": "integer",
+                            "format": "int64",
+                            "description": "关联基金ID"
+                          },
+                          "labels": {
+                            "type": "string",
+                            "description": "标签"
+                          },
+                          "sortNum": {
+                            "type": "integer",
+                            "format": "int32",
+                            "description": "排序字段"
+                          },
+                          "enableShortLoan": {
+                            "type": "integer",
+                            "format": "int32",
+                            "description": "是否可融券"
+                          },
+                          "enableLongLoan": {
+                            "type": "integer",
+                            "format": "int32",
+                            "description": "是否可融资"
+                          },
+                          "dividend": {
+                            "type": "integer",
+                            "format": "int32",
+                            "description": "是否可交易"
+                          },
+                          "inHolidayTime": {
+                            "type": "integer",
+                            "description": "是否假期中，0：不在假期中，1：在假期中"
+                          },
+                          "inTradeTime": {
+                            "type": "integer",
+                            "description": "是否交易时间中，0:不在交易时间，1:在交易时间"
+                          },
+                          "holidayTimeList": {
+                            "$ref": "#/components/schemas/HolidayTime",
+                            "description": "假期时间"
+                          },
+                          "tradeTimeList": {
+                            "$ref": "#/components/schemas/TradeTime",
+                            "description": "交易时间"
+                          }
+                        },
+                        "required": [
+                          "inHolidayTime",
+                          "inTradeTime",
+                          "holidayTimeList",
+                          "tradeTimeList"
+                        ],
+                        "x-apifox-ignore-properties": []
+                      }
+                    },
+                    "ok": {
+                      "type": "boolean"
+                    },
+                    "fail": {
+                      "type": "boolean"
+                    }
+                  },
+                  "x-apifox-refs": {},
+                  "x-apifox-orders": [
+                    "bizCode",
+                    "code",
+                    "msg",
+                    "tm",
+                    "trace",
+                    "msgParams",
+                    "data",
+                    "ok",
+                    "fail"
+                  ],
+                  "x-apifox-ignore-properties": []
                 },
                 "examples": {
                   "1": {
@@ -3639,15 +3844,21 @@
                         "name": {
                           "type": "string",
                           "description": "名称"
+                        },
+                        "request_ip": {
+                          "type": "string",
+                          "description": "请求IP"
                         }
                       },
                       "x-apifox-orders": [
                         "iso_code",
-                        "name"
+                        "name",
+                        "request_ip"
                       ],
                       "required": [
                         "iso_code",
-                        "name"
+                        "name",
+                        "request_ip"
                       ],
                       "description": "国家信息",
                       "x-apifox-ignore-properties": []
@@ -4397,28 +4608,6 @@
         "description": "借款利息率",
         "x-apifox-ignore-properties": []
       },
-      "HolidayTime": {
-        "type": "object",
-        "properties": {
-          "startTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "开始时间，13位时间戳"
-          },
-          "endTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "结束时间，13位时间戳"
-          }
-        },
-        "x-apifox-orders": [
-          "startTime",
-          "endTime"
-        ],
-        "x-apifox-folder": "Schemas",
-        "description": "假期时间",
-        "x-apifox-ignore-properties": []
-      },
       "QuoteTime": {
         "type": "object",
         "properties": {
@@ -4445,34 +4634,6 @@
         ],
         "x-apifox-folder": "Schemas",
         "description": "行情时间",
-        "x-apifox-ignore-properties": []
-      },
-      "TradeTime": {
-        "type": "object",
-        "properties": {
-          "dayOfWeek": {
-            "type": "integer",
-            "format": "int32",
-            "description": "周几，1-7  星期一至星期日"
-          },
-          "startTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "开始时间，单位秒"
-          },
-          "endTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "结束时间，单位秒"
-          }
-        },
-        "x-apifox-orders": [
-          "dayOfWeek",
-          "startTime",
-          "endTime"
-        ],
-        "x-apifox-folder": "Schemas",
-        "description": "交易时间",
         "x-apifox-ignore-properties": []
       },
       "MarginSet": {
@@ -4565,325 +4726,54 @@
         "x-apifox-folder": "Schemas",
         "x-apifox-ignore-properties": []
       },
-      "BaseResultListSymbolInfoVo": {
+      "TradeTime": {
         "type": "object",
         "properties": {
-          "bizCode": {
-            "type": "string",
-            "description": "模块标识码"
+          "dayOfWeek": {
+            "type": "integer",
+            "format": "int32",
+            "description": "周几，1-7  星期一至星期日"
           },
-          "code": {
-            "type": "string",
-            "description": "状态返回码"
-          },
-          "msg": {
-            "type": "string",
-            "description": "状态描述"
-          },
-          "tm": {
+          "startTime": {
             "type": "integer",
             "format": "int64",
-            "description": "处理时长（毫秒）"
+            "description": "开始时间，单位秒"
           },
-          "trace": {
-            "type": "string",
-            "description": "跟踪码"
-          },
-          "msgParams": {
-            "type": "string",
-            "description": "返回描述中占位符参数串，多个参数间以,分割"
-          },
-          "data": {
-            "type": "array",
-            "description": "数据体",
-            "items": {
-              "$ref": "#/components/schemas/SymbolInfoVo"
-            }
-          },
-          "ok": {
-            "type": "boolean"
-          },
-          "fail": {
-            "type": "boolean"
+          "endTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "结束时间，单位秒"
           }
         },
         "x-apifox-orders": [
-          "bizCode",
-          "code",
-          "msg",
-          "tm",
-          "trace",
-          "msgParams",
-          "data",
-          "ok",
-          "fail"
+          "dayOfWeek",
+          "startTime",
+          "endTime"
         ],
         "x-apifox-folder": "Schemas",
+        "description": "交易时间",
         "x-apifox-ignore-properties": []
       },
-      "SymbolInfoVo": {
+      "HolidayTime": {
         "type": "object",
         "properties": {
-          "tradeType": {
+          "startTime": {
             "type": "integer",
             "format": "int64",
-            "description": "玩法"
+            "description": "开始时间，13位时间戳"
           },
-          "symbolId": {
+          "endTime": {
             "type": "integer",
             "format": "int64",
-            "description": "产品ID"
-          },
-          "symbolCode": {
-            "type": "string",
-            "description": "产品代码"
-          },
-          "symbolName": {
-            "type": "string",
-            "description": "产品名称"
-          },
-          "baseCurrency": {
-            "type": "string",
-            "description": "基础货币"
-          },
-          "profitCurrency": {
-            "type": "string",
-            "description": "盈利货币"
-          },
-          "customerGroupIds": {
-            "type": "string",
-            "description": "客户组权限"
-          },
-          "symbolGroupIds": {
-            "type": "string",
-            "description": "产品组关系"
-          },
-          "symbolDigits": {
-            "type": "integer",
-            "format": "int32",
-            "description": "小数位"
-          },
-          "askSpread": {
-            "type": "string",
-            "description": "askSpread"
-          },
-          "bidSpread": {
-            "type": "string",
-            "description": "bidSpread"
-          },
-          "pointRatio": {
-            "type": "integer",
-            "format": "int32",
-            "description": "大点比率"
-          },
-          "dealMode": {
-            "type": "integer",
-            "format": "int32",
-            "description": "成交模式"
-          },
-          "etf": {
-            "type": "boolean",
-            "description": "是否是ETF"
-          },
-          "fundId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "关联基金ID"
-          },
-          "labels": {
-            "type": "string",
-            "description": "标签"
-          },
-          "sortNum": {
-            "type": "integer",
-            "format": "int32",
-            "description": "排序字段"
-          },
-          "enableShortLoan": {
-            "type": "integer",
-            "format": "int32",
-            "description": "是否可融券"
-          },
-          "enableLongLoan": {
-            "type": "integer",
-            "format": "int32",
-            "description": "是否可融资"
-          },
-          "dividend": {
-            "type": "integer",
-            "format": "int32",
-            "description": "是否可交易"
-          },
-          "inHolidayTime": {
-            "type": "integer",
-            "description": "是否假期中"
-          },
-          "inTradeTime": {
-            "type": "integer",
-            "description": "是否交易时间中"
-          },
-          "holidayTimeList": {
-            "$ref": "#/components/schemas/HolidayTime",
-            "description": "假期时间"
-          },
-          "tradeTimeList": {
-            "$ref": "#/components/schemas/TradeTime",
-            "description": "交易时间"
+            "description": "结束时间，13位时间戳"
           }
         },
         "x-apifox-orders": [
-          "tradeType",
-          "symbolId",
-          "symbolCode",
-          "symbolName",
-          "baseCurrency",
-          "profitCurrency",
-          "customerGroupIds",
-          "symbolGroupIds",
-          "symbolDigits",
-          "askSpread",
-          "bidSpread",
-          "pointRatio",
-          "dealMode",
-          "etf",
-          "fundId",
-          "labels",
-          "sortNum",
-          "enableShortLoan",
-          "enableLongLoan",
-          "dividend",
-          "inHolidayTime",
-          "inTradeTime",
-          "holidayTimeList",
-          "tradeTimeList"
+          "startTime",
+          "endTime"
         ],
         "x-apifox-folder": "Schemas",
-        "required": [
-          "inHolidayTime",
-          "inTradeTime",
-          "holidayTimeList",
-          "tradeTimeList"
-        ],
-        "x-apifox-ignore-properties": []
-      },
-      "CountryDictVo": {
-        "type": "object",
-        "properties": {
-          "parentId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "上级ID"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "description": "主键id"
-          },
-          "name": {
-            "type": "string",
-            "description": "国家地区名称"
-          },
-          "displayName": {
-            "type": "string",
-            "description": "显示名称"
-          },
-          "nameTw": {
-            "type": "string",
-            "description": "国家地区名称TW"
-          },
-          "nameEn": {
-            "type": "string",
-            "description": "国家地区名称EN"
-          },
-          "code": {
-            "type": "string",
-            "description": "国家代码"
-          },
-          "parentCode": {
-            "type": "string",
-            "description": "上级代码"
-          },
-          "nationalCode": {
-            "type": "string",
-            "description": "国家简称"
-          },
-          "countryCode": {
-            "type": "string",
-            "description": "电话区号"
-          },
-          "extend": {
-            "type": "string",
-            "description": "扩展属性"
-          },
-          "sort": {
-            "type": "integer",
-            "format": "int32",
-            "description": "排序"
-          },
-          "status": {
-            "type": "integer",
-            "format": "int32",
-            "description": "状态 1、2、3、启用、禁用、删除"
-          },
-          "revision": {
-            "type": "integer",
-            "format": "int32",
-            "description": "乐观锁"
-          },
-          "createBy": {
-            "type": "string",
-            "description": "创建人"
-          },
-          "createTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "创建时间"
-          },
-          "updateBy": {
-            "type": "string",
-            "description": "更新人"
-          },
-          "updateTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "更新时间"
-          },
-          "hasLeaf": {
-            "type": "integer",
-            "format": "int32",
-            "description": "是否有子节点"
-          },
-          "childs": {
-            "type": "array",
-            "description": "子节点数据",
-            "items": {
-              "$ref": "#/components/schemas/CountryDictVo"
-            }
-          }
-        },
-        "x-apifox-orders": [
-          "parentId",
-          "id",
-          "name",
-          "displayName",
-          "nameTw",
-          "nameEn",
-          "code",
-          "parentCode",
-          "nationalCode",
-          "countryCode",
-          "extend",
-          "sort",
-          "status",
-          "revision",
-          "createBy",
-          "createTime",
-          "updateBy",
-          "updateTime",
-          "hasLeaf",
-          "childs"
-        ],
-        "x-apifox-folder": "Schemas",
+        "description": "假期时间",
         "x-apifox-ignore-properties": []
       },
       "SearchSymbolBaseDto": {
@@ -5656,6 +5546,126 @@
           "initState",
           "type",
           "fundId"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "CountryDictVo": {
+        "type": "object",
+        "properties": {
+          "parentId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "上级ID"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "主键id"
+          },
+          "name": {
+            "type": "string",
+            "description": "国家地区名称"
+          },
+          "displayName": {
+            "type": "string",
+            "description": "显示名称"
+          },
+          "nameTw": {
+            "type": "string",
+            "description": "国家地区名称TW"
+          },
+          "nameEn": {
+            "type": "string",
+            "description": "国家地区名称EN"
+          },
+          "code": {
+            "type": "string",
+            "description": "国家代码"
+          },
+          "parentCode": {
+            "type": "string",
+            "description": "上级代码"
+          },
+          "nationalCode": {
+            "type": "string",
+            "description": "国家简称"
+          },
+          "countryCode": {
+            "type": "string",
+            "description": "电话区号"
+          },
+          "extend": {
+            "type": "string",
+            "description": "扩展属性"
+          },
+          "sort": {
+            "type": "integer",
+            "format": "int32",
+            "description": "排序"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "description": "状态 1、2、3、启用、禁用、删除"
+          },
+          "revision": {
+            "type": "integer",
+            "format": "int32",
+            "description": "乐观锁"
+          },
+          "createBy": {
+            "type": "string",
+            "description": "创建人"
+          },
+          "createTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "创建时间"
+          },
+          "updateBy": {
+            "type": "string",
+            "description": "更新人"
+          },
+          "updateTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "更新时间"
+          },
+          "hasLeaf": {
+            "type": "integer",
+            "format": "int32",
+            "description": "是否有子节点"
+          },
+          "childs": {
+            "type": "array",
+            "description": "子节点数据",
+            "items": {
+              "$ref": "#/components/schemas/CountryDictVo"
+            }
+          }
+        },
+        "x-apifox-orders": [
+          "parentId",
+          "id",
+          "name",
+          "displayName",
+          "nameTw",
+          "nameEn",
+          "code",
+          "parentCode",
+          "nationalCode",
+          "countryCode",
+          "extend",
+          "sort",
+          "status",
+          "revision",
+          "createBy",
+          "createTime",
+          "updateBy",
+          "updateTime",
+          "hasLeaf",
+          "childs"
         ],
         "x-apifox-folder": "Schemas",
         "x-apifox-ignore-properties": []
