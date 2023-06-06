@@ -1,5 +1,5 @@
 {
-  "openapi": "3.0.1",
+  "openapi": "3.1.0",
   "info": {
     "title": "交易接口",
     "description": "",
@@ -11249,7 +11249,7 @@
         "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65669851-run"
       }
     },
-    "/global/tradeapi.app.CfdWBWOrderApiService.queryCapitalFlowList": {
+    "/global/tradeapi.app.OrderApiService.queryCapitalFlowList": {
       "post": {
         "summary": "资金流水",
         "x-apifox-folder": "逐仓合约交易",
@@ -15424,7 +15424,68 @@
         "tags": [
           "现货交易"
         ],
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "en-US",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "group",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "tradeApi",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -16622,6 +16683,14 @@
           },
           "businessType1Name": {
             "type": "string"
+          },
+          "orderId": {
+            "type": "string",
+            "description": "订单id"
+          },
+          "dealId": {
+            "type": "string",
+            "description": "成交单Id"
           }
         },
         "x-apifox-orders": [
@@ -16645,7 +16714,9 @@
           "digits",
           "currency",
           "businessTypeName",
-          "businessType1Name"
+          "businessType1Name",
+          "orderId",
+          "dealId"
         ],
         "x-apifox-folder": "Schemas",
         "x-apifox-ignore-properties": []
