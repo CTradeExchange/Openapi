@@ -116,7 +116,7 @@
                   "bizType": {
                     "type": "integer",
                     "title": "业务类型",
-                    "description": "业务类型，1-市价开；2-市价平；10-限价预埋单；11-停损预埋单；12-限价开",
+                    "description": "业务类型，1-市价开；2-市价平；10-限价预埋单；11-停损预埋单；12-限价开；13-聚合限价单",
                     "format": "int32"
                   },
                   "direction": {
@@ -2342,12 +2342,12 @@
     "/global/tradeapi.app.OrderApiService.calculateMarketOrder": {
       "post": {
         "summary": "下单试算",
-        "x-apifox-folder": "全仓合约交易",
+        "x-apifox-folder": "逐仓合约交易",
         "x-apifox-status": "developing",
         "deprecated": false,
         "description": "说明：试算下单保证金、手续费\n\n```\ngroup=tradeApi\nversion=0.0.1\nbizType=tradeapi.app.OrderApiService.calculateMarketOrder\n```",
         "tags": [
-          "全仓合约交易"
+          "逐仓合约交易"
         ],
         "parameters": [
           {
@@ -2420,7 +2420,7 @@
                   "tradeType": {
                     "type": "integer",
                     "title": "玩法ID",
-                    "description": "本玩法下应填1",
+                    "description": "本玩法下应填2",
                     "format": "long"
                   },
                   "accountId": {
@@ -2627,7 +2627,7 @@
             }
           }
         },
-        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65146106-run"
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-100614993-run"
       }
     },
     "/global/tradeapi.app.CfdMMPositionApiService.queryPositionDetail": {
@@ -8192,7 +8192,7 @@
         "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65669844-run"
       }
     },
-    "/global/tradeapi.app.CfdWBWOrderApiService.queryOrderPage": {
+    "/global/tradeapi.app.OrderApiService.queryOrderPage": {
       "post": {
         "summary": "订单列表",
         "x-apifox-folder": "逐仓合约交易",
@@ -8290,7 +8290,7 @@
                   "bizType": {
                     "type": "integer",
                     "title": "业务类型",
-                    "description": "业务类型，1-市价开；2-市价平；3-止损平仓单；4-止盈平仓单；5-爆仓强平单；6-到期平仓单；7-销户平仓单；8-手动强平单；9-延时订单；10-限价预埋单；11-停损预埋单；",
+                    "description": "业务类型，1-市价开；2-市价平；3-止损平仓单；4-止盈平仓单；5-爆仓强平单；6-到期平仓单；7-销户平仓单；8-手动强平单；9-延时订单；10-限价预埋单；11-停损预埋单；13-聚合限价单",
                     "format": "int32"
                   },
                   "direction": {
@@ -9581,7 +9581,7 @@
         "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65669847-run"
       }
     },
-    "/global/tradeapi.app.CfdWBWPositionApiService.updateCrossLevelNum": {
+    "/global/tradeapi.app.PositionApiService.updateCrossLevelNum": {
       "post": {
         "summary": "设置仓位杠杆倍数",
         "x-apifox-folder": "逐仓合约交易",
@@ -12154,13 +12154,13 @@
         "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-65669852-run"
       }
     },
-    "/global/tradeapi.app.CfdWBWPositionApiService.updateOccupyTheMargin": {
+    "/global/tradeapi.app.PositionApiService.updateOccupyTheMargin": {
       "post": {
         "summary": "修改仓位占用保证金",
         "x-apifox-folder": "逐仓合约交易",
         "x-apifox-status": "developing",
         "deprecated": false,
-        "description": "说明：合约-全仓玩法，设置客户对产品的杠杆倍数，影响该产品所以仓位\n```\ngroup=tradeApi\nversion=0.0.1\nbizType=tradeapi.app.PositionApiService.updateOccupyTheMargin\n```",
+        "description": "说明：合约-全仓玩法，设置客户对产品的杠杆倍数，影响该产品所有仓位\n```\ngroup=tradeApi\nversion=0.0.1\nbizType=tradeapi.app.PositionApiService.updateOccupyTheMargin\n```",
         "tags": [
           "逐仓合约交易"
         ],
@@ -15617,6 +15617,434 @@
           }
         },
         "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-67257033-run"
+      }
+    },
+    "/global/tradeapi.app.OrderApiService.closeTradePboOrder": {
+      "post": {
+        "summary": "取消限价单",
+        "x-apifox-folder": "逐仓合约交易",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "说明：取消限价单\n\n```\ngroup=tradeApi\nversion=0.0.1\nbizType=tradeapi.app.OrderApiService.closeTradePboOrder\n```",
+        "tags": [
+          "逐仓合约交易"
+        ],
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "en-US",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "group",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "tradeApi",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "tradeType": {
+                    "type": "integer",
+                    "title": "",
+                    "description": "玩法ID，本玩法下应填2",
+                    "format": "long"
+                  },
+                  "orderId": {
+                    "type": "integer",
+                    "format": "int32",
+                    "title": "",
+                    "description": "订单id"
+                  }
+                },
+                "x-apifox-orders": [
+                  "tradeType",
+                  "orderId"
+                ],
+                "required": [
+                  "tradeType",
+                  "orderId"
+                ],
+                "x-apifox-ignore-properties": []
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "bizCode": {
+                      "type": "string",
+                      "title": "模块标识码",
+                      "description": "模块标识码"
+                    },
+                    "code": {
+                      "type": "string",
+                      "title": "状态返回码",
+                      "description": "状态返回码，0成功，其他失败"
+                    },
+                    "msg": {
+                      "type": "string",
+                      "title": "状态描述",
+                      "description": "状态描述"
+                    },
+                    "tm": {
+                      "type": "integer",
+                      "format": "int64",
+                      "title": "处理时长（毫秒）",
+                      "description": "处理时长（毫秒）"
+                    },
+                    "trace": {
+                      "type": "string",
+                      "title": "跟踪码",
+                      "description": "跟踪码"
+                    },
+                    "msgParams": {
+                      "type": "string",
+                      "title": "返回描述中占位符参数串，多个参数间以,分割",
+                      "description": "返回描述中占位符参数串，多个参数间以,分割"
+                    },
+                    "ok": {
+                      "type": "boolean",
+                      "description": "成功标志"
+                    },
+                    "fail": {
+                      "type": "boolean",
+                      "description": "失败标志"
+                    },
+                    "data": {
+                      "type": "object",
+                      "x-apifox-orders": [],
+                      "properties": {},
+                      "description": "数据体",
+                      "x-apifox-ignore-properties": []
+                    }
+                  },
+                  "x-apifox-orders": [
+                    "bizCode",
+                    "code",
+                    "msg",
+                    "tm",
+                    "trace",
+                    "msgParams",
+                    "ok",
+                    "fail",
+                    "data"
+                  ],
+                  "x-apifox-refs": {},
+                  "x-apifox-ignore-properties": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "msg": "ut",
+                      "ok": false,
+                      "msgParams": "aute",
+                      "trace": "deserunt commodo cillum",
+                      "bizCode": "34",
+                      "code": "60",
+                      "fail": true,
+                      "tm": 67,
+                      "data": {}
+                    }
+                  },
+                  "2": {
+                    "summary": "异常示例",
+                    "value": {
+                      "msg": "System error",
+                      "fail": true,
+                      "trace": "x-q7pj-8jiln-310518-4l0c69-1677572511",
+                      "code": "500",
+                      "data": "tradeapi.app.OrderApiService.queryCapitalFlowList",
+                      "bizCode": "TA",
+                      "tm": 0,
+                      "msgParams": null,
+                      "ok": false
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-99051399-run"
+      }
+    },
+    "/global/tradeapi.app.OrderApiService.checkOrderStatus": {
+      "post": {
+        "summary": "检查订单状态",
+        "x-apifox-folder": "逐仓合约交易",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "说明：检查订单状态\n\n```\ngroup=tradeApi\nversion=0.0.1\nbizType=tradeapi.app.OrderApiService.checkOrderStatus\n```",
+        "tags": [
+          "逐仓合约交易"
+        ],
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "en-US",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "group",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "tradeApi",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "tradeType": {
+                    "type": "integer",
+                    "title": "",
+                    "description": "玩法ID，本玩法下应填2",
+                    "format": "long"
+                  },
+                  "orderId": {
+                    "type": "integer",
+                    "description": "订单id",
+                    "format": "long",
+                    "title": ""
+                  },
+                  "operatorType": {
+                    "type": "integer",
+                    "description": "1=调整杠杆倍数，2=调整保证金，3=订单是否成交",
+                    "minimum": 1,
+                    "maximum": 2
+                  }
+                },
+                "x-apifox-orders": [
+                  "tradeType",
+                  "orderId",
+                  "operatorType"
+                ],
+                "required": [
+                  "tradeType",
+                  "orderId",
+                  "operatorType"
+                ],
+                "x-apifox-ignore-properties": []
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "bizCode": {
+                      "type": "string",
+                      "title": "模块标识码",
+                      "description": "模块标识码"
+                    },
+                    "code": {
+                      "type": "string",
+                      "title": "状态返回码",
+                      "description": "状态返回码，0成功，其他失败"
+                    },
+                    "msg": {
+                      "type": "string",
+                      "title": "状态描述",
+                      "description": "状态描述"
+                    },
+                    "tm": {
+                      "type": "integer",
+                      "format": "int64",
+                      "title": "处理时长（毫秒）",
+                      "description": "处理时长（毫秒）"
+                    },
+                    "trace": {
+                      "type": "string",
+                      "title": "跟踪码",
+                      "description": "跟踪码"
+                    },
+                    "msgParams": {
+                      "type": "string",
+                      "title": "返回描述中占位符参数串，多个参数间以,分割",
+                      "description": "返回描述中占位符参数串，多个参数间以,分割"
+                    },
+                    "ok": {
+                      "type": "boolean",
+                      "description": "成功标志"
+                    },
+                    "fail": {
+                      "type": "boolean",
+                      "description": "失败标志"
+                    },
+                    "data": {
+                      "type": "object",
+                      "x-apifox-orders": [],
+                      "properties": {},
+                      "description": "返回结果，operatorType=3时，0未成交1已成交",
+                      "x-apifox-ignore-properties": []
+                    }
+                  },
+                  "x-apifox-orders": [
+                    "bizCode",
+                    "code",
+                    "msg",
+                    "tm",
+                    "trace",
+                    "msgParams",
+                    "ok",
+                    "fail",
+                    "data"
+                  ],
+                  "x-apifox-refs": {},
+                  "x-apifox-ignore-properties": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "msg": "ut",
+                      "ok": false,
+                      "msgParams": "aute",
+                      "trace": "deserunt commodo cillum",
+                      "bizCode": "34",
+                      "code": "60",
+                      "fail": true,
+                      "tm": 67,
+                      "data": {}
+                    }
+                  },
+                  "2": {
+                    "summary": "异常示例",
+                    "value": {
+                      "msg": "System error",
+                      "fail": true,
+                      "trace": "x-q7pj-8jiln-310518-4l0c69-1677572511",
+                      "code": "500",
+                      "data": "tradeapi.app.OrderApiService.queryCapitalFlowList",
+                      "bizCode": "TA",
+                      "tm": 0,
+                      "msgParams": null,
+                      "ok": false
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/2362754/apis/api-100295817-run"
       }
     }
   },
